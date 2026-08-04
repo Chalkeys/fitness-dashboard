@@ -20,6 +20,11 @@ CREATE TABLE IF NOT EXISTS daily_logs (
     active_energy REAL NOT NULL DEFAULT 0 CHECK (active_energy >= 0),
     notes TEXT,
     history_version TEXT,
+    export_id TEXT,
+    source TEXT,
+    confidence TEXT,
+    review_status TEXT,
+    review_notes TEXT,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CHECK (fiber_g <= total_carbs_g),
@@ -46,6 +51,11 @@ CREATE TABLE IF NOT EXISTS body_measurements (
     notes TEXT,
     source_key TEXT UNIQUE,
     history_version TEXT,
+    export_id TEXT,
+    source TEXT,
+    confidence TEXT,
+    review_status TEXT,
+    review_notes TEXT,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (daily_log_id) REFERENCES daily_logs (id) ON DELETE CASCADE
@@ -66,6 +76,12 @@ CREATE TABLE IF NOT EXISTS workout_sessions (
     notes TEXT,
     source_key TEXT UNIQUE,
     history_version TEXT,
+    export_id TEXT,
+    session_id TEXT,
+    source TEXT,
+    confidence TEXT,
+    review_status TEXT,
+    review_notes TEXT,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (daily_log_id) REFERENCES daily_logs (id) ON DELETE CASCADE
@@ -97,6 +113,7 @@ CREATE TABLE IF NOT EXISTS exercise_sets (
     ),
     notes TEXT,
     history_version TEXT,
+    export_id TEXT,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (workout_session_id)
@@ -160,6 +177,12 @@ CREATE TABLE IF NOT EXISTS nutrition_entries (
     notes TEXT,
     source_key TEXT UNIQUE,
     history_version TEXT,
+    export_id TEXT,
+    entry_id TEXT,
+    source TEXT,
+    confidence TEXT,
+    review_status TEXT,
+    review_notes TEXT,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (log_date) REFERENCES daily_logs (log_date) ON DELETE CASCADE,
@@ -193,6 +216,34 @@ CREATE TABLE IF NOT EXISTS import_log (
     UNIQUE (filename, sha256)
 );
 
+CREATE TABLE IF NOT EXISTS export_runs (
+    id INTEGER PRIMARY KEY,
+    export_id TEXT NOT NULL,
+    history_version INTEGER NOT NULL CHECK (history_version > 0),
+    filename TEXT NOT NULL,
+    file_hash TEXT NOT NULL,
+    imported_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status TEXT NOT NULL CHECK (status IN ('imported', 'skipped', 'failed')),
+    inserted_count INTEGER NOT NULL DEFAULT 0 CHECK (inserted_count >= 0),
+    updated_count INTEGER NOT NULL DEFAULT 0 CHECK (updated_count >= 0),
+    skipped_count INTEGER NOT NULL DEFAULT 0 CHECK (skipped_count >= 0),
+    error_message TEXT,
+    UNIQUE (export_id, history_version),
+    UNIQUE (filename, file_hash)
+);
+
+CREATE TABLE IF NOT EXISTS staged_daily_exports (
+    id INTEGER PRIMARY KEY,
+    export_id TEXT NOT NULL,
+    history_version INTEGER NOT NULL CHECK (history_version > 0),
+    day_number INTEGER,
+    date TEXT,
+    raw_json TEXT NOT NULL,
+    review_status TEXT NOT NULL,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (export_id, history_version)
+);
+
 CREATE INDEX IF NOT EXISTS idx_workout_sessions_daily_log
     ON workout_sessions (daily_log_id);
 CREATE INDEX IF NOT EXISTS idx_exercise_sets_session
@@ -205,3 +256,9 @@ CREATE INDEX IF NOT EXISTS idx_nutrition_entries_food
     ON nutrition_entries (food_id);
 CREATE INDEX IF NOT EXISTS idx_nutrition_entries_meal
     ON nutrition_entries (log_date, meal_type);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_nutrition_export_entry
+    ON nutrition_entries (export_id, entry_id)
+    WHERE export_id IS NOT NULL AND entry_id IS NOT NULL;
+CREATE UNIQUE INDEX IF NOT EXISTS idx_workout_export_session
+    ON workout_sessions (export_id, session_id)
+    WHERE export_id IS NOT NULL AND session_id IS NOT NULL;

@@ -1,0 +1,60 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "example-2026-07-21",
+  "history_version": 1,
+  "exported_at": "2026-07-21T20:00:00Z",
+  "date": "2026-07-21",
+  "day_number": 2,
+  "provenance": {
+    "source": "example",
+    "confidence": "high",
+    "notes": null
+  },
+  "body": {
+    "weight_kg": 82.1,
+    "waist_cm": null,
+    "body_fat_percentage": null,
+    "notes": "Morning measurement."
+  },
+  "daily_log": {
+    "is_training_day": false,
+    "workout_type": null,
+    "calories_in": 210,
+    "tdee": 210,
+    "calorie_balance": 0,
+    "protein_g": 10,
+    "total_carbs_g": 40,
+    "fiber_g": 9,
+    "net_carbs_g": 31,
+    "fat_g": 4,
+    "steps": 8500,
+    "active_energy_kcal": 420,
+    "notes": "Example approved day."
+  },
+  "nutrition": [
+    {
+      "entry_id": "breakfast-1",
+      "meal_type": "breakfast",
+      "food_name": "Oat Bran",
+      "brand": "",
+      "amount": 60,
+      "unit": "g",
+      "servings": 1,
+      "calories": 210,
+      "protein_g": 10,
+      "total_carbs_g": 40,
+      "fiber_g": 9,
+      "net_carbs_g": 31,
+      "fat_g": 4,
+      "notes": null
+    }
+  ],
+  "workout": null,
+  "review": [
+    {
+      "review_status": "approved",
+      "note": null,
+      "field": null
+    }
+  ]
+}

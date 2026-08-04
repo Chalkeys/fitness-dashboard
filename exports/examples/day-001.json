@@ -1,0 +1,23 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "example-day-001",
+  "history_version": 1,
+  "exported_at": "2026-07-21T12:00:00Z",
+  "date": null,
+  "day_number": 1,
+  "provenance": {
+    "source": "example",
+    "confidence": "medium",
+    "notes": "Date intentionally omitted until reviewed."
+  },
+  "body": null,
+  "daily_log": null,
+  "nutrition": [],
+  "workout": null,
+  "review": [
+    {
+      "review_status": "needs_review",
+      "note": "Assign a calendar date before importing to formal tables."
+    }
+  ]
+}

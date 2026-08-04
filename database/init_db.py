@@ -12,25 +12,51 @@ MIGRATION_COLUMNS = {
     "daily_logs": {
         "day_number": "INTEGER CHECK (day_number IS NULL OR day_number > 0)",
         "history_version": "TEXT",
+        "export_id": "TEXT",
+        "source": "TEXT",
+        "confidence": "TEXT",
+        "review_status": "TEXT",
+        "review_notes": "TEXT",
     },
     "body_measurements": {
         "measured_at": "TEXT",
         "source_key": "TEXT",
         "history_version": "TEXT",
+        "export_id": "TEXT",
+        "source": "TEXT",
+        "confidence": "TEXT",
+        "review_status": "TEXT",
+        "review_notes": "TEXT",
     },
     "workout_sessions": {
         "workout_type": "TEXT",
         "active_energy_kcal": "REAL",
         "source_key": "TEXT",
         "history_version": "TEXT",
+        "export_id": "TEXT",
+        "session_id": "TEXT",
+        "source": "TEXT",
+        "confidence": "TEXT",
+        "review_status": "TEXT",
+        "review_notes": "TEXT",
     },
-    "exercise_sets": {"rir": "REAL", "history_version": "TEXT"},
+    "exercise_sets": {
+        "rir": "REAL",
+        "history_version": "TEXT",
+        "export_id": "TEXT",
+    },
     "nutrition_entries": {
         "net_carbs_g": "REAL NOT NULL DEFAULT 0",
         "servings": "REAL",
         "notes": "TEXT",
         "source_key": "TEXT",
         "history_version": "TEXT",
+        "export_id": "TEXT",
+        "entry_id": "TEXT",
+        "source": "TEXT",
+        "confidence": "TEXT",
+        "review_status": "TEXT",
+        "review_notes": "TEXT",
     },
 }
 
@@ -45,6 +71,12 @@ MIGRATION_INDEXES = (
     "ON workout_sessions (source_key) WHERE source_key IS NOT NULL",
     "CREATE UNIQUE INDEX IF NOT EXISTS idx_nutrition_entries_source_key "
     "ON nutrition_entries (source_key) WHERE source_key IS NOT NULL",
+    "CREATE UNIQUE INDEX IF NOT EXISTS idx_nutrition_export_entry "
+    "ON nutrition_entries (export_id, entry_id) "
+    "WHERE export_id IS NOT NULL AND entry_id IS NOT NULL",
+    "CREATE UNIQUE INDEX IF NOT EXISTS idx_workout_export_session "
+    "ON workout_sessions (export_id, session_id) "
+    "WHERE export_id IS NOT NULL AND session_id IS NOT NULL",
 )
 
 

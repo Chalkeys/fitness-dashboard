@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Chalkeys/fitness-dashboard/schemas/daily_export_v1.schema.json",
+  "title": "Fitness Dashboard Daily Export Protocol v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version", "export_id", "history_version", "exported_at",
+    "date", "day_number", "provenance", "body", "daily_log", "nutrition",
+    "workout", "review"
+  ],
+  "properties": {
+    "protocol_version": { "const": "1.0" },
+    "export_id": { "type": "string", "minLength": 1 },
+    "history_version": { "type": "integer", "minimum": 1 },
+    "exported_at": { "type": "string", "format": "date-time" },
+    "date": {
+      "anyOf": [
+        { "type": "null" },
+        { "type": "string", "format": "date" }
+      ]
+    },
+    "day_number": {
+      "anyOf": [
+        { "type": "null" },
+        { "type": "integer", "minimum": 1 }
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "confidence"],
+      "properties": {
+        "source": { "type": "string", "minLength": 1 },
+        "confidence": { "enum": ["low", "medium", "high"] },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "body": {
+      "anyOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "weight_kg": { "type": ["number", "null"], "minimum": 0 },
+            "waist_cm": { "type": ["number", "null"], "minimum": 0 },
+            "body_fat_percentage": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+            "notes": { "type": ["string", "null"] }
+          }
+        }
+      ]
+    },
+    "daily_log": {
+      "anyOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "is_training_day": { "type": ["boolean", "null"] },
+            "workout_type": { "type": ["string", "null"] },
+            "calories_in": { "type": ["number", "null"], "minimum": 0 },
+            "tdee": { "type": ["number", "null"], "minimum": 0 },
+            "calorie_balance": { "type": ["number", "null"] },
+            "protein_g": { "type": ["number", "null"], "minimum": 0 },
+            "total_carbs_g": { "type": ["number", "null"], "minimum": 0 },
+            "fiber_g": { "type": ["number", "null"], "minimum": 0 },
+            "net_carbs_g": { "type": ["number", "null"], "minimum": 0 },
+            "fat_g": { "type": ["number", "null"], "minimum": 0 },
+            "steps": { "type": ["integer", "null"], "minimum": 0 },
+            "active_energy_kcal": { "type": ["number", "null"], "minimum": 0 },
+            "notes": { "type": ["string", "null"] }
+          }
+        }
+      ]
+    },
+    "nutrition": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["entry_id", "meal_type", "food_name", "amount", "unit"],
+        "properties": {
+          "entry_id": { "type": "string", "minLength": 1 },
+          "meal_type": { "type": "string", "minLength": 1 },
+          "food_name": { "type": "string", "minLength": 1 },
+          "brand": { "type": ["string", "null"] },
+          "amount": { "type": ["number", "null"], "minimum": 0 },
+          "unit": { "type": ["string", "null"] },
+          "servings": { "type": ["number", "null"], "minimum": 0 },
+          "calories": { "type": ["number", "null"], "minimum": 0 },
+          "protein_g": { "type": ["number", "null"], "minimum": 0 },
+          "total_carbs_g": { "type": ["number", "null"], "minimum": 0 },
+          "fiber_g": { "type": ["number", "null"], "minimum": 0 },
+          "net_carbs_g": { "type": ["number", "null"], "minimum": 0 },
+          "fat_g": { "type": ["number", "null"], "minimum": 0 },
+          "notes": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "workout": {
+      "anyOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["session_id", "workout_name", "workout_type", "duration_minutes", "active_energy_kcal", "notes", "exercises"],
+          "properties": {
+            "session_id": { "type": "string", "minLength": 1 },
+            "workout_name": { "type": "string", "minLength": 1 },
+            "workout_type": { "type": ["string", "null"] },
+            "duration_minutes": { "type": ["number", "null"], "minimum": 0 },
+            "active_energy_kcal": { "type": ["number", "null"], "minimum": 0 },
+            "notes": { "type": ["string", "null"] },
+            "exercises": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["exercise_name", "category", "muscle_group", "sets"],
+                "properties": {
+                  "exercise_name": { "type": "string", "minLength": 1 },
+                  "category": { "type": ["string", "null"] },
+                  "muscle_group": { "type": ["string", "null"] },
+                  "sets": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": ["set_number"],
+                      "properties": {
+                        "set_number": { "type": "integer", "minimum": 1 },
+                        "weight": { "type": ["number", "null"], "minimum": 0 },
+                        "reps": { "type": ["integer", "null"], "minimum": 0 },
+                        "rir": { "type": ["number", "null"], "minimum": 0 },
+                        "distance": { "type": ["number", "null"], "minimum": 0 },
+                        "duration_seconds": { "type": ["number", "null"], "minimum": 0 },
+                        "notes": { "type": ["string", "null"] }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "review": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["review_status"],
+        "properties": {
+          "review_status": { "enum": ["approved", "needs_review", "rejected"] },
+          "note": { "type": ["string", "null"] },
+          "field": { "type": ["string", "null"] }
+        }
+      }
+    }
+  },
+  "anyOf": [
+    { "required": ["date"] , "not": { "properties": { "date": { "const": null }, "day_number": { "const": null } } } },
+    { "required": ["day_number"], "not": { "properties": { "date": { "const": null }, "day_number": { "const": null } } } }
+  ]
+}

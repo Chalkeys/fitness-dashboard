@@ -47,6 +47,7 @@ def import_exports(
     replace: bool = False,
     since: str | None = None,
     file_filter: str | None = None,
+    include_needs_review: bool = False,
 ) -> dict[str, int]:
     """Validate and import all selected approved exports atomically."""
     if since:
@@ -55,6 +56,20 @@ def import_exports(
                 raise ValueError
         except ValueError as error:
             raise ValueError("--since 必须使用 YYYY-MM-DD") from error
+    requested_file = Path(file_filter) if file_filter else None
+    paths = [requested_file] if requested_file and requested_file.is_file() else scan_exports(export_dir, file_filter)
+    if any(_is_daily_protocol(path) for path in paths):
+        from scripts.daily_export_import import import_daily_exports
+
+        return import_daily_exports(
+            Path(file_filter) if file_filter and Path(file_filter).is_file() else Path(export_dir),
+            database_path,
+            dry_run,
+            replace,
+            since,
+            file_filter,
+            include_needs_review,
+        )
     documents: list[tuple[Path, dict[str, Any], str]] = []
     errors: list[str] = []
     for path in scan_exports(export_dir, file_filter):
@@ -278,7 +293,17 @@ def _record_failed_imports(
 
 def _print_stats(stats: dict[str, int], dry_run: bool) -> None:
     prefix = "Dry-run 完成" if dry_run else "导入完成"
-    print(f"{prefix}：文件 {stats['files']}，新增 {stats['new']}，修改 {stats['modified']}，跳过 {stats['skipped']}，失败 {stats['failed']}")
+    inserted = stats.get("inserted", stats.get("new", 0))
+    updated = stats.get("updated", stats.get("modified", 0))
+    print(f"{prefix}：文件 {stats['files']}，新增 {inserted}，修改 {updated}，跳过 {stats['skipped']}，失败 {stats['failed']}")
+
+
+def _is_daily_protocol(path: Path) -> bool:
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return False
+    return isinstance(payload, dict) and payload.get("protocol_version") == "1.0"
 
 
 def main() -> None:
@@ -289,11 +314,13 @@ def main() -> None:
     parser.add_argument("--replace", action="store_true")
     parser.add_argument("--since", help="只处理 history_version 不早于 YYYY-MM-DD 的文件")
     parser.add_argument("--file", help="文件名或不带扩展名的文件 stem")
+    parser.add_argument("--include-needs-review", action="store_true")
     args = parser.parse_args()
     try:
         stats = import_exports(
             args.directory.resolve(), args.database.resolve(), args.dry_run,
             args.replace, args.since, args.file,
+            args.include_needs_review,
         )
     except (OSError, ValueError, json.JSONDecodeError) as error:
         print(f"导入失败：{error}")

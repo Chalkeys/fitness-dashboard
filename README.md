@@ -155,6 +155,53 @@ uv run python scripts/import_exports.py exports\ --replace
 `imports/` and `archive/` are reserved for import reports and retained source
 files; they are never scanned as export input.
 
+## Daily Export Protocol v1 (canonical)
+
+Milestone 4B standardizes new data as one JSON document per day under `exports/`:
+
+```text
+exports/day-001.json
+exports/day-002.json
+exports/2026-08-03.json
+```
+
+The complete contract is documented in [docs/export_protocol_v1.md](<H:/My Projects/fitness-dashboard/docs/export_protocol_v1.md>) and enforced by
+[schemas/daily_export_v1.schema.json](<H:/My Projects/fitness-dashboard/schemas/daily_export_v1.schema.json>). Required envelope fields include `protocol_version: "1.0"`, `export_id`, positive integer `history_version`, `date`/`day_number`, provenance, body, daily log, nutrition, workout, and review.
+
+Validate all daily files, emit machine-readable output, or treat warnings as
+failures:
+
+```powershell
+uv run python scripts/validate_exports.py
+uv run python scripts/validate_exports.py --json
+uv run python scripts/validate_exports.py --strict
+```
+
+Import uses one transaction per file, so one bad export does not block other
+files:
+
+```powershell
+uv run python scripts/import_exports.py
+uv run python scripts/import_exports.py --dry-run
+uv run python scripts/import_exports.py --include-needs-review
+uv run python scripts/import_exports.py --file exports/2026-08-03.json
+uv run python scripts/import_exports.py --since 2026-07-01
+uv run python scripts/import_exports.py --replace
+```
+
+Approved dated exports enter formal tables. A `date: null` export is retained in
+`staged_daily_exports` and never creates a formal daily log. `review_status` values
+other than `approved` are skipped unless `--include-needs-review` is supplied.
+Re-exporting the same `export_id` with a higher `history_version` replaces the
+older version; the original JSON remains in `exports/` and can be copied to
+`archive/` manually. Legacy `data_sources/` files remain supported and can be
+converted without guessing dates:
+
+```powershell
+uv run python scripts/convert_legacy_history.py --dry-run
+uv run python scripts/convert_legacy_history.py
+```
+
 ## Run the dashboard
 
 Once a Streamlit entry point such as `app.py` is added:

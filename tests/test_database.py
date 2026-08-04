@@ -17,6 +17,8 @@ REQUIRED_TABLES = {
     "goals",
     "import_runs",
     "import_log",
+    "export_runs",
+    "staged_daily_exports",
 }
 
 
