@@ -1,21 +1,21 @@
 # Fitness Dashboard
 
-A Streamlit fitness dashboard backed by SQLite. The first database layer records
-daily measurements, workout sessions and sets, food intake, and nutrition totals.
+A personal fitness management system built with Streamlit and SQLite. The data
+layer tracks workouts, body metrics, goals, daily nutrition, and a reusable food
+library.
 
 ## Data model
 
-The normalized schema in `database/schema.sql` contains:
+The schema in `database/schema.sql` contains:
 
-- `daily_logs`: one row per ISO-formatted calendar date (`YYYY-MM-DD`)
-- `body_measurements`: optional measurements for a daily log
-- `workout_sessions`, `exercises`, and `exercise_sets`: workout tracking
-- `foods` and `nutrition_entries`: food definitions and daily consumption
-- `nutrition_daily_totals`: daily calories and macronutrient totals
+- `daily_logs`: one ISO-formatted date (`YYYY-MM-DD`) per day, including training,
+  energy expenditure, nutrition totals, steps, and notes
+- `foods`: personal food definitions, unique by brand and food name
+- `nutrition_entries`: meal-level food intake with nutrition snapshots
+- workout sessions, exercises, exercise sets, body measurements, and goals
 
-Food quantities support grams, servings, bottles, pieces, and named custom units.
-Total carbohydrates, dietary fiber, and net carbohydrates are stored separately.
-SQLite foreign keys and validation constraints protect relationships and values.
+Food quantities support grams, servings, bottles, pieces, and custom units. Total
+carbohydrates, dietary fiber, and net carbohydrates are stored separately.
 
 ## Setup
 
@@ -27,21 +27,39 @@ uv sync
 
 ## Initialize the database
 
-Run the idempotent initializer from the repository root:
+Create the tables in the default `fitness.db` file:
 
 ```powershell
-uv run python database/init_db.py
+uv run python scripts/init_db.py
 ```
 
-This creates `fitness.db`, enables foreign-key enforcement for the initializer
-connection, and prints all application tables. Re-running the command adds any
-missing schema objects without deleting existing data. To choose another path:
+Create the tables and import the personal food library in one command:
 
 ```powershell
-uv run python database/init_db.py --database data/development.db
+uv run python scripts/init_db.py --seed
+```
+
+Both commands are safe to rerun and do not delete existing data. A custom database
+path can be supplied with `--database`:
+
+```powershell
+uv run python scripts/init_db.py --database data/development.db --seed
 ```
 
 Generated `.db` files are ignored by Git.
+
+## Maintain and import foods
+
+Add or edit foods in `database/seed_foods.json`, then run:
+
+```powershell
+uv run python scripts/seed_foods.py
+```
+
+The importer updates foods that have the same brand and food name and inserts new
+foods, so repeated imports do not create duplicates. Seed entries with unknown
+nutrition labels contain zero values and a verification note; replace those values
+with the correct per-default-unit label data before tracking intake.
 
 ## Run the tests
 

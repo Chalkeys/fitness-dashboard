@@ -4,6 +4,7 @@ import unittest
 from pathlib import Path
 
 from database.init_db import connect_database, initialize_database
+from scripts.seed_foods import seed_foods
 
 REQUIRED_TABLES = {
     "daily_logs",
@@ -13,7 +14,7 @@ REQUIRED_TABLES = {
     "exercise_sets",
     "foods",
     "nutrition_entries",
-    "nutrition_daily_totals",
+    "goals",
 }
 
 
@@ -54,6 +55,34 @@ class DatabaseTests(unittest.TestCase):
                 connection.execute(
                     "INSERT INTO daily_logs (log_date) VALUES (?)",
                     ("2026-08-03",),
+                )
+        finally:
+            connection.close()
+
+    def test_food_seed_is_idempotent_and_updates_existing_foods(self) -> None:
+        initialize_database(self.database_path)
+        first_count = seed_foods(self.database_path)
+        second_count = seed_foods(self.database_path)
+        connection = connect_database(self.database_path)
+        try:
+            stored_count = connection.execute("SELECT COUNT(*) FROM foods").fetchone()[0]
+        finally:
+            connection.close()
+        self.assertEqual(first_count, second_count)
+        self.assertEqual(first_count, stored_count)
+
+    def test_nutrition_entry_foreign_keys_are_enforced(self) -> None:
+        initialize_database(self.database_path)
+        connection = connect_database(self.database_path)
+        try:
+            with self.assertRaises(sqlite3.IntegrityError):
+                connection.execute(
+                    """
+                    INSERT INTO nutrition_entries (
+                        log_date, meal_type, food_id, amount, unit
+                    ) VALUES (?, ?, ?, ?, ?)
+                    """,
+                    ("2026-08-03", "breakfast", 999, 200, "g"),
                 )
         finally:
             connection.close()
