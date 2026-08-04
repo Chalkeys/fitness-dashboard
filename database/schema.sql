@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS daily_logs (
     id INTEGER PRIMARY KEY,
     log_date TEXT NOT NULL UNIQUE
         CHECK (log_date = date(log_date) AND length(log_date) = 10),
+    day_number INTEGER UNIQUE CHECK (day_number IS NULL OR day_number > 0),
     is_training_day INTEGER NOT NULL DEFAULT 0
         CHECK (is_training_day IN (0, 1)),
     training_type TEXT,
@@ -27,7 +28,11 @@ CREATE TABLE IF NOT EXISTS daily_logs (
 
 CREATE TABLE IF NOT EXISTS body_measurements (
     id INTEGER PRIMARY KEY,
-    daily_log_id INTEGER NOT NULL UNIQUE,
+    daily_log_id INTEGER UNIQUE,
+    measured_at TEXT UNIQUE CHECK (
+        measured_at IS NULL
+        OR (measured_at = date(measured_at) AND length(measured_at) = 10)
+    ),
     weight_kg REAL CHECK (weight_kg IS NULL OR weight_kg > 0),
     body_fat_percentage REAL CHECK (
         body_fat_percentage IS NULL
@@ -38,6 +43,7 @@ CREATE TABLE IF NOT EXISTS body_measurements (
         resting_heart_rate IS NULL OR resting_heart_rate > 0
     ),
     notes TEXT,
+    source_key TEXT UNIQUE,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (daily_log_id) REFERENCES daily_logs (id) ON DELETE CASCADE
@@ -47,11 +53,16 @@ CREATE TABLE IF NOT EXISTS workout_sessions (
     id INTEGER PRIMARY KEY,
     daily_log_id INTEGER NOT NULL,
     name TEXT NOT NULL,
+    workout_type TEXT,
     started_at TEXT,
     duration_minutes INTEGER CHECK (
         duration_minutes IS NULL OR duration_minutes >= 0
     ),
+    active_energy_kcal REAL CHECK (
+        active_energy_kcal IS NULL OR active_energy_kcal >= 0
+    ),
     notes TEXT,
+    source_key TEXT UNIQUE,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (daily_log_id) REFERENCES daily_logs (id) ON DELETE CASCADE
@@ -73,6 +84,7 @@ CREATE TABLE IF NOT EXISTS exercise_sets (
     exercise_id INTEGER NOT NULL,
     set_number INTEGER NOT NULL CHECK (set_number > 0),
     reps INTEGER CHECK (reps IS NULL OR reps >= 0),
+    rir REAL CHECK (rir IS NULL OR rir >= 0),
     weight_kg REAL CHECK (weight_kg IS NULL OR weight_kg >= 0),
     distance_meters REAL CHECK (
         distance_meters IS NULL OR distance_meters >= 0
@@ -138,12 +150,28 @@ CREATE TABLE IF NOT EXISTS nutrition_entries (
     protein_g REAL NOT NULL DEFAULT 0 CHECK (protein_g >= 0),
     carbs_g REAL NOT NULL DEFAULT 0 CHECK (carbs_g >= 0),
     fiber_g REAL NOT NULL DEFAULT 0 CHECK (fiber_g >= 0),
+    net_carbs_g REAL NOT NULL DEFAULT 0 CHECK (net_carbs_g >= 0),
     fat_g REAL NOT NULL DEFAULT 0 CHECK (fat_g >= 0),
+    servings REAL CHECK (servings IS NULL OR servings > 0),
+    notes TEXT,
+    source_key TEXT UNIQUE,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (log_date) REFERENCES daily_logs (log_date) ON DELETE CASCADE,
     FOREIGN KEY (food_id) REFERENCES foods (id),
-    CHECK (fiber_g <= carbs_g)
+    CHECK (fiber_g <= carbs_g),
+    CHECK (net_carbs_g <= carbs_g)
+);
+
+CREATE TABLE IF NOT EXISTS import_runs (
+    id INTEGER PRIMARY KEY,
+    imported_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    source_name TEXT NOT NULL,
+    source_hash TEXT NOT NULL,
+    record_count INTEGER NOT NULL CHECK (record_count >= 0),
+    status TEXT NOT NULL CHECK (status IN ('success', 'failed', 'dry-run')),
+    notes TEXT,
+    UNIQUE (source_name, source_hash)
 );
 
 CREATE INDEX IF NOT EXISTS idx_workout_sessions_daily_log

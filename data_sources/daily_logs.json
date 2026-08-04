@@ -1,0 +1,36 @@
+[
+  {
+    "date": "2026-08-02",
+    "day_number": 1,
+    "is_training_day": false,
+    "workout_type": null,
+    "calories_in": 2100,
+    "tdee": 2350,
+    "calorie_balance": null,
+    "protein_g": 160,
+    "total_carbs_g": 200,
+    "fiber_g": 30,
+    "net_carbs_g": null,
+    "fat_g": 73,
+    "steps": 8500,
+    "active_energy_kcal": 420,
+    "notes": "Milestone 3 sample rest day."
+  },
+  {
+    "date": "2026-08-03",
+    "day_number": 2,
+    "is_training_day": true,
+    "workout_type": "Upper Body",
+    "calories_in": 2400,
+    "tdee": 2700,
+    "calorie_balance": null,
+    "protein_g": 180,
+    "total_carbs_g": 250,
+    "fiber_g": 35,
+    "net_carbs_g": 215,
+    "fat_g": 75,
+    "steps": 10200,
+    "active_energy_kcal": 710,
+    "notes": "Milestone 3 sample training day."
+  }
+]

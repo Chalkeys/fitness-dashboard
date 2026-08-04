@@ -1,0 +1,53 @@
+[
+  {
+    "date": "2026-08-03",
+    "workout_name": "Upper Body A",
+    "workout_type": "Upper Body",
+    "duration_minutes": 62,
+    "active_energy_kcal": 410,
+    "notes": "Milestone 3 sample workout.",
+    "exercises": [
+      {
+        "exercise_name": "Bench Press",
+        "category": "strength",
+        "muscle_group": "chest",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 80,
+            "reps": 8,
+            "rir": 2,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 80,
+            "reps": 7,
+            "rir": 1,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "Seated Cable Row",
+        "category": "strength",
+        "muscle_group": "back",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 68,
+            "reps": 10,
+            "rir": 2,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      }
+    ]
+  }
+]

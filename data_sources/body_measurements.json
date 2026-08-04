@@ -1,0 +1,16 @@
+[
+  {
+    "measured_at": "2026-08-02",
+    "weight": 82.4,
+    "waist": 86.5,
+    "body_fat_percentage": 18.2,
+    "notes": "Morning measurement."
+  },
+  {
+    "measured_at": "2026-08-03",
+    "weight": 82.1,
+    "waist": null,
+    "body_fat_percentage": null,
+    "notes": "Morning weight only."
+  }
+]

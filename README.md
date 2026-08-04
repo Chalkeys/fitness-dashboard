@@ -64,8 +64,57 @@ with the correct per-default-unit label data before tracking intake.
 ## Run the tests
 
 ```powershell
-uv run python -m unittest discover -s tests -v
+uv run pytest
 ```
+
+## Import historical data
+
+Historical records live in human-readable UTF-8 JSON files under `data_sources/`:
+
+- `daily_logs.json`: daily training, energy, macro, and activity totals
+- `body_measurements.json`: dated weight, waist, and body-fat measurements
+- `nutrition_entries.json`: meal-level food snapshots
+- `workouts.json`: nested workouts, exercises, and sets
+
+The exact fields, units, and editing rules are documented in
+`data_sources/README.md`. Keep historical records in JSON rather than embedding
+them in Python.
+
+Validate all sources without touching the database:
+
+```powershell
+uv run python scripts/validate_history.py
+```
+
+Preview import statistics without creating or changing a database:
+
+```powershell
+uv run python scripts/import_history.py --dry-run
+```
+
+Import all sources, or only one source by its file stem:
+
+```powershell
+uv run python scripts/import_history.py
+uv run python scripts/import_history.py --file daily_logs
+uv run python scripts/import_history.py --database data/fitness.db
+```
+
+Each import is one transaction. Validation or database errors roll back the whole
+run. SHA-256 metadata in `import_runs` skips an unchanged source version, while
+stable record keys prevent duplicate nutrition entries and workouts.
+
+After correcting a JSON file, run the normal import again to upsert its changed
+records. To clear previously imported history and rebuild it from the selected
+source files, use:
+
+```powershell
+uv run python scripts/import_history.py --replace
+```
+
+`--replace` does not delete the seeded personal food library. Unknown historical
+foods are stored as ad hoc database snapshots and are not written to
+`database/seed_foods.json`.
 
 ## Run the dashboard
 
