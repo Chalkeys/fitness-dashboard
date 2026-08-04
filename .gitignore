@@ -8,8 +8,10 @@ venv/
 .streamlit/secrets.toml
 
 # Local data
-data/*.db
-data/*.db-*
+fitness.db
+fitness.db-*
+*.db
+*.db-*
 
 # Tooling and OS files
 .pytest_cache/

@@ -1,21 +1,21 @@
 # Fitness Dashboard
 
-A Streamlit dashboard foundation for recording workouts, tracking body
-measurements, and monitoring fitness goals with SQLite.
+A Streamlit fitness dashboard backed by SQLite. The first database layer records
+daily measurements, workout sessions and sets, food intake, and nutrition totals.
 
 ## Data model
 
-The schema in `database/schema.sql` contains:
+The normalized schema in `database/schema.sql` contains:
 
-- `exercises`: reusable exercise definitions
-- `workouts`: dated training sessions
-- `workout_sets`: strength, distance, or duration results within a workout
-- `body_measurements`: body weight, body-fat, and waist history
-- `goals`: metric targets and their status
+- `daily_logs`: one row per ISO-formatted calendar date (`YYYY-MM-DD`)
+- `body_measurements`: optional measurements for a daily log
+- `workout_sessions`, `exercises`, and `exercise_sets`: workout tracking
+- `foods` and `nutrition_entries`: food definitions and daily consumption
+- `nutrition_daily_totals`: daily calories and macronutrient totals
 
-SQLite foreign keys, validation constraints, and indexes are included. Dates and
-timestamps are stored as ISO 8601 text so they work naturally with SQLite and
-pandas.
+Food quantities support grams, servings, bottles, pieces, and named custom units.
+Total carbohydrates, dietary fiber, and net carbohydrates are stored separately.
+SQLite foreign keys and validation constraints protect relationships and values.
 
 ## Setup
 
@@ -25,22 +25,35 @@ Python 3.11 or newer is recommended.
 py -3 -m venv .venv
 .venv\Scripts\Activate.ps1
 py -3 -m pip install -r requirements.txt
-py -3 scripts/init_db.py
 ```
 
-The initializer creates `data/fitness.db`. It is safe to run more than once and
-also accepts a custom location:
+## Initialize the database
+
+Run the idempotent initializer from the repository root:
 
 ```powershell
-py -3 scripts/init_db.py --database data/test.db
+py -3 database/init_db.py
 ```
 
-The local database is ignored by Git. The Streamlit application can use
-`scripts.init_db.initialize_database()` at startup to ensure the schema exists.
+This creates `fitness.db`, enables foreign-key enforcement for the initializer
+connection, and prints all application tables. Re-running the command adds any
+missing schema objects without deleting existing data. To choose another path:
+
+```powershell
+py -3 database/init_db.py --database data/development.db
+```
+
+Generated `.db` files are ignored by Git.
+
+## Run the tests
+
+```powershell
+py -3 -m unittest discover -s tests -v
+```
 
 ## Run the dashboard
 
-Once a Streamlit entry point such as `app.py` is added, run it with:
+Once a Streamlit entry point such as `app.py` is added:
 
 ```powershell
 streamlit run app.py
