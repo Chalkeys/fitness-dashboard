@@ -19,12 +19,10 @@ SQLite foreign keys and validation constraints protect relationships and values.
 
 ## Setup
 
-Python 3.11 or newer is recommended.
+Python 3.11 or newer and [uv](https://docs.astral.sh/uv/) are required.
 
 ```powershell
-py -3 -m venv .venv
-.venv\Scripts\Activate.ps1
-py -3 -m pip install -r requirements.txt
+uv sync
 ```
 
 ## Initialize the database
@@ -32,7 +30,7 @@ py -3 -m pip install -r requirements.txt
 Run the idempotent initializer from the repository root:
 
 ```powershell
-py -3 database/init_db.py
+uv run python database/init_db.py
 ```
 
 This creates `fitness.db`, enables foreign-key enforcement for the initializer
@@ -40,7 +38,7 @@ connection, and prints all application tables. Re-running the command adds any
 missing schema objects without deleting existing data. To choose another path:
 
 ```powershell
-py -3 database/init_db.py --database data/development.db
+uv run python database/init_db.py --database data/development.db
 ```
 
 Generated `.db` files are ignored by Git.
@@ -48,7 +46,7 @@ Generated `.db` files are ignored by Git.
 ## Run the tests
 
 ```powershell
-py -3 -m unittest discover -s tests -v
+uv run python -m unittest discover -s tests -v
 ```
 
 ## Run the dashboard
@@ -56,5 +54,5 @@ py -3 -m unittest discover -s tests -v
 Once a Streamlit entry point such as `app.py` is added:
 
 ```powershell
-streamlit run app.py
+uv run streamlit run app.py
 ```
