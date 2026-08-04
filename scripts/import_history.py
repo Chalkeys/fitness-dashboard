@@ -23,7 +23,7 @@ from scripts.validate_history import (  # noqa: E402
     validate_sources,
 )
 
-ImportFunction = Callable[[Any, list[dict[str, Any]]], int]
+ImportFunction = Callable[[Any, list[dict[str, Any]], str | None], int]
 
 
 def import_history(
@@ -61,7 +61,7 @@ def import_history(
             if not replace and _already_imported(connection, name, source_hash):
                 stats[name] = 0
                 continue
-            count = importers[name](connection, records)
+            count = importers[name](connection, records, None)
             stats[name] = count
             connection.execute(
                 """
@@ -147,7 +147,9 @@ def _ensure_daily_log(connection: Any, date: str) -> int:
     ).fetchone()[0]
 
 
-def _import_daily_logs(connection: Any, records: list[dict[str, Any]]) -> int:
+def _import_daily_logs(
+    connection: Any, records: list[dict[str, Any]], history_version: str | None = None
+) -> int:
     for record in records:
         calories = _value(record, "calories_in")
         tdee = _value(record, "tdee")
@@ -158,8 +160,8 @@ def _import_daily_logs(connection: Any, records: list[dict[str, Any]]) -> int:
                 log_date, day_number, is_training_day, training_type,
                 calories_intake, tdee, calorie_balance, protein_g,
                 total_carbs_g, fiber_g, net_carbs_g, fat_g, steps,
-                active_energy, notes
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                active_energy, notes, history_version
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT (log_date) DO UPDATE SET
                 day_number = excluded.day_number,
                 is_training_day = excluded.is_training_day,
@@ -175,6 +177,7 @@ def _import_daily_logs(connection: Any, records: list[dict[str, Any]]) -> int:
                 steps = excluded.steps,
                 active_energy = excluded.active_energy,
                 notes = excluded.notes,
+                history_version = excluded.history_version,
                 updated_at = CURRENT_TIMESTAMP
             """,
             (
@@ -193,12 +196,15 @@ def _import_daily_logs(connection: Any, records: list[dict[str, Any]]) -> int:
                 _value(record, "steps"),
                 _value(record, "active_energy_kcal"),
                 record.get("notes"),
+                history_version,
             ),
         )
     return len(records)
 
 
-def _import_measurements(connection: Any, records: list[dict[str, Any]]) -> int:
+def _import_measurements(
+    connection: Any, records: list[dict[str, Any]], history_version: str | None = None
+) -> int:
     for record in records:
         measured_at = record["measured_at"]
         daily_log_id = _ensure_daily_log(connection, measured_at)
@@ -214,13 +220,14 @@ def _import_measurements(connection: Any, records: list[dict[str, Any]]) -> int:
             record.get("waist"),
             record.get("notes"),
             _source_key("measurement", record),
+            history_version,
         )
         if existing:
             connection.execute(
                 """
                 UPDATE body_measurements SET
                     daily_log_id = ?, weight_kg = ?, body_fat_percentage = ?,
-                    waist_cm = ?, notes = ?, source_key = ?,
+                    waist_cm = ?, notes = ?, source_key = ?, history_version = ?,
                     updated_at = CURRENT_TIMESTAMP
                 WHERE id = ?
                 """,
@@ -231,8 +238,8 @@ def _import_measurements(connection: Any, records: list[dict[str, Any]]) -> int:
                 """
                 INSERT INTO body_measurements (
                     daily_log_id, weight_kg, body_fat_percentage, waist_cm,
-                    notes, source_key, measured_at
-                ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                    notes, source_key, history_version, measured_at
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 values + (measured_at,),
             )
@@ -275,7 +282,9 @@ def _food_id(connection: Any, record: dict[str, Any]) -> int:
     return cursor.lastrowid
 
 
-def _import_nutrition(connection: Any, records: list[dict[str, Any]]) -> int:
+def _import_nutrition(
+    connection: Any, records: list[dict[str, Any]], history_version: str | None = None
+) -> int:
     occurrences: dict[tuple[str, str, str, str], int] = {}
     for record in records:
         _ensure_daily_log(connection, record["date"])
@@ -308,6 +317,7 @@ def _import_nutrition(connection: Any, records: list[dict[str, Any]]) -> int:
             record.get("servings"),
             record.get("notes"),
             key,
+            history_version,
         )
         existing = connection.execute(
             """
@@ -327,7 +337,7 @@ def _import_nutrition(connection: Any, records: list[dict[str, Any]]) -> int:
                     log_date = ?, meal_type = ?, food_id = ?, amount = ?, unit = ?,
                     calories = ?, protein_g = ?, carbs_g = ?, fiber_g = ?,
                     net_carbs_g = ?, fat_g = ?, servings = ?, notes = ?,
-                    source_key = ?, updated_at = CURRENT_TIMESTAMP
+                    source_key = ?, history_version = ?, updated_at = CURRENT_TIMESTAMP
                 WHERE id = ?
                 """,
                 values + (existing[0],),
@@ -338,15 +348,17 @@ def _import_nutrition(connection: Any, records: list[dict[str, Any]]) -> int:
                 INSERT INTO nutrition_entries (
                     log_date, meal_type, food_id, amount, unit, calories,
                     protein_g, carbs_g, fiber_g, net_carbs_g, fat_g,
-                    servings, notes, source_key
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    servings, notes, source_key, history_version
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 values,
             )
     return len(records)
 
 
-def _import_workouts(connection: Any, records: list[dict[str, Any]]) -> int:
+def _import_workouts(
+    connection: Any, records: list[dict[str, Any]], history_version: str | None = None
+) -> int:
     for workout in records:
         daily_log_id = _ensure_daily_log(connection, workout["date"])
         name = workout.get("workout_name") or "Workout"
@@ -360,6 +372,7 @@ def _import_workouts(connection: Any, records: list[dict[str, Any]]) -> int:
             workout.get("active_energy_kcal"),
             workout.get("notes"),
             _source_key("workout", workout),
+            history_version,
         )
         if existing:
             session_id = existing[0]
@@ -367,7 +380,8 @@ def _import_workouts(connection: Any, records: list[dict[str, Any]]) -> int:
                 """
                 UPDATE workout_sessions SET
                     workout_type = ?, duration_minutes = ?, active_energy_kcal = ?,
-                    notes = ?, source_key = ?, updated_at = CURRENT_TIMESTAMP
+                    notes = ?, source_key = ?, history_version = ?,
+                    updated_at = CURRENT_TIMESTAMP
                 WHERE id = ?
                 """,
                 session_values + (session_id,),
@@ -380,8 +394,8 @@ def _import_workouts(connection: Any, records: list[dict[str, Any]]) -> int:
                 """
                 INSERT INTO workout_sessions (
                     daily_log_id, name, workout_type, duration_minutes,
-                    active_energy_kcal, notes, source_key
-                ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                    active_energy_kcal, notes, source_key, history_version
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (daily_log_id, name) + session_values,
             )
@@ -412,8 +426,9 @@ def _import_workouts(connection: Any, records: list[dict[str, Any]]) -> int:
                     """
                     INSERT INTO exercise_sets (
                         workout_session_id, exercise_id, set_number, reps, rir,
-                        weight_kg, distance_meters, duration_seconds, notes
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        weight_kg, distance_meters, duration_seconds, notes,
+                        history_version
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """,
                     (
                         session_id,
@@ -425,6 +440,7 @@ def _import_workouts(connection: Any, records: list[dict[str, Any]]) -> int:
                         item.get("distance"),
                         item.get("duration_seconds"),
                         item.get("notes"),
+                        history_version,
                     ),
                 )
     return len(records)

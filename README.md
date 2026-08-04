@@ -116,6 +116,45 @@ uv run python scripts/import_history.py --replace
 foods are stored as ad hoc database snapshots and are not written to
 `database/seed_foods.json`.
 
+## Export Protocol v1
+
+ChatGPT exports belong in `exports/`. Each JSON file is a UTF-8 object with this
+envelope:
+
+```json
+{
+  "protocol": "fitness-dashboard-export-v1",
+  "history_version": "2026-08-03-v1",
+  "review_status": "approved",
+  "exported_at": "2026-08-03T18:00:00Z",
+  "daily_logs": [],
+  "body_measurements": [],
+  "nutrition_entries": [],
+  "workouts": [],
+  "foods": []
+}
+```
+
+`history_version` should start with an ISO date and increase for a corrected
+export of the same day. The importer processes versions in order and does not let
+an older version overwrite a newer one. Every record is UPSERTed; source hashes
+and stable keys prevent duplicates. Files with `review_status` other than
+`approved` are recorded as skipped. `import_log` stores filename, SHA-256,
+import time, new/modified/skipped/failed counts, and status.
+
+Validate or import a directory of exports:
+
+```powershell
+uv run python scripts/validate_export.py exports\*.json
+uv run python scripts/import_exports.py exports\ --dry-run
+uv run python scripts/import_exports.py exports\
+uv run python scripts/import_exports.py exports\ --since 2026-08-01 --file export.json
+uv run python scripts/import_exports.py exports\ --replace
+```
+
+`imports/` and `archive/` are reserved for import reports and retained source
+files; they are never scanned as export input.
+
 ## Run the dashboard
 
 Once a Streamlit entry point such as `app.py` is added:

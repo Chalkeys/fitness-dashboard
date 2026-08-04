@@ -11,22 +11,26 @@ SCHEMA_PATH = Path(__file__).with_name("schema.sql")
 MIGRATION_COLUMNS = {
     "daily_logs": {
         "day_number": "INTEGER CHECK (day_number IS NULL OR day_number > 0)",
+        "history_version": "TEXT",
     },
     "body_measurements": {
         "measured_at": "TEXT",
         "source_key": "TEXT",
+        "history_version": "TEXT",
     },
     "workout_sessions": {
         "workout_type": "TEXT",
         "active_energy_kcal": "REAL",
         "source_key": "TEXT",
+        "history_version": "TEXT",
     },
-    "exercise_sets": {"rir": "REAL"},
+    "exercise_sets": {"rir": "REAL", "history_version": "TEXT"},
     "nutrition_entries": {
         "net_carbs_g": "REAL NOT NULL DEFAULT 0",
         "servings": "REAL",
         "notes": "TEXT",
         "source_key": "TEXT",
+        "history_version": "TEXT",
     },
 }
 

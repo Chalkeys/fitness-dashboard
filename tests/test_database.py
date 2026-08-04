@@ -16,6 +16,7 @@ REQUIRED_TABLES = {
     "nutrition_entries",
     "goals",
     "import_runs",
+    "import_log",
 }
 
 

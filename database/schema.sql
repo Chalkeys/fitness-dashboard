@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS daily_logs (
     steps INTEGER NOT NULL DEFAULT 0 CHECK (steps >= 0),
     active_energy REAL NOT NULL DEFAULT 0 CHECK (active_energy >= 0),
     notes TEXT,
+    history_version TEXT,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CHECK (fiber_g <= total_carbs_g),
@@ -44,6 +45,7 @@ CREATE TABLE IF NOT EXISTS body_measurements (
     ),
     notes TEXT,
     source_key TEXT UNIQUE,
+    history_version TEXT,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (daily_log_id) REFERENCES daily_logs (id) ON DELETE CASCADE
@@ -63,6 +65,7 @@ CREATE TABLE IF NOT EXISTS workout_sessions (
     ),
     notes TEXT,
     source_key TEXT UNIQUE,
+    history_version TEXT,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (daily_log_id) REFERENCES daily_logs (id) ON DELETE CASCADE
@@ -93,6 +96,7 @@ CREATE TABLE IF NOT EXISTS exercise_sets (
         duration_seconds IS NULL OR duration_seconds >= 0
     ),
     notes TEXT,
+    history_version TEXT,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (workout_session_id)
@@ -155,6 +159,7 @@ CREATE TABLE IF NOT EXISTS nutrition_entries (
     servings REAL CHECK (servings IS NULL OR servings > 0),
     notes TEXT,
     source_key TEXT UNIQUE,
+    history_version TEXT,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (log_date) REFERENCES daily_logs (log_date) ON DELETE CASCADE,
@@ -172,6 +177,20 @@ CREATE TABLE IF NOT EXISTS import_runs (
     status TEXT NOT NULL CHECK (status IN ('success', 'failed', 'dry-run')),
     notes TEXT,
     UNIQUE (source_name, source_hash)
+);
+
+CREATE TABLE IF NOT EXISTS import_log (
+    id INTEGER PRIMARY KEY,
+    filename TEXT NOT NULL,
+    sha256 TEXT NOT NULL,
+    imported_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    new_count INTEGER NOT NULL DEFAULT 0 CHECK (new_count >= 0),
+    modified_count INTEGER NOT NULL DEFAULT 0 CHECK (modified_count >= 0),
+    skipped_count INTEGER NOT NULL DEFAULT 0 CHECK (skipped_count >= 0),
+    failed_count INTEGER NOT NULL DEFAULT 0 CHECK (failed_count >= 0),
+    status TEXT NOT NULL CHECK (status IN ('imported', 'skipped', 'failed')),
+    notes TEXT,
+    UNIQUE (filename, sha256)
 );
 
 CREATE INDEX IF NOT EXISTS idx_workout_sessions_daily_log
