@@ -1,0 +1,441 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-027",
+  "history_version": 1,
+  "exported_at": "2026-08-16T18:35:09.707290Z",
+  "date": "2026-07-18",
+  "day_number": 27,
+  "provenance": {
+    "source": "chat_history",
+    "confidence": "high",
+    "notes": "TDEE and Active Energy are not confirmed. 日期根据 Day 43 = 2026-08-03 且期间连续无中断推算为 2026-07-18；日期已按连续无中断记录确认。"
+  },
+  "body": {
+    "weight_kg": 82.6,
+    "waist_cm": 84,
+    "body_fat_percentage": null,
+    "notes": "腰围沿用 Day 26 的最近测量值：84 cm。"
+  },
+  "daily_log": {
+    "is_training_day": true,
+    "workout_type": "leg_b",
+    "calories_in": 1924,
+    "tdee": 2570,
+    "calorie_balance": -646,
+    "protein_g": 178,
+    "total_carbs_g": 189,
+    "fiber_g": 29,
+    "net_carbs_g": 159,
+    "fat_g": 63.7,
+    "steps": null,
+    "active_energy_kcal": 750,
+    "notes": "Calf raise omitted due to calf discomfort。BMR 约 1820 kcal；AE 约 750 kcal（估算）；TDEE 约 2570 kcal。后续按固定格式汇报，不单独叠加 NEAT；nutrition_history.json 逐项饮食明细已补充；膳食纤维暂按 0 g。"
+  },
+  "nutrition": [
+    {
+      "entry_id": "D027_F001",
+      "meal_type": "morning",
+      "food_name": "Oikos Triple Zero",
+      "brand": null,
+      "amount": 2,
+      "unit": "custom",
+      "servings": null,
+      "calories": 90,
+      "protein_g": 15,
+      "total_carbs_g": 7,
+      "fiber_g": 0,
+      "net_carbs_g": 7,
+      "fat_g": 0,
+      "notes": "原始单位：cup"
+    },
+    {
+      "entry_id": "D027_F002",
+      "meal_type": "morning",
+      "food_name": "香蕉",
+      "brand": null,
+      "amount": 1,
+      "unit": "piece",
+      "servings": null,
+      "calories": 105,
+      "protein_g": 1.3,
+      "total_carbs_g": 27,
+      "fiber_g": 0,
+      "net_carbs_g": 27,
+      "fat_g": 0.3,
+      "notes": null
+    },
+    {
+      "entry_id": "D027_F003",
+      "meal_type": "morning",
+      "food_name": "全脂牛奶（Latte）",
+      "brand": null,
+      "amount": 200,
+      "unit": "g",
+      "servings": null,
+      "calories": 61.5,
+      "protein_g": 3.2,
+      "total_carbs_g": 4.8,
+      "fiber_g": 0,
+      "net_carbs_g": 4.8,
+      "fat_g": 3.3,
+      "notes": null
+    },
+    {
+      "entry_id": "D027_F004",
+      "meal_type": "morning",
+      "food_name": "Oat Bran",
+      "brand": null,
+      "amount": 40,
+      "unit": "g",
+      "servings": null,
+      "calories": 375,
+      "protein_g": 17.5,
+      "total_carbs_g": 65,
+      "fiber_g": 0,
+      "net_carbs_g": 65,
+      "fat_g": 6.25,
+      "notes": null
+    },
+    {
+      "entry_id": "D027_F005",
+      "meal_type": "morning",
+      "food_name": "植物蛋白粉",
+      "brand": null,
+      "amount": 35,
+      "unit": "g",
+      "servings": null,
+      "calories": 320,
+      "protein_g": 42,
+      "total_carbs_g": 40,
+      "fiber_g": 0,
+      "net_carbs_g": 40,
+      "fat_g": 10,
+      "notes": null
+    },
+    {
+      "entry_id": "D027_F006",
+      "meal_type": "noon",
+      "food_name": "豆腐",
+      "brand": null,
+      "amount": 1,
+      "unit": "custom",
+      "servings": null,
+      "calories": 300,
+      "protein_g": 30,
+      "total_carbs_g": 12,
+      "fiber_g": 0,
+      "net_carbs_g": 12,
+      "fat_g": 16,
+      "notes": "原始单位：box"
+    },
+    {
+      "entry_id": "D027_F007",
+      "meal_type": "noon",
+      "food_name": "熟面条",
+      "brand": null,
+      "amount": 150,
+      "unit": "g",
+      "servings": null,
+      "calories": 138,
+      "protein_g": 4.5,
+      "total_carbs_g": 25,
+      "fiber_g": 0,
+      "net_carbs_g": 25,
+      "fat_g": 2,
+      "notes": null
+    },
+    {
+      "entry_id": "D027_F008",
+      "meal_type": "noon",
+      "food_name": "鸡蛋",
+      "brand": null,
+      "amount": 3,
+      "unit": "piece",
+      "servings": null,
+      "calories": 70,
+      "protein_g": 6,
+      "total_carbs_g": 0.5,
+      "fiber_g": 0,
+      "net_carbs_g": 0.5,
+      "fat_g": 5,
+      "notes": null
+    },
+    {
+      "entry_id": "D027_F009",
+      "meal_type": "night",
+      "food_name": "Tyson 鸡胸肉",
+      "brand": null,
+      "amount": 150,
+      "unit": "g",
+      "servings": null,
+      "calories": 130.95,
+      "protein_g": 23.81,
+      "total_carbs_g": 2.38,
+      "fiber_g": 0,
+      "net_carbs_g": 2.38,
+      "fat_g": 3.57,
+      "notes": null
+    },
+    {
+      "entry_id": "D027_F010",
+      "meal_type": "snack",
+      "food_name": "Chickpea Crisps",
+      "brand": null,
+      "amount": 1,
+      "unit": "serving",
+      "servings": null,
+      "calories": 140,
+      "protein_g": 4,
+      "total_carbs_g": 18,
+      "fiber_g": 0,
+      "net_carbs_g": 18,
+      "fat_g": 6,
+      "notes": null
+    }
+  ],
+  "workout": {
+    "session_id": "day-027-workout",
+    "workout_name": "Day 27 Leg B",
+    "workout_type": "leg_b",
+    "duration_minutes": null,
+    "active_energy_kcal": null,
+    "notes": "Calf raise omitted due to calf discomfort.",
+    "exercises": [
+      {
+        "exercise_name": "Romanian deadlift",
+        "category": "compound",
+        "muscle_group": "hamstrings",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 83.9146,
+            "reps": 5,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：185 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 2,
+            "weight": 83.9146,
+            "reps": 5,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：185 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 3,
+            "weight": 74.8427,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：165 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 4,
+            "weight": 74.8427,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：165 lb；已转换为 kg。"
+          }
+        ]
+      },
+      {
+        "exercise_name": "Hip thrust",
+        "category": "compound",
+        "muscle_group": "glutes",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 99.7903,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：220 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 2,
+            "weight": 99.7903,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：220 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 3,
+            "weight": 99.7903,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：220 lb；已转换为 kg。"
+          }
+        ]
+      },
+      {
+        "exercise_name": "Leg curl",
+        "category": "isolation",
+        "muscle_group": "hamstrings",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 45.3592,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：100 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 2,
+            "weight": 45.3592,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：100 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 3,
+            "weight": 47.6272,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：105 lb；已转换为 kg。"
+          }
+        ]
+      },
+      {
+        "exercise_name": "Leg press",
+        "category": "compound",
+        "muscle_group": "quadriceps",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 117.934,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：260 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 2,
+            "weight": 117.934,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：260 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 3,
+            "weight": 117.934,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：260 lb；已转换为 kg。"
+          }
+        ]
+      },
+      {
+        "exercise_name": "Hanging leg raise",
+        "category": "core",
+        "muscle_group": "core",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": null,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量单位：lb。"
+          },
+          {
+            "set_number": 2,
+            "weight": null,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量单位：lb。"
+          },
+          {
+            "set_number": 3,
+            "weight": null,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量单位：lb。"
+          }
+        ]
+      },
+      {
+        "exercise_name": "Plank",
+        "category": "core",
+        "muscle_group": "core",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量单位：lb。"
+          },
+          {
+            "set_number": 2,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量单位：lb。"
+          },
+          {
+            "set_number": 3,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量单位：lb。"
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "review_status": "approved",
+      "note": "Day 27 TDEE 2570 kcal 已确认（BMR≈1820 + 估算 Active Energy≈750）。",
+      "field": "daily_log.tdee"
+    },
+    {
+      "review_status": "approved",
+      "note": "Day 27 TDEE 2570 kcal 已确认（BMR≈1820 + 估算 Active Energy≈750）。",
+      "field": "daily_log.active_energy_kcal"
+    },
+    {
+      "review_status": "approved",
+      "note": "日期已按 Day 43 = 2026-08-03 且期间连续无中断记录确认。",
+      "field": "day.date"
+    },
+    {
+      "review_status": "approved",
+      "note": "逐项饮食明细已从 nutrition_history.json 补充；已保留原有确认值。",
+      "field": "daily_log.nutrition"
+    }
+  ]
+}

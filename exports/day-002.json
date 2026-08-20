@@ -1,0 +1,234 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-002",
+  "history_version": 1,
+  "exported_at": "2026-08-16T18:23:13.587003Z",
+  "date": "2026-06-23",
+  "day_number": 2,
+  "provenance": {
+    "source": "chat_history",
+    "confidence": "medium",
+    "notes": "日期根据 Day 43 = 2026-08-03 且期间连续无中断推算为 2026-06-23；日期已按连续无中断记录确认。"
+  },
+  "body": {
+    "weight_kg": 79.65,
+    "waist_cm": null,
+    "body_fat_percentage": null,
+    "notes": null
+  },
+  "daily_log": {
+    "is_training_day": true,
+    "workout_type": "pull",
+    "calories_in": 2190,
+    "tdee": 2350,
+    "calorie_balance": -160,
+    "protein_g": 164,
+    "total_carbs_g": 236,
+    "fiber_g": null,
+    "net_carbs_g": null,
+    "fat_g": 70,
+    "steps": null,
+    "active_energy_kcal": 571,
+    "notes": "Back and rear-delt day；Active Energy 手动补录：571 kcal。"
+  },
+  "nutrition": [],
+  "workout": {
+    "session_id": "day-002-workout",
+    "workout_name": "Day 2 Back + Rear Delts",
+    "workout_type": "pull",
+    "duration_minutes": null,
+    "active_energy_kcal": 571,
+    "notes": "已保留聊天记录中的背部明细；Reverse fly 和 Face pull 未提供组数、次数和重量。",
+    "exercises": [
+      {
+        "exercise_name": "Seated cable row",
+        "category": "compound",
+        "muscle_group": "back",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 20.4117,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 20.4117,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 47.6272,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 47.6272,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 5,
+            "weight": 40.8233,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 6,
+            "weight": 40.8233,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 7,
+            "weight": 40.8233,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "Wide grip lat pulldown",
+        "category": "compound",
+        "muscle_group": "back",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 40.8233,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 40.8233,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 40.8233,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 34.0194,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 5,
+            "weight": 34.0194,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "Chest supported row",
+        "category": "compound",
+        "muscle_group": "back",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 36.2874,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 36.2874,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 36.2874,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 36.2874,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "Reverse fly",
+        "category": "isolation",
+        "muscle_group": "rear_delts",
+        "sets": []
+      },
+      {
+        "exercise_name": "Face pull",
+        "category": "isolation",
+        "muscle_group": "rear_delts",
+        "sets": []
+      }
+    ]
+  },
+  "review": [
+    {
+      "review_status": "approved",
+      "note": "日期已按 Day 43 = 2026-08-03 且期间连续无中断记录确认。",
+      "field": "day.date"
+    },
+    {
+      "review_status": "needs_review",
+      "note": "Reverse fly 和 Face pull 未提供组数、次数和重量。",
+      "field": "workout.rear_delt_sets"
+    }
+  ]
+}

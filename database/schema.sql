@@ -45,6 +45,18 @@ CREATE TABLE IF NOT EXISTS body_measurements (
         OR body_fat_percentage BETWEEN 0 AND 100
     ),
     waist_cm REAL CHECK (waist_cm IS NULL OR waist_cm > 0),
+    neck_cm REAL CHECK (neck_cm IS NULL OR neck_cm > 0),
+    chest_cm REAL CHECK (chest_cm IS NULL OR chest_cm > 0),
+    shoulder_cm REAL CHECK (shoulder_cm IS NULL OR shoulder_cm > 0),
+    hip_cm REAL CHECK (hip_cm IS NULL OR hip_cm > 0),
+    arm_left_cm REAL CHECK (arm_left_cm IS NULL OR arm_left_cm > 0),
+    arm_right_cm REAL CHECK (arm_right_cm IS NULL OR arm_right_cm > 0),
+    forearm_left_cm REAL CHECK (forearm_left_cm IS NULL OR forearm_left_cm > 0),
+    forearm_right_cm REAL CHECK (forearm_right_cm IS NULL OR forearm_right_cm > 0),
+    leg_left_cm REAL CHECK (leg_left_cm IS NULL OR leg_left_cm > 0),
+    leg_right_cm REAL CHECK (leg_right_cm IS NULL OR leg_right_cm > 0),
+    calf_left_cm REAL CHECK (calf_left_cm IS NULL OR calf_left_cm > 0),
+    calf_right_cm REAL CHECK (calf_right_cm IS NULL OR calf_right_cm > 0),
     resting_heart_rate INTEGER CHECK (
         resting_heart_rate IS NULL OR resting_heart_rate > 0
     ),

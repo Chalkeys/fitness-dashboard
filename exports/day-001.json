@@ -1,0 +1,181 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-001",
+  "history_version": 1,
+  "exported_at": "2026-08-16T18:23:13.585499Z",
+  "date": "2026-06-22",
+  "day_number": 1,
+  "provenance": {
+    "source": "chat_history",
+    "confidence": "medium",
+    "notes": "日期根据 Day 43 = 2026-08-03 且期间连续无中断推算为 2026-06-22；日期已按连续无中断记录确认。"
+  },
+  "body": {
+    "weight_kg": 79.55,
+    "waist_cm": null,
+    "body_fat_percentage": null,
+    "notes": null
+  },
+  "daily_log": {
+    "is_training_day": true,
+    "workout_type": "leg",
+    "calories_in": 2300,
+    "tdee": 2400,
+    "calorie_balance": -100,
+    "protein_g": 169,
+    "total_carbs_g": 237,
+    "fiber_g": null,
+    "net_carbs_g": null,
+    "fat_g": 63,
+    "steps": null,
+    "active_energy_kcal": 507,
+    "notes": "；Active Energy 手动补录：507 kcal。"
+  },
+  "nutrition": [],
+  "workout": {
+    "session_id": "day-001-workout",
+    "workout_name": "Day 1 Leg",
+    "workout_type": "leg",
+    "duration_minutes": null,
+    "active_energy_kcal": 507,
+    "notes": "用户提供的动作均为有效组。25×2 lb 表示两只 25 lb 哑铃，总负荷 50 lb。；Active Energy 手动补录：507 kcal。",
+    "exercises": [
+      {
+        "exercise_name": "Bulgarian split squat",
+        "category": "compound",
+        "muscle_group": "quadriceps/glutes",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 22.6796,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "25 lb × 2 dumbbells; effective set."
+          },
+          {
+            "set_number": 2,
+            "weight": 22.6796,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "25 lb × 2 dumbbells; effective set."
+          },
+          {
+            "set_number": 3,
+            "weight": 22.6796,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "25 lb × 2 dumbbells; effective set."
+          },
+          {
+            "set_number": 4,
+            "weight": 22.6796,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "25 lb × 2 dumbbells; effective set."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Romanian deadlift",
+        "category": "compound",
+        "muscle_group": "hamstrings/glutes",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 22.6796,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "25 lb × 2 dumbbells; effective set."
+          },
+          {
+            "set_number": 2,
+            "weight": 22.6796,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "25 lb × 2 dumbbells; effective set."
+          },
+          {
+            "set_number": 3,
+            "weight": 22.6796,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "25 lb × 2 dumbbells; effective set."
+          },
+          {
+            "set_number": 4,
+            "weight": 22.6796,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "25 lb × 2 dumbbells; effective set."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Dumbbell squat",
+        "category": "compound",
+        "muscle_group": "quadriceps/glutes",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 22.6796,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "25 lb × 2 dumbbells; effective set."
+          },
+          {
+            "set_number": 2,
+            "weight": 22.6796,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "25 lb × 2 dumbbells; effective set."
+          },
+          {
+            "set_number": 3,
+            "weight": 22.6796,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "25 lb × 2 dumbbells; effective set."
+          },
+          {
+            "set_number": 4,
+            "weight": 22.6796,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "25 lb × 2 dumbbells; effective set."
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "review_status": "approved",
+      "note": "日期已按 Day 43 = 2026-08-03 且期间连续无中断记录确认。",
+      "field": "day.date"
+    }
+  ]
+}

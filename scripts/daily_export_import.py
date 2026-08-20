@@ -237,10 +237,38 @@ def _import_body(connection: sqlite3.Connection, document: dict[str, Any], daily
         """
         INSERT INTO body_measurements (
             daily_log_id, measured_at, weight_kg, waist_cm, body_fat_percentage,
-            notes, history_version, export_id, source, confidence, review_status, review_notes
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            neck_cm, chest_cm, shoulder_cm, hip_cm, arm_left_cm, arm_right_cm,
+            forearm_left_cm, forearm_right_cm, leg_left_cm, leg_right_cm,
+            calf_left_cm, calf_right_cm, notes, history_version, export_id,
+            source, confidence, review_status, review_notes
+        ) VALUES (
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+        )
         """,
-        (daily_id, document["date"], body.get("weight_kg"), body.get("waist_cm"), body.get("body_fat_percentage"), body.get("notes"), *metadata),
+        (
+            daily_id,
+            document["date"],
+            body.get("weight_kg"),
+            body.get("waist_cm"),
+            body.get("body_fat_percentage"),
+            body.get("neck_cm"),
+            body.get("chest_cm"),
+            body.get("shoulder_cm"),
+            body.get("hip_cm"),
+            body.get("arm_left_cm"),
+            body.get("arm_right_cm"),
+            body.get("forearm_left_cm"),
+            body.get("forearm_right_cm"),
+            body.get("leg_left_cm"),
+            body.get("leg_right_cm"),
+            body.get("calf_left_cm"),
+            body.get("calf_right_cm"),
+            body.get("notes"),
+            metadata[1],
+            metadata[0],
+            *metadata[2:],
+        ),
     )
 
 
@@ -297,7 +325,18 @@ def _import_workout(connection: sqlite3.Connection, document: dict[str, Any], da
             history_version, export_id, session_id, source, confidence, review_status, review_notes
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
-        (daily_id, workout["workout_name"], workout.get("workout_type"), workout.get("duration_minutes"), workout.get("active_energy_kcal"), workout.get("notes"), *metadata[:2], workout["session_id"], *metadata[2:]),
+        (
+            daily_id,
+            workout["workout_name"],
+            workout.get("workout_type"),
+            workout.get("duration_minutes"),
+            workout.get("active_energy_kcal"),
+            workout.get("notes"),
+            metadata[1],
+            metadata[0],
+            workout["session_id"],
+            *metadata[2:],
+        ),
     )
     session_id = cursor.lastrowid
     for exercise in workout.get("exercises", []):

@@ -46,6 +46,18 @@
             "weight_kg": { "type": ["number", "null"], "minimum": 0 },
             "waist_cm": { "type": ["number", "null"], "minimum": 0 },
             "body_fat_percentage": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+            "neck_cm": { "type": ["number", "null"], "minimum": 0 },
+            "chest_cm": { "type": ["number", "null"], "minimum": 0 },
+            "shoulder_cm": { "type": ["number", "null"], "minimum": 0 },
+            "hip_cm": { "type": ["number", "null"], "minimum": 0 },
+            "arm_left_cm": { "type": ["number", "null"], "minimum": 0 },
+            "arm_right_cm": { "type": ["number", "null"], "minimum": 0 },
+            "forearm_left_cm": { "type": ["number", "null"], "minimum": 0 },
+            "forearm_right_cm": { "type": ["number", "null"], "minimum": 0 },
+            "leg_left_cm": { "type": ["number", "null"], "minimum": 0 },
+            "leg_right_cm": { "type": ["number", "null"], "minimum": 0 },
+            "calf_left_cm": { "type": ["number", "null"], "minimum": 0 },
+            "calf_right_cm": { "type": ["number", "null"], "minimum": 0 },
             "notes": { "type": ["string", "null"] }
           }
         }

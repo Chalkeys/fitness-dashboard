@@ -1,0 +1,513 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-043",
+  "history_version": 1,
+  "exported_at": "2026-08-16T18:31:18.639719Z",
+  "date": "2026-08-03",
+  "day_number": 43,
+  "provenance": {
+    "source": "chat_history",
+    "confidence": "high",
+    "notes": "Day 43 最终数据已确认。日期为 2026-08-03；TDEE 按 BMR≈1820 + Active Energy 872 估算。"
+  },
+  "body": {
+    "weight_kg": 82.65,
+    "waist_cm": 83,
+    "body_fat_percentage": null,
+    "notes": "晨重 82.65 kg；腰围 83 cm。"
+  },
+  "daily_log": {
+    "is_training_day": true,
+    "workout_type": "push_a",
+    "calories_in": 1965,
+    "tdee": 2692,
+    "calorie_balance": -727,
+    "protein_g": 176,
+    "total_carbs_g": 210.9,
+    "fiber_g": 36.6,
+    "net_carbs_g": 174.3,
+    "fat_g": 33.9,
+    "steps": null,
+    "active_energy_kcal": 872,
+    "notes": "Push A；摄入约 1965 kcal，TDEE≈2692 kcal，热量缺口≈727 kcal。蛋白质和碳水达标，纤维良好，脂肪偏低；nutrition_history.json 逐项饮食明细已补充；膳食纤维暂按 0 g。"
+  },
+  "nutrition": [
+    {
+      "entry_id": "D043_F001",
+      "meal_type": "morning",
+      "food_name": "Oikos Triple Zero",
+      "brand": null,
+      "amount": 2,
+      "unit": "custom",
+      "servings": null,
+      "calories": 90,
+      "protein_g": 15,
+      "total_carbs_g": 7,
+      "fiber_g": 0,
+      "net_carbs_g": 7,
+      "fat_g": 0,
+      "notes": "原始单位：cup"
+    },
+    {
+      "entry_id": "D043_F002",
+      "meal_type": "morning",
+      "food_name": "ON Protein Shake",
+      "brand": null,
+      "amount": 1,
+      "unit": "bottle",
+      "servings": null,
+      "calories": 220,
+      "protein_g": 40,
+      "total_carbs_g": 9,
+      "fiber_g": 0,
+      "net_carbs_g": 9,
+      "fat_g": 3,
+      "notes": null
+    },
+    {
+      "entry_id": "D043_F003",
+      "meal_type": "morning",
+      "food_name": "香蕉",
+      "brand": null,
+      "amount": 1,
+      "unit": "piece",
+      "servings": null,
+      "calories": 105,
+      "protein_g": 1.3,
+      "total_carbs_g": 27,
+      "fiber_g": 0,
+      "net_carbs_g": 27,
+      "fat_g": 0.3,
+      "notes": null
+    },
+    {
+      "entry_id": "D043_F004",
+      "meal_type": "morning",
+      "food_name": "Oat Bran",
+      "brand": null,
+      "amount": 20,
+      "unit": "g",
+      "servings": null,
+      "calories": 375,
+      "protein_g": 17.5,
+      "total_carbs_g": 65,
+      "fiber_g": 0,
+      "net_carbs_g": 65,
+      "fat_g": 6.25,
+      "notes": null
+    },
+    {
+      "entry_id": "D043_F005",
+      "meal_type": "morning",
+      "food_name": "全脂牛奶（Latte）",
+      "brand": null,
+      "amount": 200,
+      "unit": "g",
+      "servings": null,
+      "calories": 61.5,
+      "protein_g": 3.2,
+      "total_carbs_g": 4.8,
+      "fiber_g": 0,
+      "net_carbs_g": 4.8,
+      "fat_g": 3.3,
+      "notes": null
+    },
+    {
+      "entry_id": "D043_F006",
+      "meal_type": "noon",
+      "food_name": "日式吐司",
+      "brand": null,
+      "amount": 85,
+      "unit": "g",
+      "servings": null,
+      "calories": 300,
+      "protein_g": 8,
+      "total_carbs_g": 55,
+      "fiber_g": 0,
+      "net_carbs_g": 55,
+      "fat_g": 5,
+      "notes": null
+    },
+    {
+      "entry_id": "D043_F007",
+      "meal_type": "night",
+      "food_name": "Ciabatta",
+      "brand": null,
+      "amount": 1,
+      "unit": "piece",
+      "servings": null,
+      "calories": 240,
+      "protein_g": 8,
+      "total_carbs_g": 48,
+      "fiber_g": 0,
+      "net_carbs_g": 48,
+      "fat_g": 1.5,
+      "notes": null
+    },
+    {
+      "entry_id": "D043_F008",
+      "meal_type": "night",
+      "food_name": "鸡肝酱",
+      "brand": null,
+      "amount": 0.167,
+      "unit": "custom",
+      "servings": null,
+      "calories": 250,
+      "protein_g": 12,
+      "total_carbs_g": 6,
+      "fiber_g": 0,
+      "net_carbs_g": 6,
+      "fat_g": 20,
+      "notes": "原始单位：can"
+    },
+    {
+      "entry_id": "D043_F009",
+      "meal_type": "night",
+      "food_name": "Tyson 鸡胸肉",
+      "brand": null,
+      "amount": 200,
+      "unit": "g",
+      "servings": null,
+      "calories": 130.95,
+      "protein_g": 23.81,
+      "total_carbs_g": 2.38,
+      "fiber_g": 0,
+      "net_carbs_g": 2.38,
+      "fat_g": 3.57,
+      "notes": null
+    },
+    {
+      "entry_id": "D043_F010",
+      "meal_type": "snack",
+      "food_name": "苹果（总重250g）",
+      "brand": null,
+      "amount": 1,
+      "unit": "piece",
+      "servings": null,
+      "calories": 95,
+      "protein_g": 0.5,
+      "total_carbs_g": 25,
+      "fiber_g": 0,
+      "net_carbs_g": 25,
+      "fat_g": 0.3,
+      "notes": null
+    },
+    {
+      "entry_id": "D043_F011",
+      "meal_type": "night",
+      "food_name": "Wrap",
+      "brand": null,
+      "amount": 1,
+      "unit": "piece",
+      "servings": null,
+      "calories": 90,
+      "protein_g": 11,
+      "total_carbs_g": 9,
+      "fiber_g": 0,
+      "net_carbs_g": 9,
+      "fat_g": 2.5,
+      "notes": null
+    },
+    {
+      "entry_id": "D043_F012",
+      "meal_type": "snack",
+      "food_name": "樱桃",
+      "brand": null,
+      "amount": 200,
+      "unit": "g",
+      "servings": null,
+      "calories": 63,
+      "protein_g": 1.1,
+      "total_carbs_g": 16,
+      "fiber_g": 0,
+      "net_carbs_g": 16,
+      "fat_g": 0.2,
+      "notes": null
+    },
+    {
+      "entry_id": "D043_F013",
+      "meal_type": "night",
+      "food_name": "Tuna",
+      "brand": null,
+      "amount": 1,
+      "unit": "custom",
+      "servings": null,
+      "calories": 100,
+      "protein_g": 22,
+      "total_carbs_g": 0,
+      "fiber_g": 0,
+      "net_carbs_g": 0,
+      "fat_g": 0.5,
+      "notes": "原始单位：can"
+    }
+  ],
+  "workout": {
+    "session_id": "day-043-workout",
+    "workout_name": "Day 43 Push A",
+    "workout_type": "push_a",
+    "duration_minutes": null,
+    "active_energy_kcal": 872,
+    "notes": "Push A；平板卧推 130×8、130×7×3；上斜哑铃卧推 45×12×3；悍马下斜推胸 130×10×3；坐姿肩推 80×12×3；侧平举 30×15×2、32.5×12；绳索下压 85×10×2、80×15；过头臂屈伸 80×12×3。包含热身组但未量化。",
+    "exercises": [
+      {
+        "exercise_name": "Barbell bench press",
+        "category": "compound",
+        "muscle_group": "chest",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 58.967,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：130 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 2,
+            "weight": 58.967,
+            "reps": 7,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：130 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 3,
+            "weight": 58.967,
+            "reps": 7,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：130 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 4,
+            "weight": 58.967,
+            "reps": 7,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：130 lb；已转换为 kg。"
+          }
+        ]
+      },
+      {
+        "exercise_name": "Incline dumbbell bench press",
+        "category": "compound",
+        "muscle_group": "chest",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 20.4117,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：45 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 2,
+            "weight": 20.4117,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：45 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 3,
+            "weight": 20.4117,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：45 lb；已转换为 kg。"
+          }
+        ]
+      },
+      {
+        "exercise_name": "Decline Hammer Strength chest press",
+        "category": "compound",
+        "muscle_group": "chest",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 58.967,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：130 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 2,
+            "weight": 58.967,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：130 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 3,
+            "weight": 58.967,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：130 lb；已转换为 kg。"
+          }
+        ]
+      },
+      {
+        "exercise_name": "Seated shoulder press",
+        "category": "compound",
+        "muscle_group": "shoulders",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 36.2874,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：80 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 2,
+            "weight": 36.2874,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：80 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 3,
+            "weight": 36.2874,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：80 lb；已转换为 kg。"
+          }
+        ]
+      },
+      {
+        "exercise_name": "Cable lateral raise",
+        "category": "isolation",
+        "muscle_group": "shoulders",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 13.6078,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：30 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 2,
+            "weight": 13.6078,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：30 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 3,
+            "weight": 14.7418,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：32.5 lb；已转换为 kg。"
+          }
+        ]
+      },
+      {
+        "exercise_name": "Triceps pushdown",
+        "category": "isolation",
+        "muscle_group": "triceps",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 38.5554,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：85 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 2,
+            "weight": 38.5554,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：85 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 3,
+            "weight": 36.2874,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：80 lb；已转换为 kg。"
+          }
+        ]
+      },
+      {
+        "exercise_name": "Overhead triceps extension",
+        "category": "isolation",
+        "muscle_group": "triceps",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 36.2874,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：80 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 2,
+            "weight": 36.2874,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：80 lb；已转换为 kg。"
+          },
+          {
+            "set_number": 3,
+            "weight": 36.2874,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "原始重量：80 lb；已转换为 kg。"
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "review_status": "approved",
+      "note": "Day 43 身体、训练、Active Energy 与最终营养数据已确认。",
+      "field": "daily_log"
+    },
+    {
+      "review_status": "approved",
+      "note": "逐项饮食明细已从 nutrition_history.json 补充；已保留原有确认值。",
+      "field": "daily_log.nutrition"
+    }
+  ]
+}

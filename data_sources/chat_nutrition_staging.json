@@ -1,0 +1,6377 @@
+{
+  "protocol": "chat_nutrition_records_v1",
+  "source": {
+    "filename": "ChatGPT-饮食记录与跟踪.json",
+    "sha256": "837e23b24d995e65b3e92e6a8edbb0f90dc15c70569d1ccfeb53352833d9e369",
+    "message_count": 1016,
+    "exported_at": "8/6/2026 9:07:33"
+  },
+  "anchor_date": "2026-06-22",
+  "generated_at": "2026-08-06T14:38:18.437673+00:00",
+  "records": [
+    {
+      "day_number": 5,
+      "date": "2026-06-26",
+      "daily_totals": {
+        "calories_in": 1935,
+        "protein_g": 179,
+        "total_carbs_g": 230,
+        "fiber_g": null,
+        "net_carbs_g": null,
+        "fat_g": 87,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-005-prompt-001-001",
+          "meal_type": "unspecified",
+          "food_name": "生米",
+          "amount": 70,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/26/2026, 1:30:14 PM",
+          "source_text": "70g生米"
+        },
+        {
+          "entry_id": "chat-day-005-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "樱桃",
+          "amount": 250,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/26/2026, 2:11:35 PM",
+          "source_text": "有250g樱桃"
+        },
+        {
+          "entry_id": "chat-day-005-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "蛋白粉",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/26/2026, 4:41:06 PM",
+          "source_text": "蛋白粉"
+        },
+        {
+          "entry_id": "chat-day-005-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "酸奶",
+          "amount": 2,
+          "unit": "cup",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/26/2026, 4:46:41 PM",
+          "source_text": "早上还有两杯酸奶"
+        },
+        {
+          "entry_id": "chat-day-005-prompt-006-001",
+          "meal_type": "unspecified",
+          "food_name": "开心果",
+          "amount": 15,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/26/2026, 4:47:36 PM",
+          "source_text": "15g开心果"
+        },
+        {
+          "entry_id": "chat-day-005-prompt-007-001",
+          "meal_type": "dinner",
+          "food_name": "虾",
+          "amount": 320,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/26/2026, 4:48:08 PM",
+          "source_text": "晚饭是320g虾"
+        },
+        {
+          "entry_id": "chat-day-005-prompt-010-001",
+          "meal_type": "unspecified",
+          "food_name": "蛋白粉",
+          "amount": 1,
+          "unit": "serving",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/26/2026, 9:05:38 PM",
+          "source_text": "又加了一份蛋白粉"
+        },
+        {
+          "entry_id": "chat-day-005-prompt-010-002",
+          "meal_type": "unspecified",
+          "food_name": "樱桃",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/26/2026, 9:05:38 PM",
+          "source_text": "200g樱桃"
+        },
+        {
+          "entry_id": "chat-day-005-prompt-011-001",
+          "meal_type": "unspecified",
+          "food_name": "五包这个仙贝",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/26/2026, 11:21:12 PM",
+          "source_text": "有五包这个仙贝"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "6/26/2026, 1:30:14 PM",
+          "text": "70g生米+100g五花肉",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/26/2026, 2:11:35 PM",
+          "text": "还有250g樱桃",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/26/2026, 4:41:06 PM",
+          "text": "喝了蛋白粉",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/26/2026, 4:41:38 PM",
+          "text": "我存了蛋白粉的营养成分，按之前的来",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/26/2026, 4:46:41 PM",
+          "text": "早上还有两杯酸奶",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/26/2026, 4:47:36 PM",
+          "text": "15g开心果",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/26/2026, 4:48:08 PM",
+          "text": "晚饭是320g虾",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "6/26/2026, 4:50:19 PM",
+          "text": "这是虾的营养表",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/26/2026, 4:51:38 PM",
+          "text": "包括我常吃的鸡胸肉",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/26/2026, 9:05:38 PM",
+          "text": "又加了一份蛋白粉，200g樱桃",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/26/2026, 11:21:12 PM",
+          "text": "还有五包这个仙贝",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 9,
+      "raw_mention_count": 11,
+      "sync_ready": false
+    },
+    {
+      "day_number": 6,
+      "date": "2026-06-27",
+      "daily_totals": {
+        "calories_in": 2264,
+        "protein_g": 173,
+        "total_carbs_g": 233,
+        "fiber_g": null,
+        "net_carbs_g": null,
+        "fat_g": 52,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-006-prompt-001-001",
+          "meal_type": "lunch",
+          "food_name": "生米",
+          "amount": 130,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/27/2026, 12:33:18 PM",
+          "source_text": "中午是130g生米"
+        },
+        {
+          "entry_id": "chat-day-006-prompt-001-002",
+          "meal_type": "lunch",
+          "food_name": "鸡胸肉",
+          "amount": 250,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/27/2026, 12:33:18 PM",
+          "source_text": "250g鸡胸肉"
+        },
+        {
+          "entry_id": "chat-day-006-prompt-003-001",
+          "meal_type": "dinner",
+          "food_name": "虾",
+          "amount": 380,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/27/2026, 12:36:22 PM",
+          "source_text": "晚饭380g虾"
+        },
+        {
+          "entry_id": "chat-day-006-prompt-004-001",
+          "meal_type": "lunch",
+          "food_name": "追加了生米",
+          "amount": 40,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/27/2026, 3:39:15 PM",
+          "source_text": "中午追加了40g生米"
+        },
+        {
+          "entry_id": "chat-day-006-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "仙贝",
+          "amount": 5,
+          "unit": "piece",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/27/2026, 6:43:58 PM",
+          "source_text": "5个仙贝"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "6/27/2026, 12:33:18 PM",
+          "text": "今天是练腿日，中午是130g生米+250g鸡胸肉",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "6/27/2026, 12:34:49 PM",
+          "text": "鸡胸肉成分表以后就按这个来",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/27/2026, 12:36:22 PM",
+          "text": "晚饭380g虾",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "6/27/2026, 3:39:15 PM",
+          "text": "中午追加了40g生米",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "6/27/2026, 6:43:58 PM",
+          "text": "5个仙贝",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 5,
+      "raw_mention_count": 5,
+      "sync_ready": false
+    },
+    {
+      "day_number": 7,
+      "date": "2026-06-28",
+      "daily_totals": {
+        "calories_in": 1734,
+        "protein_g": 137,
+        "total_carbs_g": 142,
+        "fiber_g": null,
+        "net_carbs_g": null,
+        "fat_g": 59,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-007-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "西瓜",
+          "amount": 150,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/28/2026, 2:50:53 PM",
+          "source_text": "我吃了150g西瓜"
+        },
+        {
+          "entry_id": "chat-day-007-prompt-002-002",
+          "meal_type": "unspecified",
+          "food_name": "crumpet",
+          "amount": 1,
+          "unit": "piece",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/28/2026, 2:50:53 PM",
+          "source_text": "一块crumpet"
+        },
+        {
+          "entry_id": "chat-day-007-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "开心果",
+          "amount": 10,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/28/2026, 2:52:27 PM",
+          "source_text": "10g开心果"
+        },
+        {
+          "entry_id": "chat-day-007-prompt-004-001",
+          "meal_type": "dinner",
+          "food_name": "虾",
+          "amount": 370,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/28/2026, 8:22:03 PM",
+          "source_text": "晚饭虾370g"
+        },
+        {
+          "entry_id": "chat-day-007-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "生米",
+          "amount": 50,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/28/2026, 9:26:49 PM",
+          "source_text": "50g生米"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "6/28/2026, 2:47:59 PM",
+          "text": "酸奶先不喝，蛋白粉喝了",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/28/2026, 2:50:53 PM",
+          "text": "我吃了150g西瓜，一块crumpet",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/28/2026, 2:52:27 PM",
+          "text": "10g开心果",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/28/2026, 8:22:03 PM",
+          "text": "晚饭虾370g",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "6/28/2026, 9:26:49 PM",
+          "text": "吃了50g生米",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 5,
+      "raw_mention_count": 5,
+      "sync_ready": false
+    },
+    {
+      "day_number": 8,
+      "date": "2026-06-29",
+      "daily_totals": {
+        "calories_in": 2105,
+        "protein_g": 174,
+        "total_carbs_g": 210,
+        "fiber_g": null,
+        "net_carbs_g": null,
+        "fat_g": 66,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-008-prompt-001-001",
+          "meal_type": "unspecified",
+          "food_name": "Latte",
+          "amount": 1,
+          "unit": "cup",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/29/2026, 8:46:10 AM",
+          "source_text": "早上喝了一杯latte"
+        },
+        {
+          "entry_id": "chat-day-008-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "差不多牛奶",
+          "amount": 150,
+          "unit": "ml",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/29/2026, 8:47:42 AM",
+          "source_text": "差不多150ml牛奶"
+        },
+        {
+          "entry_id": "chat-day-008-prompt-007-001",
+          "meal_type": "unspecified",
+          "food_name": "鸡胸肉",
+          "amount": 250,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/29/2026, 7:05:35 PM",
+          "source_text": "250g鸡胸肉"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "6/29/2026, 8:46:10 AM",
+          "text": "今天早上喝了一杯latte",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/29/2026, 8:47:14 AM",
+          "text": "拿铁是不是只算加入牛奶的热量就行",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/29/2026, 8:47:42 AM",
+          "text": "差不多150ml牛奶",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/29/2026, 8:47:55 AM",
+          "text": "全脂牛奶",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/29/2026, 8:48:46 AM",
+          "text": "开心果没吃",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/29/2026, 8:49:16 AM",
+          "text": "将开心果从早餐中剔除",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "6/29/2026, 7:05:35 PM",
+          "text": "250g鸡胸肉",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 3,
+      "raw_mention_count": 7,
+      "sync_ready": false
+    },
+    {
+      "day_number": 9,
+      "date": "2026-06-30",
+      "daily_totals": {
+        "calories_in": 1582,
+        "protein_g": 159,
+        "total_carbs_g": 198,
+        "fiber_g": null,
+        "net_carbs_g": null,
+        "fat_g": 24,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-009-prompt-001-001",
+          "meal_type": "dinner",
+          "food_name": "金枪鱼大腹sashimi",
+          "amount": 4,
+          "unit": "slice",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/30/2026, 12:32:27 AM",
+          "source_text": "4片金枪鱼大腹sashimi"
+        },
+        {
+          "entry_id": "chat-day-009-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "salmon寿司",
+          "amount": 6,
+          "unit": "piece",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/30/2026, 12:33:12 AM",
+          "source_text": "6块salmon寿司"
+        },
+        {
+          "entry_id": "chat-day-009-prompt-005-001",
+          "meal_type": "lunch",
+          "food_name": "鸡胸肉",
+          "amount": 300,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/30/2026, 1:31:32 PM",
+          "source_text": "午餐300g鸡胸肉"
+        },
+        {
+          "entry_id": "chat-day-009-prompt-005-002",
+          "meal_type": "lunch",
+          "food_name": "生米",
+          "amount": 60,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/30/2026, 1:31:32 PM",
+          "source_text": "60g生米饭"
+        },
+        {
+          "entry_id": "chat-day-009-prompt-006-001",
+          "meal_type": "dinner",
+          "food_name": "生米",
+          "amount": 50,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/30/2026, 7:52:24 PM",
+          "source_text": "晚饭50g生米"
+        },
+        {
+          "entry_id": "chat-day-009-prompt-006-002",
+          "meal_type": "dinner",
+          "food_name": "樱桃",
+          "amount": 150,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/30/2026, 7:52:24 PM",
+          "source_text": "150g樱桃"
+        },
+        {
+          "entry_id": "chat-day-009-prompt-008-001",
+          "meal_type": "unspecified",
+          "food_name": "生米",
+          "amount": 30,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "6/30/2026, 8:11:29 PM",
+          "source_text": "加30g生米"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "6/30/2026, 12:32:27 AM",
+          "text": "今天晚饭吃的sushi，4片金枪鱼大腹sashimi",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "6/30/2026, 12:33:12 AM",
+          "text": "6块salmon寿司",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/30/2026, 12:34:27 AM",
+          "text": "一个tuna手握，一个scallop手握",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/30/2026, 9:16:03 AM",
+          "text": "加一杯latte",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/30/2026, 1:31:32 PM",
+          "text": "午餐300g鸡胸肉+60g生米饭",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "6/30/2026, 7:52:24 PM",
+          "text": "晚饭50g生米，150g樱桃，一罐light chunk tunna",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "6/30/2026, 7:53:43 PM",
+          "text": "我还偶尔会吃沙丁鱼",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "6/30/2026, 8:11:29 PM",
+          "text": "加30g生米",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 7,
+      "raw_mention_count": 8,
+      "sync_ready": false
+    },
+    {
+      "day_number": 10,
+      "date": "2026-07-01",
+      "daily_totals": {
+        "calories_in": 2101,
+        "protein_g": 163,
+        "total_carbs_g": 184,
+        "fiber_g": null,
+        "net_carbs_g": null,
+        "fat_g": 72.5,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-010-prompt-001-001",
+          "meal_type": "unspecified",
+          "food_name": "day10早上空腹喝了latte",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/1/2026, 9:55:15 AM",
+          "source_text": "day10早上空腹喝了latte"
+        },
+        {
+          "entry_id": "chat-day-010-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "牛奶",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/1/2026, 9:55:28 AM",
+          "source_text": "牛奶"
+        },
+        {
+          "entry_id": "chat-day-010-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "鸡胸肉",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/1/2026, 1:59:02 PM",
+          "source_text": "100g鸡胸肉"
+        },
+        {
+          "entry_id": "chat-day-010-prompt-004-001",
+          "meal_type": "dinner",
+          "food_name": "生米",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/1/2026, 6:05:11 PM",
+          "source_text": "晚饭100g生米"
+        },
+        {
+          "entry_id": "chat-day-010-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "猪排骨",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/1/2026, 6:05:45 PM",
+          "source_text": "猪排骨200g"
+        },
+        {
+          "entry_id": "chat-day-010-prompt-006-001",
+          "meal_type": "unspecified",
+          "food_name": "一盒沙丁鱼",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/1/2026, 6:07:57 PM",
+          "source_text": "一盒沙丁鱼"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/1/2026, 9:55:15 AM",
+          "text": "day10早上空腹喝了latte",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/1/2026, 9:55:28 AM",
+          "text": "牛奶+50g",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/1/2026, 1:59:02 PM",
+          "text": "6oz这个肠+180g红薯（烤前）+100g鸡胸肉",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/1/2026, 6:05:11 PM",
+          "text": "晚饭100g生米",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "7/1/2026, 6:05:45 PM",
+          "text": "猪排骨200g",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/1/2026, 6:07:57 PM",
+          "text": "吃了一盒沙丁鱼",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/1/2026, 6:08:54 PM",
+          "text": "今天没吃granola",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 6,
+      "raw_mention_count": 7,
+      "sync_ready": false
+    },
+    {
+      "day_number": 11,
+      "date": "2026-07-02",
+      "daily_totals": {
+        "calories_in": 1886,
+        "protein_g": 150,
+        "total_carbs_g": 178,
+        "fiber_g": null,
+        "net_carbs_g": null,
+        "fat_g": 61,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-011-prompt-001-001",
+          "meal_type": "breakfast",
+          "food_name": "tuna",
+          "amount": 1,
+          "unit": "can",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/2/2026, 1:09:21 PM",
+          "source_text": "午饭一罐tuna"
+        },
+        {
+          "entry_id": "chat-day-011-prompt-001-002",
+          "meal_type": "breakfast",
+          "food_name": "玉米",
+          "amount": 90,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/2/2026, 1:09:21 PM",
+          "source_text": "90g玉米"
+        },
+        {
+          "entry_id": "chat-day-011-prompt-005-001",
+          "meal_type": "dinner",
+          "food_name": "排骨 50g百叶结 100g墨西哥玉米粒 50g生米",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/2/2026, 6:24:20 PM",
+          "source_text": "晚餐 200g排骨 50g百叶结 100g墨西哥玉米粒 50g生米"
+        },
+        {
+          "entry_id": "chat-day-011-prompt-007-001",
+          "meal_type": "unspecified",
+          "food_name": "西瓜",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/2/2026, 9:54:05 PM",
+          "source_text": "200g西瓜"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/2/2026, 1:09:21 PM",
+          "text": "今天早饭依旧，午饭一罐tuna+一个chiabatta+90g玉米",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/2/2026, 1:10:04 PM",
+          "text": "玉米",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/2/2026, 1:10:23 PM",
+          "text": "ciabatta",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/2/2026, 1:11:03 PM",
+          "text": "今天是油浸tuna",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/2/2026, 6:24:20 PM",
+          "text": "晚餐 200g排骨 50g百叶结 100g墨西哥玉米粒 50g生米",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "7/2/2026, 6:25:50 PM",
+          "text": "今天的蛋白粉替换成premier protein",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/2/2026, 9:54:05 PM",
+          "text": "200g西瓜",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/2/2026, 9:54:44 PM",
+          "text": "再加一瓶premier protein",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 4,
+      "raw_mention_count": 8,
+      "sync_ready": false
+    },
+    {
+      "day_number": 12,
+      "date": "2026-07-03",
+      "daily_totals": {
+        "calories_in": 1950,
+        "protein_g": 159,
+        "total_carbs_g": 161,
+        "fiber_g": null,
+        "net_carbs_g": null,
+        "fat_g": 88,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-012-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "西瓜",
+          "amount": 250,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/3/2026, 3:27:53 PM",
+          "source_text": "250g西瓜"
+        },
+        {
+          "entry_id": "chat-day-012-prompt-004-001",
+          "meal_type": "unspecified",
+          "food_name": "虾滑 牛肉卷50g 羊肉卷50g 豆腐 80g 豆皮 250",
+          "amount": 50,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/3/2026, 8:18:48 PM",
+          "source_text": "虾滑50g 牛肉卷50g 羊肉卷50g 豆腐 80g 豆皮 250"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/3/2026, 3:18:22 PM",
+          "text": "今天午饭是水浸金枪鱼罐头+200g墨西哥玉米，以后金枪鱼罐头默认加下面这两个酱，每个罐头加15gmagic whip和5gdijon mustard",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/3/2026, 3:20:21 PM",
+          "text": "不，只有昨天是premier替代植物蛋白粉",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/3/2026, 3:27:53 PM",
+          "text": "250g西瓜",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/3/2026, 8:18:48 PM",
+          "text": "虾滑50g 牛肉卷50g 羊肉卷50g 豆腐 80g 豆皮 250",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/3/2026, 8:19:40 PM",
+          "text": "不是豆皮是豆腐丝",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 2,
+      "raw_mention_count": 5,
+      "sync_ready": false
+    },
+    {
+      "day_number": 13,
+      "date": "2026-07-04",
+      "daily_totals": {
+        "calories_in": 1650,
+        "protein_g": 188,
+        "total_carbs_g": 148,
+        "fiber_g": null,
+        "net_carbs_g": null,
+        "fat_g": 49,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-013-prompt-001-001",
+          "meal_type": "breakfast",
+          "food_name": "排骨",
+          "amount": 150,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/4/2026, 4:42:43 PM",
+          "source_text": "150g排骨"
+        },
+        {
+          "entry_id": "chat-day-013-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "饼干",
+          "amount": 15,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/4/2026, 5:03:04 PM",
+          "source_text": "饼干15g"
+        },
+        {
+          "entry_id": "chat-day-013-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "鸡胸肉",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/4/2026, 5:03:15 PM",
+          "source_text": "鸡胸肉200g"
+        },
+        {
+          "entry_id": "chat-day-013-prompt-004-001",
+          "meal_type": "unspecified",
+          "food_name": "樱桃 100g西瓜",
+          "amount": 300,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/4/2026, 10:35:07 PM",
+          "source_text": "300g樱桃 100g西瓜"
+        },
+        {
+          "entry_id": "chat-day-013-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "虾",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/4/2026, 10:36:00 PM",
+          "source_text": "虾 200g"
+        },
+        {
+          "entry_id": "chat-day-013-prompt-006-001",
+          "meal_type": "unspecified",
+          "food_name": "虾提高到",
+          "amount": 400,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/4/2026, 10:36:17 PM",
+          "source_text": "虾提高到400g"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/4/2026, 4:42:43 PM",
+          "text": "今天休息日，早饭一个恰巴塔+150g排骨+100g百叶结",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/4/2026, 5:03:04 PM",
+          "text": "饼干15g",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/4/2026, 5:03:15 PM",
+          "text": "鸡胸肉200g",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/4/2026, 10:35:07 PM",
+          "text": "300g樱桃 100g西瓜",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/4/2026, 10:36:00 PM",
+          "text": "虾 200g",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/4/2026, 10:36:17 PM",
+          "text": "虾提高到400g",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/4/2026, 11:05:54 PM",
+          "text": "再加一份蛋白粉可以吗",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 6,
+      "raw_mention_count": 7,
+      "sync_ready": false
+    },
+    {
+      "day_number": 14,
+      "date": "2026-07-05",
+      "daily_totals": {
+        "calories_in": 1908,
+        "protein_g": 115,
+        "total_carbs_g": 169,
+        "fiber_g": null,
+        "net_carbs_g": null,
+        "fat_g": 83.5,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-014-prompt-001-001",
+          "meal_type": "lunch",
+          "food_name": "生米",
+          "amount": 130,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/5/2026, 6:53:15 PM",
+          "source_text": "午饭130g生米"
+        },
+        {
+          "entry_id": "chat-day-014-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "樱桃",
+          "amount": 150,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/5/2026, 7:04:31 PM",
+          "source_text": "150g樱桃"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/5/2026, 6:53:15 PM",
+          "text": "今天午饭130g生米+200gspare rib 50g百叶结",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/5/2026, 7:04:31 PM",
+          "text": "150g樱桃",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/5/2026, 7:05:33 PM",
+          "text": "一盒水浸三文鱼",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/5/2026, 7:10:46 PM",
+          "text": "两颗鸡蛋",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 2,
+      "raw_mention_count": 4,
+      "sync_ready": false
+    },
+    {
+      "day_number": 15,
+      "date": "2026-07-06",
+      "daily_totals": {
+        "calories_in": 2000,
+        "protein_g": 179,
+        "total_carbs_g": 199,
+        "fiber_g": null,
+        "net_carbs_g": null,
+        "fat_g": 61,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-015-prompt-003-001",
+          "meal_type": "lunch",
+          "food_name": "番茄菠菜omelet",
+          "amount": 250,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/6/2026, 1:57:53 PM",
+          "source_text": "午餐250g 番茄菠菜omelet"
+        },
+        {
+          "entry_id": "chat-day-015-prompt-004-001",
+          "meal_type": "unspecified",
+          "food_name": "上生米",
+          "amount": 60,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/6/2026, 1:58:29 PM",
+          "source_text": "加上60g生米"
+        },
+        {
+          "entry_id": "chat-day-015-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "没喝latte",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/6/2026, 3:31:28 PM",
+          "source_text": "没喝latte"
+        },
+        {
+          "entry_id": "chat-day-015-prompt-006-001",
+          "meal_type": "dinner",
+          "food_name": "可能吃水煮鱼",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/6/2026, 3:31:54 PM",
+          "source_text": "晚餐可能吃水煮鱼"
+        },
+        {
+          "entry_id": "chat-day-015-prompt-008-001",
+          "meal_type": "dinner",
+          "food_name": "鱼肉 200g老豆腐 40g生米",
+          "amount": 150,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/6/2026, 6:55:09 PM",
+          "source_text": "晚饭150g鱼肉 200g老豆腐 40g生米"
+        },
+        {
+          "entry_id": "chat-day-015-prompt-009-001",
+          "meal_type": "unspecified",
+          "food_name": "premier protein",
+          "amount": 1,
+          "unit": "bottle",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/6/2026, 8:43:24 PM",
+          "source_text": "一瓶premier protein"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/6/2026, 8:58:43 AM",
+          "text": "昨天睡前补了一根香蕉",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/6/2026, 11:10:51 AM",
+          "text": "今天早饭依旧，加两个鸡蛋",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/6/2026, 1:57:53 PM",
+          "text": "午餐250g 番茄菠菜omelet",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/6/2026, 1:58:29 PM",
+          "text": "加上60g生米",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/6/2026, 3:31:28 PM",
+          "text": "没喝latte",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/6/2026, 3:31:54 PM",
+          "text": "晚餐可能吃水煮鱼",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "7/6/2026, 3:32:39 PM",
+          "text": "鱼肉是脆肉脘",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/6/2026, 6:55:09 PM",
+          "text": "晚饭150g鱼肉 200g老豆腐 40g生米",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "7/6/2026, 8:43:24 PM",
+          "text": "加了一瓶premier protein",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 6,
+      "raw_mention_count": 9,
+      "sync_ready": false
+    },
+    {
+      "day_number": 16,
+      "date": "2026-07-07",
+      "daily_totals": {
+        "calories_in": 2305,
+        "protein_g": 176,
+        "total_carbs_g": 253,
+        "fiber_g": null,
+        "net_carbs_g": null,
+        "fat_g": 72.7,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-016-prompt-001-001",
+          "meal_type": "lunch",
+          "food_name": "墨西哥玉米",
+          "amount": 300,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/7/2026, 12:56:21 PM",
+          "source_text": "午餐300g墨西哥玉米"
+        },
+        {
+          "entry_id": "chat-day-016-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "猪spare rib",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/7/2026, 12:57:17 PM",
+          "source_text": "200g猪spare rib"
+        },
+        {
+          "entry_id": "chat-day-016-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "鸡胸肉",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/7/2026, 12:58:41 PM",
+          "source_text": "200g鸡胸肉"
+        },
+        {
+          "entry_id": "chat-day-016-prompt-004-001",
+          "meal_type": "breakfast",
+          "food_name": "但没喝酸奶",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/7/2026, 12:59:05 PM",
+          "source_text": "但没喝酸奶"
+        },
+        {
+          "entry_id": "chat-day-016-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "樱桃",
+          "amount": 150,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/7/2026, 7:50:30 PM",
+          "source_text": "150g樱桃"
+        },
+        {
+          "entry_id": "chat-day-016-prompt-006-001",
+          "meal_type": "unspecified",
+          "food_name": "香蕉",
+          "amount": 80,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/7/2026, 7:50:43 PM",
+          "source_text": "80g香蕉"
+        },
+        {
+          "entry_id": "chat-day-016-prompt-010-001",
+          "meal_type": "unspecified",
+          "food_name": "樱桃",
+          "amount": 50,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/7/2026, 8:29:34 PM",
+          "source_text": "加50g樱桃"
+        },
+        {
+          "entry_id": "chat-day-016-prompt-011-001",
+          "meal_type": "unspecified",
+          "food_name": "生米",
+          "amount": 20,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/7/2026, 8:30:01 PM",
+          "source_text": "20g生米"
+        },
+        {
+          "entry_id": "chat-day-016-prompt-011-002",
+          "meal_type": "unspecified",
+          "food_name": "鸡胸肉",
+          "amount": 20,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/7/2026, 8:30:01 PM",
+          "source_text": "20g鸡胸肉"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/7/2026, 12:56:21 PM",
+          "text": "今天午餐300g墨西哥玉米",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/7/2026, 12:57:17 PM",
+          "text": "200g猪spare rib",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/7/2026, 12:58:41 PM",
+          "text": "200g鸡胸肉",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/7/2026, 12:59:05 PM",
+          "text": "早饭跟之前一样，但没喝酸奶",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/7/2026, 7:50:30 PM",
+          "text": "150g樱桃",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/7/2026, 7:50:43 PM",
+          "text": "80g香蕉",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/7/2026, 8:06:31 PM",
+          "text": "一瓶premier protein",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/7/2026, 8:28:16 PM",
+          "text": "再加一根这个冰淇淋",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/7/2026, 8:28:48 PM",
+          "text": "将冰淇淋列入常吃的列表",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/7/2026, 8:29:34 PM",
+          "text": "再加50g樱桃",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/7/2026, 8:30:01 PM",
+          "text": "20g生米，20g鸡胸肉",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 9,
+      "raw_mention_count": 11,
+      "sync_ready": false
+    },
+    {
+      "day_number": 17,
+      "date": "2026-07-08",
+      "daily_totals": {
+        "calories_in": 2223,
+        "protein_g": 183,
+        "total_carbs_g": 270,
+        "fiber_g": null,
+        "net_carbs_g": null,
+        "fat_g": 52,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-017-prompt-001-001",
+          "meal_type": "lunch",
+          "food_name": "生米",
+          "amount": 130,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/8/2026, 1:34:45 PM",
+          "source_text": "中午130g生米"
+        },
+        {
+          "entry_id": "chat-day-017-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "granola",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/8/2026, 2:04:55 PM",
+          "source_text": "吃了granola"
+        },
+        {
+          "entry_id": "chat-day-017-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "生米",
+          "amount": 40,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/8/2026, 6:11:22 PM",
+          "source_text": "40g生米"
+        },
+        {
+          "entry_id": "chat-day-017-prompt-004-001",
+          "meal_type": "unspecified",
+          "food_name": "一盒沙丁鱼",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/8/2026, 6:13:13 PM",
+          "source_text": "吃一盒沙丁鱼"
+        },
+        {
+          "entry_id": "chat-day-017-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "樱桃",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/8/2026, 10:23:07 PM",
+          "source_text": "100g樱桃"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/8/2026, 1:34:45 PM",
+          "text": "中午130g生米+82g pastrami",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/8/2026, 2:04:55 PM",
+          "text": "今天吃了granola",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/8/2026, 6:11:22 PM",
+          "text": "40g生米",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/8/2026, 6:13:13 PM",
+          "text": "吃一盒沙丁鱼",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/8/2026, 10:23:07 PM",
+          "text": "premier+100g樱桃",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 5,
+      "raw_mention_count": 5,
+      "sync_ready": false
+    },
+    {
+      "day_number": 18,
+      "date": "2026-07-09",
+      "daily_totals": {
+        "calories_in": 2012,
+        "protein_g": 186,
+        "total_carbs_g": 226,
+        "fiber_g": null,
+        "net_carbs_g": null,
+        "fat_g": 51,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-018-prompt-001-001",
+          "meal_type": "unspecified",
+          "food_name": "没有吃米饭",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/9/2026, 1:10:00 PM",
+          "source_text": "没有吃米饭"
+        },
+        {
+          "entry_id": "chat-day-018-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "granola",
+          "amount": 20,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/9/2026, 1:10:54 PM",
+          "source_text": "granola 20g"
+        },
+        {
+          "entry_id": "chat-day-018-prompt-003-001",
+          "meal_type": "dinner",
+          "food_name": "鸡胸肉",
+          "amount": 230,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/9/2026, 6:59:25 PM",
+          "source_text": "晚饭230g鸡胸肉"
+        },
+        {
+          "entry_id": "chat-day-018-prompt-004-001",
+          "meal_type": "unspecified",
+          "food_name": "沙丁鱼罐头",
+          "amount": 1,
+          "unit": "serving",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/9/2026, 7:14:59 PM",
+          "source_text": "一份沙丁鱼罐头"
+        },
+        {
+          "entry_id": "chat-day-018-prompt-004-002",
+          "meal_type": "unspecified",
+          "food_name": "樱桃",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/9/2026, 7:14:59 PM",
+          "source_text": "200g樱桃"
+        },
+        {
+          "entry_id": "chat-day-018-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "樱桃",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/9/2026, 10:39:11 PM",
+          "source_text": "加200g樱桃"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/9/2026, 1:10:00 PM",
+          "text": "没有吃米饭，130g烤大蕉加上一个恰巴塔",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/9/2026, 1:10:54 PM",
+          "text": "granola 20g",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/9/2026, 6:59:25 PM",
+          "text": "晚饭230g鸡胸肉",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "7/9/2026, 7:14:59 PM",
+          "text": "一份沙丁鱼罐头+200g樱桃",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/9/2026, 10:39:11 PM",
+          "text": "再加200g樱桃",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 6,
+      "raw_mention_count": 5,
+      "sync_ready": false
+    },
+    {
+      "day_number": 19,
+      "date": "2026-07-10",
+      "daily_totals": {
+        "calories_in": 2070,
+        "protein_g": 176,
+        "total_carbs_g": 223,
+        "fiber_g": 30,
+        "net_carbs_g": 193,
+        "fat_g": 56,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-019-prompt-001-001",
+          "meal_type": "breakfast",
+          "food_name": "鸡蛋",
+          "amount": 2,
+          "unit": "piece",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/10/2026, 9:59:08 AM",
+          "source_text": "早饭2个鸡蛋"
+        },
+        {
+          "entry_id": "chat-day-019-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "granola",
+          "amount": 10,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/10/2026, 9:59:37 AM",
+          "source_text": "granola 10g"
+        },
+        {
+          "entry_id": "chat-day-019-prompt-004-001",
+          "meal_type": "dinner",
+          "food_name": "一盒三文鱼罐头再加一勺低卡蛋黄酱",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/10/2026, 12:59:00 PM",
+          "source_text": "一盒三文鱼罐头再加一勺低卡蛋黄酱"
+        },
+        {
+          "entry_id": "chat-day-019-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "晚上虾",
+          "amount": 300,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/10/2026, 12:59:35 PM",
+          "source_text": "晚上300g虾"
+        },
+        {
+          "entry_id": "chat-day-019-prompt-007-001",
+          "meal_type": "dinner",
+          "food_name": "墨西哥玉米",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/10/2026, 6:01:38 PM",
+          "source_text": "晚饭100g墨西哥玉米"
+        },
+        {
+          "entry_id": "chat-day-019-prompt-008-001",
+          "meal_type": "unspecified",
+          "food_name": "玉米",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/10/2026, 6:02:56 PM",
+          "source_text": "加100g玉米"
+        },
+        {
+          "entry_id": "chat-day-019-prompt-009-001",
+          "meal_type": "lunch",
+          "food_name": "明天午饭 玉米300g虾",
+          "amount": 230,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/10/2026, 6:17:46 PM",
+          "source_text": "明天午饭 230g玉米300g虾"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/10/2026, 9:59:08 AM",
+          "text": "早饭2个鸡蛋",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/10/2026, 9:59:20 AM",
+          "text": "酸奶减到1杯",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/10/2026, 9:59:37 AM",
+          "text": "granola 10g",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/10/2026, 12:59:00 PM",
+          "text": "晚餐半个牛油果和一盒三文鱼罐头再加一勺低卡蛋黄酱",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "7/10/2026, 12:59:35 PM",
+          "text": "晚上300g虾",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/10/2026, 1:27:44 PM",
+          "text": "那就两罐三文鱼罐头，需要补多少虾",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/10/2026, 6:01:38 PM",
+          "text": "晚饭100g墨西哥玉米",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "7/10/2026, 6:02:56 PM",
+          "text": "再加100g玉米",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/10/2026, 6:17:46 PM",
+          "text": "明天午饭 230g玉米300g虾",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/10/2026, 6:19:54 PM",
+          "text": "虾实际上也是生的",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 7,
+      "raw_mention_count": 10,
+      "sync_ready": false
+    },
+    {
+      "day_number": 20,
+      "date": "2026-07-11",
+      "daily_totals": {
+        "calories_in": 2315,
+        "protein_g": 187,
+        "total_carbs_g": 235,
+        "fiber_g": 22,
+        "net_carbs_g": 213,
+        "fat_g": 85,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-020-prompt-001-001",
+          "meal_type": "unspecified",
+          "food_name": "樱桃",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/11/2026, 1:06:43 AM",
+          "source_text": "100g樱桃"
+        },
+        {
+          "entry_id": "chat-day-020-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "希腊酸奶",
+          "amount": 2,
+          "unit": "piece",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/11/2026, 3:28:06 PM",
+          "source_text": "希腊酸奶x2"
+        },
+        {
+          "entry_id": "chat-day-020-prompt-004-001",
+          "meal_type": "unspecified",
+          "food_name": "Latte",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/11/2026, 3:28:23 PM",
+          "source_text": "喝了latte"
+        },
+        {
+          "entry_id": "chat-day-020-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "昨天吃了樱桃吗",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/11/2026, 3:31:55 PM",
+          "source_text": "昨天吃了樱桃吗"
+        },
+        {
+          "entry_id": "chat-day-020-prompt-006-001",
+          "meal_type": "unspecified",
+          "food_name": "用这个鱼片做水煮鱼",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/11/2026, 3:33:03 PM",
+          "source_text": "用这个鱼片做水煮鱼"
+        },
+        {
+          "entry_id": "chat-day-020-prompt-007-001",
+          "meal_type": "dinner",
+          "food_name": "生米",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/11/2026, 3:36:38 PM",
+          "source_text": "晚饭生米100g"
+        },
+        {
+          "entry_id": "chat-day-020-prompt-008-001",
+          "meal_type": "unspecified",
+          "food_name": "我吃完了一整份鱼",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/11/2026, 4:07:30 PM",
+          "source_text": "我吃完了一整份鱼"
+        },
+        {
+          "entry_id": "chat-day-020-prompt-008-002",
+          "meal_type": "unspecified",
+          "food_name": "然后生米",
+          "amount": 120,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/11/2026, 4:07:30 PM",
+          "source_text": "然后120g生米"
+        },
+        {
+          "entry_id": "chat-day-020-prompt-012-001",
+          "meal_type": "unspecified",
+          "food_name": "蓝莓",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/11/2026, 4:16:24 PM",
+          "source_text": "我还有蓝莓"
+        },
+        {
+          "entry_id": "chat-day-020-prompt-013-001",
+          "meal_type": "unspecified",
+          "food_name": "可以那就蓝莓",
+          "amount": 150,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/11/2026, 4:17:16 PM",
+          "source_text": "可以那就150g蓝莓"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/11/2026, 1:06:43 AM",
+          "text": "100g樱桃",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/11/2026, 3:27:53 PM",
+          "text": "granola今天没吃鸡蛋也没吃",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/11/2026, 3:28:06 PM",
+          "text": "希腊酸奶x2",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/11/2026, 3:28:23 PM",
+          "text": "今天喝了latte",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/11/2026, 3:31:55 PM",
+          "text": "昨天吃了樱桃吗",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/11/2026, 3:33:03 PM",
+          "text": "今天用这个鱼片做水煮鱼，预计只吃一半",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/11/2026, 3:36:38 PM",
+          "text": "晚饭生米100g",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "7/11/2026, 4:07:30 PM",
+          "text": "我吃完了一整份鱼，然后120g生米",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/11/2026, 4:10:54 PM",
+          "text": "但我在食用前把鱼片洗了一遍",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/11/2026, 4:13:59 PM",
+          "text": "难道腌过的鱼会把油吸进去吗",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/11/2026, 4:15:06 PM",
+          "text": "没关系不用纠结，以后不会吃这个鱼了",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/11/2026, 4:16:24 PM",
+          "text": "我还有蓝莓和草莓，吃哪个",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/11/2026, 4:17:16 PM",
+          "text": "可以那就150g蓝莓",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 10,
+      "raw_mention_count": 13,
+      "sync_ready": false
+    },
+    {
+      "day_number": 21,
+      "date": "2026-07-12",
+      "daily_totals": {
+        "calories_in": 2022,
+        "protein_g": 151,
+        "total_carbs_g": 192,
+        "fiber_g": 7,
+        "net_carbs_g": 185,
+        "fat_g": 70,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-021-prompt-002-001",
+          "meal_type": "lunch",
+          "food_name": "生米",
+          "amount": 120,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/12/2026, 12:48:35 PM",
+          "source_text": "120g生米饭"
+        },
+        {
+          "entry_id": "chat-day-021-prompt-004-001",
+          "meal_type": "lunch",
+          "food_name": "一个lengua 一个tinga 一个chicharron一个tripataco 加上熟米饭",
+          "amount": 50,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/12/2026, 2:50:42 PM",
+          "source_text": "中午吃了一个lengua 一个tinga 一个chicharron一个tripataco 加上50g熟米饭"
+        },
+        {
+          "entry_id": "chat-day-021-prompt-005-001",
+          "meal_type": "dinner",
+          "food_name": "生米",
+          "amount": 120,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/12/2026, 10:53:56 PM",
+          "source_text": "120g生米"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/12/2026, 12:47:40 PM",
+          "text": "今天早饭两个鸡蛋两杯酸奶",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/12/2026, 12:48:35 PM",
+          "text": "午餐是昨天的盐葱鸡腿+120g生米饭",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/12/2026, 1:30:25 PM",
+          "text": "如果晚饭不吃five guys，有什么快餐我可以选择吗，以下是附近有的：chick fila chipotle taco bell mcdonals wendys",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "7/12/2026, 2:50:42 PM",
+          "text": "中午吃了一个lengua 一个tinga 一个chicharron一个tripataco 加上50g熟米饭",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/12/2026, 10:53:56 PM",
+          "text": "晚饭是盐葱鸡腿+120g生米",
+          "meal_type": "dinner"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 3,
+      "raw_mention_count": 5,
+      "sync_ready": false
+    },
+    {
+      "day_number": 22,
+      "date": "2026-07-13",
+      "daily_totals": {
+        "calories_in": 2415.0,
+        "protein_g": 221.0,
+        "total_carbs_g": 238.0,
+        "fiber_g": 11.4,
+        "net_carbs_g": 226.0,
+        "fat_g": 70.0,
+        "source": "chat_final_summary",
+        "source_time": "7/15/2026, 11:10:03 AM"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-022-prompt-001-001",
+          "meal_type": "lunch",
+          "food_name": "生米",
+          "amount": 120,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/13/2026, 3:43:16 PM",
+          "source_text": "120g生米"
+        },
+        {
+          "entry_id": "chat-day-022-prompt-004-001",
+          "meal_type": "unspecified",
+          "food_name": "樱桃",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/13/2026, 5:32:11 PM",
+          "source_text": "100g樱桃"
+        },
+        {
+          "entry_id": "chat-day-022-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "沙丁鱼",
+          "amount": 1,
+          "unit": "can",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/13/2026, 5:32:58 PM",
+          "source_text": "吃一罐沙丁鱼呢"
+        },
+        {
+          "entry_id": "chat-day-022-prompt-006-001",
+          "meal_type": "dinner",
+          "food_name": "沙丁鱼罐头",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/13/2026, 6:49:26 PM",
+          "source_text": "晚饭是沙丁鱼罐头"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/13/2026, 3:43:16 PM",
+          "text": "今天午餐还是盐葱鸡+120g生米",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/13/2026, 3:44:03 PM",
+          "text": "早餐不是鸡蛋，是我的常规早餐",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/13/2026, 3:45:18 PM",
+          "text": "不不不昨天午餐是taco呀",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/13/2026, 5:32:11 PM",
+          "text": "100g樱桃",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/13/2026, 5:32:58 PM",
+          "text": "吃一罐沙丁鱼呢",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/13/2026, 6:49:26 PM",
+          "text": "晚饭是沙丁鱼罐头+50g这个沙拉+一个恰巴塔",
+          "meal_type": "dinner"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 4,
+      "raw_mention_count": 6,
+      "sync_ready": false
+    },
+    {
+      "day_number": 23,
+      "date": "2026-07-14",
+      "daily_totals": {
+        "calories_in": 2120,
+        "protein_g": 182,
+        "total_carbs_g": 188,
+        "fiber_g": 18,
+        "net_carbs_g": 170,
+        "fat_g": 60,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-023-prompt-002-001",
+          "meal_type": "lunch",
+          "food_name": "虾可以吗",
+          "amount": 250,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/14/2026, 2:10:52 PM",
+          "source_text": "中午吃虾250g可以吗"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/14/2026, 9:25:41 AM",
+          "text": "今天是day 23 早饭没吃酸奶",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/14/2026, 2:10:52 PM",
+          "text": "今天中午吃虾250g可以吗",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/14/2026, 2:18:13 PM",
+          "text": "我补了一根香蕉",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/14/2026, 7:23:51 PM",
+          "text": "这个跟我现在的酸奶比怎么样",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 1,
+      "raw_mention_count": 4,
+      "sync_ready": false
+    },
+    {
+      "day_number": 24,
+      "date": "2026-07-15",
+      "daily_totals": {
+        "calories_in": 2285,
+        "protein_g": 190,
+        "total_carbs_g": 283,
+        "fiber_g": 21,
+        "net_carbs_g": 262,
+        "fat_g": 44,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-024-prompt-001-001",
+          "meal_type": "lunch",
+          "food_name": "虾加上两张那个饼",
+          "amount": 280,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/15/2026, 4:02:06 AM",
+          "source_text": "中午吃了280g虾加上两张那个饼"
+        },
+        {
+          "entry_id": "chat-day-024-prompt-002-001",
+          "meal_type": "snack",
+          "food_name": "忘了昨天晚上加餐了熏猪肘",
+          "amount": 150,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/15/2026, 11:10:00 AM",
+          "source_text": "忘了昨天晚上加餐了150g熏猪肘"
+        },
+        {
+          "entry_id": "chat-day-024-prompt-003-001",
+          "meal_type": "lunch",
+          "food_name": "day24午餐是鸡胸肉",
+          "amount": 300,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/15/2026, 2:47:32 PM",
+          "source_text": "day24午餐是300g鸡胸肉"
+        },
+        {
+          "entry_id": "chat-day-024-prompt-003-002",
+          "meal_type": "lunch",
+          "food_name": "生米",
+          "amount": 120,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/15/2026, 2:47:32 PM",
+          "source_text": "120g生米"
+        },
+        {
+          "entry_id": "chat-day-024-prompt-004-001",
+          "meal_type": "unspecified",
+          "food_name": "这两袋菜炒烟熏猪肘可以吗",
+          "amount": 750,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/15/2026, 2:54:28 PM",
+          "source_text": "这两袋菜炒750g烟熏猪肘可以吗"
+        },
+        {
+          "entry_id": "chat-day-024-prompt-006-001",
+          "meal_type": "unspecified",
+          "food_name": "实际上今天吃了不到一份猪肘炒菜大概3/",
+          "amount": 4,
+          "unit": "serving",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/15/2026, 6:48:21 PM",
+          "source_text": "实际上今天吃了不到一份猪肘炒菜大概3/4份吧"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/15/2026, 4:02:06 AM",
+          "text": "中午吃了280g虾加上两张那个饼",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/15/2026, 11:10:00 AM",
+          "text": "忘了昨天晚上加餐了150g熏猪肘",
+          "meal_type": "snack"
+        },
+        {
+          "time": "7/15/2026, 2:47:32 PM",
+          "text": "今天day24午餐是300g鸡胸肉+120g生米",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/15/2026, 2:54:28 PM",
+          "text": "这两袋菜炒750g烟熏猪肘可以吗",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/15/2026, 3:44:20 PM",
+          "text": "可以叫熏猪肘炒菜，分了四份",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/15/2026, 6:48:21 PM",
+          "text": "实际上今天吃了不到一份猪肘炒菜大概3/4份吧",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/15/2026, 10:09:08 PM",
+          "text": "我买了oats bran，可以直接早上加到酸奶里吗",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 6,
+      "raw_mention_count": 7,
+      "sync_ready": false
+    },
+    {
+      "day_number": 25,
+      "date": "2026-07-16",
+      "daily_totals": {
+        "calories_in": 2116.0,
+        "protein_g": 181.0,
+        "total_carbs_g": 155.0,
+        "fiber_g": 32.2,
+        "net_carbs_g": 123.0,
+        "fat_g": 58.0,
+        "source": "chat_final_summary",
+        "source_time": "7/16/2026, 7:34:17 PM"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-025-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "鸡胸肉",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/16/2026, 7:06:34 PM",
+          "source_text": "200g鸡胸肉"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/16/2026, 3:34:48 PM",
+          "text": "以后早餐固定一下oat bran40g",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/16/2026, 7:06:34 PM",
+          "text": "200g鸡胸肉",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/16/2026, 7:28:29 PM",
+          "text": "减50g鸡胸肉",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/16/2026, 7:36:26 PM",
+          "text": "一根冰淇淋",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 1,
+      "raw_mention_count": 4,
+      "sync_ready": false
+    },
+    {
+      "day_number": 26,
+      "date": "2026-07-17",
+      "daily_totals": {
+        "calories_in": 2030,
+        "protein_g": 145,
+        "total_carbs_g": 225,
+        "fiber_g": 28,
+        "net_carbs_g": 197,
+        "fat_g": 48,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-026-prompt-001-001",
+          "meal_type": "unspecified",
+          "food_name": "Oat Bran",
+          "amount": 40,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/17/2026, 2:19:27 PM",
+          "source_text": "有40g bran呢"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/17/2026, 2:19:27 PM",
+          "text": "还有40g bran呢",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/17/2026, 4:17:44 PM",
+          "text": "bran数据更新",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 1,
+      "raw_mention_count": 2,
+      "sync_ready": false
+    },
+    {
+      "day_number": 27,
+      "date": "2026-07-18",
+      "daily_totals": {
+        "calories_in": 1924,
+        "protein_g": 178,
+        "total_carbs_g": 189,
+        "fiber_g": 29,
+        "net_carbs_g": 159,
+        "fat_g": 63.7,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-027-prompt-001-001",
+          "meal_type": "unspecified",
+          "food_name": "鹰嘴豆饼干",
+          "amount": 50,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/18/2026, 7:24:59 AM",
+          "source_text": "50g 鹰嘴豆饼干"
+        },
+        {
+          "entry_id": "chat-day-027-prompt-002-001",
+          "meal_type": "breakfast",
+          "food_name": "legb 午饭一盒这个豆腐",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/18/2026, 2:41:10 PM",
+          "source_text": "legb 午饭一盒这个豆腐"
+        },
+        {
+          "entry_id": "chat-day-027-prompt-002-002",
+          "meal_type": "breakfast",
+          "food_name": "三个鸡蛋",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/18/2026, 2:41:10 PM",
+          "source_text": "三个鸡蛋"
+        },
+        {
+          "entry_id": "chat-day-027-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "蛋白粉只喝了",
+          "amount": 35,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/18/2026, 2:42:23 PM",
+          "source_text": "蛋白粉只喝了35g"
+        },
+        {
+          "entry_id": "chat-day-027-prompt-004-001",
+          "meal_type": "unspecified",
+          "food_name": "鸡胸肉",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/18/2026, 6:54:37 PM",
+          "source_text": "200g鸡胸肉"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/18/2026, 7:24:59 AM",
+          "text": "50g 鹰嘴豆饼干",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/18/2026, 2:41:10 PM",
+          "text": "legb 午饭一盒这个豆腐，150g煮好的面条，三个鸡蛋，早饭不变",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/18/2026, 2:42:23 PM",
+          "text": "今天蛋白粉只喝了35g",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/18/2026, 6:54:37 PM",
+          "text": "200g鸡胸肉",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 5,
+      "raw_mention_count": 4,
+      "sync_ready": false
+    },
+    {
+      "day_number": 28,
+      "date": "2026-07-19",
+      "daily_totals": {
+        "calories_in": 1827,
+        "protein_g": 146,
+        "total_carbs_g": 146.5,
+        "fiber_g": 9.7,
+        "net_carbs_g": 136.8,
+        "fat_g": 55.1,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-028-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "蓝莓",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/19/2026, 7:05:47 PM",
+          "source_text": "100g蓝莓"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/19/2026, 7:05:37 PM",
+          "text": "一整份虾",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/19/2026, 7:05:47 PM",
+          "text": "100g蓝莓",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/19/2026, 7:21:31 PM",
+          "text": "一瓶premier protein",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 1,
+      "raw_mention_count": 3,
+      "sync_ready": false
+    },
+    {
+      "day_number": 29,
+      "date": "2026-07-20",
+      "daily_totals": {
+        "calories_in": 1979,
+        "protein_g": 168.9,
+        "total_carbs_g": 185.1,
+        "fiber_g": 30.4,
+        "net_carbs_g": 154.7,
+        "fat_g": 67.5,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-029-prompt-004-001",
+          "meal_type": "snack",
+          "food_name": "训练后加餐premier protein",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/20/2026, 10:30:05 AM",
+          "source_text": "训练后加餐premier protein"
+        },
+        {
+          "entry_id": "chat-day-029-prompt-005-001",
+          "meal_type": "breakfast",
+          "food_name": "的酸奶",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/20/2026, 1:56:23 PM",
+          "source_text": "早餐的酸奶"
+        },
+        {
+          "entry_id": "chat-day-029-prompt-006-001",
+          "meal_type": "lunch",
+          "food_name": "一盒tuna pastrami牛肉半个牛油果",
+          "amount": 90,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/20/2026, 2:02:54 PM",
+          "source_text": "午饭一盒tuna 90gpastrami牛肉半个牛油果"
+        },
+        {
+          "entry_id": "chat-day-029-prompt-007-001",
+          "meal_type": "unspecified",
+          "food_name": "2/豆腐",
+          "amount": 3,
+          "unit": "piece",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/20/2026, 6:25:07 PM",
+          "source_text": "2/3块豆腐"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/20/2026, 10:28:17 AM",
+          "text": "day 29 早餐加餐400g牛奶，以后取消植物蛋白粉",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/20/2026, 10:28:55 AM",
+          "text": "今天是premier protein",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/20/2026, 10:29:37 AM",
+          "text": "是牛奶，我是说以后蛋白粉替换成premier protein",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/20/2026, 10:30:05 AM",
+          "text": "今天训练后加餐premier protein",
+          "meal_type": "snack"
+        },
+        {
+          "time": "7/20/2026, 1:56:23 PM",
+          "text": "早餐的酸奶和bran减半",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/20/2026, 2:02:54 PM",
+          "text": "午饭一盒tuna 90gpastrami牛肉半个牛油果",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/20/2026, 6:25:07 PM",
+          "text": "2/3块豆腐",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 4,
+      "raw_mention_count": 7,
+      "sync_ready": false
+    },
+    {
+      "day_number": 30,
+      "date": "2026-07-21",
+      "daily_totals": {
+        "calories_in": 2200,
+        "protein_g": 192.5,
+        "total_carbs_g": 230.4,
+        "fiber_g": 30.2,
+        "net_carbs_g": 200.2,
+        "fat_g": 59.7,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-030-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "鸡胸肉",
+          "amount": 300,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/21/2026, 5:34:02 PM",
+          "source_text": "鸡胸肉300g"
+        },
+        {
+          "entry_id": "chat-day-030-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "两张这个wrap",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/21/2026, 5:56:20 PM",
+          "source_text": "我吃了两张这个wrap"
+        },
+        {
+          "entry_id": "chat-day-030-prompt-006-001",
+          "meal_type": "unspecified",
+          "food_name": "鸡胸肉",
+          "amount": 280,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/21/2026, 5:57:02 PM",
+          "source_text": "鸡胸肉280g"
+        },
+        {
+          "entry_id": "chat-day-030-prompt-007-001",
+          "meal_type": "unspecified",
+          "food_name": "旺旺仙贝",
+          "amount": 5,
+          "unit": "piece",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/21/2026, 11:18:22 PM",
+          "source_text": "加5个旺旺仙贝"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/21/2026, 4:27:18 PM",
+          "text": "以后bran都减半到20g除非另说",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/21/2026, 5:34:02 PM",
+          "text": "鸡胸肉300g",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/21/2026, 5:43:08 PM",
+          "text": "一张wrap",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/21/2026, 5:55:44 PM",
+          "text": "是这个wrap",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/21/2026, 5:56:20 PM",
+          "text": "我吃了两张这个wrap",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/21/2026, 5:57:02 PM",
+          "text": "鸡胸肉280g",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/21/2026, 11:18:22 PM",
+          "text": "再加5个旺旺仙贝",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 4,
+      "raw_mention_count": 7,
+      "sync_ready": false
+    },
+    {
+      "day_number": 31,
+      "date": "2026-07-22",
+      "daily_totals": {
+        "calories_in": 2082,
+        "protein_g": 185.3,
+        "total_carbs_g": 236,
+        "fiber_g": 33.1,
+        "net_carbs_g": 202.9,
+        "fat_g": 46.6,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-031-prompt-001-001",
+          "meal_type": "breakfast",
+          "food_name": "不变 午餐一盒tuna 芝麻菜",
+          "amount": 30,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/22/2026, 1:59:11 PM",
+          "source_text": "早餐不变 午餐一盒tuna 30g芝麻菜"
+        },
+        {
+          "entry_id": "chat-day-031-prompt-001-002",
+          "meal_type": "breakfast",
+          "food_name": "墨西哥玉米 15g magical whip 30g salsa",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/22/2026, 1:59:11 PM",
+          "source_text": "200g墨西哥玉米 15g magical whip 30g salsa"
+        },
+        {
+          "entry_id": "chat-day-031-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "墨西哥玉米提到",
+          "amount": 400,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/22/2026, 1:59:49 PM",
+          "source_text": "墨西哥玉米提到 400g呢"
+        },
+        {
+          "entry_id": "chat-day-031-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "旺旺仙贝",
+          "amount": 5,
+          "unit": "bag",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/22/2026, 5:29:23 PM",
+          "source_text": "5袋旺旺仙贝"
+        },
+        {
+          "entry_id": "chat-day-031-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "虾",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/22/2026, 6:27:11 PM",
+          "source_text": "200g这个虾"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/22/2026, 1:59:11 PM",
+          "text": "早餐不变 午餐一盒tuna 30g芝麻菜，200g墨西哥玉米 15g magical whip 30g salsa",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/22/2026, 1:59:49 PM",
+          "text": "墨西哥玉米提到 400g呢",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/22/2026, 5:29:23 PM",
+          "text": "5袋旺旺仙贝",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/22/2026, 6:16:52 PM",
+          "text": "两张wrap",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/22/2026, 6:27:11 PM",
+          "text": "200g这个虾",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 5,
+      "raw_mention_count": 5,
+      "sync_ready": false
+    },
+    {
+      "day_number": 32,
+      "date": "2026-07-23",
+      "daily_totals": {
+        "calories_in": 2350,
+        "protein_g": 181,
+        "total_carbs_g": 234,
+        "fiber_g": 15,
+        "net_carbs_g": 219,
+        "fat_g": 74,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-032-prompt-001-001",
+          "meal_type": "unspecified",
+          "food_name": "鸡胸肉",
+          "amount": 50,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/23/2026, 10:10:53 AM",
+          "source_text": "50g鸡胸肉"
+        },
+        {
+          "entry_id": "chat-day-032-prompt-002-001",
+          "meal_type": "dinner",
+          "food_name": "magical whip 一盒tuna 200g昨天那个虾",
+          "amount": 30,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/23/2026, 9:01:03 PM",
+          "source_text": "30gmagical whip 一盒tuna 200g昨天那个虾"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/23/2026, 10:10:53 AM",
+          "text": "50g鸡胸肉",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/23/2026, 9:01:03 PM",
+          "text": "晚饭 40g芝麻菜，30gmagical whip 一盒tuna 200g昨天那个虾，一个恰巴塔",
+          "meal_type": "dinner"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 2,
+      "raw_mention_count": 2,
+      "sync_ready": false
+    },
+    {
+      "day_number": 33,
+      "date": "2026-07-24",
+      "daily_totals": {
+        "calories_in": 2247,
+        "protein_g": 182.8,
+        "total_carbs_g": 237.1,
+        "fiber_g": 21.7,
+        "net_carbs_g": 215.4,
+        "fat_g": 53.4,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-033-prompt-001-001",
+          "meal_type": "breakfast",
+          "food_name": "granola",
+          "amount": 30,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/24/2026, 1:14:13 PM",
+          "source_text": "早餐加30ggranola"
+        },
+        {
+          "entry_id": "chat-day-033-prompt-002-001",
+          "meal_type": "lunch",
+          "food_name": "一个chiabatta一盒沙丁鱼罐头tartar酱",
+          "amount": 5,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/24/2026, 2:21:06 PM",
+          "source_text": "午餐一个chiabatta一盒沙丁鱼罐头5gtartar酱"
+        },
+        {
+          "entry_id": "chat-day-033-prompt-003-001",
+          "meal_type": "dinner",
+          "food_name": "一个恰巴塔 鸡胸肉",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/24/2026, 5:48:44 PM",
+          "source_text": "晚饭一个恰巴塔 200g鸡胸肉"
+        },
+        {
+          "entry_id": "chat-day-033-prompt-005-001",
+          "meal_type": "snack",
+          "food_name": "鸡蛋",
+          "amount": 1,
+          "unit": "piece",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/24/2026, 9:06:20 PM",
+          "source_text": "加餐一个鸡蛋"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/24/2026, 1:14:13 PM",
+          "text": "早餐加30ggranola",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/24/2026, 2:21:06 PM",
+          "text": "午餐一个chiabatta一盒沙丁鱼罐头5gtartar酱",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/24/2026, 5:48:44 PM",
+          "text": "晚饭一个恰巴塔 200g鸡胸肉",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "7/24/2026, 6:14:10 PM",
+          "text": "一个wrap",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/24/2026, 9:06:20 PM",
+          "text": "加餐一个鸡蛋",
+          "meal_type": "snack"
+        },
+        {
+          "time": "7/24/2026, 10:41:51 PM",
+          "text": "再加五个旺旺仙贝",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/24/2026, 10:43:29 PM",
+          "text": "加半瓶premier protein",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 4,
+      "raw_mention_count": 7,
+      "sync_ready": false
+    },
+    {
+      "day_number": 34,
+      "date": "2026-07-25",
+      "daily_totals": {
+        "calories_in": 1997,
+        "protein_g": 176.6,
+        "total_carbs_g": 218.4,
+        "fiber_g": 32.1,
+        "net_carbs_g": 186.3,
+        "fat_g": 52.5,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-034-prompt-002-001",
+          "meal_type": "lunch",
+          "food_name": "樱桃 1个恰巴塔 1serving 图上这个鹅肝酱",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/25/2026, 12:22:17 PM",
+          "source_text": "午餐 200g樱桃 1个恰巴塔 1serving 图上这个鹅肝酱"
+        },
+        {
+          "entry_id": "chat-day-034-prompt-004-001",
+          "meal_type": "unspecified",
+          "food_name": "鸡胸肉",
+          "amount": 300,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/25/2026, 1:58:01 PM",
+          "source_text": "300g鸡胸肉"
+        },
+        {
+          "entry_id": "chat-day-034-prompt-006-001",
+          "meal_type": "unspecified",
+          "food_name": "樱桃",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/25/2026, 6:59:19 PM",
+          "source_text": "加100g樱桃"
+        },
+        {
+          "entry_id": "chat-day-034-prompt-007-001",
+          "meal_type": "unspecified",
+          "food_name": "水果冰淇淋",
+          "amount": 1,
+          "unit": "piece",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/25/2026, 8:40:18 PM",
+          "source_text": "一个这个水果冰淇淋"
+        },
+        {
+          "entry_id": "chat-day-034-prompt-008-001",
+          "meal_type": "unspecified",
+          "food_name": "蓝莓",
+          "amount": 150,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/25/2026, 8:57:22 PM",
+          "source_text": "150g蓝莓"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/25/2026, 7:45:36 AM",
+          "text": "34早餐酸奶减一份 bran30g 加两个鸡蛋",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/25/2026, 12:22:17 PM",
+          "text": "午餐 200g樱桃 1个恰巴塔 1serving 图上这个鹅肝酱",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/25/2026, 12:25:29 PM",
+          "text": "半瓶premier protein",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/25/2026, 1:58:01 PM",
+          "text": "300g鸡胸肉",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/25/2026, 2:10:29 PM",
+          "text": "2张wrap",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/25/2026, 6:59:19 PM",
+          "text": "再加100g樱桃",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/25/2026, 8:40:18 PM",
+          "text": "加了一个这个水果冰淇淋",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/25/2026, 8:57:22 PM",
+          "text": "150g蓝莓",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 5,
+      "raw_mention_count": 8,
+      "sync_ready": false
+    },
+    {
+      "day_number": 35,
+      "date": "2026-07-26",
+      "daily_totals": {
+        "calories_in": 2062,
+        "protein_g": 167.6,
+        "total_carbs_g": 214,
+        "fiber_g": 12.6,
+        "net_carbs_g": 201.4,
+        "fat_g": 59.6,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-035-prompt-001-001",
+          "meal_type": "breakfast",
+          "food_name": "day 35 早饭 鸡蛋",
+          "amount": 3,
+          "unit": "piece",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/26/2026, 10:41:50 AM",
+          "source_text": "day 35 早饭 3个鸡蛋"
+        },
+        {
+          "entry_id": "chat-day-035-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "樱桃",
+          "amount": 50,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/26/2026, 10:42:50 AM",
+          "source_text": "50g樱桃"
+        },
+        {
+          "entry_id": "chat-day-035-prompt-004-001",
+          "meal_type": "lunch",
+          "food_name": "一个恰巴塔 2/3 serving的昨天那个鸡肝酱 鸭胸肉",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/26/2026, 11:13:40 AM",
+          "source_text": "午餐是 一个恰巴塔 2/3 serving的昨天那个鸡肝酱 200g鸭胸肉"
+        },
+        {
+          "entry_id": "chat-day-035-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "生米",
+          "amount": 140,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/26/2026, 3:36:10 PM",
+          "source_text": "140g生米饭"
+        },
+        {
+          "entry_id": "chat-day-035-prompt-006-001",
+          "meal_type": "unspecified",
+          "food_name": "带皮的香蕉",
+          "amount": 150,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/26/2026, 3:36:23 PM",
+          "source_text": "150g带皮的香蕉"
+        },
+        {
+          "entry_id": "chat-day-035-prompt-007-001",
+          "meal_type": "unspecified",
+          "food_name": "kroger虾",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/26/2026, 4:24:46 PM",
+          "source_text": "200g kroger虾"
+        },
+        {
+          "entry_id": "chat-day-035-prompt-009-001",
+          "meal_type": "snack",
+          "food_name": "煮熟的米饭",
+          "amount": 50,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/26/2026, 11:51:33 PM",
+          "source_text": "加餐50g煮熟的米饭"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/26/2026, 10:41:50 AM",
+          "text": "day 35 早饭 3个鸡蛋",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/26/2026, 10:42:21 AM",
+          "text": "改成两个鸡蛋",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/26/2026, 10:42:50 AM",
+          "text": "50g樱桃",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/26/2026, 11:13:40 AM",
+          "text": "午餐是 一个恰巴塔 2/3 serving的昨天那个鸡肝酱 200g鸭胸肉",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/26/2026, 3:36:10 PM",
+          "text": "140g生米饭",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/26/2026, 3:36:23 PM",
+          "text": "150g带皮的香蕉",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/26/2026, 4:24:46 PM",
+          "text": "200g kroger虾",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/26/2026, 9:32:40 PM",
+          "text": "记录下这是on protein shake",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/26/2026, 11:51:33 PM",
+          "text": "加餐50g煮熟的米饭",
+          "meal_type": "snack"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 7,
+      "raw_mention_count": 9,
+      "sync_ready": false
+    },
+    {
+      "day_number": 36,
+      "date": "2026-07-27",
+      "daily_totals": {
+        "calories_in": 2206,
+        "protein_g": 173.1,
+        "total_carbs_g": 237.1,
+        "fiber_g": 17.4,
+        "net_carbs_g": 219.7,
+        "fat_g": 63.8,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-036-prompt-001-001",
+          "meal_type": "breakfast",
+          "food_name": "day 36早餐 鸡蛋 150g这个dahi 30gbran",
+          "amount": 1,
+          "unit": "piece",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/27/2026, 7:13:35 AM",
+          "source_text": "day 36早餐 1个鸡蛋 150g这个dahi 30gbran"
+        },
+        {
+          "entry_id": "chat-day-036-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "espresso 但是脱脂牛奶",
+          "amount": 200,
+          "unit": "ml",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/27/2026, 7:17:54 AM",
+          "source_text": "espresso 但是200ml脱脂牛奶"
+        },
+        {
+          "entry_id": "chat-day-036-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "那还是改回之前我的那个expresso 牛奶",
+          "amount": 200,
+          "unit": "ml",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/27/2026, 7:19:47 AM",
+          "source_text": "那还是改回之前我的那个expresso 200ml 牛奶"
+        },
+        {
+          "entry_id": "chat-day-036-prompt-004-001",
+          "meal_type": "unspecified",
+          "food_name": "蓝莓",
+          "amount": 150,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/27/2026, 7:36:27 AM",
+          "source_text": "150g蓝莓"
+        },
+        {
+          "entry_id": "chat-day-036-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "脱脂牛奶改成全脂",
+          "amount": 200,
+          "unit": "ml",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/27/2026, 7:36:50 AM",
+          "source_text": "200ml脱脂牛奶改成全脂"
+        },
+        {
+          "entry_id": "chat-day-036-prompt-006-001",
+          "meal_type": "lunch",
+          "food_name": "生米 200g鸭肉带皮",
+          "amount": 120,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/27/2026, 12:45:32 PM",
+          "source_text": "中午120g生米 200g鸭肉带皮"
+        },
+        {
+          "entry_id": "chat-day-036-prompt-008-001",
+          "meal_type": "unspecified",
+          "food_name": "玉米",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/27/2026, 6:07:27 PM",
+          "source_text": "200g玉米"
+        },
+        {
+          "entry_id": "chat-day-036-prompt-009-001",
+          "meal_type": "unspecified",
+          "food_name": "虾",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/27/2026, 6:07:37 PM",
+          "source_text": "200g虾"
+        },
+        {
+          "entry_id": "chat-day-036-prompt-010-001",
+          "meal_type": "unspecified",
+          "food_name": "tuna",
+          "amount": 1,
+          "unit": "box",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/27/2026, 6:12:17 PM",
+          "source_text": "1盒tuna"
+        },
+        {
+          "entry_id": "chat-day-036-prompt-011-001",
+          "meal_type": "unspecified",
+          "food_name": "蓝莓",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/27/2026, 6:29:38 PM",
+          "source_text": "100g蓝莓"
+        },
+        {
+          "entry_id": "chat-day-036-prompt-012-001",
+          "meal_type": "unspecified",
+          "food_name": "旺旺仙贝",
+          "amount": 2,
+          "unit": "bag",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/27/2026, 6:30:02 PM",
+          "source_text": "2包旺旺仙贝"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/27/2026, 7:13:35 AM",
+          "text": "day 36早餐 1个鸡蛋 150g这个dahi 30gbran",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/27/2026, 7:17:54 AM",
+          "text": "espresso 但是200ml脱脂牛奶",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/27/2026, 7:19:47 AM",
+          "text": "那还是改回之前我的那个expresso 200ml 牛奶",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/27/2026, 7:36:27 AM",
+          "text": "150g蓝莓",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/27/2026, 7:36:50 AM",
+          "text": "200ml脱脂牛奶改成全脂",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/27/2026, 12:45:32 PM",
+          "text": "中午120g生米 200g鸭肉带皮",
+          "meal_type": "lunch"
+        },
+        {
+          "time": "7/27/2026, 1:03:05 PM",
+          "text": "一包牛肉干",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/27/2026, 6:07:27 PM",
+          "text": "200g玉米",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/27/2026, 6:07:37 PM",
+          "text": "200g虾",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/27/2026, 6:12:17 PM",
+          "text": "1盒tuna",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/27/2026, 6:29:38 PM",
+          "text": "100g蓝莓",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/27/2026, 6:30:02 PM",
+          "text": "2包旺旺仙贝",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 11,
+      "raw_mention_count": 12,
+      "sync_ready": false
+    },
+    {
+      "day_number": 37,
+      "date": "2026-07-28",
+      "daily_totals": {
+        "calories_in": 1937,
+        "protein_g": 182.9,
+        "total_carbs_g": 239.4,
+        "fiber_g": 34.9,
+        "net_carbs_g": 204.5,
+        "fat_g": 29.1,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-037-prompt-001-001",
+          "meal_type": "breakfast",
+          "food_name": "day 37 早餐照常 午餐生米",
+          "amount": 140,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/28/2026, 1:35:57 PM",
+          "source_text": "day 37 早餐照常 午餐140g生米"
+        },
+        {
+          "entry_id": "chat-day-037-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "Oat Bran",
+          "amount": 10,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/28/2026, 1:36:56 PM",
+          "source_text": "加10gbran"
+        },
+        {
+          "entry_id": "chat-day-037-prompt-002-002",
+          "meal_type": "unspecified",
+          "food_name": "一袋牛肉干",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/28/2026, 1:36:56 PM",
+          "source_text": "一袋牛肉干"
+        },
+        {
+          "entry_id": "chat-day-037-prompt-003-001",
+          "meal_type": "dinner",
+          "food_name": "鸡胸肉",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/28/2026, 5:43:34 PM",
+          "source_text": "晚饭200g鸡胸肉"
+        },
+        {
+          "entry_id": "chat-day-037-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "玉米粒",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/28/2026, 6:00:41 PM",
+          "source_text": "200g玉米粒"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/28/2026, 1:35:57 PM",
+          "text": "day 37 早餐照常 午餐140g生米+50g去皮盐水鸭肉",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/28/2026, 1:36:56 PM",
+          "text": "再加10gbran和一袋牛肉干",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/28/2026, 5:43:34 PM",
+          "text": "晚饭200g鸡胸肉",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "7/28/2026, 5:46:20 PM",
+          "text": "今天没吃鸡蛋",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/28/2026, 6:00:41 PM",
+          "text": "200g玉米粒",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/28/2026, 6:03:16 PM",
+          "text": "那不吃玉米，改成1张wrap",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/28/2026, 6:03:39 PM",
+          "text": "这次是bfree wrap",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/28/2026, 6:04:10 PM",
+          "text": "high protein",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 5,
+      "raw_mention_count": 8,
+      "sync_ready": false
+    },
+    {
+      "day_number": 38,
+      "date": "2026-07-29",
+      "daily_totals": {
+        "calories_in": 2226,
+        "protein_g": 177,
+        "total_carbs_g": 249,
+        "fiber_g": 25.2,
+        "net_carbs_g": 223.8,
+        "fat_g": 55.9,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-038-prompt-001-001",
+          "meal_type": "breakfast",
+          "food_name": "蓝莓 -100g牛奶",
+          "amount": 80,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/29/2026, 9:16:40 AM",
+          "source_text": "80g蓝莓 -100g牛奶"
+        },
+        {
+          "entry_id": "chat-day-038-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "Oat Bran",
+          "amount": 10,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/29/2026, 9:17:36 AM",
+          "source_text": "10g bran"
+        },
+        {
+          "entry_id": "chat-day-038-prompt-002-002",
+          "meal_type": "unspecified",
+          "food_name": "牛肉干",
+          "amount": 1,
+          "unit": "bag",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/29/2026, 9:17:36 AM",
+          "source_text": "1袋牛肉干"
+        },
+        {
+          "entry_id": "chat-day-038-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "鸡胸肉",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/29/2026, 3:06:52 PM",
+          "source_text": "200g鸡胸肉"
+        },
+        {
+          "entry_id": "chat-day-038-prompt-004-001",
+          "meal_type": "unspecified",
+          "food_name": "生米",
+          "amount": 140,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/29/2026, 3:07:07 PM",
+          "source_text": "140g生米"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/29/2026, 9:16:40 AM",
+          "text": "day 38 早餐+ 80g蓝莓 -100g牛奶",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/29/2026, 9:17:36 AM",
+          "text": "+10g bran +1袋牛肉干",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/29/2026, 3:06:52 PM",
+          "text": "200g鸡胸肉",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/29/2026, 3:07:07 PM",
+          "text": "140g生米",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 5,
+      "raw_mention_count": 4,
+      "sync_ready": false
+    },
+    {
+      "day_number": 39,
+      "date": "2026-07-30",
+      "daily_totals": {
+        "calories_in": 2227,
+        "protein_g": 170.6,
+        "total_carbs_g": 223,
+        "fiber_g": 16.8,
+        "net_carbs_g": 206.2,
+        "fat_g": 62.5,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-039-prompt-001-001",
+          "meal_type": "unspecified",
+          "food_name": "牛肉干",
+          "amount": 1,
+          "unit": "serving",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/30/2026, 7:58:58 AM",
+          "source_text": "一份牛肉干"
+        },
+        {
+          "entry_id": "chat-day-039-prompt-002-001",
+          "meal_type": "breakfast",
+          "food_name": "鸡蛋 -1盒酸奶",
+          "amount": 2,
+          "unit": "piece",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/30/2026, 9:05:36 AM",
+          "source_text": "2个鸡蛋 -1盒酸奶"
+        },
+        {
+          "entry_id": "chat-day-039-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "牛奶-",
+          "amount": 50,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/30/2026, 9:07:00 AM",
+          "source_text": "牛奶-50g"
+        },
+        {
+          "entry_id": "chat-day-039-prompt-004-001",
+          "meal_type": "unspecified",
+          "food_name": "生米",
+          "amount": 150,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/30/2026, 3:42:37 PM",
+          "source_text": "150g 生米"
+        },
+        {
+          "entry_id": "chat-day-039-prompt-005-001",
+          "meal_type": "unspecified",
+          "food_name": "玉米",
+          "amount": 30,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/30/2026, 3:43:36 PM",
+          "source_text": "加30g玉米"
+        },
+        {
+          "entry_id": "chat-day-039-prompt-006-001",
+          "meal_type": "unspecified",
+          "food_name": "鸡胸肉",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/30/2026, 8:37:24 PM",
+          "source_text": "200g鸡胸肉"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/30/2026, 7:58:58 AM",
+          "text": "加了一份牛肉干",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/30/2026, 9:05:36 AM",
+          "text": "day 39 早饭+2个鸡蛋 -1盒酸奶",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "7/30/2026, 9:07:00 AM",
+          "text": "牛奶-50g",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/30/2026, 3:42:37 PM",
+          "text": "150g 生米",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/30/2026, 3:43:36 PM",
+          "text": "加30g玉米",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/30/2026, 8:37:24 PM",
+          "text": "200g鸡胸肉",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/30/2026, 8:38:12 PM",
+          "text": "换成100g鸡胸肉+100g玉米",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 6,
+      "raw_mention_count": 7,
+      "sync_ready": false
+    },
+    {
+      "day_number": 40,
+      "date": "2026-07-31",
+      "daily_totals": {
+        "calories_in": 2232,
+        "protein_g": 172.3,
+        "total_carbs_g": 250,
+        "fiber_g": 20.5,
+        "net_carbs_g": 229.5,
+        "fat_g": 74.1,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-040-prompt-001-001",
+          "meal_type": "snack",
+          "food_name": "了一袋牛肉干蓝莓",
+          "amount": 50,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/31/2026, 8:46:50 AM",
+          "source_text": "加餐了一袋牛肉干50g蓝莓"
+        },
+        {
+          "entry_id": "chat-day-040-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "生米 100gbrick jowl 50g辣椒 30g笋 50g蘑菇",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/31/2026, 1:29:05 PM",
+          "source_text": "100g生米 100gbrick jowl 50g辣椒 30g笋 50g蘑菇"
+        },
+        {
+          "entry_id": "chat-day-040-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "虾",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/31/2026, 2:38:01 PM",
+          "source_text": "虾200g"
+        },
+        {
+          "entry_id": "chat-day-040-prompt-004-001",
+          "meal_type": "dinner",
+          "food_name": "那晚饭虾",
+          "amount": 250,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/31/2026, 2:38:53 PM",
+          "source_text": "那晚饭虾250g"
+        },
+        {
+          "entry_id": "chat-day-040-prompt-004-002",
+          "meal_type": "dinner",
+          "food_name": "蓝莓",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "7/31/2026, 2:38:53 PM",
+          "source_text": "蓝莓100g"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "7/31/2026, 8:46:50 AM",
+          "text": "加餐了一袋牛肉干50g蓝莓",
+          "meal_type": "snack"
+        },
+        {
+          "time": "7/31/2026, 1:29:05 PM",
+          "text": "100g生米 100gbrick jowl 50g辣椒 30g笋 50g蘑菇",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/31/2026, 2:38:01 PM",
+          "text": "虾200g",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "7/31/2026, 2:38:53 PM",
+          "text": "那晚饭虾250g，蓝莓100g",
+          "meal_type": "dinner"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 5,
+      "raw_mention_count": 4,
+      "sync_ready": false
+    },
+    {
+      "day_number": 41,
+      "date": "2026-08-01",
+      "daily_totals": {
+        "calories_in": 2094,
+        "protein_g": 180.2,
+        "total_carbs_g": 222.5,
+        "fiber_g": 35.1,
+        "net_carbs_g": 187.4,
+        "fat_g": 70.5,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-041-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "蓝莓",
+          "amount": 120,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "8/1/2026, 5:10:30 PM",
+          "source_text": "120g蓝莓"
+        },
+        {
+          "entry_id": "chat-day-041-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "虾",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "8/1/2026, 5:10:46 PM",
+          "source_text": "200g虾"
+        },
+        {
+          "entry_id": "chat-day-041-prompt-004-001",
+          "meal_type": "unspecified",
+          "food_name": "蓝莓",
+          "amount": 80,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "8/1/2026, 5:12:25 PM",
+          "source_text": "80g蓝莓"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "8/1/2026, 9:23:25 AM",
+          "text": "加一袋牛肉干",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/1/2026, 5:10:30 PM",
+          "text": "120g蓝莓",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/1/2026, 5:10:46 PM",
+          "text": "200g虾",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/1/2026, 5:12:25 PM",
+          "text": "80g蓝莓",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/1/2026, 5:13:23 PM",
+          "text": "一盒tuna",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/1/2026, 5:26:42 PM",
+          "text": "再加一根香蕉",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 3,
+      "raw_mention_count": 6,
+      "sync_ready": false
+    },
+    {
+      "day_number": 42,
+      "date": "2026-08-02",
+      "daily_totals": {
+        "calories_in": 1988,
+        "protein_g": 131.2,
+        "total_carbs_g": 193.9,
+        "fiber_g": 33.8,
+        "net_carbs_g": 160.1,
+        "fat_g": 80.4,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-042-prompt-001-001",
+          "meal_type": "unspecified",
+          "food_name": "1 serving(s) per container Serving size 75(g) Calories 290 % Daily Value* Total Fat 21% Saturated Fat 11g 55% Trans Fat 0g Cholesterol 45mg 15% Sodium 200mg 9% Total Carbohydrate 26g 9% Dietary Fiber 1g 4% Total Sugars 8g Includes 5g Added Sugars 10% Protein 5g Vitamin D 0.1mcg 0% Calcium 20mg 2% Iron 1.6mg 8% Potassium 100mg 2%",
+          "amount": 16,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "8/2/2026, 11:46:37 AM",
+          "source_text": "1 serving(s) per container Serving size 75(g) Calories 290 % Daily Value* Total Fat 16g 21% Saturated Fat 11g 55% Trans Fat 0g Cholesterol 45mg 15% Sodium 200mg 9% Total Carbohydrate 26g 9% Dietary Fiber 1g 4% Total Sugars 8g Includes 5g Added Sugars 10% Protein 5g Vitamin D 0.1mcg 0% Calcium 20mg 2% Iron 1.6mg 8% Potassium 100mg 2%"
+        },
+        {
+          "entry_id": "chat-day-042-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "生米",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "8/2/2026, 11:47:13 AM",
+          "source_text": "100g生米"
+        },
+        {
+          "entry_id": "chat-day-042-prompt-004-001",
+          "meal_type": "unspecified",
+          "food_name": "鸡胸肉",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "8/2/2026, 11:47:56 AM",
+          "source_text": "鸡胸肉200g"
+        },
+        {
+          "entry_id": "chat-day-042-prompt-006-001",
+          "meal_type": "unspecified",
+          "food_name": "蓝莓",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "8/2/2026, 11:52:29 AM",
+          "source_text": "100g蓝莓"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "8/2/2026, 11:46:37 AM",
+          "text": "1 serving(s) per container Serving size 75(g) Calories 290 % Daily Value* Total Fat 16g 21% Saturated Fat 11g 55% Trans Fat 0g Cholesterol 45mg 15% Sodium 200mg 9% Total Carbohydrate 26g 9% Dietary Fiber 1g 4% Total Sugars 8g Includes 5g Added Sugars 10% Protein 5g Vitamin D 0.1mcg 0% Calcium 20mg 2% Iron 1.6mg 8% Potassium 100mg 2%",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/2/2026, 11:46:57 AM",
+          "text": "一份牛肉干",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/2/2026, 11:47:13 AM",
+          "text": "100g生米",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/2/2026, 11:47:56 AM",
+          "text": "鸡胸肉200g",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/2/2026, 11:48:13 AM",
+          "text": "酸奶两盒",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/2/2026, 11:52:29 AM",
+          "text": "100g蓝莓",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/2/2026, 2:35:47 PM",
+          "text": "今天再加两个wrap",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 4,
+      "raw_mention_count": 7,
+      "sync_ready": false
+    },
+    {
+      "day_number": 43,
+      "date": "2026-08-03",
+      "daily_totals": {
+        "calories_in": 1965,
+        "protein_g": 176,
+        "total_carbs_g": 210.9,
+        "fiber_g": 36.6,
+        "net_carbs_g": 174.3,
+        "fat_g": 33.9,
+        "source": "existing_daily_export"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-043-prompt-001-001",
+          "meal_type": "breakfast",
+          "food_name": "日式吐司 晚餐 一个恰巴塔 1/6罐 鸡肝酱",
+          "amount": 85,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "8/3/2026, 4:38:58 PM",
+          "source_text": "午餐85g日式吐司 晚餐 一个恰巴塔 1/6罐 鸡肝酱"
+        },
+        {
+          "entry_id": "chat-day-043-prompt-002-001",
+          "meal_type": "unspecified",
+          "food_name": "鸡胸肉",
+          "amount": 200,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "8/3/2026, 4:39:40 PM",
+          "source_text": "200g鸡胸肉"
+        },
+        {
+          "entry_id": "chat-day-043-prompt-003-001",
+          "meal_type": "unspecified",
+          "food_name": "熟米饭",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "8/3/2026, 5:41:33 PM",
+          "source_text": "100g米饭"
+        },
+        {
+          "entry_id": "chat-day-043-prompt-004-001",
+          "meal_type": "unspecified",
+          "food_name": "生米",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "8/3/2026, 5:41:51 PM",
+          "source_text": "100g生米"
+        },
+        {
+          "entry_id": "chat-day-043-prompt-006-001",
+          "meal_type": "unspecified",
+          "food_name": "樱桃",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "8/3/2026, 5:58:40 PM",
+          "source_text": "100g樱桃"
+        },
+        {
+          "entry_id": "chat-day-043-prompt-007-001",
+          "meal_type": "unspecified",
+          "food_name": "tuna",
+          "amount": 1,
+          "unit": "box",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "8/3/2026, 5:59:05 PM",
+          "source_text": "1盒tuna"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "8/3/2026, 4:38:58 PM",
+          "text": "day 43 早餐照旧，午餐85g日式吐司 晚餐 一个恰巴塔 1/6罐 鸡肝酱",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "8/3/2026, 4:39:40 PM",
+          "text": "200g鸡胸肉",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/3/2026, 5:41:33 PM",
+          "text": "100g米饭",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/3/2026, 5:41:51 PM",
+          "text": "100g生米",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/3/2026, 5:42:55 PM",
+          "text": "那米饭改成1张wrap",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/3/2026, 5:58:40 PM",
+          "text": "100g樱桃",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/3/2026, 5:59:05 PM",
+          "text": "1盒tuna",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 6,
+      "raw_mention_count": 7,
+      "sync_ready": false
+    },
+    {
+      "day_number": 44,
+      "date": "2026-08-04",
+      "daily_totals": {
+        "calories_in": 1991.0,
+        "protein_g": 172.0,
+        "total_carbs_g": 237.0,
+        "fiber_g": 36.0,
+        "net_carbs_g": 201.0,
+        "fat_g": 45.0,
+        "source": "chat_final_summary",
+        "source_time": "8/4/2026, 7:09:59 PM"
+      },
+      "entries": [
+        {
+          "entry_id": "chat-day-044-prompt-001-001",
+          "meal_type": "unspecified",
+          "food_name": "樱桃",
+          "amount": 100,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "8/4/2026, 12:49:57 AM",
+          "source_text": "加100g樱桃"
+        },
+        {
+          "entry_id": "chat-day-044-prompt-002-001",
+          "meal_type": "breakfast",
+          "food_name": "鸡肝酱",
+          "amount": null,
+          "unit": null,
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "8/4/2026, 4:45:44 PM",
+          "source_text": "鸡肝酱"
+        },
+        {
+          "entry_id": "chat-day-044-prompt-008-001",
+          "meal_type": "dinner",
+          "food_name": "馅饼",
+          "amount": 1,
+          "unit": "piece",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "8/4/2026, 6:55:24 PM",
+          "source_text": "晚餐吃一个这个馅饼"
+        },
+        {
+          "entry_id": "chat-day-044-prompt-010-001",
+          "meal_type": "unspecified",
+          "food_name": "虾",
+          "amount": 260,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "从聊天文本提取；需要根据食品标签或用户确认补齐营养值。",
+          "status": "needs_review",
+          "source_time": "8/4/2026, 7:03:56 PM",
+          "source_text": "260g虾"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "8/4/2026, 12:49:57 AM",
+          "text": "再加100g樱桃",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/4/2026, 4:45:44 PM",
+          "text": "今天早餐正常 午餐是恰巴塔+鸡肝酱",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "8/4/2026, 4:46:18 PM",
+          "text": "我不是记录了鸡肝酱吗",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/4/2026, 4:47:26 PM",
+          "text": "蛋白粉喝的是on的那个",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/4/2026, 4:57:19 PM",
+          "text": "一袋牛肉干",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/4/2026, 6:53:45 PM",
+          "text": "按照这两个图上的配料表制作的馅饼分成八个每个营养成分是什么",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/4/2026, 6:55:06 PM",
+          "text": "那记录一下这个馅饼",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/4/2026, 6:55:24 PM",
+          "text": "晚餐吃一个这个馅饼",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "8/4/2026, 6:58:51 PM",
+          "text": "晚饭吃虾+1个wrap需要补多少虾",
+          "meal_type": "dinner"
+        },
+        {
+          "time": "8/4/2026, 7:03:56 PM",
+          "text": "260g虾",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/4/2026, 7:06:09 PM",
+          "text": "xtream 那个wrap",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/4/2026, 7:09:25 PM",
+          "text": "猪肉馅饼和第二次吐司都算上",
+          "meal_type": "unspecified"
+        },
+        {
+          "time": "8/4/2026, 7:09:54 PM",
+          "text": "早餐那个premier protein不是被on换了吗",
+          "meal_type": "breakfast"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 4,
+      "raw_mention_count": 13,
+      "sync_ready": false
+    },
+    {
+      "day_number": 45,
+      "date": "2026-08-05",
+      "daily_totals": null,
+      "entries": [
+        {
+          "entry_id": "chat-day-045-prompt-001-001",
+          "meal_type": "breakfast",
+          "food_name": "Oat Bran",
+          "amount": 10,
+          "unit": "g",
+          "servings": null,
+          "calories": null,
+          "protein_g": null,
+          "total_carbs_g": null,
+          "fiber_g": null,
+          "net_carbs_g": null,
+          "fat_g": null,
+          "notes": "相对于默认早餐的增量；需要确认默认早餐是否同时计入。",
+          "status": "needs_review",
+          "source_time": "8/5/2026, 3:27:34 PM",
+          "source_text": "今天早餐照常，但是bran+10g"
+        }
+      ],
+      "raw_food_mentions": [
+        {
+          "time": "8/5/2026, 3:27:34 PM",
+          "text": "今天早餐照常，但是bran+10g",
+          "meal_type": "breakfast"
+        },
+        {
+          "time": "8/5/2026, 3:28:01 PM",
+          "text": "给出bran的每100g营养",
+          "meal_type": "unspecified"
+        }
+      ],
+      "status": "needs_review",
+      "notes": [
+        "明细来自用户实际输入；修改、删除和替换语句未自动写入。仍需人工确认后才能同步。"
+      ],
+      "entry_count": 1,
+      "raw_mention_count": 2,
+      "sync_ready": false
+    }
+  ],
+  "food_candidates": [
+    {
+      "food_name": "1 serving(s) per container Serving size 75(g) Calories 290 % Daily Value* Total Fat 21% Saturated Fat 11g 55% Trans Fat 0g Cholesterol 45mg 15% Sodium 200mg 9% Total Carbohydrate 26g 9% Dietary Fiber 1g 4% Total Sugars 8g Includes 5g Added Sugars 10% Protein 5g Vitamin D 0.1mcg 0% Calcium 20mg 2% Iron 1.6mg 8% Potassium 100mg 2%",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "2/豆腐",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "Latte",
+      "mention_count": 2,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "Oat Bran",
+      "mention_count": 4,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "crumpet",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "day 35 早饭 鸡蛋",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "day 36早餐 鸡蛋 150g这个dahi 30gbran",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "day 37 早餐照常 午餐生米",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "day10早上空腹喝了latte",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "day24午餐是鸡胸肉",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "espresso 但是脱脂牛奶",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "granola",
+      "mention_count": 4,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "kroger虾",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "legb 午饭一盒这个豆腐",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "magical whip 一盒tuna 200g昨天那个虾",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "premier protein",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "salmon寿司",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "tuna",
+      "mention_count": 3,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "一个chiabatta一盒沙丁鱼罐头tartar酱",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "一个lengua 一个tinga 一个chicharron一个tripataco 加上熟米饭",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "一个恰巴塔 2/3 serving的昨天那个鸡肝酱 鸭胸肉",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "一个恰巴塔 鸡胸肉",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "一盒tuna pastrami牛肉半个牛油果",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "一盒三文鱼罐头再加一勺低卡蛋黄酱",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "一盒沙丁鱼",
+      "mention_count": 2,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "一袋牛肉干",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "三个鸡蛋",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "上生米",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "不变 午餐一盒tuna 芝麻菜",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "两张这个wrap",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "了一袋牛肉干蓝莓",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "五包这个仙贝",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "仙贝",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "但没喝酸奶",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "可以那就蓝莓",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "可能吃水煮鱼",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "墨西哥玉米",
+      "mention_count": 2,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "墨西哥玉米 15g magical whip 30g salsa",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "墨西哥玉米提到",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "实际上今天吃了不到一份猪肘炒菜大概3/",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "差不多牛奶",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "希腊酸奶",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "带皮的香蕉",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "开心果",
+      "mention_count": 2,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "忘了昨天晚上加餐了熏猪肘",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "我吃完了一整份鱼",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "排骨",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "排骨 50g百叶结 100g墨西哥玉米粒 50g生米",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "日式吐司 晚餐 一个恰巴塔 1/6罐 鸡肝酱",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "旺旺仙贝",
+      "mention_count": 3,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "明天午饭 玉米300g虾",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "昨天吃了樱桃吗",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "晚上虾",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "樱桃",
+      "mention_count": 15,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "樱桃 100g西瓜",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "樱桃 1个恰巴塔 1serving 图上这个鹅肝酱",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "水果冰淇淋",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "沙丁鱼",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "沙丁鱼罐头",
+      "mention_count": 2,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "没喝latte",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "没有吃米饭",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "然后生米",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "煮熟的米饭",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "熟米饭",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "牛奶",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "牛奶-",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "牛肉干",
+      "mention_count": 2,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "猪spare rib",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "猪排骨",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "玉米",
+      "mention_count": 4,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "玉米粒",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "生米",
+      "mention_count": 21,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "生米 100gbrick jowl 50g辣椒 30g笋 50g蘑菇",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "生米 200g鸭肉带皮",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "用这个鱼片做水煮鱼",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "番茄菠菜omelet",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "的酸奶",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "脱脂牛奶改成全脂",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "蓝莓",
+      "mention_count": 9,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "蓝莓 -100g牛奶",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "虾",
+      "mention_count": 9,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "虾加上两张那个饼",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "虾可以吗",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "虾提高到",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "虾滑 牛肉卷50g 羊肉卷50g 豆腐 80g 豆皮 250",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "蛋白粉",
+      "mention_count": 2,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "蛋白粉只喝了",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "西瓜",
+      "mention_count": 3,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "训练后加餐premier protein",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "这两袋菜炒烟熏猪肘可以吗",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "追加了生米",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "那晚饭虾",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "那还是改回之前我的那个expresso 牛奶",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "酸奶",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "金枪鱼大腹sashimi",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "饼干",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "馅饼",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "香蕉",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "鱼肉 200g老豆腐 40g生米",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "鸡肝酱",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "鸡胸肉",
+      "mention_count": 19,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "鸡蛋",
+      "mention_count": 2,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "鸡蛋 -1盒酸奶",
+      "mention_count": 1,
+      "status": "needs_review"
+    },
+    {
+      "food_name": "鹰嘴豆饼干",
+      "mention_count": 1,
+      "status": "needs_review"
+    }
+  ],
+  "warnings": [
+    "Day 45 缺少现有标准导出中的每日营养总计。"
+  ]
+}

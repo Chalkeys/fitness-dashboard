@@ -1,0 +1,92 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-056",
+  "history_version": 1,
+  "exported_at": "2026-08-16T18:35:09.736577Z",
+  "date": "2026-08-16",
+  "day_number": 56,
+  "provenance": {
+    "source": "xunji_app",
+    "confidence": "high",
+    "notes": "数据来自训记 Open API；膳食纤维按 0 g，净碳水按总碳水；TDEE 为估算值。"
+  },
+  "body": {
+    "weight_kg": 82.2,
+    "waist_cm": 83,
+    "body_fat_percentage": null,
+    "notes": "训记体重记录；腰围沿用 Day 43 的最近测量值：83 cm。"
+  },
+  "daily_log": {
+    "is_training_day": false,
+    "workout_type": null,
+    "calories_in": 184.5,
+    "tdee": 2020.0,
+    "calorie_balance": -1835.5,
+    "protein_g": 15.649999999999999,
+    "total_carbs_g": 5.8999999999999995,
+    "fiber_g": 0,
+    "net_carbs_g": 5.8999999999999995,
+    "fat_g": 10.96,
+    "steps": null,
+    "active_energy_kcal": null,
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；TDEE 为 BMR≈1820 加训练活动消耗估算。"
+  },
+  "nutrition": [
+    {
+      "entry_id": "D056_XJ001",
+      "meal_type": "morning",
+      "food_name": "鸡蛋",
+      "brand": null,
+      "amount": 110.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 134.0,
+      "protein_g": 12.6,
+      "total_carbs_g": 2.3,
+      "fiber_g": 0,
+      "net_carbs_g": 2.3,
+      "fat_g": 8.3,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D056_XJ002",
+      "meal_type": "morning",
+      "food_name": "kirkland 全脂牛奶",
+      "brand": null,
+      "amount": 50.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 67.0,
+      "protein_g": 3.5,
+      "total_carbs_g": 5.3,
+      "fiber_g": 0,
+      "net_carbs_g": 5.3,
+      "fat_g": 3.5,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D056_XJ003",
+      "meal_type": "morning",
+      "food_name": "意式浓缩咖啡",
+      "brand": null,
+      "amount": 40.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 9.0,
+      "protein_g": 0.1,
+      "total_carbs_g": 1.8,
+      "fiber_g": 0,
+      "net_carbs_g": 1.8,
+      "fat_g": 0.2,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    }
+  ],
+  "workout": null,
+  "review": [
+    {
+      "review_status": "approved",
+      "note": "用户确认纤维按 0 g、净碳水等于总碳水，并接受 TDEE 估算。",
+      "field": "daily_log"
+    }
+  ]
+}

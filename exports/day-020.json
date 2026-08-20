@@ -1,0 +1,495 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-020",
+  "history_version": 1,
+  "exported_at": "2026-08-16T18:35:09.701152Z",
+  "date": "2026-07-11",
+  "day_number": 20,
+  "provenance": {
+    "source": "chat_history",
+    "confidence": "low",
+    "notes": "Only morning weight is available. 日期根据 Day 43 = 2026-08-03 且期间连续无中断推算为 2026-07-11；日期已按连续无中断记录确认。"
+  },
+  "body": {
+    "weight_kg": 81.9,
+    "waist_cm": 85,
+    "body_fat_percentage": null,
+    "notes": "腰围沿用 Day 18 的最近测量值：85 cm。"
+  },
+  "daily_log": {
+    "is_training_day": true,
+    "workout_type": "legs_b",
+    "calories_in": 2315,
+    "tdee": 2510,
+    "calorie_balance": -195,
+    "protein_g": 187,
+    "total_carbs_g": 235,
+    "fiber_g": 22,
+    "net_carbs_g": 213,
+    "fat_g": 85,
+    "steps": null,
+    "active_energy_kcal": 711,
+    "notes": "PPL：L2（Legs B）。后链、股四头、小腿和核心均完成；训练评价 10/10；nutrition_history.json 逐项饮食明细已补充；膳食纤维暂按 0 g。"
+  },
+  "nutrition": [
+    {
+      "entry_id": "D020_F001",
+      "meal_type": "morning",
+      "food_name": "Oikos Triple Zero",
+      "brand": null,
+      "amount": 2,
+      "unit": "custom",
+      "servings": null,
+      "calories": 90,
+      "protein_g": 15,
+      "total_carbs_g": 7,
+      "fiber_g": 0,
+      "net_carbs_g": 7,
+      "fat_g": 0,
+      "notes": "原始单位：cup"
+    },
+    {
+      "entry_id": "D020_F002",
+      "meal_type": "morning",
+      "food_name": "植物蛋白粉",
+      "brand": null,
+      "amount": 1,
+      "unit": "serving",
+      "servings": null,
+      "calories": 160,
+      "protein_g": 21,
+      "total_carbs_g": 20,
+      "fiber_g": 0,
+      "net_carbs_g": 20,
+      "fat_g": 5,
+      "notes": null
+    },
+    {
+      "entry_id": "D020_F003",
+      "meal_type": "morning",
+      "food_name": "香蕉",
+      "brand": null,
+      "amount": 1,
+      "unit": "piece",
+      "servings": null,
+      "calories": 105,
+      "protein_g": 1.3,
+      "total_carbs_g": 27,
+      "fiber_g": 0,
+      "net_carbs_g": 27,
+      "fat_g": 0.3,
+      "notes": null
+    },
+    {
+      "entry_id": "D020_F004",
+      "meal_type": "morning",
+      "food_name": "全脂牛奶（Latte）",
+      "brand": null,
+      "amount": 200,
+      "unit": "g",
+      "servings": null,
+      "calories": 61.5,
+      "protein_g": 3.2,
+      "total_carbs_g": 4.8,
+      "fiber_g": 0,
+      "net_carbs_g": 4.8,
+      "fat_g": 3.3,
+      "notes": null
+    },
+    {
+      "entry_id": "D020_F005",
+      "meal_type": "noon",
+      "food_name": "Mexican Style Street Corn",
+      "brand": null,
+      "amount": 230,
+      "unit": "g",
+      "servings": null,
+      "calories": 117.65,
+      "protein_g": 3.53,
+      "total_carbs_g": 18.82,
+      "fiber_g": 0,
+      "net_carbs_g": 18.82,
+      "fat_g": 3.53,
+      "notes": null
+    },
+    {
+      "entry_id": "D020_F006",
+      "meal_type": "noon",
+      "food_name": "Kirkland 生虾",
+      "brand": null,
+      "amount": 300,
+      "unit": "g",
+      "servings": null,
+      "calories": 70.8,
+      "protein_g": 15.04,
+      "total_carbs_g": 0,
+      "fiber_g": 0,
+      "net_carbs_g": 0,
+      "fat_g": 0.88,
+      "notes": null
+    },
+    {
+      "entry_id": "D020_F007",
+      "meal_type": "noon",
+      "food_name": "牛油果（可食部分）",
+      "brand": null,
+      "amount": 70,
+      "unit": "g",
+      "servings": null,
+      "calories": 160,
+      "protein_g": 2,
+      "total_carbs_g": 8.5,
+      "fiber_g": 0,
+      "net_carbs_g": 8.5,
+      "fat_g": 14.7,
+      "notes": null
+    },
+    {
+      "entry_id": "D020_F008",
+      "meal_type": "night",
+      "food_name": "调味脆肉鲩鱼片",
+      "brand": null,
+      "amount": 300,
+      "unit": "g",
+      "servings": null,
+      "calories": 180,
+      "protein_g": 15,
+      "total_carbs_g": 0,
+      "fiber_g": 0,
+      "net_carbs_g": 0,
+      "fat_g": 13,
+      "notes": null
+    },
+    {
+      "entry_id": "D020_F009",
+      "meal_type": "night",
+      "food_name": "生米",
+      "brand": null,
+      "amount": 120,
+      "unit": "g",
+      "servings": null,
+      "calories": 360,
+      "protein_g": 7.6,
+      "total_carbs_g": 78,
+      "fiber_g": 0,
+      "net_carbs_g": 78,
+      "fat_g": 0.7,
+      "notes": null
+    },
+    {
+      "entry_id": "D020_F010",
+      "meal_type": "snack",
+      "food_name": "蓝莓",
+      "brand": null,
+      "amount": 150,
+      "unit": "g",
+      "servings": null,
+      "calories": 57.33,
+      "protein_g": 0.73,
+      "total_carbs_g": 14.53,
+      "fiber_g": 0,
+      "net_carbs_g": 14.53,
+      "fat_g": 0.33,
+      "notes": null
+    },
+    {
+      "entry_id": "D020_F011",
+      "meal_type": "night",
+      "food_name": "附着食用油",
+      "brand": null,
+      "amount": 10,
+      "unit": "g",
+      "servings": null,
+      "calories": 900,
+      "protein_g": 0,
+      "total_carbs_g": 0,
+      "fiber_g": 0,
+      "net_carbs_g": 0,
+      "fat_g": 100,
+      "notes": null
+    }
+  ],
+  "workout": {
+    "session_id": "day-020-workout",
+    "workout_name": "Day 20 L2 Legs B",
+    "workout_type": "legs_b",
+    "duration_minutes": null,
+    "active_energy_kcal": null,
+    "notes": "训练共 23 组：后链、股四头、小腿和核心结构完整，恢复压力与训练效果均衡。",
+    "exercises": [
+      {
+        "exercise_name": "Romanian deadlift",
+        "category": "compound",
+        "muscle_group": "hamstrings/glutes",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 70.3068,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 155 lb."
+          },
+          {
+            "set_number": 2,
+            "weight": 70.3068,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 155 lb."
+          },
+          {
+            "set_number": 3,
+            "weight": 79.3787,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 175 lb."
+          },
+          {
+            "set_number": 4,
+            "weight": 70.3068,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 155 lb."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Leg curl",
+        "category": "isolation",
+        "muscle_group": "hamstrings",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 31.7515,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 70 lb."
+          },
+          {
+            "set_number": 2,
+            "weight": 40.8233,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 90 lb."
+          },
+          {
+            "set_number": 3,
+            "weight": 45.3592,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 100 lb."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Hip thrust",
+        "category": "compound",
+        "muscle_group": "glutes",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 81.6466,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 180 lb."
+          },
+          {
+            "set_number": 2,
+            "weight": 90.7185,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 200 lb."
+          },
+          {
+            "set_number": 3,
+            "weight": 90.7185,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 200 lb."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Horizontal leg press",
+        "category": "compound",
+        "muscle_group": "quadriceps/glutes",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 104.326,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 230 lb."
+          },
+          {
+            "set_number": 2,
+            "weight": 104.326,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 230 lb."
+          },
+          {
+            "set_number": 3,
+            "weight": 104.326,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 230 lb."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Seated calf raise",
+        "category": "isolation",
+        "muscle_group": "calves",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 61.235,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 135 lb."
+          },
+          {
+            "set_number": 2,
+            "weight": 61.235,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 135 lb."
+          },
+          {
+            "set_number": 3,
+            "weight": 61.235,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 135 lb."
+          },
+          {
+            "set_number": 4,
+            "weight": 61.235,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 135 lb."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Hanging leg raise",
+        "category": "core",
+        "muscle_group": "core",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": null,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set."
+          },
+          {
+            "set_number": 2,
+            "weight": null,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set."
+          },
+          {
+            "set_number": 3,
+            "weight": null,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Crunch",
+        "category": "core",
+        "muscle_group": "core",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": null,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set."
+          },
+          {
+            "set_number": 2,
+            "weight": null,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set."
+          },
+          {
+            "set_number": 3,
+            "weight": null,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set."
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "review_status": "needs_review",
+      "note": "逐项饮食明细已从 nutrition_history.json 补充；其余历史字段仍需确认。",
+      "field": "day.multiple"
+    },
+    {
+      "review_status": "approved",
+      "note": "日期已按 Day 43 = 2026-08-03 且期间连续无中断记录确认。",
+      "field": "day.date"
+    },
+    {
+      "review_status": "approved",
+      "note": "逐项饮食明细已从 nutrition_history.json 补充；已保留原有确认值。",
+      "field": "daily_log.nutrition"
+    }
+  ]
+}

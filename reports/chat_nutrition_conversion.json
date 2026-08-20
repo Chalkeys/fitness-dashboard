@@ -1,0 +1,17 @@
+{
+  "source": {
+    "filename": "ChatGPT-饮食记录与跟踪.json",
+    "sha256": "837e23b24d995e65b3e92e6a8edbb0f90dc15c70569d1ccfeb53352833d9e369",
+    "message_count": 1016,
+    "exported_at": "8/6/2026 9:07:33"
+  },
+  "records": 41,
+  "records_with_totals": 40,
+  "records_with_entries": 41,
+  "entry_candidates": 195,
+  "sync_ready_records": 0,
+  "warnings": [
+    "Day 45 缺少现有标准导出中的每日营养总计。"
+  ],
+  "output": "data_sources\\chat_nutrition_staging.json"
+}
