@@ -1,0 +1,612 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-047",
+  "history_version": 1,
+  "exported_at": "2026-08-16T18:35:09.726067Z",
+  "date": "2026-08-07",
+  "day_number": 47,
+  "provenance": {
+    "source": "xunji_app",
+    "confidence": "high",
+    "notes": "数据来自训记 Open API；膳食纤维按 0 g，净碳水按总碳水；TDEE 为估算值。"
+  },
+  "body": {
+    "weight_kg": 82.8,
+    "waist_cm": 82,
+    "body_fat_percentage": null,
+    "chest_cm": 106,
+    "shoulder_cm": 126,
+    "hip_cm": 100,
+    "arm_left_cm": 37,
+    "arm_right_cm": 37,
+    "leg_left_cm": 59,
+    "leg_right_cm": 59,
+    "calf_left_cm": 42.5,
+    "calf_right_cm": 41.5,
+    "notes": "训记 Open API 身体数据；腰围 82 cm。"
+  },
+  "daily_log": {
+    "is_training_day": true,
+    "workout_type": "p1_拉",
+    "calories_in": 2159.5314009661834,
+    "tdee": 2760.0,
+    "calorie_balance": -600.47,
+    "protein_g": 145.37060731538995,
+    "total_carbs_g": 224.59739820565906,
+    "fiber_g": 0,
+    "net_carbs_g": 224.59739820565906,
+    "fat_g": 73.8588198757764,
+    "steps": null,
+    "active_energy_kcal": 944,
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；TDEE 为 BMR≈1820 加训练活动消耗估算。；Active Energy 手动补录：944 kcal。"
+  },
+  "nutrition": [
+    {
+      "entry_id": "D047_XJ001",
+      "meal_type": "morning",
+      "food_name": "kirkland organicgreekyogurt",
+      "brand": null,
+      "amount": 300.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 61.0,
+      "protein_g": 10.3,
+      "total_carbs_g": 3.6,
+      "fiber_g": 0,
+      "net_carbs_g": 3.6,
+      "fat_g": 0.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D047_XJ002",
+      "meal_type": "morning",
+      "food_name": "牛津 冷冻野生蓝莓",
+      "brand": null,
+      "amount": 60.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 56.0,
+      "protein_g": 0.6,
+      "total_carbs_g": 13.8,
+      "fiber_g": 0,
+      "net_carbs_g": 13.8,
+      "fat_g": 0.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D047_XJ003",
+      "meal_type": "morning",
+      "food_name": "Catalina Crunch Protein Cereal",
+      "brand": null,
+      "amount": 30.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 431.48148148148147,
+      "protein_g": 29.62962962962963,
+      "total_carbs_g": 40.74074074074074,
+      "fiber_g": 0,
+      "net_carbs_g": 40.74074074074074,
+      "fat_g": 16.666666666666668,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D047_XJ004",
+      "meal_type": "morning",
+      "food_name": "kirkland 全脂牛奶",
+      "brand": null,
+      "amount": 200.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 67.0,
+      "protein_g": 3.5,
+      "total_carbs_g": 5.3,
+      "fiber_g": 0,
+      "net_carbs_g": 5.3,
+      "fat_g": 3.5,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D047_XJ005",
+      "meal_type": "morning",
+      "food_name": "意式浓缩咖啡",
+      "brand": null,
+      "amount": 40.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 9.0,
+      "protein_g": 0.1,
+      "total_carbs_g": 1.8,
+      "fiber_g": 0,
+      "net_carbs_g": 1.8,
+      "fat_g": 0.2,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D047_XJ006",
+      "meal_type": "noon",
+      "food_name": "Kirkland Organic Tofu Extra Firm",
+      "brand": null,
+      "amount": 250.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 97.0,
+      "protein_g": 10.0,
+      "total_carbs_g": 3.0,
+      "fiber_g": 0,
+      "net_carbs_g": 3.0,
+      "fat_g": 5.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D047_XJ007",
+      "meal_type": "noon",
+      "food_name": "costco 恰巴塔",
+      "brand": null,
+      "amount": 80.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 301.0,
+      "protein_g": 11.0,
+      "total_carbs_g": 57.5,
+      "fiber_g": 0,
+      "net_carbs_g": 57.5,
+      "fat_g": 2.7,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D047_XJ008",
+      "meal_type": "noon",
+      "food_name": "Kirkland light breaded chicken breast",
+      "brand": null,
+      "amount": 80.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 165.94202898550725,
+      "protein_g": 15.942028985507246,
+      "total_carbs_g": 10.869565217391305,
+      "fiber_g": 0,
+      "net_carbs_g": 10.869565217391305,
+      "fat_g": 6.521739130434782,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D047_XJ009",
+      "meal_type": "night",
+      "food_name": "菠萝",
+      "brand": null,
+      "amount": 200.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 47.0,
+      "protein_g": 0.5,
+      "total_carbs_g": 11.5,
+      "fiber_g": 0,
+      "net_carbs_g": 11.5,
+      "fat_g": 0.1,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D047_XJ010",
+      "meal_type": "night",
+      "food_name": "Golden Island Korean Barbecue Snack Bites",
+      "brand": null,
+      "amount": 43.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 283.3333333333333,
+      "protein_g": 23.80952380952381,
+      "total_carbs_g": 30.952380952380953,
+      "fiber_g": 0,
+      "net_carbs_g": 30.952380952380953,
+      "fat_g": 7.142857142857142,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D047_XJ011",
+      "meal_type": "night",
+      "food_name": "烤鸭",
+      "brand": null,
+      "amount": 80.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 400.0,
+      "protein_g": 11.3,
+      "total_carbs_g": 3.0,
+      "fiber_g": 0,
+      "net_carbs_g": 3.0,
+      "fat_g": 37.8,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D047_XJ012",
+      "meal_type": "night",
+      "food_name": "ole xtreme wellness wraps",
+      "brand": null,
+      "amount": 42.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 194.04761904761904,
+      "protein_g": 9.523809523809524,
+      "total_carbs_g": 30.952380952380953,
+      "fiber_g": 0,
+      "net_carbs_g": 30.952380952380953,
+      "fat_g": 3.571428571428571,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D047_XJ013",
+      "meal_type": "night",
+      "food_name": "椰香百家 海南椰子粿",
+      "brand": null,
+      "amount": 50.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 335.0,
+      "protein_g": 1.1,
+      "total_carbs_g": 65.5,
+      "fiber_g": 0,
+      "net_carbs_g": 65.5,
+      "fat_g": 7.3,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D047_XJ014",
+      "meal_type": "postworkout",
+      "food_name": "Super Coffee Protein+ Coffee Shake",
+      "brand": null,
+      "amount": 355.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 43.66197183098592,
+      "protein_g": 7.042253521126761,
+      "total_carbs_g": 1.971830985915493,
+      "fiber_g": 0,
+      "net_carbs_g": 1.971830985915493,
+      "fat_g": 0.8450704225352113,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D047_XJ015",
+      "meal_type": "postworkout",
+      "food_name": "香蕉",
+      "brand": null,
+      "amount": 120.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 100.0,
+      "protein_g": 1.5,
+      "total_carbs_g": 23.6,
+      "fiber_g": 0,
+      "net_carbs_g": 23.6,
+      "fat_g": 0.2,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    }
+  ],
+  "workout": {
+    "session_id": "day-047-xunji",
+    "workout_name": "P1-拉",
+    "workout_type": "p1_拉",
+    "duration_minutes": 186.5,
+    "active_energy_kcal": 944,
+    "notes": "训练动作来自训记 API；力量训练未返回热量，Active Energy 仅含接口提供的有氧消耗。；Active Energy 手动补录：944 kcal。",
+    "exercises": [
+      {
+        "exercise_name": "宽距高位下拉",
+        "category": "other",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 58.967,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 58.967,
+            "reps": 9,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 58.967,
+            "reps": 9,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 54.4311,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "坐姿划船",
+        "category": "other",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 24.9476,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 34.0194,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 54.4311,
+            "reps": 5,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 70.3068,
+            "reps": 13,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 5,
+            "weight": 70.3068,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 6,
+            "weight": 72.5748,
+            "reps": 13,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 7,
+            "weight": 72.5748,
+            "reps": 13,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "分动式高位划船",
+        "category": "other",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 31.7515,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 34.0194,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 36.2874,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 34.0194,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "面拉",
+        "category": "other",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 43.0913,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 43.0913,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 43.0913,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "器械坐姿反向飞鸟",
+        "category": "other",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 45.3592,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 45.3592,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 45.3592,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "蜘蛛弯举",
+        "category": "other",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 27.2155,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 27.2155,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 27.2155,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 34.0194,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 5,
+            "weight": 34.0194,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "绳索弯举",
+        "category": "other",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 43.0913,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 45.3592,
+            "reps": 11,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 47.6272,
+            "reps": 11,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "review_status": "approved",
+      "note": "用户确认纤维按 0 g、净碳水等于总碳水，并接受 TDEE 估算。",
+      "field": "daily_log"
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-028",
+  "history_version": 1,
+  "exported_at": "2026-08-16T18:35:09.708292Z",
+  "date": "2026-07-19",
+  "day_number": 28,
+  "provenance": {
+    "source": "chat_history",
+    "confidence": "high",
+    "notes": "TDEE is not confirmed. 日期根据 Day 43 = 2026-08-03 且期间连续无中断推算为 2026-07-19；日期已按连续无中断记录确认。"
+  },
+  "body": {
+    "weight_kg": 82.6,
+    "waist_cm": 84,
+    "body_fat_percentage": null,
+    "notes": "腰围沿用 Day 26 的最近测量值：84 cm。"
+  },
+  "daily_log": {
+    "is_training_day": false,
+    "workout_type": null,
+    "calories_in": 1827,
+    "tdee": 2270,
+    "calorie_balance": -443,
+    "protein_g": 146,
+    "total_carbs_g": 146.5,
+    "fiber_g": 9.7,
+    "net_carbs_g": 136.8,
+    "fat_g": 55.1,
+    "steps": null,
+    "active_energy_kcal": 450,
+    "notes": "休息日（原 workout_type=rest）；TDEE 约 2270 kcal，热量缺口约 443 kcal。蛋白质和膳食纤维偏低，碳水与脂肪达标；nutrition_history.json 逐项饮食明细已补充；膳食纤维暂按 0 g。"
+  },
+  "nutrition": [
+    {
+      "entry_id": "D028_F001",
+      "meal_type": "noon",
+      "food_name": "Five Guys Hamburger - All The Way, No Mayo, A.1.",
+      "brand": null,
+      "amount": 1,
+      "unit": "custom",
+      "servings": null,
+      "calories": 935,
+      "protein_g": 50,
+      "total_carbs_g": 47.5,
+      "fiber_g": 0,
+      "net_carbs_g": 47.5,
+      "fat_g": 44,
+      "notes": "原始单位：burger"
+    },
+    {
+      "entry_id": "D028_F002",
+      "meal_type": "night",
+      "food_name": "冷冻虾",
+      "brand": null,
+      "amount": 1,
+      "unit": "serving",
+      "servings": null,
+      "calories": 262,
+      "protein_g": 55.7,
+      "total_carbs_g": 0,
+      "fiber_g": 0,
+      "net_carbs_g": 0,
+      "fat_g": 3.3,
+      "notes": null
+    },
+    {
+      "entry_id": "D028_F003",
+      "meal_type": "snack",
+      "food_name": "蓝莓",
+      "brand": null,
+      "amount": 100,
+      "unit": "g",
+      "servings": null,
+      "calories": 57,
+      "protein_g": 0.7,
+      "total_carbs_g": 14.5,
+      "fiber_g": 0,
+      "net_carbs_g": 14.5,
+      "fat_g": 0.3,
+      "notes": null
+    },
+    {
+      "entry_id": "D028_F004",
+      "meal_type": "snack",
+      "food_name": "Chickpea Crisps",
+      "brand": null,
+      "amount": 40,
+      "unit": "g",
+      "servings": null,
+      "calories": 440,
+      "protein_g": 12,
+      "total_carbs_g": 64,
+      "fiber_g": 0,
+      "net_carbs_g": 64,
+      "fat_g": 16,
+      "notes": null
+    },
+    {
+      "entry_id": "D028_F005",
+      "meal_type": "snack",
+      "food_name": "Premier Protein Shake",
+      "brand": null,
+      "amount": 1,
+      "unit": "bottle",
+      "servings": null,
+      "calories": 170,
+      "protein_g": 30,
+      "total_carbs_g": 5,
+      "fiber_g": 0,
+      "net_carbs_g": 5,
+      "fat_g": 3,
+      "notes": null
+    },
+    {
+      "entry_id": "D028_F006",
+      "meal_type": "snack",
+      "food_name": "Ciabatta",
+      "brand": null,
+      "amount": 100,
+      "unit": "g",
+      "servings": null,
+      "calories": 240,
+      "protein_g": 8,
+      "total_carbs_g": 48,
+      "fiber_g": 0,
+      "net_carbs_g": 48,
+      "fat_g": 1.5,
+      "notes": null
+    }
+  ],
+  "workout": null,
+  "review": [
+    {
+      "review_status": "approved",
+      "note": "Day 28 TDEE 2270 kcal 已确认。",
+      "field": "daily_log.tdee"
+    },
+    {
+      "review_status": "approved",
+      "note": "日期已按 Day 43 = 2026-08-03 且期间连续无中断记录确认。",
+      "field": "day.date"
+    },
+    {
+      "review_status": "approved",
+      "note": "逐项饮食明细已从 nutrition_history.json 补充；已保留原有确认值。",
+      "field": "daily_log.nutrition"
+    }
+  ]
+}

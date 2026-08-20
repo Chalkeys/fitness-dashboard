@@ -1,0 +1,358 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-004",
+  "history_version": 1,
+  "exported_at": "2026-08-16T18:23:13.588008Z",
+  "date": "2026-06-25",
+  "day_number": 4,
+  "provenance": {
+    "source": "chat_history",
+    "confidence": "medium",
+    "notes": "日期根据 Day 43 = 2026-08-03 且期间连续无中断推算为 2026-06-25；日期已按连续无中断记录确认。"
+  },
+  "body": {
+    "weight_kg": 79.4,
+    "waist_cm": null,
+    "body_fat_percentage": null,
+    "notes": null
+  },
+  "daily_log": {
+    "is_training_day": true,
+    "workout_type": "arms",
+    "calories_in": 2150,
+    "tdee": 2200,
+    "calorie_balance": -50,
+    "protein_g": 183,
+    "total_carbs_g": 224,
+    "fiber_g": null,
+    "net_carbs_g": null,
+    "fat_g": 46,
+    "steps": null,
+    "active_energy_kcal": 464,
+    "notes": "Biceps and triceps day；Active Energy 手动补录：464 kcal。"
+  },
+  "nutrition": [],
+  "workout": {
+    "session_id": "day-004-workout",
+    "workout_name": "Day 4 Biceps + Triceps",
+    "workout_type": "arms",
+    "duration_minutes": null,
+    "active_energy_kcal": 464,
+    "notes": "二头 13 组、三头 12 组；覆盖长头、短头、外侧头，训练评价 9.5/10。；Active Energy 手动补录：464 kcal。",
+    "exercises": [
+      {
+        "exercise_name": "Dumbbell curl",
+        "category": "isolation",
+        "muscle_group": "biceps",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 9.0718,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Warm-up; original 20 lb."
+          },
+          {
+            "set_number": 2,
+            "weight": 9.0718,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Warm-up; original 20 lb."
+          }
+        ]
+      },
+      {
+        "exercise_name": "EZ-bar curl",
+        "category": "isolation",
+        "muscle_group": "biceps",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 22.6796,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 50 lb."
+          },
+          {
+            "set_number": 2,
+            "weight": 22.6796,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 50 lb."
+          },
+          {
+            "set_number": 3,
+            "weight": 22.6796,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 50 lb."
+          },
+          {
+            "set_number": 4,
+            "weight": 22.6796,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 50 lb."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Single-arm incline dumbbell curl",
+        "category": "isolation",
+        "muscle_group": "biceps",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 11.3398,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; single-arm; original 25 lb."
+          },
+          {
+            "set_number": 2,
+            "weight": 11.3398,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; single-arm; original 25 lb."
+          },
+          {
+            "set_number": 3,
+            "weight": 11.3398,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; single-arm; original 25 lb."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Preacher barbell curl",
+        "category": "isolation",
+        "muscle_group": "biceps",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 18.1437,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 40 lb."
+          },
+          {
+            "set_number": 2,
+            "weight": 18.1437,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 40 lb."
+          },
+          {
+            "set_number": 3,
+            "weight": 18.1437,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 40 lb."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Cable curl",
+        "category": "isolation",
+        "muscle_group": "biceps",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 22.6796,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Finisher superset; effective set; original 50 lb."
+          },
+          {
+            "set_number": 2,
+            "weight": 22.6796,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Finisher superset; effective set; original 50 lb."
+          },
+          {
+            "set_number": 3,
+            "weight": 22.6796,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Finisher superset; effective set; original 50 lb."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Cable pushdown",
+        "category": "isolation",
+        "muscle_group": "triceps",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 29.4835,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 65 lb."
+          },
+          {
+            "set_number": 2,
+            "weight": 29.4835,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 65 lb."
+          },
+          {
+            "set_number": 3,
+            "weight": 29.4835,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 65 lb."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Straight-bar pushdown",
+        "category": "isolation",
+        "muscle_group": "triceps",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 29.4835,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 65 lb."
+          },
+          {
+            "set_number": 2,
+            "weight": 29.4835,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 65 lb."
+          },
+          {
+            "set_number": 3,
+            "weight": 29.4835,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 65 lb."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Rope overhead triceps extension",
+        "category": "isolation",
+        "muscle_group": "triceps_long_head",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 29.4835,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 65 lb."
+          },
+          {
+            "set_number": 2,
+            "weight": 29.4835,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 65 lb."
+          },
+          {
+            "set_number": 3,
+            "weight": 29.4835,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective set; original 65 lb."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Reverse-grip cable pushdown",
+        "category": "isolation",
+        "muscle_group": "triceps_lateral_head",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 18.1437,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Finisher superset; effective set; original 40 lb."
+          },
+          {
+            "set_number": 2,
+            "weight": 18.1437,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Finisher superset; effective set; original 40 lb."
+          },
+          {
+            "set_number": 3,
+            "weight": 18.1437,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Finisher superset; effective set; original 40 lb."
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "review_status": "approved",
+      "note": "日期已按 Day 43 = 2026-08-03 且期间连续无中断记录确认。",
+      "field": "day.date"
+    }
+  ]
+}

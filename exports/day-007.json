@@ -1,0 +1,161 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-007",
+  "history_version": 1,
+  "exported_at": "2026-08-16T18:31:18.607006Z",
+  "date": "2026-06-28",
+  "day_number": 7,
+  "provenance": {
+    "source": "chat_history",
+    "confidence": "medium",
+    "notes": "Calendar date and detailed nutrition history are unavailable. 日期根据 Day 43 = 2026-08-03 且期间连续无中断推算为 2026-06-28；日期已按连续无中断记录确认。"
+  },
+  "body": {
+    "weight_kg": 80.4,
+    "waist_cm": null,
+    "body_fat_percentage": null,
+    "notes": null
+  },
+  "daily_log": {
+    "is_training_day": false,
+    "workout_type": null,
+    "calories_in": 1734,
+    "tdee": 2050,
+    "calorie_balance": -316,
+    "protein_g": 137,
+    "total_carbs_g": 142,
+    "fiber_g": 0,
+    "net_carbs_g": 142,
+    "fat_g": 59,
+    "steps": 4341,
+    "active_energy_kcal": 452,
+    "notes": "休息日；无力量训练、无有氧。Yardwork：20 分钟，按推割草机估算约 50 kcal。超市约 1 小时，已包含在步数中，不重复计算。TDEE 估算范围：1950–2100 kcal。；Active Energy 手动补录：452 kcal；nutrition_history.json 逐项饮食明细已补充；膳食纤维暂按 0 g；休息日（原 workout_type=rest）。"
+  },
+  "nutrition": [
+    {
+      "entry_id": "D007_F001",
+      "meal_type": "morning",
+      "food_name": "植物蛋白粉",
+      "brand": null,
+      "amount": 1,
+      "unit": "serving",
+      "servings": null,
+      "calories": 160,
+      "protein_g": 21,
+      "total_carbs_g": 20,
+      "fiber_g": 0,
+      "net_carbs_g": 20,
+      "fat_g": 5,
+      "notes": null
+    },
+    {
+      "entry_id": "D007_F002",
+      "meal_type": "noon",
+      "food_name": "Five Guys Hamburger - All The Way, No Mayo, A.1. Sauce",
+      "brand": null,
+      "amount": 1,
+      "unit": "custom",
+      "servings": null,
+      "calories": 935,
+      "protein_g": 50,
+      "total_carbs_g": 47.5,
+      "fiber_g": 0,
+      "net_carbs_g": 47.5,
+      "fat_g": 44,
+      "notes": "原始单位：burger"
+    },
+    {
+      "entry_id": "D007_F003",
+      "meal_type": "snack",
+      "food_name": "西瓜",
+      "brand": null,
+      "amount": 150,
+      "unit": "g",
+      "servings": null,
+      "calories": 30,
+      "protein_g": 0.6,
+      "total_carbs_g": 7.33,
+      "fiber_g": 0,
+      "net_carbs_g": 7.33,
+      "fat_g": 0.13,
+      "notes": null
+    },
+    {
+      "entry_id": "D007_F004",
+      "meal_type": "snack",
+      "food_name": "Crumpet",
+      "brand": null,
+      "amount": 1,
+      "unit": "piece",
+      "servings": null,
+      "calories": 95,
+      "protein_g": 3,
+      "total_carbs_g": 19,
+      "fiber_g": 0,
+      "net_carbs_g": 19,
+      "fat_g": 0.8,
+      "notes": null
+    },
+    {
+      "entry_id": "D007_F005",
+      "meal_type": "snack",
+      "food_name": "开心果",
+      "brand": null,
+      "amount": 10,
+      "unit": "g",
+      "servings": null,
+      "calories": 570,
+      "protein_g": 20,
+      "total_carbs_g": 27,
+      "fiber_g": 0,
+      "net_carbs_g": 27,
+      "fat_g": 47,
+      "notes": null
+    },
+    {
+      "entry_id": "D007_F006",
+      "meal_type": "night",
+      "food_name": "冷冻虾",
+      "brand": null,
+      "amount": 370,
+      "unit": "g",
+      "servings": null,
+      "calories": 70.8,
+      "protein_g": 15.04,
+      "total_carbs_g": 0,
+      "fiber_g": 0,
+      "net_carbs_g": 0,
+      "fat_g": 0.88,
+      "notes": null
+    },
+    {
+      "entry_id": "D007_F007",
+      "meal_type": "night",
+      "food_name": "生米",
+      "brand": null,
+      "amount": 50,
+      "unit": "g",
+      "servings": null,
+      "calories": 360,
+      "protein_g": 7.6,
+      "total_carbs_g": 78,
+      "fiber_g": 0,
+      "net_carbs_g": 78,
+      "fat_g": 0.6,
+      "notes": null
+    }
+  ],
+  "workout": null,
+  "review": [
+    {
+      "review_status": "approved",
+      "note": "日期已按 Day 43 = 2026-08-03 且期间连续无中断记录确认。",
+      "field": "day.date"
+    },
+    {
+      "review_status": "approved",
+      "note": "逐项饮食明细已从 nutrition_history.json 补充；已保留原有确认值。",
+      "field": "daily_log.nutrition"
+    }
+  ]
+}

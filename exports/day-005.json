@@ -1,0 +1,386 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-005",
+  "history_version": 1,
+  "exported_at": "2026-08-16T18:31:18.605004Z",
+  "date": "2026-06-26",
+  "day_number": 5,
+  "provenance": {
+    "source": "chat_history",
+    "confidence": "medium",
+    "notes": "Calendar date and detailed nutrition history are unavailable. 日期根据 Day 43 = 2026-08-03 且期间连续无中断推算为 2026-06-26；日期已按连续无中断记录确认。"
+  },
+  "body": {
+    "weight_kg": 79.6,
+    "waist_cm": null,
+    "body_fat_percentage": null,
+    "notes": null
+  },
+  "daily_log": {
+    "is_training_day": true,
+    "workout_type": "core",
+    "calories_in": 1935,
+    "tdee": 2050,
+    "calorie_balance": -115,
+    "protein_g": 179,
+    "total_carbs_g": 230,
+    "fiber_g": 0,
+    "net_carbs_g": 230,
+    "fat_g": 87,
+    "steps": null,
+    "active_energy_kcal": 334,
+    "notes": "用户补充：完成核心训练。；Active Energy 手动补录：334 kcal；nutrition_history.json 逐项饮食明细已补充；膳食纤维暂按 0 g。"
+  },
+  "nutrition": [
+    {
+      "entry_id": "D005_F001",
+      "meal_type": "morning",
+      "food_name": "Oikos Triple Zero",
+      "brand": null,
+      "amount": 2,
+      "unit": "custom",
+      "servings": null,
+      "calories": 90,
+      "protein_g": 15,
+      "total_carbs_g": 7,
+      "fiber_g": 0,
+      "net_carbs_g": 7,
+      "fat_g": 0,
+      "notes": "原始单位：cup"
+    },
+    {
+      "entry_id": "D005_F002",
+      "meal_type": "morning",
+      "food_name": "植物蛋白粉",
+      "brand": null,
+      "amount": 1,
+      "unit": "serving",
+      "servings": null,
+      "calories": 160,
+      "protein_g": 21,
+      "total_carbs_g": 20,
+      "fiber_g": 0,
+      "net_carbs_g": 20,
+      "fat_g": 5,
+      "notes": null
+    },
+    {
+      "entry_id": "D005_F003",
+      "meal_type": "snack",
+      "food_name": "Mission Carb Balance Flour Tortilla",
+      "brand": null,
+      "amount": 1,
+      "unit": "piece",
+      "servings": null,
+      "calories": 70,
+      "protein_g": 6,
+      "total_carbs_g": 19,
+      "fiber_g": 0,
+      "net_carbs_g": 19,
+      "fat_g": 3.5,
+      "notes": null
+    },
+    {
+      "entry_id": "D005_F004",
+      "meal_type": "noon",
+      "food_name": "生米",
+      "brand": null,
+      "amount": 70,
+      "unit": "g",
+      "servings": null,
+      "calories": 360,
+      "protein_g": 7.43,
+      "total_carbs_g": 78,
+      "fiber_g": 0,
+      "net_carbs_g": 78,
+      "fat_g": 0.57,
+      "notes": null
+    },
+    {
+      "entry_id": "D005_F005",
+      "meal_type": "noon",
+      "food_name": "五花肉",
+      "brand": null,
+      "amount": 100,
+      "unit": "g",
+      "servings": null,
+      "calories": 518,
+      "protein_g": 9.3,
+      "total_carbs_g": 0,
+      "fiber_g": 0,
+      "net_carbs_g": 0,
+      "fat_g": 53,
+      "notes": null
+    },
+    {
+      "entry_id": "D005_F006",
+      "meal_type": "snack",
+      "food_name": "樱桃",
+      "brand": null,
+      "amount": 250,
+      "unit": "g",
+      "servings": null,
+      "calories": 63.2,
+      "protein_g": 1.04,
+      "total_carbs_g": 16,
+      "fiber_g": 0,
+      "net_carbs_g": 16,
+      "fat_g": 0.2,
+      "notes": null
+    },
+    {
+      "entry_id": "D005_F007",
+      "meal_type": "snack",
+      "food_name": "开心果",
+      "brand": null,
+      "amount": 15,
+      "unit": "g",
+      "servings": null,
+      "calories": 566.67,
+      "protein_g": 20,
+      "total_carbs_g": 26.67,
+      "fiber_g": 0,
+      "net_carbs_g": 26.67,
+      "fat_g": 46.67,
+      "notes": null
+    },
+    {
+      "entry_id": "D005_F008",
+      "meal_type": "night",
+      "food_name": "冷冻虾",
+      "brand": null,
+      "amount": 320,
+      "unit": "g",
+      "servings": null,
+      "calories": 70.8,
+      "protein_g": 15.04,
+      "total_carbs_g": 0,
+      "fiber_g": 0,
+      "net_carbs_g": 0,
+      "fat_g": 0.88,
+      "notes": null
+    },
+    {
+      "entry_id": "D005_F009",
+      "meal_type": "snack",
+      "food_name": "植物蛋白粉",
+      "brand": null,
+      "amount": 1,
+      "unit": "serving",
+      "servings": null,
+      "calories": 160,
+      "protein_g": 21,
+      "total_carbs_g": 20,
+      "fiber_g": 0,
+      "net_carbs_g": 20,
+      "fat_g": 5,
+      "notes": null
+    },
+    {
+      "entry_id": "D005_F010",
+      "meal_type": "snack",
+      "food_name": "樱桃",
+      "brand": null,
+      "amount": 200,
+      "unit": "g",
+      "servings": null,
+      "calories": 63,
+      "protein_g": 1.05,
+      "total_carbs_g": 16,
+      "fiber_g": 0,
+      "net_carbs_g": 16,
+      "fat_g": 0.2,
+      "notes": null
+    },
+    {
+      "entry_id": "D005_F011",
+      "meal_type": "snack",
+      "food_name": "Premier Protein Shake",
+      "brand": null,
+      "amount": 1,
+      "unit": "bottle",
+      "servings": null,
+      "calories": 170,
+      "protein_g": 30,
+      "total_carbs_g": 5,
+      "fiber_g": 0,
+      "net_carbs_g": 5,
+      "fat_g": 3,
+      "notes": null
+    },
+    {
+      "entry_id": "D005_F012",
+      "meal_type": "snack",
+      "food_name": "旺旺仙贝",
+      "brand": null,
+      "amount": 5,
+      "unit": "custom",
+      "servings": null,
+      "calories": 30,
+      "protein_g": 0.2,
+      "total_carbs_g": 4.2,
+      "fiber_g": 0,
+      "net_carbs_g": 4.2,
+      "fat_g": 1.2,
+      "notes": "原始单位：pack"
+    }
+  ],
+  "workout": {
+    "session_id": "day-005-workout",
+    "workout_name": "Day 5 Core",
+    "workout_type": "core",
+    "duration_minutes": null,
+    "active_energy_kcal": 334,
+    "notes": "用户补充的核心训练；全部动作均已完成。；Active Energy 手动补录：334 kcal。",
+    "exercises": [
+      {
+        "exercise_name": "Plank",
+        "category": "core",
+        "muscle_group": "core",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": 60,
+            "notes": "Effective set."
+          },
+          {
+            "set_number": 2,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": 60,
+            "notes": "Effective set."
+          },
+          {
+            "set_number": 3,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": 60,
+            "notes": "Effective set."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Dead bug",
+        "category": "core",
+        "muscle_group": "core",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": null,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "15 reps per side; effective set."
+          },
+          {
+            "set_number": 2,
+            "weight": null,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "15 reps per side; effective set."
+          },
+          {
+            "set_number": 3,
+            "weight": null,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "15 reps per side; effective set."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Mountain climber",
+        "category": "core",
+        "muscle_group": "core",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": 40,
+            "notes": "Effective set."
+          },
+          {
+            "set_number": 2,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": 40,
+            "notes": "Effective set."
+          },
+          {
+            "set_number": 3,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": 40,
+            "notes": "Effective set."
+          }
+        ]
+      },
+      {
+        "exercise_name": "Russian twist",
+        "category": "core",
+        "muscle_group": "core",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": null,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "15 reps per side; effective set."
+          },
+          {
+            "set_number": 2,
+            "weight": null,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "15 reps per side; effective set."
+          },
+          {
+            "set_number": 3,
+            "weight": null,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "15 reps per side; effective set."
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "review_status": "approved",
+      "note": "日期已按 Day 43 = 2026-08-03 且期间连续无中断记录确认。",
+      "field": "day.date"
+    },
+    {
+      "review_status": "approved",
+      "note": "逐项饮食明细已从 nutrition_history.json 补充；已保留原有确认值。",
+      "field": "daily_log.nutrition"
+    }
+  ]
+}
