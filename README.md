@@ -2,7 +2,8 @@
 
 A personal fitness management system built with Streamlit and SQLite. The data
 layer tracks workouts, body metrics, goals, daily nutrition, and a reusable food
-library.
+library; the dashboard visualises them across five pages (see
+[Run the dashboard](#run-the-dashboard)).
 
 ## Data model
 
@@ -204,8 +205,60 @@ uv run python scripts/convert_legacy_history.py
 
 ## Run the dashboard
 
-Once a Streamlit entry point such as `app.py` is added:
-
 ```powershell
 uv run streamlit run app.py
 ```
+
+The app opens on <http://localhost:8501>. It reads `fitness.db` by default; set
+`FITNESS_DB` to point at another file:
+
+```powershell
+$env:FITNESS_DB = "data/development.db"; uv run streamlit run app.py
+```
+
+The database is opened read-only, so the dashboard can never modify it. Queries
+are cached for five minutes; a fresh import shows up after that window or after
+a restart.
+
+### Pages
+
+- **概览**: headline metrics, a training calendar coloured by push / pull / legs
+  / cardio / rest, the weight trend, and daily calorie balance. Clicking a day in
+  the calendar opens its detail page.
+- **每日详情**: one day at a time — sets for each workout, meals with per-meal
+  calories, and that day's body measurements.
+- **身体指标**: weight and waist trends plus the full measurement table.
+- **营养**: intake against TDEE, the macro split, and protein over time.
+- **训练**: weekly tonnage, per-exercise progression, and set counts per muscle
+  group.
+
+Every page has its own metric/imperial toggle; the sidebar holds a global
+30-day / 90-day / all-time range filter. Charts are built with Apache ECharts
+through `streamlit-echarts`; the shared palette and chart chrome live in
+`dashboard/theme.py`, and the option builders in `dashboard/echarts_charts.py`.
+
+## Deploy to a server
+
+The dashboard is deployed as a systemd service on a small Linux host. The code
+lives in `/opt/fitness-dashboard` and `uv` is installed for the service account.
+Substitute your own host for `$DASHBOARD_HOST` below.
+
+Copy the changed files and restart the service:
+
+```bash
+scp app.py pyproject.toml uv.lock "$DASHBOARD_HOST":/opt/fitness-dashboard/
+scp dashboard/*.py "$DASHBOARD_HOST":/opt/fitness-dashboard/dashboard/
+ssh "$DASHBOARD_HOST" "cd /opt/fitness-dashboard && uv sync && systemctl restart fitness-dashboard"
+```
+
+The unit runs `uv run streamlit run app.py --server.address 0.0.0.0` from
+`/opt/fitness-dashboard` and is enabled, so the app starts with the host and
+restarts on failure. Check it with:
+
+```bash
+ssh "$DASHBOARD_HOST" "systemctl status fitness-dashboard"
+```
+
+Bind the app to a trusted network only — it has no authentication of its own.
+The database is copied across with the same `scp` mechanism as the code and is
+not tracked by Git.
