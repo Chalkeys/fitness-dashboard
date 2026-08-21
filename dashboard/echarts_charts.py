@@ -192,8 +192,15 @@ def waist_trend_option(body: pd.DataFrame, imperial: bool = False) -> dict:
 # --- Nutrition -------------------------------------------------------------
 
 
-def intake_vs_tdee_option(daily: pd.DataFrame) -> dict:
+def intake_vs_tdee_option(
+    daily: pd.DataFrame, tdee_bias: float = 0.0, intake_bias: float = 0.0
+) -> dict:
+    """Intake against TDEE, optionally with both sides scaled by their bias."""
     df = daily[daily["tdee"] > 0]
+    tdee = df["tdee"] * (1 + tdee_bias)
+    intake = df["calories_intake"] * (1 + intake_bias)
+    corrected = bool(tdee_bias or intake_bias)
+    suffix = "（纠偏）" if corrected else ""
 
     option = _base(legend=True)
     option |= {
@@ -203,18 +210,18 @@ def intake_vs_tdee_option(daily: pd.DataFrame) -> dict:
         "yAxis": _value_axis("kcal"),
         "series": [
             {
-                "name": "TDEE",
+                "name": f"TDEE{suffix}",
                 "type": "line",
-                "data": df["tdee"].round(0).tolist(),
+                "data": tdee.round(0).tolist(),
                 "smooth": True,
                 "showSymbol": False,
                 "lineStyle": {"width": 2, "color": BASELINE, "type": "dashed"},
                 "itemStyle": {"color": BASELINE},
             },
             {
-                "name": "摄入",
+                "name": f"摄入{suffix}",
                 "type": "line",
-                "data": df["calories_intake"].round(0).tolist(),
+                "data": intake.round(0).tolist(),
                 "smooth": True,
                 "showSymbol": False,
                 "lineStyle": {"width": 3, "color": BLUE},

@@ -37,6 +37,10 @@ h1, h2, h3 {color: #0b0b0b;}
 
 RANGE_OPTIONS = {"近 30 天": 30, "近 90 天": 90, "全部": None}
 
+# Starting guesses for the estimate biases; tune them against measured weight.
+DEFAULT_TDEE_BIAS = -10
+DEFAULT_INTAKE_BIAS = 10
+
 MEAL_ORDER = [
     "breakfast",
     "morning",
@@ -412,21 +416,33 @@ def page_body() -> None:
         )
 
 
+def _bias_factors() -> tuple[float, float]:
+    """Current correction factors, as set by the sliders further down the page.
+
+    Widget state is committed before the rerun, so charts above the sliders
+    still read the value the user just picked.
+    """
+    return (
+        st.session_state.get("bias_tdee", DEFAULT_TDEE_BIAS) / 100,
+        st.session_state.get("bias_intake", DEFAULT_INTAKE_BIAS) / 100,
+    )
+
+
 def _corrected_balance_section(windowed: pd.DataFrame, imperial: bool) -> None:
     """Bias-corrected calorie balance with user-set correction factors."""
     st.subheader("热量差纠偏")
     st.caption(
         "记录的 TDEE 和摄入都是估算值：手环倾向高估消耗，手记饮食倾向低估摄入。"
-        "下面两个系数按比例缩放两侧，再重新计算热量差。"
+        "下面两个系数按比例缩放两侧，再重新计算热量差，也用于上方「摄入 vs TDEE」的纠偏视图。"
     )
 
     left, right = st.columns(2)
     tdee_bias = left.slider(
-        "TDEE 偏差", -30, 10, -10, step=1, format="%d%%", key="bias_tdee",
+        "TDEE 偏差", -30, 10, DEFAULT_TDEE_BIAS, step=1, format="%d%%", key="bias_tdee",
         help="负值表示实际 TDEE 低于记录值（记录高估了消耗）。",
     ) / 100
     intake_bias = right.slider(
-        "摄入偏差", -10, 30, 10, step=1, format="%d%%", key="bias_intake",
+        "摄入偏差", -10, 30, DEFAULT_INTAKE_BIAS, step=1, format="%d%%", key="bias_intake",
         help="正值表示实际摄入高于记录值（记录低估了摄入）。",
     ) / 100
 
@@ -480,7 +496,24 @@ def page_nutrition() -> None:
     windowed = data.filter_by_range(daily, "log_date", days)
 
     st.subheader("摄入 vs TDEE")
-    st_echarts(ec.intake_vs_tdee_option(windowed), height="360px", key="nut_intake")
+    mode = st.segmented_control(
+        "数据口径",
+        ["原始", "纠偏后"],
+        default="原始",
+        key="intake_mode",
+        label_visibility="collapsed",
+    )
+    tdee_bias, intake_bias = _bias_factors() if mode == "纠偏后" else (0.0, 0.0)
+    if mode == "纠偏后":
+        st.caption(
+            f"已按 TDEE {tdee_bias:+.0%}、摄入 {intake_bias:+.0%} 缩放，"
+            "系数在下方「热量差纠偏」中调整。"
+        )
+    st_echarts(
+        ec.intake_vs_tdee_option(windowed, tdee_bias, intake_bias),
+        height="360px",
+        key="nut_intake",
+    )
 
     _corrected_balance_section(windowed, imperial)
 
