@@ -9,6 +9,7 @@ from __future__ import annotations
 import pandas as pd
 from streamlit_echarts import JsCode
 
+from dashboard import energy
 from dashboard.theme import (
     AQUA,
     BASELINE,
@@ -193,14 +194,16 @@ def waist_trend_option(body: pd.DataFrame, imperial: bool = False) -> dict:
 
 
 def intake_vs_tdee_option(
-    daily: pd.DataFrame, tdee_bias: float = 0.0, intake_bias: float = 0.0
+    daily: pd.DataFrame,
+    active_bias: float = 0.0,
+    intake_bias: float = 0.0,
+    bmr: float = energy.DEFAULT_BMR,
 ) -> dict:
-    """Intake against TDEE, optionally with both sides scaled by their bias."""
+    """Intake against TDEE, optionally corrected on activity and intake."""
     df = daily[daily["tdee"] > 0]
-    tdee = df["tdee"] * (1 + tdee_bias)
+    tdee = energy.corrected_tdee(daily, active_bias, bmr)
     intake = df["calories_intake"] * (1 + intake_bias)
-    corrected = bool(tdee_bias or intake_bias)
-    suffix = "（纠偏）" if corrected else ""
+    suffix = "（纠偏）" if (active_bias or intake_bias) else ""
 
     option = _base(legend=True)
     option |= {
@@ -285,16 +288,16 @@ def calorie_balance_option(daily: pd.DataFrame) -> dict:
 
 
 def corrected_balance_option(
-    daily: pd.DataFrame, tdee_bias: float, intake_bias: float
+    daily: pd.DataFrame,
+    active_bias: float,
+    intake_bias: float,
+    bmr: float = energy.DEFAULT_BMR,
 ) -> dict:
-    """Calorie balance after scaling TDEE and intake by their bias factors.
-
-    `tdee_bias`/`intake_bias` are fractions: -0.1 shrinks the value by 10%.
-    """
+    """Calorie balance after correcting activity expenditure and intake."""
     df = daily[daily["tdee"] > 0].copy()
     df["raw"] = df["calories_intake"] - df["tdee"]
-    df["corrected"] = (
-        df["calories_intake"] * (1 + intake_bias) - df["tdee"] * (1 + tdee_bias)
+    df["corrected"] = energy.corrected_balance(
+        daily, active_bias, intake_bias, bmr
     ).round(0)
 
     option = _base(legend=True)

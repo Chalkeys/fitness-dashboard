@@ -1,9 +1,10 @@
 """Energy-balance arithmetic, including bias-corrected calorie balance.
 
-Logged TDEE and logged intake are both estimates: activity trackers tend to
-overstate expenditure, and hand-logged food tends to understate intake. Each
-gets a bias factor so the balance can be re-scaled and checked against measured
-weight change.
+Logged TDEE and logged intake are both estimates, and they err in different
+places. Resting metabolism tracks body mass and barely moves day to day, so the
+expenditure error sits in the activity estimate on top of it; hand-logged food
+tends to understate intake. TDEE is therefore split at a resting baseline and
+only the activity remainder is scaled.
 """
 
 from __future__ import annotations
@@ -15,23 +16,57 @@ import pandas as pd
 # prediction from it as a trend, not a scale reading.
 KCAL_PER_KG = 7700.0
 
+# Resting baseline the logged TDEE was built on. Weight-driven, so it drifts by
+# only ~20 kcal across a couple of kilos.
+DEFAULT_BMR = 1820.0
 
-def corrected_balance(
-    daily: pd.DataFrame, tdee_bias: float = 0.0, intake_bias: float = 0.0
-) -> pd.Series:
-    """Daily balance after scaling both sides by their bias factors.
 
-    Biases are fractions: -0.1 shrinks that side by 10%.
+def split_tdee(
+    daily: pd.DataFrame, bmr: float = DEFAULT_BMR
+) -> tuple[pd.Series, pd.Series]:
+    """Logged TDEE split into its resting baseline and activity remainder.
+
+    Deriving activity from the `active_energy` column would be preferable, but
+    it is missing on some days, where the subtraction would credit the whole
+    day to resting metabolism. Subtracting a fixed baseline is defined for
+    every day. A day logged below the baseline keeps its own value as resting
+    and contributes no activity.
     """
     fed = daily[daily["tdee"] > 0]
-    return fed["calories_intake"] * (1 + intake_bias) - fed["tdee"] * (1 + tdee_bias)
+    active = (fed["tdee"] - bmr).clip(lower=0)
+    return fed["tdee"] - active, active
+
+
+def corrected_tdee(
+    daily: pd.DataFrame, active_bias: float = 0.0, bmr: float = DEFAULT_BMR
+) -> pd.Series:
+    """Logged TDEE with only its activity part scaled by `active_bias`."""
+    base, active = split_tdee(daily, bmr)
+    return base + active * (1 + active_bias)
+
+
+def corrected_balance(
+    daily: pd.DataFrame,
+    active_bias: float = 0.0,
+    intake_bias: float = 0.0,
+    bmr: float = DEFAULT_BMR,
+) -> pd.Series:
+    """Daily balance after correcting activity expenditure and intake.
+
+    Biases are fractions: -0.4 shrinks that side by 40%.
+    """
+    fed = daily[daily["tdee"] > 0]
+    return fed["calories_intake"] * (1 + intake_bias) - corrected_tdee(
+        daily, active_bias, bmr
+    )
 
 
 def calibration(
     daily: pd.DataFrame,
     body: pd.DataFrame,
-    tdee_bias: float = 0.0,
+    active_bias: float = 0.0,
     intake_bias: float = 0.0,
+    bmr: float = DEFAULT_BMR,
     smoothing: int = 7,
 ) -> dict | None:
     """Compare the balance's predicted weight change with the measured one.
@@ -55,7 +90,7 @@ def calibration(
     if len(weights) < 2:
         return None
 
-    balance = corrected_balance(fed, tdee_bias, intake_bias)
+    balance = corrected_balance(fed, active_bias, intake_bias, bmr)
     days = len(balance)
     actual_kg = float(weights.iloc[-1] - weights.iloc[0])
     predicted_kg = float(balance.sum() / KCAL_PER_KG)

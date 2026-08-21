@@ -38,7 +38,7 @@ h1, h2, h3 {color: #0b0b0b;}
 RANGE_OPTIONS = {"近 30 天": 30, "近 90 天": 90, "全部": None}
 
 # Starting guesses for the estimate biases; tune them against measured weight.
-DEFAULT_TDEE_BIAS = -10
+DEFAULT_ACTIVE_BIAS = -30
 DEFAULT_INTAKE_BIAS = 10
 
 MEAL_ORDER = [
@@ -416,15 +416,16 @@ def page_body() -> None:
         )
 
 
-def _bias_factors() -> tuple[float, float]:
-    """Current correction factors, as set by the sliders further down the page.
+def _bias_factors() -> tuple[float, float, float]:
+    """Current correction factors, as set by the controls further down the page.
 
-    Widget state is committed before the rerun, so charts above the sliders
+    Widget state is committed before the rerun, so charts above the controls
     still read the value the user just picked.
     """
     return (
-        st.session_state.get("bias_tdee", DEFAULT_TDEE_BIAS) / 100,
+        st.session_state.get("bias_active", DEFAULT_ACTIVE_BIAS) / 100,
         st.session_state.get("bias_intake", DEFAULT_INTAKE_BIAS) / 100,
+        float(st.session_state.get("bias_bmr", energy.DEFAULT_BMR)),
     )
 
 
@@ -432,28 +433,44 @@ def _corrected_balance_section(windowed: pd.DataFrame, imperial: bool) -> None:
     """Bias-corrected calorie balance with user-set correction factors."""
     st.subheader("热量差纠偏")
     st.caption(
-        "记录的 TDEE 和摄入都是估算值：手环倾向高估消耗，手记饮食倾向低估摄入。"
-        "下面两个系数按比例缩放两侧，再重新计算热量差，也用于上方「摄入 vs TDEE」的纠偏视图。"
+        "基础代谢基本只随体重变化、日间波动小，所以只对活动消耗纠偏："
+        "TDEE 减去下面的基础代谢基线得到活动消耗，再按系数缩放；摄入按手记低估的方向单独调整。"
+        "这组系数同时用于上方「摄入 vs TDEE」的纠偏视图。"
     )
 
-    left, right = st.columns(2)
-    tdee_bias = left.slider(
-        "TDEE 偏差", -30, 10, DEFAULT_TDEE_BIAS, step=1, format="%d%%", key="bias_tdee",
-        help="负值表示实际 TDEE 低于记录值（记录高估了消耗）。",
+    left, mid, right = st.columns([2, 2, 1])
+    active_bias = left.slider(
+        "活动消耗偏差", -80, 20, DEFAULT_ACTIVE_BIAS, step=1, format="%d%%",
+        key="bias_active",
+        help="负值表示实际活动消耗低于记录值（手环高估了活动）。基础代谢不受影响。",
     ) / 100
-    intake_bias = right.slider(
+    intake_bias = mid.slider(
         "摄入偏差", -10, 30, DEFAULT_INTAKE_BIAS, step=1, format="%d%%", key="bias_intake",
         help="正值表示实际摄入高于记录值（记录低估了摄入）。",
     ) / 100
+    bmr = float(
+        right.number_input(
+            "基础代谢", min_value=1000, max_value=3000,
+            value=int(energy.DEFAULT_BMR), step=10, key="bias_bmr",
+            help="记录 TDEE 所基于的静息代谢，用于把活动消耗拆出来。",
+        )
+    )
+
+    base, active = energy.split_tdee(windowed, bmr)
+    st.caption(
+        f"这段区间活动消耗日均 {active.mean():.0f} kcal"
+        f"（占 TDEE 的 {active.mean() / (base.mean() + active.mean()):.0%}），"
+        f"纠偏后为 {active.mean() * (1 + active_bias):.0f} kcal。"
+    )
 
     st_echarts(
-        ec.corrected_balance_option(windowed, tdee_bias, intake_bias),
+        ec.corrected_balance_option(windowed, active_bias, intake_bias, bmr),
         height="360px",
         key="nut_corrected",
     )
 
     cal = energy.calibration(
-        windowed, data.load_body_measurements(), tdee_bias, intake_bias
+        windowed, data.load_body_measurements(), active_bias, intake_bias, bmr
     )
     if cal is None:
         st.caption("这段区间的数据不足以和体重变化对照。")
@@ -503,14 +520,16 @@ def page_nutrition() -> None:
         key="intake_mode",
         label_visibility="collapsed",
     )
-    tdee_bias, intake_bias = _bias_factors() if mode == "纠偏后" else (0.0, 0.0)
+    active_bias, intake_bias, bmr = (
+        _bias_factors() if mode == "纠偏后" else (0.0, 0.0, energy.DEFAULT_BMR)
+    )
     if mode == "纠偏后":
         st.caption(
-            f"已按 TDEE {tdee_bias:+.0%}、摄入 {intake_bias:+.0%} 缩放，"
-            "系数在下方「热量差纠偏」中调整。"
+            f"已按活动消耗 {active_bias:+.0%}、摄入 {intake_bias:+.0%} 缩放"
+            f"（基础代谢 {bmr:.0f} kcal 不动），系数在下方「热量差纠偏」中调整。"
         )
     st_echarts(
-        ec.intake_vs_tdee_option(windowed, tdee_bias, intake_bias),
+        ec.intake_vs_tdee_option(windowed, active_bias, intake_bias, bmr),
         height="360px",
         key="nut_intake",
     )
