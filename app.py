@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 from streamlit_echarts import st_echarts
 
-from dashboard import data, echarts_charts as ec
+from dashboard import data, echarts_charts as ec, energy
 from dashboard.format import summarize_sets
 from dashboard.theme import CM_TO_IN, G_TO_OZ, KG_TO_LB, classify_training
 
@@ -409,6 +409,59 @@ def page_body() -> None:
         )
 
 
+def _corrected_balance_section(windowed: pd.DataFrame, imperial: bool) -> None:
+    """Bias-corrected calorie balance with user-set correction factors."""
+    st.subheader("热量差纠偏")
+    st.caption(
+        "记录的 TDEE 和摄入都是估算值：手环倾向高估消耗，手记饮食倾向低估摄入。"
+        "下面两个系数按比例缩放两侧，再重新计算热量差。"
+    )
+
+    left, right = st.columns(2)
+    tdee_bias = left.slider(
+        "TDEE 偏差", -30, 10, -10, step=1, format="%d%%", key="bias_tdee",
+        help="负值表示实际 TDEE 低于记录值（记录高估了消耗）。",
+    ) / 100
+    intake_bias = right.slider(
+        "摄入偏差", -10, 30, 10, step=1, format="%d%%", key="bias_intake",
+        help="正值表示实际摄入高于记录值（记录低估了摄入）。",
+    ) / 100
+
+    st_echarts(
+        ec.corrected_balance_option(windowed, tdee_bias, intake_bias),
+        height="360px",
+        key="nut_corrected",
+    )
+
+    cal = energy.calibration(
+        windowed, data.load_body_measurements(), tdee_bias, intake_bias
+    )
+    if cal is None:
+        st.caption("这段区间的数据不足以和体重变化对照。")
+        return
+
+    w_unit = "lb" if imperial else "kg"
+    w_factor = KG_TO_LB if imperial else 1.0
+
+    c1, c2, c3 = st.columns(3)
+    c1.metric("纠偏后日均热量差", f"{cal['mean_balance']:+.0f} kcal")
+    c2.metric(
+        f"预测体重变化 · {cal['days']} 天",
+        f"{cal['predicted_kg'] * w_factor:+.2f} {w_unit}",
+    )
+    c3.metric(
+        "实测体重变化",
+        f"{cal['actual_kg'] * w_factor:+.2f} {w_unit}",
+        delta=f"差 {cal['residual_per_day']:+.0f} kcal/天",
+        delta_color="off",
+    )
+    st.caption(
+        f"预测按 {energy.KCAL_PER_KG:.0f} kcal/kg 换算，体重取 7 日平滑值首末之差。"
+        "两侧偏差只有一个方程、两个未知数，所以「差」是两边合计的净误差，"
+        "调到接近 0 说明这组系数与实测吻合——但体重还受水分和糖原影响，别追求精确归零。"
+    )
+
+
 def page_nutrition() -> None:
     st.title("营养")
     imperial = _unit_toggle("nutrition")
@@ -425,6 +478,8 @@ def page_nutrition() -> None:
 
     st.subheader("摄入 vs TDEE")
     st_echarts(ec.intake_vs_tdee_option(windowed), height="360px", key="nut_intake")
+
+    _corrected_balance_section(windowed, imperial)
 
     st.subheader("三大营养素")
     st_echarts(ec.macro_stack_option(windowed), height="360px", key="nut_macros")

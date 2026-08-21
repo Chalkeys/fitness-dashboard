@@ -226,11 +226,8 @@ def intake_vs_tdee_option(daily: pd.DataFrame) -> dict:
     return option
 
 
-def calorie_balance_option(daily: pd.DataFrame) -> dict:
-    df = daily[daily["tdee"] > 0].copy()
-    df["balance"] = (df["calories_intake"] - df["tdee"]).round(0)
-
-    bars = [
+def _balance_bars(values) -> list[dict]:
+    return [
         {
             "value": v,
             "itemStyle": {
@@ -238,17 +235,96 @@ def calorie_balance_option(daily: pd.DataFrame) -> dict:
                 "borderRadius": [4, 4, 0, 0] if v > 0 else [0, 0, 4, 4],
             },
         }
-        for v in df["balance"]
+        for v in values
     ]
 
-    option = _base()
+
+def _rolling(series: pd.Series, window: int = 7) -> list:
+    rolled = series.rolling(window, min_periods=3).mean()
+    return [None if pd.isna(v) else round(v) for v in rolled]
+
+
+def calorie_balance_option(daily: pd.DataFrame) -> dict:
+    df = daily[daily["tdee"] > 0].copy()
+    df["balance"] = (df["calories_intake"] - df["tdee"]).round(0)
+
+    option = _base(legend=True)
     option |= {
         "tooltip": _axis_tooltip("kcal", signed=True),
         "dataZoom": PAN_ZOOM,
         "xAxis": _date_axis(df["log_date"].dt.strftime("%Y-%m-%d").tolist())
         | {"boundaryGap": True},
         "yAxis": _value_axis("kcal"),
-        "series": [{"name": "热量差", "type": "bar", "data": bars, "barMaxWidth": 18}],
+        "series": [
+            {
+                "name": "热量差",
+                "type": "bar",
+                "data": _balance_bars(df["balance"]),
+                "barMaxWidth": 18,
+            },
+            {
+                "name": "7 日均值",
+                "type": "line",
+                "data": _rolling(df["balance"]),
+                "smooth": True,
+                "showSymbol": False,
+                "lineStyle": {"width": 2.5, "color": INK},
+                "itemStyle": {"color": INK},
+                "z": 3,
+            },
+        ],
+    }
+    return option
+
+
+def corrected_balance_option(
+    daily: pd.DataFrame, tdee_bias: float, intake_bias: float
+) -> dict:
+    """Calorie balance after scaling TDEE and intake by their bias factors.
+
+    `tdee_bias`/`intake_bias` are fractions: -0.1 shrinks the value by 10%.
+    """
+    df = daily[daily["tdee"] > 0].copy()
+    df["raw"] = df["calories_intake"] - df["tdee"]
+    df["corrected"] = (
+        df["calories_intake"] * (1 + intake_bias) - df["tdee"] * (1 + tdee_bias)
+    ).round(0)
+
+    option = _base(legend=True)
+    option |= {
+        "tooltip": _axis_tooltip("kcal", signed=True),
+        "dataZoom": PAN_ZOOM,
+        "xAxis": _date_axis(df["log_date"].dt.strftime("%Y-%m-%d").tolist())
+        | {"boundaryGap": True},
+        "yAxis": _value_axis("kcal"),
+        "series": [
+            {
+                "name": "纠偏后热量差",
+                "type": "bar",
+                "data": _balance_bars(df["corrected"]),
+                "barMaxWidth": 18,
+            },
+            {
+                "name": "纠偏后 7 日均值",
+                "type": "line",
+                "data": _rolling(df["corrected"]),
+                "smooth": True,
+                "showSymbol": False,
+                "lineStyle": {"width": 2.5, "color": INK},
+                "itemStyle": {"color": INK},
+                "z": 3,
+            },
+            {
+                "name": "原始 7 日均值",
+                "type": "line",
+                "data": _rolling(df["raw"]),
+                "smooth": True,
+                "showSymbol": False,
+                "lineStyle": {"width": 2, "color": BASELINE, "type": "dashed"},
+                "itemStyle": {"color": BASELINE},
+                "z": 2,
+            },
+        ],
     }
     return option
 
