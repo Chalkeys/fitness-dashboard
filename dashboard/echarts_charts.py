@@ -254,9 +254,17 @@ def _rolling(series: pd.Series, window: int = 7) -> list:
     return [None if pd.isna(v) else round(v) for v in rolled]
 
 
-def calorie_balance_option(daily: pd.DataFrame) -> dict:
+def calorie_balance_option(
+    daily: pd.DataFrame,
+    active_bias: float = 0.0,
+    intake_bias: float = 0.0,
+    bmr: float = energy.DEFAULT_BMR,
+) -> dict:
+    """Daily calorie balance, raw or corrected, with a 7-day mean over it."""
     df = daily[daily["tdee"] > 0].copy()
-    df["balance"] = (df["calories_intake"] - df["tdee"]).round(0)
+    df["balance"] = energy.corrected_balance(
+        daily, active_bias, intake_bias, bmr
+    ).round(0)
 
     option = _base(legend=True)
     option |= {

@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 from streamlit_echarts import st_echarts
 
-from dashboard import data, echarts_charts as ec, energy
+from dashboard import data, echarts_charts as ec, energy, settings
 from dashboard.format import summarize_sets
 from dashboard.theme import CM_TO_IN, G_TO_OZ, KG_TO_LB, classify_training
 
@@ -37,9 +37,26 @@ h1, h2, h3 {color: #0b0b0b;}
 
 RANGE_OPTIONS = {"近 30 天": 30, "近 90 天": 90, "全部": None}
 
-# Starting guesses for the estimate biases; tune them against measured weight.
-DEFAULT_ACTIVE_BIAS = -30
-DEFAULT_INTAKE_BIAS = 10
+
+def _init_settings() -> None:
+    """Seed widget state from the settings file, once per session.
+
+    Seeding the keys the widgets use means each widget adopts the stored value
+    without being passed one, and later reruns leave the user's choice alone.
+    """
+    if st.session_state.get("_settings_loaded"):
+        return
+    for key, value in settings.load().items():
+        st.session_state.setdefault(key, value)
+    st.session_state["_settings_loaded"] = True
+
+
+def _persist_settings() -> None:
+    """Write the tunables back out whenever one of them changed."""
+    current = {k: st.session_state.get(k, v) for k, v in settings.DEFAULTS.items()}
+    if current != st.session_state.get("_settings_saved"):
+        settings.save(current)
+        st.session_state["_settings_saved"] = current
 
 MEAL_ORDER = [
     "breakfast",
@@ -120,8 +137,11 @@ def page_overview() -> None:
 
     recent7 = data.filter_by_range(daily, "log_date", 7)
     fed7 = recent7[recent7["tdee"] > 0]
+    # The card and the chart below show the same quantity, so they share a mode.
+    corrected = st.session_state.get("balance_mode", settings.DEFAULTS["balance_mode"]) == "纠偏后"
+    card_bias = _bias_factors() if corrected else (0.0, 0.0, energy.DEFAULT_BMR)
     avg_balance = (
-        (fed7["calories_intake"] - fed7["tdee"]).mean() if not fed7.empty else None
+        energy.corrected_balance(recent7, *card_bias).mean() if not fed7.empty else None
     )
     avg_protein = fed7["protein_g"].mean() if not fed7.empty else None
     train_days7 = int(recent7["is_training_day"].sum())
@@ -142,6 +162,8 @@ def page_overview() -> None:
     c2.metric(
         "近 7 天平均热量差",
         f"{avg_balance:+.0f} kcal" if avg_balance is not None else "—",
+        delta="纠偏后" if corrected else None,
+        delta_color="off",
     )
     c3.metric(
         "近 7 天平均蛋白质",
@@ -182,8 +204,19 @@ def page_overview() -> None:
     )
 
     st.subheader("每日热量差")
+    balance_mode = _mode_toggle("balance_mode")
+    active_bias, intake_bias, bmr = (
+        _bias_factors() if balance_mode == "纠偏后" else (0.0, 0.0, energy.DEFAULT_BMR)
+    )
+    if balance_mode == "纠偏后":
+        st.caption(
+            f"已按活动消耗 {active_bias:+.0%}、摄入 {intake_bias:+.0%} 纠偏"
+            f"（基础代谢 {bmr:.0f} kcal 不动），系数在「营养」页调整。"
+        )
     st_echarts(
-        ec.calorie_balance_option(data.filter_by_range(daily, "log_date", days)),
+        ec.calorie_balance_option(
+            data.filter_by_range(daily, "log_date", days), active_bias, intake_bias, bmr
+        ),
         height="340px",
         key="overview_balance",
     )
@@ -416,6 +449,16 @@ def page_body() -> None:
         )
 
 
+def _mode_toggle(key: str) -> str:
+    """Raw / corrected switch. Its choice is seeded and stored like the biases."""
+    return st.segmented_control(
+        "数据口径",
+        ["原始", "纠偏后"],
+        key=key,
+        label_visibility="collapsed",
+    )
+
+
 def _bias_factors() -> tuple[float, float, float]:
     """Current correction factors, as set by the controls further down the page.
 
@@ -423,9 +466,9 @@ def _bias_factors() -> tuple[float, float, float]:
     still read the value the user just picked.
     """
     return (
-        st.session_state.get("bias_active", DEFAULT_ACTIVE_BIAS) / 100,
-        st.session_state.get("bias_intake", DEFAULT_INTAKE_BIAS) / 100,
-        float(st.session_state.get("bias_bmr", energy.DEFAULT_BMR)),
+        st.session_state.get("bias_active", settings.DEFAULTS["bias_active"]) / 100,
+        st.session_state.get("bias_intake", settings.DEFAULTS["bias_intake"]) / 100,
+        float(st.session_state.get("bias_bmr", settings.DEFAULTS["bias_bmr"])),
     )
 
 
@@ -440,18 +483,16 @@ def _corrected_balance_section(windowed: pd.DataFrame, imperial: bool) -> None:
 
     left, mid, right = st.columns([2, 2, 1])
     active_bias = left.slider(
-        "活动消耗偏差", -80, 20, DEFAULT_ACTIVE_BIAS, step=1, format="%d%%",
-        key="bias_active",
+        "活动消耗偏差", -80, 20, step=1, format="%d%%", key="bias_active",
         help="负值表示实际活动消耗低于记录值（手环高估了活动）。基础代谢不受影响。",
     ) / 100
     intake_bias = mid.slider(
-        "摄入偏差", -10, 30, DEFAULT_INTAKE_BIAS, step=1, format="%d%%", key="bias_intake",
+        "摄入偏差", -10, 30, step=1, format="%d%%", key="bias_intake",
         help="正值表示实际摄入高于记录值（记录低估了摄入）。",
     ) / 100
     bmr = float(
         right.number_input(
-            "基础代谢", min_value=1000, max_value=3000,
-            value=int(energy.DEFAULT_BMR), step=10, key="bias_bmr",
+            "基础代谢", min_value=1000, max_value=3000, step=10, key="bias_bmr",
             help="记录 TDEE 所基于的静息代谢，用于把活动消耗拆出来。",
         )
     )
@@ -513,13 +554,7 @@ def page_nutrition() -> None:
     windowed = data.filter_by_range(daily, "log_date", days)
 
     st.subheader("摄入 vs TDEE")
-    mode = st.segmented_control(
-        "数据口径",
-        ["原始", "纠偏后"],
-        default="原始",
-        key="intake_mode",
-        label_visibility="collapsed",
-    )
+    mode = _mode_toggle("intake_mode")
     active_bias, intake_bias, bmr = (
         _bias_factors() if mode == "纠偏后" else (0.0, 0.0, energy.DEFAULT_BMR)
     )
@@ -595,12 +630,14 @@ TRAINING_PAGE = st.Page(page_training, title="训练", icon="🏋️", url_path=
 
 def main() -> None:
     st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
+    _init_settings()
     st.session_state["range_days"] = _sidebar_range()
 
     nav = st.navigation(
         [OVERVIEW_PAGE, DETAIL_PAGE, BODY_PAGE, NUTRITION_PAGE, TRAINING_PAGE]
     )
     nav.run()
+    _persist_settings()
 
 
 main()
