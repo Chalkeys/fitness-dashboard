@@ -7,6 +7,7 @@ import streamlit as st
 from streamlit_echarts import st_echarts
 
 from dashboard import data, echarts_charts as ec
+from dashboard.format import summarize_sets
 from dashboard.theme import CM_TO_IN, G_TO_OZ, KG_TO_LB, classify_training
 
 st.set_page_config(
@@ -278,19 +279,11 @@ def page_day_detail() -> None:
                 session_sets["weight_kg"] = (
                     session_sets["weight_kg"] * KG_TO_LB
                 ).round(1)
-            table = session_sets[
-                ["exercise", "muscle_group", "set_number", "weight_kg", "reps", "rir"]
-            ].rename(
-                columns={
-                    "exercise": "动作",
-                    "muscle_group": "肌群",
-                    "set_number": "组",
-                    "weight_kg": f"重量 {w_unit}",
-                    "reps": "次数",
-                    "rir": "RIR",
-                }
+            st.dataframe(
+                summarize_sets(session_sets.sort_values("set_number"), w_unit),
+                use_container_width=True,
+                hide_index=True,
             )
-            st.dataframe(table, use_container_width=True, hide_index=True)
 
             volume = (session_sets["weight_kg"] * session_sets["reps"]).sum()
             st.caption(
@@ -471,6 +464,12 @@ def page_training() -> None:
     )
 
     st.subheader("各肌群组数")
+    missing = int(windowed["muscle_group"].isna().sum())
+    if missing:
+        st.caption(
+            f"{missing} / {len(windowed)} 组的动作没有登记肌群，未计入下图。"
+            "补齐 `exercises.muscle_group` 后即可显示。"
+        )
     height = max(300, 26 * windowed["muscle_group"].nunique())
     st_echarts(
         ec.muscle_group_sets_option(windowed), height=f"{height}px", key="tr_muscles"
