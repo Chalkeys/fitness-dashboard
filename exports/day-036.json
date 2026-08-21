@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-036",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:35:09.715804Z",
   "date": "2026-07-27",
   "day_number": 36,
@@ -234,7 +234,7 @@
     "notes": null,
     "exercises": [
       {
-        "exercise_name": "Machine fly",
+        "exercise_name": "蝴蝶机飞鸟",
         "category": "isolation",
         "muscle_group": "chest",
         "sets": [
@@ -268,7 +268,7 @@
         ]
       },
       {
-        "exercise_name": "Barbell bench press",
+        "exercise_name": "杠铃卧推",
         "category": "compound",
         "muscle_group": "chest",
         "sets": [
@@ -311,7 +311,7 @@
         ]
       },
       {
-        "exercise_name": "Incline barbell bench press",
+        "exercise_name": "上斜杠铃卧推",
         "category": "compound",
         "muscle_group": "chest",
         "sets": [
@@ -345,7 +345,7 @@
         ]
       },
       {
-        "exercise_name": "Decline chest press",
+        "exercise_name": "下斜悍马机推胸",
         "category": "compound",
         "muscle_group": "chest",
         "sets": [
@@ -379,7 +379,7 @@
         ]
       },
       {
-        "exercise_name": "Seated shoulder press",
+        "exercise_name": "悍马机坐姿推举",
         "category": "compound",
         "muscle_group": "shoulders",
         "sets": [
@@ -413,7 +413,7 @@
         ]
       },
       {
-        "exercise_name": "Cable lateral raise",
+        "exercise_name": "绳索侧平举",
         "category": "isolation",
         "muscle_group": "shoulders",
         "sets": [
@@ -447,7 +447,7 @@
         ]
       },
       {
-        "exercise_name": "Triceps pushdown",
+        "exercise_name": "绳索臂屈伸",
         "category": "isolation",
         "muscle_group": "triceps",
         "sets": [
@@ -481,7 +481,7 @@
         ]
       },
       {
-        "exercise_name": "Overhead triceps extension",
+        "exercise_name": "绳索过头臂屈伸",
         "category": "isolation",
         "muscle_group": "triceps",
         "sets": [

@@ -1,35 +1,35 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-056",
-  "history_version": 1,
-  "exported_at": "2026-08-16T18:35:09.736577Z",
+  "history_version": 5,
+  "exported_at": "2026-08-21T03:02:34.700825Z",
   "date": "2026-08-16",
   "day_number": 56,
   "provenance": {
     "source": "xunji_app",
     "confidence": "high",
-    "notes": "数据来自训记 Open API；膳食纤维按 0 g，净碳水按总碳水；TDEE 为估算值。"
+    "notes": "饮食/训练按用户确认规则由训记 API 更新；Apple Health Active Energy 与本地 TDEE 保留。"
   },
   "body": {
     "weight_kg": 82.2,
-    "waist_cm": 83,
+    "waist_cm": 82,
     "body_fat_percentage": null,
     "notes": "训记体重记录；腰围沿用 Day 43 的最近测量值：83 cm。"
   },
   "daily_log": {
-    "is_training_day": false,
-    "workout_type": null,
-    "calories_in": 184.5,
+    "is_training_day": true,
+    "workout_type": "步行",
+    "calories_in": 1888.68002528445,
     "tdee": 2020.0,
-    "calorie_balance": -1835.5,
-    "protein_g": 15.649999999999999,
-    "total_carbs_g": 5.8999999999999995,
+    "calorie_balance": -131.32,
+    "protein_g": 148.69953223767385,
+    "total_carbs_g": 235.69142857142856,
     "fiber_g": 0,
-    "net_carbs_g": 5.8999999999999995,
-    "fat_g": 10.96,
+    "net_carbs_g": 235.69142857142856,
+    "fat_g": 35.284020227560056,
     "steps": null,
     "active_energy_kcal": null,
-    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；TDEE 为 BMR≈1820 加训练活动消耗估算。"
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；TDEE 为 BMR≈1820 加训练活动消耗估算。；8月9日起饮食按训记 API 覆盖，纤维按0 g。；训练差异按训记 API 覆盖，力量动作合并，有氧/步行独立记录。"
   },
   "nutrition": [
     {
@@ -46,7 +46,7 @@
       "fiber_g": 0,
       "net_carbs_g": 2.3,
       "fat_g": 8.3,
-      "notes": "训记 API 营养快照；纤维未由接口返回。"
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
     },
     {
       "entry_id": "D056_XJ002",
@@ -62,7 +62,7 @@
       "fiber_g": 0,
       "net_carbs_g": 5.3,
       "fat_g": 3.5,
-      "notes": "训记 API 营养快照；纤维未由接口返回。"
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
     },
     {
       "entry_id": "D056_XJ003",
@@ -78,14 +78,183 @@
       "fiber_g": 0,
       "net_carbs_g": 1.8,
       "fat_g": 0.2,
-      "notes": "训记 API 营养快照；纤维未由接口返回。"
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
+    },
+    {
+      "entry_id": "D056_XJ004",
+      "meal_type": "noon",
+      "food_name": "山水 老豆腐",
+      "brand": null,
+      "amount": 100.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 100.0,
+      "protein_g": 10.0,
+      "total_carbs_g": 2.5,
+      "fiber_g": 0,
+      "net_carbs_g": 2.5,
+      "fat_g": 5.0,
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
+    },
+    {
+      "entry_id": "D056_XJ005",
+      "meal_type": "noon",
+      "food_name": "Beef tri tip",
+      "brand": null,
+      "amount": 60.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 161.06194690265488,
+      "protein_g": 20.35398230088496,
+      "total_carbs_g": 0.0,
+      "fiber_g": 0,
+      "net_carbs_g": 0,
+      "fat_g": 8.849557522123895,
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
+    },
+    {
+      "entry_id": "D056_XJ006",
+      "meal_type": "noon",
+      "food_name": "大米",
+      "brand": null,
+      "amount": 100.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 367.0,
+      "protein_g": 8.4,
+      "total_carbs_g": 77.6,
+      "fiber_g": 0,
+      "net_carbs_g": 77.6,
+      "fat_g": 1.0,
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
+    },
+    {
+      "entry_id": "D056_XJ007",
+      "meal_type": "noon",
+      "food_name": "Golden Island Korean Barbecue Snack Bites",
+      "brand": null,
+      "amount": 43.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 283.3333333333333,
+      "protein_g": 23.80952380952381,
+      "total_carbs_g": 30.952380952380953,
+      "fiber_g": 0,
+      "net_carbs_g": 30.952380952380953,
+      "fat_g": 7.142857142857142,
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
+    },
+    {
+      "entry_id": "D056_XJ008",
+      "meal_type": "night",
+      "food_name": "ole xtreme wellness wraps",
+      "brand": null,
+      "amount": 42.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 194.04761904761904,
+      "protein_g": 9.523809523809524,
+      "total_carbs_g": 30.952380952380953,
+      "fiber_g": 0,
+      "net_carbs_g": 30.952380952380953,
+      "fat_g": 3.571428571428571,
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
+    },
+    {
+      "entry_id": "D056_XJ009",
+      "meal_type": "night",
+      "food_name": "OIKOS Triple Zero",
+      "brand": null,
+      "amount": 300.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 58.666666666666664,
+      "protein_g": 10.0,
+      "total_carbs_g": 4.666666666666666,
+      "fiber_g": 0,
+      "net_carbs_g": 4.666666666666666,
+      "fat_g": 0.0,
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
+    },
+    {
+      "entry_id": "D056_XJ010",
+      "meal_type": "night",
+      "food_name": "Tyson Rotisserie Chicken Breast Strip",
+      "brand": null,
+      "amount": 200.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 136.9047619047619,
+      "protein_g": 23.80952380952381,
+      "total_carbs_g": 2.380952380952381,
+      "fiber_g": 0,
+      "net_carbs_g": 2.380952380952381,
+      "fat_g": 3.571428571428571,
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
+    },
+    {
+      "entry_id": "D056_XJ011",
+      "meal_type": "night",
+      "food_name": "大米",
+      "brand": null,
+      "amount": 120.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 367.0,
+      "protein_g": 8.4,
+      "total_carbs_g": 77.6,
+      "fiber_g": 0,
+      "net_carbs_g": 77.6,
+      "fat_g": 1.0,
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
+    },
+    {
+      "entry_id": "D056_XJ012",
+      "meal_type": "night",
+      "food_name": "菠萝",
+      "brand": null,
+      "amount": 100.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 47.0,
+      "protein_g": 0.5,
+      "total_carbs_g": 11.5,
+      "fiber_g": 0,
+      "net_carbs_g": 11.5,
+      "fat_g": 0.1,
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
     }
   ],
-  "workout": null,
+  "workout": {
+    "session_id": "day-056-xunji",
+    "workout_name": "步行",
+    "workout_type": "walking",
+    "duration_minutes": 63.7,
+    "active_energy_kcal": null,
+    "notes": "训记 API 训练数据；力量动作按动作名称合并；有氧与步行作为独立动作分类；本地 Apple Health Active Energy 保留。",
+    "exercises": [
+      {
+        "exercise_name": "快走",
+        "category": "cardio",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": 5.5,
+            "duration_seconds": 3823,
+            "notes": "metrics={\"avgHeartRate\": \"98\", \"calories\": \"296\", \"distance\": \"5.50\", \"maxHeartRate\": \"120\", \"minHeartRate\": \"78\", \"workoutTime\": \"3823.386450052262\"}"
+          }
+        ]
+      }
+    ]
+  },
   "review": [
     {
       "review_status": "approved",
-      "note": "用户确认纤维按 0 g、净碳水等于总碳水，并接受 TDEE 估算。",
+      "note": "用户确认 8 月 9 日起饮食以训记为准；训练差异采用训记并按动作合并，有氧/步行独立记录。",
       "field": "daily_log"
     }
   ]

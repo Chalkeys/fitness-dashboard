@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-002",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:23:13.587003Z",
   "date": "2026-06-23",
   "day_number": 2,
@@ -41,7 +41,7 @@
     "notes": "已保留聊天记录中的背部明细；Reverse fly 和 Face pull 未提供组数、次数和重量。",
     "exercises": [
       {
-        "exercise_name": "Seated cable row",
+        "exercise_name": "坐姿划船",
         "category": "compound",
         "muscle_group": "back",
         "sets": [
@@ -111,7 +111,7 @@
         ]
       },
       {
-        "exercise_name": "Wide grip lat pulldown",
+        "exercise_name": "宽距高位下拉",
         "category": "compound",
         "muscle_group": "back",
         "sets": [
@@ -206,13 +206,13 @@
         ]
       },
       {
-        "exercise_name": "Reverse fly",
+        "exercise_name": "俯身飞鸟",
         "category": "isolation",
         "muscle_group": "rear_delts",
         "sets": []
       },
       {
-        "exercise_name": "Face pull",
+        "exercise_name": "面拉",
         "category": "isolation",
         "muscle_group": "rear_delts",
         "sets": []

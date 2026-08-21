@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-016",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:35:09.696158Z",
   "date": "2026-07-07",
   "day_number": 16,
@@ -234,7 +234,7 @@
     "notes": "背部与二头共 21 个有效组。Strength Index：坐姿划船 130×10 top set + 125×12 back-off；高位下拉 105×8×2；EZ 杠牧师凳弯举基准 50×10×2、50×8×2。",
     "exercises": [
       {
-        "exercise_name": "Seated cable row",
+        "exercise_name": "坐姿划船",
         "category": "compound",
         "muscle_group": "mid_back",
         "sets": [
@@ -277,7 +277,7 @@
         ]
       },
       {
-        "exercise_name": "Lat pulldown",
+        "exercise_name": "器械下拉",
         "category": "compound",
         "muscle_group": "lats",
         "sets": [
@@ -311,7 +311,7 @@
         ]
       },
       {
-        "exercise_name": "ProMaxima T-bar row",
+        "exercise_name": "T杆划船",
         "category": "compound",
         "muscle_group": "mid_back",
         "sets": [
@@ -345,7 +345,7 @@
         ]
       },
       {
-        "exercise_name": "Face pull",
+        "exercise_name": "面拉",
         "category": "isolation",
         "muscle_group": "rear_delts",
         "sets": [
@@ -379,7 +379,7 @@
         ]
       },
       {
-        "exercise_name": "Incline dumbbell curl",
+        "exercise_name": "上斜哑铃弯举",
         "category": "isolation",
         "muscle_group": "biceps",
         "sets": [
@@ -422,7 +422,7 @@
         ]
       },
       {
-        "exercise_name": "Alternating hammer curl",
+        "exercise_name": "哑铃锤式交替弯举",
         "category": "isolation",
         "muscle_group": "biceps",
         "sets": [

@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-048",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:35:09.727073Z",
   "date": "2026-08-08",
   "day_number": 48,
@@ -12,7 +12,7 @@
   },
   "body": {
     "weight_kg": 82.7,
-    "waist_cm": 83,
+    "waist_cm": 82,
     "body_fat_percentage": null,
     "notes": "训记体重记录；腰围沿用 Day 43 的最近测量值：83 cm。"
   },

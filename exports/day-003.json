@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-003",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:23:13.588008Z",
   "date": "2026-06-24",
   "day_number": 3,
@@ -41,7 +41,7 @@
     "notes": "已保留聊天记录中的胸肩明细；胸部汇总组数与逐组明细存在差异。",
     "exercises": [
       {
-        "exercise_name": "Barbell bench press",
+        "exercise_name": "杠铃卧推",
         "category": "compound",
         "muscle_group": "chest",
         "sets": [
@@ -84,7 +84,7 @@
         ]
       },
       {
-        "exercise_name": "Machine chest press",
+        "exercise_name": "器械推胸",
         "category": "compound",
         "muscle_group": "chest",
         "sets": [
@@ -136,7 +136,7 @@
         ]
       },
       {
-        "exercise_name": "Incline barbell bench press",
+        "exercise_name": "上斜杠铃卧推",
         "category": "compound",
         "muscle_group": "chest",
         "sets": [
@@ -188,7 +188,7 @@
         ]
       },
       {
-        "exercise_name": "Dumbbell lateral raise",
+        "exercise_name": "侧平举",
         "category": "isolation",
         "muscle_group": "shoulders",
         "sets": [
@@ -213,7 +213,7 @@
         ]
       },
       {
-        "exercise_name": "Machine shoulder press",
+        "exercise_name": "器械坐姿推举",
         "category": "compound",
         "muscle_group": "shoulders",
         "sets": [
@@ -247,7 +247,7 @@
         ]
       },
       {
-        "exercise_name": "Single-arm cable lateral raise",
+        "exercise_name": "绳索侧平举（单边）",
         "category": "isolation",
         "muscle_group": "shoulders",
         "sets": [

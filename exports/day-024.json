@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-024",
-  "history_version": 1,
+  "history_version": 3,
   "exported_at": "2026-08-16T18:35:09.705297Z",
   "date": "2026-07-15",
   "day_number": 24,
@@ -202,7 +202,7 @@
     "notes": "力量训练共 28 组。核心固定模板：下斜卷腹、悬垂卷腹、Pallof Press，分别覆盖腹肌厚度、下腹/骨盆控制和抗旋转稳定。",
     "exercises": [
       {
-        "exercise_name": "Barbell squat",
+        "exercise_name": "杠铃深蹲",
         "category": "compound",
         "muscle_group": "quadriceps/glutes",
         "sets": [
@@ -245,7 +245,7 @@
         ]
       },
       {
-        "exercise_name": "Wide-stance horizontal leg press",
+        "exercise_name": "器械倒蹬",
         "category": "compound",
         "muscle_group": "quadriceps/glutes",
         "sets": [
@@ -279,7 +279,7 @@
         ]
       },
       {
-        "exercise_name": "Bulgarian split squat",
+        "exercise_name": "哑铃保加利亚蹲",
         "category": "compound",
         "muscle_group": "quadriceps/glutes",
         "sets": [
@@ -304,7 +304,7 @@
         ]
       },
       {
-        "exercise_name": "Leg extension",
+        "exercise_name": "坐姿腿屈伸",
         "category": "isolation",
         "muscle_group": "quadriceps",
         "sets": [
@@ -338,7 +338,7 @@
         ]
       },
       {
-        "exercise_name": "Leg curl",
+        "exercise_name": "腿弯举",
         "category": "isolation",
         "muscle_group": "hamstrings",
         "sets": [
@@ -372,7 +372,7 @@
         ]
       },
       {
-        "exercise_name": "Calf raise",
+        "exercise_name": "站姿器械提踵",
         "category": "isolation",
         "muscle_group": "calves",
         "sets": [
@@ -415,7 +415,7 @@
         ]
       },
       {
-        "exercise_name": "Decline crunch",
+        "exercise_name": "下斜卷腹",
         "category": "core",
         "muscle_group": "core",
         "sets": [
@@ -449,7 +449,7 @@
         ]
       },
       {
-        "exercise_name": "Hanging crunch",
+        "exercise_name": "悬挂抬腿",
         "category": "core",
         "muscle_group": "core",
         "sets": [
@@ -483,7 +483,7 @@
         ]
       },
       {
-        "exercise_name": "Pallof press",
+        "exercise_name": "绳索Pallof推",
         "category": "core",
         "muscle_group": "core",
         "sets": [

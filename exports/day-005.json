@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-005",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:31:18.605004Z",
   "date": "2026-06-26",
   "day_number": 5,
@@ -234,7 +234,7 @@
     "notes": "用户补充的核心训练；全部动作均已完成。；Active Energy 手动补录：334 kcal。",
     "exercises": [
       {
-        "exercise_name": "Plank",
+        "exercise_name": "平板支撑_计时",
         "category": "core",
         "muscle_group": "core",
         "sets": [
@@ -268,7 +268,7 @@
         ]
       },
       {
-        "exercise_name": "Dead bug",
+        "exercise_name": "死虫",
         "category": "core",
         "muscle_group": "core",
         "sets": [
@@ -336,7 +336,7 @@
         ]
       },
       {
-        "exercise_name": "Russian twist",
+        "exercise_name": "俄罗斯转体",
         "category": "core",
         "muscle_group": "core",
         "sets": [

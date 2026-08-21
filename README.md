@@ -203,6 +203,22 @@ uv run python scripts/convert_legacy_history.py --dry-run
 uv run python scripts/convert_legacy_history.py
 ```
 
+## Standardize exercise names
+
+Historical exports may contain English aliases or labels such as “superset”.
+`scripts/normalize_exercise_names.py` maps high-confidence aliases to the
+[训记官方动作名表](https://github.com/Foveluy/Xunji-movements), merges the
+corresponding local exercise records without dropping sets, and updates the
+source exports (incrementing `history_version`). Run a preview first:
+
+```powershell
+uv run python scripts/normalize_exercise_names.py --dry-run
+uv run python scripts/normalize_exercise_names.py
+```
+
+Names that do not have an unambiguous official equivalent are intentionally
+reported for manual review rather than guessed.
+
 ## Run the dashboard
 
 ```powershell

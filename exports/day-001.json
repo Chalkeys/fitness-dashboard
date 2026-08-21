@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-001",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:23:13.585499Z",
   "date": "2026-06-22",
   "day_number": 1,
@@ -41,7 +41,7 @@
     "notes": "用户提供的动作均为有效组。25×2 lb 表示两只 25 lb 哑铃，总负荷 50 lb。；Active Energy 手动补录：507 kcal。",
     "exercises": [
       {
-        "exercise_name": "Bulgarian split squat",
+        "exercise_name": "哑铃保加利亚蹲",
         "category": "compound",
         "muscle_group": "quadriceps/glutes",
         "sets": [
@@ -84,7 +84,7 @@
         ]
       },
       {
-        "exercise_name": "Romanian deadlift",
+        "exercise_name": "罗马尼亚硬拉",
         "category": "compound",
         "muscle_group": "hamstrings/glutes",
         "sets": [
@@ -127,7 +127,7 @@
         ]
       },
       {
-        "exercise_name": "Dumbbell squat",
+        "exercise_name": "哑铃深蹲",
         "category": "compound",
         "muscle_group": "quadriceps/glutes",
         "sets": [

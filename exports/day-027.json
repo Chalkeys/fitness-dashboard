@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-027",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:35:09.707290Z",
   "date": "2026-07-18",
   "day_number": 27,
@@ -202,7 +202,7 @@
     "notes": "Calf raise omitted due to calf discomfort.",
     "exercises": [
       {
-        "exercise_name": "Romanian deadlift",
+        "exercise_name": "罗马尼亚硬拉",
         "category": "compound",
         "muscle_group": "hamstrings",
         "sets": [
@@ -245,7 +245,7 @@
         ]
       },
       {
-        "exercise_name": "Hip thrust",
+        "exercise_name": "臀冲架臀冲",
         "category": "compound",
         "muscle_group": "glutes",
         "sets": [
@@ -279,7 +279,7 @@
         ]
       },
       {
-        "exercise_name": "Leg curl",
+        "exercise_name": "腿弯举",
         "category": "isolation",
         "muscle_group": "hamstrings",
         "sets": [
@@ -313,7 +313,7 @@
         ]
       },
       {
-        "exercise_name": "Leg press",
+        "exercise_name": "腿举",
         "category": "compound",
         "muscle_group": "quadriceps",
         "sets": [
@@ -347,7 +347,7 @@
         ]
       },
       {
-        "exercise_name": "Hanging leg raise",
+        "exercise_name": "悬挂抬腿",
         "category": "core",
         "muscle_group": "core",
         "sets": [
@@ -381,7 +381,7 @@
         ]
       },
       {
-        "exercise_name": "Plank",
+        "exercise_name": "平板支撑_计时",
         "category": "core",
         "muscle_group": "core",
         "sets": [

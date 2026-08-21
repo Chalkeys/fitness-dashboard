@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-023",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:35:09.704293Z",
   "date": "2026-07-14",
   "day_number": 23,
@@ -170,7 +170,7 @@
     "notes": "背部 15 组、二头 6 组，共 21 组。",
     "exercises": [
       {
-        "exercise_name": "Lat pulldown",
+        "exercise_name": "器械下拉",
         "category": "compound",
         "muscle_group": "lats",
         "sets": [
@@ -204,7 +204,7 @@
         ]
       },
       {
-        "exercise_name": "Standing plate-loaded T-bar row",
+        "exercise_name": "挂片器划船",
         "category": "compound",
         "muscle_group": "mid_back",
         "sets": [
@@ -238,7 +238,7 @@
         ]
       },
       {
-        "exercise_name": "Seated cable row",
+        "exercise_name": "坐姿划船",
         "category": "compound",
         "muscle_group": "mid_back",
         "sets": [
@@ -272,7 +272,7 @@
         ]
       },
       {
-        "exercise_name": "Face pull",
+        "exercise_name": "面拉",
         "category": "isolation",
         "muscle_group": "rear_delts",
         "sets": [
@@ -306,7 +306,7 @@
         ]
       },
       {
-        "exercise_name": "Reverse fly",
+        "exercise_name": "俯身飞鸟",
         "category": "isolation",
         "muscle_group": "rear_delts",
         "sets": [
@@ -340,7 +340,7 @@
         ]
       },
       {
-        "exercise_name": "Incline dumbbell curl",
+        "exercise_name": "上斜哑铃弯举",
         "category": "isolation",
         "muscle_group": "biceps",
         "sets": [
@@ -374,7 +374,7 @@
         ]
       },
       {
-        "exercise_name": "Hammer curl",
+        "exercise_name": "锤式弯举",
         "category": "isolation",
         "muscle_group": "biceps",
         "sets": [

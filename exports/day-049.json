@@ -1,35 +1,35 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-049",
-  "history_version": 1,
-  "exported_at": "2026-08-16T18:35:09.728068Z",
+  "history_version": 5,
+  "exported_at": "2026-08-21T03:02:34.683822Z",
   "date": "2026-08-09",
   "day_number": 49,
   "provenance": {
     "source": "xunji_app",
     "confidence": "high",
-    "notes": "数据来自训记 Open API；膳食纤维按 0 g，净碳水按总碳水；Day 49 训练时长异常，TDEE 采用 Active Energy 估算。"
+    "notes": "饮食/训练按用户确认规则由训记 API 更新；Apple Health Active Energy 与本地 TDEE 保留。"
   },
   "body": {
     "weight_kg": 82.7,
-    "waist_cm": 83,
+    "waist_cm": 82,
     "body_fat_percentage": null,
     "notes": "训记体重记录；腰围沿用 Day 43 的最近测量值：83 cm。"
   },
   "daily_log": {
     "is_training_day": true,
     "workout_type": "功能性力量训练",
-    "calories_in": 1756.9259259259259,
+    "calories_in": 2057.925925925926,
     "tdee": 2170,
-    "calorie_balance": -413.07,
-    "protein_g": 147.42994708994712,
-    "total_carbs_g": 177.5058201058201,
+    "calorie_balance": -112.07,
+    "protein_g": 158.42994708994712,
+    "total_carbs_g": 235.0058201058201,
     "fiber_g": 0,
-    "net_carbs_g": 177.5058201058201,
-    "fat_g": 51.42809523809523,
+    "net_carbs_g": 235.0058201058201,
+    "fat_g": 54.128095238095234,
     "steps": null,
     "active_energy_kcal": 593,
-    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算。Day 49 训记时长异常，TDEE 按 BMR≈1820 + Active Energy 346 估算。；Active Energy 手动补录：593 kcal。"
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算。Day 49 训记时长异常，TDEE 按 BMR≈1820 + Active Energy 346 估算。；Active Energy 手动补录：593 kcal。；8月9日起饮食按训记 API 覆盖，纤维按0 g。；训练差异按训记 API 覆盖，力量动作合并，有氧/步行独立记录。"
   },
   "nutrition": [
     {
@@ -46,7 +46,7 @@
       "fiber_g": 0,
       "net_carbs_g": 40.74074074074074,
       "fat_g": 16.666666666666668,
-      "notes": "训记 API 营养快照；纤维未由接口返回。"
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
     },
     {
       "entry_id": "D049_XJ002",
@@ -62,7 +62,7 @@
       "fiber_g": 0,
       "net_carbs_g": 3.6,
       "fat_g": 0.0,
-      "notes": "训记 API 营养快照；纤维未由接口返回。"
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
     },
     {
       "entry_id": "D049_XJ003",
@@ -78,7 +78,7 @@
       "fiber_g": 0,
       "net_carbs_g": 15.4,
       "fat_g": 0.35,
-      "notes": "训记 API 营养快照；纤维未由接口返回。"
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
     },
     {
       "entry_id": "D049_XJ004",
@@ -94,7 +94,7 @@
       "fiber_g": 0,
       "net_carbs_g": 3.0,
       "fat_g": 37.8,
-      "notes": "训记 API 营养快照；纤维未由接口返回。"
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
     },
     {
       "entry_id": "D049_XJ005",
@@ -110,7 +110,7 @@
       "fiber_g": 0,
       "net_carbs_g": 46.0,
       "fat_g": 1.6,
-      "notes": "训记 API 营养快照；纤维未由接口返回。"
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
     },
     {
       "entry_id": "D049_XJ006",
@@ -126,7 +126,7 @@
       "fiber_g": 0,
       "net_carbs_g": 30.952380952380953,
       "fat_g": 3.571428571428571,
-      "notes": "训记 API 营养快照；纤维未由接口返回。"
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
     },
     {
       "entry_id": "D049_XJ007",
@@ -142,7 +142,7 @@
       "fiber_g": 0,
       "net_carbs_g": 0,
       "fat_g": 0.5,
-      "notes": "训记 API 营养快照；纤维未由接口返回。"
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
     },
     {
       "entry_id": "D049_XJ008",
@@ -158,7 +158,7 @@
       "fiber_g": 0,
       "net_carbs_g": 57.5,
       "fat_g": 2.7,
-      "notes": "训记 API 营养快照；纤维未由接口返回。"
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
     },
     {
       "entry_id": "D049_XJ009",
@@ -174,7 +174,7 @@
       "fiber_g": 0,
       "net_carbs_g": 30.952380952380953,
       "fat_g": 7.142857142857142,
-      "notes": "训记 API 营养快照；纤维未由接口返回。"
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
     },
     {
       "entry_id": "D049_XJ010",
@@ -190,7 +190,7 @@
       "fiber_g": 0,
       "net_carbs_g": 15.4,
       "fat_g": 0.35,
-      "notes": "训记 API 营养快照；纤维未由接口返回。"
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
     },
     {
       "entry_id": "D049_XJ011",
@@ -206,7 +206,7 @@
       "fiber_g": 0,
       "net_carbs_g": 11.5,
       "fat_g": 0.1,
-      "notes": "训记 API 营养快照；纤维未由接口返回。"
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
     },
     {
       "entry_id": "D049_XJ012",
@@ -222,20 +222,36 @@
       "fiber_g": 0,
       "net_carbs_g": 2.5,
       "fat_g": 4.4,
-      "notes": "训记 API 营养快照；纤维未由接口返回。"
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
+    },
+    {
+      "entry_id": "D049_XJ013",
+      "meal_type": "night",
+      "food_name": "costco 恰巴塔",
+      "brand": null,
+      "amount": 100.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 301.0,
+      "protein_g": 11.0,
+      "total_carbs_g": 57.5,
+      "fiber_g": 0,
+      "net_carbs_g": 57.5,
+      "fat_g": 2.7,
+      "notes": "训记 API 饮食明细；膳食纤维按 0 g，净碳水按总碳水。"
     }
   ],
   "workout": {
     "session_id": "day-049-xunji",
-    "workout_name": "功能性力量训练",
+    "workout_name": "功能性力量训练 + 步行",
     "workout_type": "功能性力量训练",
     "duration_minutes": 643.4,
     "active_energy_kcal": 593,
-    "notes": "训练动作来自训记 API；Active Energy 346 kcal 来自 TraditionalStrengthTraining 的 sets[].metrics.calories。；Active Energy 手动补录：593 kcal。",
+    "notes": "训记 API 训练数据；力量动作按动作名称合并；有氧与步行作为独立动作分类；本地 Apple Health Active Energy 保留。",
     "exercises": [
       {
         "exercise_name": "TraditionalStrengthTraining",
-        "category": "other",
+        "category": "strength",
         "muscle_group": null,
         "sets": [
           {
@@ -243,9 +259,25 @@
             "weight": null,
             "reps": null,
             "rir": null,
-            "distance": null,
-            "duration_seconds": null,
+            "distance": 0.0,
+            "duration_seconds": 900,
             "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "快走",
+        "category": "cardio",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": 5.89,
+            "duration_seconds": 4064,
+            "notes": "metrics={\"avgHeartRate\": \"110\", \"calories\": \"346\", \"distance\": \"5.89\", \"maxHeartRate\": \"135\", \"minHeartRate\": \"75\", \"workoutTime\": \"4064.79885327816\"}"
           }
         ]
       }
@@ -254,7 +286,7 @@
   "review": [
     {
       "review_status": "approved",
-      "note": "用户确认纤维按 0 g、净碳水等于总碳水，并接受 TDEE 估算。",
+      "note": "用户确认 8 月 9 日起饮食以训记为准；训练差异采用训记并按动作合并，有氧/步行独立记录。",
       "field": "daily_log"
     }
   ]

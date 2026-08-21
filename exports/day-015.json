@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-015",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:35:09.695152Z",
   "date": "2026-07-06",
   "day_number": 15,
@@ -218,7 +218,7 @@
     "notes": "PPL 模式首日；力量训练 19 个有效组。有氧爬坡 20 分钟。Strength Index 主力动作更新：杠铃平板卧推、杠铃上斜卧推。",
     "exercises": [
       {
-        "exercise_name": "Barbell bench press",
+        "exercise_name": "杠铃卧推",
         "category": "compound",
         "muscle_group": "chest",
         "sets": [
@@ -261,7 +261,7 @@
         ]
       },
       {
-        "exercise_name": "Incline barbell bench press",
+        "exercise_name": "上斜杠铃卧推",
         "category": "compound",
         "muscle_group": "upper_chest",
         "sets": [
@@ -295,7 +295,7 @@
         ]
       },
       {
-        "exercise_name": "Hammer strength decline chest press",
+        "exercise_name": "下斜悍马机推胸",
         "category": "compound",
         "muscle_group": "chest",
         "sets": [
@@ -329,7 +329,7 @@
         ]
       },
       {
-        "exercise_name": "Hammer strength shoulder press",
+        "exercise_name": "悍马机坐姿推举",
         "category": "compound",
         "muscle_group": "front_delts",
         "sets": [
@@ -363,7 +363,7 @@
         ]
       },
       {
-        "exercise_name": "Cable lateral raise",
+        "exercise_name": "绳索侧平举",
         "category": "isolation",
         "muscle_group": "side_delts",
         "sets": [
@@ -397,7 +397,7 @@
         ]
       },
       {
-        "exercise_name": "Cable pushdown",
+        "exercise_name": "绳索臂屈伸",
         "category": "isolation",
         "muscle_group": "triceps",
         "sets": [

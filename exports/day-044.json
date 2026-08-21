@@ -1,14 +1,14 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-044",
-  "history_version": 1,
-  "exported_at": "2026-08-16T18:35:09.722807Z",
+  "history_version": 4,
+  "exported_at": "2026-08-21T03:02:34.674822Z",
   "date": "2026-08-04",
   "day_number": 44,
   "provenance": {
-    "source": "chat_history",
+    "source": "xunji_app",
     "confidence": "high",
-    "notes": "Day 44 最终汇总；TDEE 按 BMR≈1826 + Active Energy 972 计算。"
+    "notes": "饮食/训练按用户确认规则由训记 API 更新；Apple Health Active Energy 与本地 TDEE 保留。"
   },
   "body": {
     "weight_kg": 83.0,
@@ -18,7 +18,7 @@
   },
   "daily_log": {
     "is_training_day": true,
-    "workout_type": "pull_a",
+    "workout_type": "P1-拉",
     "calories_in": 1991,
     "tdee": 2798,
     "calorie_balance": -807,
@@ -29,7 +29,7 @@
     "fat_g": 45.0,
     "steps": null,
     "active_energy_kcal": 972,
-    "notes": "Pull A；BMR≈1826 kcal，Active Energy≈972 kcal，TDEE≈2798 kcal；nutrition_history.json 逐项饮食明细已补充；膳食纤维暂按 0 g。"
+    "notes": "Pull A；BMR≈1826 kcal，Active Energy≈972 kcal，TDEE≈2798 kcal；nutrition_history.json 逐项饮食明细已补充；膳食纤维暂按 0 g。；训练差异按训记 API 覆盖，力量动作合并，有氧/步行独立记录。"
   },
   "nutrition": [
     {
@@ -210,24 +210,371 @@
     }
   ],
   "workout": {
-    "session_id": "day-044-workout",
-    "workout_name": "Day 44 Pull A",
-    "workout_type": "pull_a",
-    "duration_minutes": null,
+    "session_id": "day-044-xunji",
+    "workout_name": "P1-拉 + 传统力量训练 + 步行",
+    "workout_type": "P1-拉",
+    "duration_minutes": 832.9,
     "active_energy_kcal": 972,
-    "notes": "Pull A；训练动作明细待补充。",
-    "exercises": []
+    "notes": "训记 API 训练数据；力量动作按动作名称合并；有氧与步行作为独立动作分类；本地 Apple Health Active Energy 保留。",
+    "exercises": [
+      {
+        "exercise_name": "宽距高位下拉",
+        "category": "strength",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 57.833,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 57.833,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 57.833,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 54.4311,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "坐姿划船",
+        "category": "strength",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 24.9476,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 34.0194,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 54.4311,
+            "reps": 5,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 68.0389,
+            "reps": 13,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 5,
+            "weight": 68.0389,
+            "reps": 13,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 6,
+            "weight": 69.1728,
+            "reps": 13,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 7,
+            "weight": 69.1728,
+            "reps": 13,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "分动式高位划船",
+        "category": "strength",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 29.4835,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 29.4835,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 29.4835,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 29.4835,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "面拉",
+        "category": "strength",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 56.699,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 56.699,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 43.0913,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 43.0913,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "器械坐姿反向飞鸟",
+        "category": "strength",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 45.3592,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 45.3592,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 45.3592,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "锤式弯举",
+        "category": "strength",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 15.8757,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 15.8757,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 15.8757,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 15.8757,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "上斜哑铃弯举",
+        "category": "strength",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 11.3398,
+            "reps": 11,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 11.3398,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 11.3398,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "TraditionalStrengthTraining",
+        "category": "strength",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": 0.0,
+            "duration_seconds": 840,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "快走",
+        "category": "cardio",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": 5.49,
+            "duration_seconds": 3873,
+            "notes": "metrics={\"avgHeartRate\": \"94\", \"calories\": \"280\", \"distance\": \"5.49\", \"maxHeartRate\": \"125\", \"minHeartRate\": \"76\", \"workoutTime\": \"3873.39846265316\"}"
+          },
+          {
+            "set_number": 2,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": 1.18,
+            "duration_seconds": 900,
+            "notes": "metrics={\"avgHeartRate\": \"86\", \"calories\": \"69\", \"distance\": \"1.18\", \"maxHeartRate\": \"100\", \"minHeartRate\": \"76\", \"workoutTime\": \"900\"}"
+          }
+        ]
+      }
+    ]
   },
   "review": [
     {
       "review_status": "approved",
-      "note": "Day 44 身体、营养与 TDEE 数据已确认；训练动作明细待补充。",
+      "note": "用户确认 8 月 9 日起饮食以训记为准；训练差异采用训记并按动作合并，有氧/步行独立记录。",
       "field": "daily_log"
-    },
-    {
-      "review_status": "approved",
-      "note": "逐项饮食明细已从 nutrition_history.json 补充；已保留原有确认值。",
-      "field": "daily_log.nutrition"
     }
   ]
 }

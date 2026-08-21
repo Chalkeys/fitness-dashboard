@@ -1,14 +1,14 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-043",
-  "history_version": 1,
-  "exported_at": "2026-08-16T18:31:18.639719Z",
+  "history_version": 2,
+  "exported_at": "2026-08-21T02:42:59.025053Z",
   "date": "2026-08-03",
   "day_number": 43,
   "provenance": {
-    "source": "chat_history",
+    "source": "xunji_app",
     "confidence": "high",
-    "notes": "Day 43 最终数据已确认。日期为 2026-08-03；TDEE 按 BMR≈1820 + Active Energy 872 估算。"
+    "notes": "饮食/训练按用户确认规则由训记 API 更新；Apple Health Active Energy 与本地 TDEE 保留。"
   },
   "body": {
     "weight_kg": 82.65,
@@ -18,7 +18,7 @@
   },
   "daily_log": {
     "is_training_day": true,
-    "workout_type": "push_a",
+    "workout_type": "P1-推",
     "calories_in": 1965,
     "tdee": 2692,
     "calorie_balance": -727,
@@ -29,7 +29,7 @@
     "fat_g": 33.9,
     "steps": null,
     "active_energy_kcal": 872,
-    "notes": "Push A；摄入约 1965 kcal，TDEE≈2692 kcal，热量缺口≈727 kcal。蛋白质和碳水达标，纤维良好，脂肪偏低；nutrition_history.json 逐项饮食明细已补充；膳食纤维暂按 0 g。"
+    "notes": "Push A；摄入约 1965 kcal，TDEE≈2692 kcal，热量缺口≈727 kcal。蛋白质和碳水达标，纤维良好，脂肪偏低；nutrition_history.json 逐项饮食明细已补充；膳食纤维暂按 0 g。；训练差异按训记 API 覆盖，力量动作合并，有氧/步行独立记录。"
   },
   "nutrition": [
     {
@@ -242,60 +242,130 @@
     }
   ],
   "workout": {
-    "session_id": "day-043-workout",
-    "workout_name": "Day 43 Push A",
-    "workout_type": "push_a",
-    "duration_minutes": null,
+    "session_id": "day-043-xunji",
+    "workout_name": "P1-推",
+    "workout_type": "P1-推",
+    "duration_minutes": 144.9,
     "active_energy_kcal": 872,
-    "notes": "Push A；平板卧推 130×8、130×7×3；上斜哑铃卧推 45×12×3；悍马下斜推胸 130×10×3；坐姿肩推 80×12×3；侧平举 30×15×2、32.5×12；绳索下压 85×10×2、80×15；过头臂屈伸 80×12×3。包含热身组但未量化。",
+    "notes": "训记 API 训练数据；力量动作按动作名称合并；有氧与步行作为独立动作分类；本地 Apple Health Active Energy 保留。",
     "exercises": [
       {
-        "exercise_name": "Barbell bench press",
-        "category": "compound",
-        "muscle_group": "chest",
+        "exercise_name": "把手式蝴蝶机飞鸟",
+        "category": "strength",
+        "muscle_group": null,
         "sets": [
           {
             "set_number": 1,
+            "weight": 40.8233,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 40.8233,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 40.8233,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "杠铃卧推",
+        "category": "strength",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 20.4117,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 29.4835,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 52.1631,
+            "reps": 5,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
             "weight": 58.967,
             "reps": 8,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：130 lb；已转换为 kg。"
+            "notes": null
           },
           {
-            "set_number": 2,
+            "set_number": 5,
             "weight": 58.967,
             "reps": 7,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：130 lb；已转换为 kg。"
+            "notes": null
           },
           {
-            "set_number": 3,
+            "set_number": 6,
             "weight": 58.967,
             "reps": 7,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：130 lb；已转换为 kg。"
+            "notes": null
           },
           {
-            "set_number": 4,
+            "set_number": 7,
             "weight": 58.967,
             "reps": 7,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：130 lb；已转换为 kg。"
+            "notes": null
+          },
+          {
+            "set_number": 8,
+            "weight": 58.967,
+            "reps": 5,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
           }
         ]
       },
       {
-        "exercise_name": "Incline dumbbell bench press",
-        "category": "compound",
-        "muscle_group": "chest",
+        "exercise_name": "上斜哑铃卧推",
+        "category": "strength",
+        "muscle_group": null,
         "sets": [
           {
             "set_number": 1,
@@ -304,7 +374,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：45 lb；已转换为 kg。"
+            "notes": null
           },
           {
             "set_number": 2,
@@ -313,23 +383,23 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：45 lb；已转换为 kg。"
+            "notes": null
           },
           {
             "set_number": 3,
             "weight": 20.4117,
-            "reps": 12,
+            "reps": 8,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：45 lb；已转换为 kg。"
+            "notes": null
           }
         ]
       },
       {
-        "exercise_name": "Decline Hammer Strength chest press",
-        "category": "compound",
-        "muscle_group": "chest",
+        "exercise_name": "下斜悍马机推胸",
+        "category": "strength",
+        "muscle_group": null,
         "sets": [
           {
             "set_number": 1,
@@ -338,84 +408,84 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：130 lb；已转换为 kg。"
+            "notes": null
           },
           {
             "set_number": 2,
             "weight": 58.967,
-            "reps": 10,
+            "reps": 8,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：130 lb；已转换为 kg。"
+            "notes": null
           },
           {
             "set_number": 3,
             "weight": 58.967,
-            "reps": 10,
+            "reps": 8,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：130 lb；已转换为 kg。"
+            "notes": null
           }
         ]
       },
       {
-        "exercise_name": "Seated shoulder press",
-        "category": "compound",
-        "muscle_group": "shoulders",
+        "exercise_name": "悍马机坐姿推举",
+        "category": "strength",
+        "muscle_group": null,
         "sets": [
           {
             "set_number": 1,
-            "weight": 36.2874,
-            "reps": 12,
+            "weight": 38.5554,
+            "reps": 8,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：80 lb；已转换为 kg。"
+            "notes": null
           },
           {
             "set_number": 2,
-            "weight": 36.2874,
-            "reps": 12,
+            "weight": 38.5554,
+            "reps": 8,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：80 lb；已转换为 kg。"
+            "notes": null
           },
           {
             "set_number": 3,
-            "weight": 36.2874,
-            "reps": 12,
+            "weight": 38.5554,
+            "reps": 8,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：80 lb；已转换为 kg。"
+            "notes": null
           }
         ]
       },
       {
-        "exercise_name": "Cable lateral raise",
-        "category": "isolation",
-        "muscle_group": "shoulders",
+        "exercise_name": "绳索侧平举（单边）",
+        "category": "strength",
+        "muscle_group": null,
         "sets": [
           {
             "set_number": 1,
             "weight": 13.6078,
-            "reps": 15,
+            "reps": 12,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：30 lb；已转换为 kg。"
+            "notes": null
           },
           {
             "set_number": 2,
             "weight": 13.6078,
-            "reps": 15,
+            "reps": 12,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：30 lb；已转换为 kg。"
+            "notes": null
           },
           {
             "set_number": 3,
@@ -424,48 +494,48 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：32.5 lb；已转换为 kg。"
+            "notes": null
           }
         ]
       },
       {
-        "exercise_name": "Triceps pushdown",
-        "category": "isolation",
-        "muscle_group": "triceps",
+        "exercise_name": "绳索臂屈伸",
+        "category": "strength",
+        "muscle_group": null,
         "sets": [
           {
             "set_number": 1,
-            "weight": 38.5554,
-            "reps": 10,
-            "rir": null,
-            "distance": null,
-            "duration_seconds": null,
-            "notes": "原始重量：85 lb；已转换为 kg。"
-          },
-          {
-            "set_number": 2,
-            "weight": 38.5554,
-            "reps": 10,
-            "rir": null,
-            "distance": null,
-            "duration_seconds": null,
-            "notes": "原始重量：85 lb；已转换为 kg。"
-          },
-          {
-            "set_number": 3,
             "weight": 36.2874,
             "reps": 15,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：80 lb；已转换为 kg。"
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 38.5554,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 38.5554,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
           }
         ]
       },
       {
-        "exercise_name": "Overhead triceps extension",
-        "category": "isolation",
-        "muscle_group": "triceps",
+        "exercise_name": "绳索过头臂屈伸",
+        "category": "strength",
+        "muscle_group": null,
         "sets": [
           {
             "set_number": 1,
@@ -474,7 +544,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：80 lb；已转换为 kg。"
+            "notes": null
           },
           {
             "set_number": 2,
@@ -483,7 +553,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：80 lb；已转换为 kg。"
+            "notes": null
           },
           {
             "set_number": 3,
@@ -492,7 +562,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "原始重量：80 lb；已转换为 kg。"
+            "notes": null
           }
         ]
       }
@@ -501,13 +571,8 @@
   "review": [
     {
       "review_status": "approved",
-      "note": "Day 43 身体、训练、Active Energy 与最终营养数据已确认。",
+      "note": "用户确认 8 月 9 日起饮食以训记为准；训练差异采用训记并按动作合并，有氧/步行独立记录。",
       "field": "daily_log"
-    },
-    {
-      "review_status": "approved",
-      "note": "逐项饮食明细已从 nutrition_history.json 补充；已保留原有确认值。",
-      "field": "daily_log.nutrition"
     }
   ]
 }

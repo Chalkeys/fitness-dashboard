@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-008",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:31:18.608320Z",
   "date": "2026-06-29",
   "day_number": 8,
@@ -234,7 +234,7 @@
     "notes": "力量训练总有效组 24 组：背部 16 组、后束 8 组。有氧为跑步机坡走 20 分钟，坡度 12，速度 3.5 mph。",
     "exercises": [
       {
-        "exercise_name": "Seated cable row",
+        "exercise_name": "坐姿划船",
         "category": "compound",
         "muscle_group": "mid_back",
         "sets": [
@@ -286,7 +286,7 @@
         ]
       },
       {
-        "exercise_name": "Wide grip lat pulldown",
+        "exercise_name": "宽距高位下拉",
         "category": "compound",
         "muscle_group": "lats",
         "sets": [
@@ -329,7 +329,7 @@
         ]
       },
       {
-        "exercise_name": "V-bar pulldown",
+        "exercise_name": "V-bar下拉",
         "category": "compound",
         "muscle_group": "lats",
         "sets": [
@@ -406,7 +406,7 @@
         ]
       },
       {
-        "exercise_name": "Face pull",
+        "exercise_name": "面拉",
         "category": "isolation",
         "muscle_group": "rear_delts",
         "sets": [
@@ -458,7 +458,7 @@
         ]
       },
       {
-        "exercise_name": "Reverse pec deck",
+        "exercise_name": "蝴蝶机反向飞鸟",
         "category": "isolation",
         "muscle_group": "rear_delts",
         "sets": [

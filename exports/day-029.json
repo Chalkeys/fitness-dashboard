@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-029",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:35:09.709291Z",
   "date": "2026-07-20",
   "day_number": 29,
@@ -250,7 +250,7 @@
     "notes": "关键表现：平板卧推 120×6×4；上斜卧推 100×9、8、7；下斜推胸 110×10、10、8；过头臂屈伸 75×12、10、70×15。整体训练表现稳定并较上一轮进步。",
     "exercises": [
       {
-        "exercise_name": "Machine fly",
+        "exercise_name": "蝴蝶机飞鸟",
         "category": "isolation",
         "muscle_group": "chest",
         "sets": [
@@ -284,7 +284,7 @@
         ]
       },
       {
-        "exercise_name": "Barbell bench press",
+        "exercise_name": "杠铃卧推",
         "category": "compound",
         "muscle_group": "chest",
         "sets": [
@@ -327,7 +327,7 @@
         ]
       },
       {
-        "exercise_name": "Incline barbell bench press",
+        "exercise_name": "上斜杠铃卧推",
         "category": "compound",
         "muscle_group": "chest",
         "sets": [
@@ -361,7 +361,7 @@
         ]
       },
       {
-        "exercise_name": "Decline chest press",
+        "exercise_name": "下斜悍马机推胸",
         "category": "compound",
         "muscle_group": "chest",
         "sets": [
@@ -395,7 +395,7 @@
         ]
       },
       {
-        "exercise_name": "Seated shoulder press",
+        "exercise_name": "悍马机坐姿推举",
         "category": "compound",
         "muscle_group": "shoulders",
         "sets": [
@@ -429,7 +429,7 @@
         ]
       },
       {
-        "exercise_name": "Cable lateral raise",
+        "exercise_name": "绳索侧平举",
         "category": "isolation",
         "muscle_group": "shoulders",
         "sets": [
@@ -463,7 +463,7 @@
         ]
       },
       {
-        "exercise_name": "Triceps pushdown",
+        "exercise_name": "绳索臂屈伸",
         "category": "isolation",
         "muscle_group": "triceps",
         "sets": [
@@ -497,7 +497,7 @@
         ]
       },
       {
-        "exercise_name": "Overhead triceps extension",
+        "exercise_name": "绳索过头臂屈伸",
         "category": "isolation",
         "muscle_group": "triceps",
         "sets": [

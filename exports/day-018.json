@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-018",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:31:18.617317Z",
   "date": "2026-07-09",
   "day_number": 18,
@@ -218,7 +218,7 @@
     "notes": "力量训练共 20 个有效组；有氧爬坡 20 分钟。平板卧推力量保持稳定，上斜卧推继续进步。",
     "exercises": [
       {
-        "exercise_name": "Barbell bench press",
+        "exercise_name": "杠铃卧推",
         "category": "compound",
         "muscle_group": "chest",
         "sets": [
@@ -252,7 +252,7 @@
         ]
       },
       {
-        "exercise_name": "Incline barbell bench press",
+        "exercise_name": "上斜杠铃卧推",
         "category": "compound",
         "muscle_group": "upper_chest",
         "sets": [
@@ -286,7 +286,7 @@
         ]
       },
       {
-        "exercise_name": "Hammer strength decline chest press",
+        "exercise_name": "下斜悍马机推胸",
         "category": "compound",
         "muscle_group": "chest",
         "sets": [
@@ -320,7 +320,7 @@
         ]
       },
       {
-        "exercise_name": "Hammer strength seated shoulder press",
+        "exercise_name": "悍马机坐姿推举",
         "category": "compound",
         "muscle_group": "front_delts",
         "sets": [
@@ -354,7 +354,7 @@
         ]
       },
       {
-        "exercise_name": "Cable lateral raise",
+        "exercise_name": "绳索侧平举",
         "category": "isolation",
         "muscle_group": "side_delts",
         "sets": [
@@ -388,7 +388,7 @@
         ]
       },
       {
-        "exercise_name": "Cable pushdown",
+        "exercise_name": "绳索臂屈伸",
         "category": "isolation",
         "muscle_group": "triceps",
         "sets": [
@@ -413,7 +413,7 @@
         ]
       },
       {
-        "exercise_name": "Rope overhead triceps extension",
+        "exercise_name": "绳索过头臂屈伸",
         "category": "isolation",
         "muscle_group": "triceps_long_head",
         "sets": [

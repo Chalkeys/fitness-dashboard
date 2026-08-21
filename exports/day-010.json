@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-010",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:35:09.690640Z",
   "date": "2026-07-01",
   "day_number": 10,
@@ -202,7 +202,7 @@
     "notes": "力量训练总有效组 22 组：二头 11 组、三头 11 组。有氧：12 分钟，3.5 mph，坡度 12%；10 分钟，3.0 mph，坡度 10%；心率 130–150 bpm。",
     "exercises": [
       {
-        "exercise_name": "Preacher EZ-bar curl",
+        "exercise_name": "牧师凳弯举",
         "category": "isolation",
         "muscle_group": "biceps",
         "sets": [
@@ -254,7 +254,7 @@
         ]
       },
       {
-        "exercise_name": "Cable curl",
+        "exercise_name": "绳索弯举",
         "category": "isolation",
         "muscle_group": "biceps",
         "sets": [
@@ -297,7 +297,7 @@
         ]
       },
       {
-        "exercise_name": "Superset cable curl",
+        "exercise_name": "绳索弯举",
         "category": "isolation",
         "muscle_group": "biceps",
         "sets": [
@@ -331,7 +331,7 @@
         ]
       },
       {
-        "exercise_name": "Cable pushdown",
+        "exercise_name": "绳索臂屈伸",
         "category": "isolation",
         "muscle_group": "triceps",
         "sets": [
@@ -374,7 +374,7 @@
         ]
       },
       {
-        "exercise_name": "Rope overhead triceps extension",
+        "exercise_name": "绳索过头臂屈伸",
         "category": "isolation",
         "muscle_group": "triceps_long_head",
         "sets": [
@@ -417,7 +417,7 @@
         ]
       },
       {
-        "exercise_name": "Superset cable pushdown",
+        "exercise_name": "绳索臂屈伸",
         "category": "isolation",
         "muscle_group": "triceps",
         "sets": [

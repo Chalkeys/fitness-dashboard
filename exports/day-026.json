@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-026",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:31:18.624374Z",
   "date": "2026-07-17",
   "day_number": 26,
@@ -186,7 +186,7 @@
     "notes": "背部 16 组、二头 9 组，共 25 组。牧师凳弯举为本次测试，后续取消。",
     "exercises": [
       {
-        "exercise_name": "Seated cable row",
+        "exercise_name": "坐姿划船",
         "category": "compound",
         "muscle_group": "mid_back",
         "sets": [
@@ -229,7 +229,7 @@
         ]
       },
       {
-        "exercise_name": "Standing plate-loaded T-bar row",
+        "exercise_name": "挂片器划船",
         "category": "compound",
         "muscle_group": "mid_back",
         "sets": [
@@ -263,7 +263,7 @@
         ]
       },
       {
-        "exercise_name": "Lat pulldown",
+        "exercise_name": "器械下拉",
         "category": "compound",
         "muscle_group": "lats",
         "sets": [
@@ -297,7 +297,7 @@
         ]
       },
       {
-        "exercise_name": "Face pull",
+        "exercise_name": "面拉",
         "category": "isolation",
         "muscle_group": "rear_delts",
         "sets": [
@@ -331,7 +331,7 @@
         ]
       },
       {
-        "exercise_name": "Reverse fly",
+        "exercise_name": "俯身飞鸟",
         "category": "isolation",
         "muscle_group": "rear_delts",
         "sets": [
@@ -365,7 +365,7 @@
         ]
       },
       {
-        "exercise_name": "Spider curl",
+        "exercise_name": "蜘蛛弯举",
         "category": "isolation",
         "muscle_group": "biceps",
         "sets": [
@@ -399,7 +399,7 @@
         ]
       },
       {
-        "exercise_name": "Preacher curl",
+        "exercise_name": "牧师凳弯举",
         "category": "isolation",
         "muscle_group": "biceps",
         "sets": [
@@ -433,7 +433,7 @@
         ]
       },
       {
-        "exercise_name": "Cable curl",
+        "exercise_name": "绳索弯举",
         "category": "isolation",
         "muscle_group": "biceps",
         "sets": [

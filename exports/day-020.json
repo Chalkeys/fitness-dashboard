@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-020",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:35:09.701152Z",
   "date": "2026-07-11",
   "day_number": 20,
@@ -218,7 +218,7 @@
     "notes": "训练共 23 组：后链、股四头、小腿和核心结构完整，恢复压力与训练效果均衡。",
     "exercises": [
       {
-        "exercise_name": "Romanian deadlift",
+        "exercise_name": "罗马尼亚硬拉",
         "category": "compound",
         "muscle_group": "hamstrings/glutes",
         "sets": [
@@ -261,7 +261,7 @@
         ]
       },
       {
-        "exercise_name": "Leg curl",
+        "exercise_name": "腿弯举",
         "category": "isolation",
         "muscle_group": "hamstrings",
         "sets": [
@@ -295,7 +295,7 @@
         ]
       },
       {
-        "exercise_name": "Hip thrust",
+        "exercise_name": "臀冲架臀冲",
         "category": "compound",
         "muscle_group": "glutes",
         "sets": [
@@ -329,7 +329,7 @@
         ]
       },
       {
-        "exercise_name": "Horizontal leg press",
+        "exercise_name": "器械倒蹬",
         "category": "compound",
         "muscle_group": "quadriceps/glutes",
         "sets": [
@@ -363,7 +363,7 @@
         ]
       },
       {
-        "exercise_name": "Seated calf raise",
+        "exercise_name": "坐姿器械提踵",
         "category": "isolation",
         "muscle_group": "calves",
         "sets": [
@@ -406,7 +406,7 @@
         ]
       },
       {
-        "exercise_name": "Hanging leg raise",
+        "exercise_name": "悬挂抬腿",
         "category": "core",
         "muscle_group": "core",
         "sets": [
@@ -440,7 +440,7 @@
         ]
       },
       {
-        "exercise_name": "Crunch",
+        "exercise_name": "卷腹",
         "category": "core",
         "muscle_group": "core",
         "sets": [

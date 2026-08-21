@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-006",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:31:18.606004Z",
   "date": "2026-06-27",
   "day_number": 6,
@@ -202,7 +202,7 @@
     "notes": "力量训练已完成；正式组共 14 组。哑铃重量按两只哑铃总负荷记录并转换为 kg。；Active Energy 手动补录：716 kcal。",
     "exercises": [
       {
-        "exercise_name": "Bulgarian split squat",
+        "exercise_name": "哑铃保加利亚蹲",
         "category": "compound",
         "muscle_group": "quadriceps/glutes",
         "sets": [
@@ -263,7 +263,7 @@
         ]
       },
       {
-        "exercise_name": "Squat",
+        "exercise_name": "杠铃深蹲",
         "category": "compound",
         "muscle_group": "quadriceps/glutes",
         "sets": [
@@ -342,7 +342,7 @@
         ]
       },
       {
-        "exercise_name": "Romanian deadlift",
+        "exercise_name": "罗马尼亚硬拉",
         "category": "compound",
         "muscle_group": "hamstrings/glutes",
         "sets": [

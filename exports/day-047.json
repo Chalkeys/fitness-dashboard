@@ -1,14 +1,14 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-047",
-  "history_version": 1,
-  "exported_at": "2026-08-16T18:35:09.726067Z",
+  "history_version": 4,
+  "exported_at": "2026-08-21T03:02:34.678821Z",
   "date": "2026-08-07",
   "day_number": 47,
   "provenance": {
     "source": "xunji_app",
     "confidence": "high",
-    "notes": "数据来自训记 Open API；膳食纤维按 0 g，净碳水按总碳水；TDEE 为估算值。"
+    "notes": "饮食/训练按用户确认规则由训记 API 更新；Apple Health Active Energy 与本地 TDEE 保留。"
   },
   "body": {
     "weight_kg": 82.8,
@@ -27,7 +27,7 @@
   },
   "daily_log": {
     "is_training_day": true,
-    "workout_type": "p1_拉",
+    "workout_type": "P1-拉",
     "calories_in": 2159.5314009661834,
     "tdee": 2760.0,
     "calorie_balance": -600.47,
@@ -38,7 +38,7 @@
     "fat_g": 73.8588198757764,
     "steps": null,
     "active_energy_kcal": 944,
-    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；TDEE 为 BMR≈1820 加训练活动消耗估算。；Active Energy 手动补录：944 kcal。"
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；TDEE 为 BMR≈1820 加训练活动消耗估算。；Active Energy 手动补录：944 kcal。；训练差异按训记 API 覆盖，力量动作合并，有氧/步行独立记录。"
   },
   "nutrition": [
     {
@@ -284,15 +284,15 @@
   ],
   "workout": {
     "session_id": "day-047-xunji",
-    "workout_name": "P1-拉",
-    "workout_type": "p1_拉",
+    "workout_name": "P1-拉 + 步行",
+    "workout_type": "P1-拉",
     "duration_minutes": 186.5,
     "active_energy_kcal": 944,
-    "notes": "训练动作来自训记 API；力量训练未返回热量，Active Energy 仅含接口提供的有氧消耗。；Active Energy 手动补录：944 kcal。",
+    "notes": "训记 API 训练数据；力量动作按动作名称合并；有氧与步行作为独立动作分类；本地 Apple Health Active Energy 保留。",
     "exercises": [
       {
         "exercise_name": "宽距高位下拉",
-        "category": "other",
+        "category": "strength",
         "muscle_group": null,
         "sets": [
           {
@@ -335,7 +335,7 @@
       },
       {
         "exercise_name": "坐姿划船",
-        "category": "other",
+        "category": "strength",
         "muscle_group": null,
         "sets": [
           {
@@ -405,7 +405,7 @@
       },
       {
         "exercise_name": "分动式高位划船",
-        "category": "other",
+        "category": "strength",
         "muscle_group": null,
         "sets": [
           {
@@ -448,7 +448,7 @@
       },
       {
         "exercise_name": "面拉",
-        "category": "other",
+        "category": "strength",
         "muscle_group": null,
         "sets": [
           {
@@ -482,7 +482,7 @@
       },
       {
         "exercise_name": "器械坐姿反向飞鸟",
-        "category": "other",
+        "category": "strength",
         "muscle_group": null,
         "sets": [
           {
@@ -516,7 +516,7 @@
       },
       {
         "exercise_name": "蜘蛛弯举",
-        "category": "other",
+        "category": "strength",
         "muscle_group": null,
         "sets": [
           {
@@ -568,7 +568,7 @@
       },
       {
         "exercise_name": "绳索弯举",
-        "category": "other",
+        "category": "strength",
         "muscle_group": null,
         "sets": [
           {
@@ -599,13 +599,29 @@
             "notes": null
           }
         ]
+      },
+      {
+        "exercise_name": "快走",
+        "category": "cardio",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": 1.67,
+            "duration_seconds": 1280,
+            "notes": "metrics={\"avgHeartRate\": \"125\", \"calories\": \"136\", \"distance\": \"1.67\", \"maxHeartRate\": \"145\", \"minHeartRate\": \"97\", \"workoutTime\": \"1280.107254862785\"}"
+          }
+        ]
       }
     ]
   },
   "review": [
     {
       "review_status": "approved",
-      "note": "用户确认纤维按 0 g、净碳水等于总碳水，并接受 TDEE 估算。",
+      "note": "用户确认 8 月 9 日起饮食以训记为准；训练差异采用训记并按动作合并，有氧/步行独立记录。",
       "field": "daily_log"
     }
   ]

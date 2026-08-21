@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-019",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:35:09.700154Z",
   "date": "2026-07-10",
   "day_number": 19,
@@ -282,7 +282,7 @@
     "notes": "背部 14 个有效组、二头 6 个有效组，共 20 组；有氧爬坡 20 分钟。",
     "exercises": [
       {
-        "exercise_name": "Lat pulldown",
+        "exercise_name": "器械下拉",
         "category": "compound",
         "muscle_group": "lats",
         "sets": [
@@ -316,7 +316,7 @@
         ]
       },
       {
-        "exercise_name": "Seated cable row",
+        "exercise_name": "坐姿划船",
         "category": "compound",
         "muscle_group": "mid_back",
         "sets": [
@@ -350,7 +350,7 @@
         ]
       },
       {
-        "exercise_name": "Straight-arm pulldown",
+        "exercise_name": "绳索直臂下压",
         "category": "isolation",
         "muscle_group": "lats",
         "sets": [
@@ -384,7 +384,7 @@
         ]
       },
       {
-        "exercise_name": "Face pull",
+        "exercise_name": "面拉",
         "category": "isolation",
         "muscle_group": "rear_delts",
         "sets": [
@@ -418,7 +418,7 @@
         ]
       },
       {
-        "exercise_name": "Reverse fly",
+        "exercise_name": "俯身飞鸟",
         "category": "isolation",
         "muscle_group": "rear_delts",
         "sets": [
@@ -443,7 +443,7 @@
         ]
       },
       {
-        "exercise_name": "Preacher EZ-bar curl",
+        "exercise_name": "牧师凳弯举",
         "category": "isolation",
         "muscle_group": "biceps",
         "sets": [
@@ -477,7 +477,7 @@
         ]
       },
       {
-        "exercise_name": "Cable curl",
+        "exercise_name": "绳索弯举",
         "category": "isolation",
         "muscle_group": "biceps",
         "sets": [
