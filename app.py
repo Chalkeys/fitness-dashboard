@@ -315,7 +315,10 @@ def page_day_detail() -> None:
             )
             table = rows[
                 ["food_name", "brand", "amount", "unit", "calories", "protein_g", "net_carbs_g", "fat_g"]
-            ].rename(
+            ].round(
+                # Snapshots carry per-gram arithmetic through to 4 decimals.
+                {"amount": 1, "calories": 0, "protein_g": 1, "net_carbs_g": 1, "fat_g": 1}
+            ).rename(
                 columns={
                     "food_name": "食物",
                     "brand": "品牌",
