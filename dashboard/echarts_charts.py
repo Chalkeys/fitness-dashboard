@@ -11,7 +11,7 @@ from streamlit_echarts import JsCode
 
 from dashboard import energy
 from dashboard.theme import (
-    AQUA,
+    TEAL,
     BASELINE,
     BLUE,
     CAL_CATEGORIES,
@@ -26,7 +26,7 @@ from dashboard.theme import (
     INK_SECONDARY,
     KG_TO_LB,
     MUTED,
-    ORANGE,
+    AMBER,
     PAGE,
     classify_training,
 )
@@ -109,7 +109,9 @@ def _axis_tooltip(unit: str, decimals: int = 0, signed: bool = False) -> dict:
     }
 
 
-def _gradient(rgb: str, top: float = 0.22) -> dict:
+def _gradient(colour: str, top: float = 0.22) -> dict:
+    """Vertical fade from the mark's own colour to nothing."""
+    rgb = ", ".join(str(int(colour.lstrip("#")[i : i + 2], 16)) for i in (0, 2, 4))
     return {
         "type": "linear",
         "x": 0,
@@ -155,7 +157,7 @@ def weight_trend_option(body: pd.DataFrame, imperial: bool = False) -> dict:
                 "showSymbol": False,
                 "lineStyle": {"width": 3, "color": BLUE},
                 "itemStyle": {"color": BLUE},
-                "areaStyle": {"color": _gradient("42, 120, 214")},
+                "areaStyle": {"color": _gradient(BLUE)},
             },
         ],
     }
@@ -183,7 +185,7 @@ def waist_trend_option(body: pd.DataFrame, imperial: bool = False) -> dict:
                 "symbolSize": 7,
                 "lineStyle": {"width": 3, "color": BLUE},
                 "itemStyle": {"color": BLUE},
-                "areaStyle": {"color": _gradient("42, 120, 214")},
+                "areaStyle": {"color": _gradient(BLUE)},
             }
         ],
     }
@@ -229,7 +231,7 @@ def intake_vs_tdee_option(
                 "showSymbol": False,
                 "lineStyle": {"width": 3, "color": BLUE},
                 "itemStyle": {"color": BLUE},
-                "areaStyle": {"color": _gradient("42, 120, 214")},
+                "areaStyle": {"color": _gradient(BLUE)},
             },
         ],
     }
@@ -351,8 +353,8 @@ def macro_stack_option(daily: pd.DataFrame) -> dict:
     series = []
     for col, label, color in [
         ("protein_g", "蛋白质", BLUE),
-        ("net_carbs_g", "净碳水", ORANGE),
-        ("fat_g", "脂肪", AQUA),
+        ("net_carbs_g", "净碳水", AMBER),
+        ("fat_g", "脂肪", TEAL),
     ]:
         series.append(
             {
@@ -397,7 +399,7 @@ def protein_trend_option(daily: pd.DataFrame) -> dict:
                 "showSymbol": False,
                 "lineStyle": {"width": 3, "color": BLUE},
                 "itemStyle": {"color": BLUE},
-                "areaStyle": {"color": _gradient("42, 120, 214")},
+                "areaStyle": {"color": _gradient(BLUE)},
             }
         ],
     }
@@ -483,7 +485,7 @@ def exercise_progression_option(
                 "symbolSize": 9,
                 "lineStyle": {"width": 3, "color": BLUE},
                 "itemStyle": {"color": BLUE},
-                "areaStyle": {"color": _gradient("42, 120, 214")},
+                "areaStyle": {"color": _gradient(BLUE)},
             }
         ],
     }

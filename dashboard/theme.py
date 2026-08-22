@@ -1,22 +1,31 @@
 """Shared visual language: palette, unit conversions, training categories.
 
-Palette follows the validated reference instance — categorical slots in fixed
-order (blue/orange/aqua), diverging blue<->red, recessive chrome.
+Categorical slots in a fixed order, a diverging pair for signed values, and
+recessive chrome. The slots are muted on purpose but stop where the validator
+does — see the note above them.
 """
 
 from __future__ import annotations
 
-# Categorical slots (fixed order, never cycled)
-BLUE = "#2a78d6"
-ORANGE = "#eb6834"
-AQUA = "#1baf7a"
-YELLOW = "#eda100"
-MAGENTA = "#e87ba4"
-GREEN = "#008300"
+# Categorical slots (fixed order, never cycled).
+#
+# Muted, Morandi-leaning steps: chroma sits just above the 0.10 floor below
+# which a hue stops reading as identity, and lightness alternates between
+# neighbouring slots so pairs that collapse in hue under red-green colour
+# blindness still separate by brightness. Validated on the light surface —
+# worst adjacent pair 10.8 ΔE under protanopia, 22.9 with normal vision.
+# Softening further means failing the chroma floor; these are as grey as the
+# hues can go while still telling series apart.
+BLUE = "#5479be"   # OKLCH L .58 C .115 h 262
+AMBER = "#e4a067"  # L .76 C .11  h 60
+TEAL = "#11957c"   # L .60 C .11  h 175
+LILAC = "#af95df"  # L .72 C .11  h 300
+MOSS = "#54803a"   # L .55 C .11  h 135
+CORAL = "#ed8d7d"  # L .74 C .12  h 30
 
-# Diverging pair
-DIVERGING_NEG = "#2a78d6"  # deficit (below baseline)
-DIVERGING_POS = "#e34948"  # surplus (above baseline)
+# Diverging pair: the categorical blue against a dusty brick red
+DIVERGING_NEG = BLUE       # deficit (below baseline)
+DIVERGING_POS = "#c8635d"  # surplus (above baseline), darker than the coral slot
 
 # Chrome & ink
 INK = "#0b0b0b"
@@ -38,21 +47,39 @@ CAL_CATEGORIES = ["休息", "推", "拉", "腿", "手臂", "核心", "有氧"]
 CAL_COLORS = {
     "休息": "#e8e6df",
     "推": BLUE,
-    "拉": ORANGE,
-    "腿": AQUA,
-    "手臂": MAGENTA,
-    "核心": GREEN,
-    "有氧": YELLOW,
+    "拉": AMBER,
+    "腿": TEAL,
+    "手臂": LILAC,
+    "核心": MOSS,
+    "有氧": CORAL,
 }
-CAL_LABEL_COLORS = {
-    "休息": MUTED,
-    "推": "#ffffff",
-    "拉": "#ffffff",
-    "腿": "#ffffff",
-    "手臂": INK,
-    "核心": "#ffffff",
-    "有氧": INK,
-}
+
+
+def _relative_luminance(hex_colour: str) -> float:
+    channels = []
+    for i in (0, 2, 4):
+        c = int(hex_colour.lstrip("#")[i : i + 2], 16) / 255
+        channels.append(c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4)
+    r, g, b = channels
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def _contrast(a: str, b: str) -> float:
+    la, lb = sorted((_relative_luminance(a), _relative_luminance(b)), reverse=True)
+    return (la + 0.05) / (lb + 0.05)
+
+
+def label_on(background: str) -> str:
+    """Whichever of ink or white reads better on that fill."""
+    return INK if _contrast(INK, background) >= _contrast("#ffffff", background) else "#ffffff"
+
+
+# Derived rather than listed: a repalette moves the fills, and hand-kept label
+# colours would quietly go unreadable on the ones that got lighter.
+CAL_LABEL_COLORS = {name: label_on(fill) for name, fill in CAL_COLORS.items()}
+# Rest stays quieter than a training day, but muted grey on the rest fill is
+# only 2.9:1 — too little for a 10px mark.
+CAL_LABEL_COLORS["休息"] = INK_SECONDARY
 
 
 # A day off the programme still counts as cardio when it burned this much.
