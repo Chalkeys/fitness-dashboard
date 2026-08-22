@@ -526,7 +526,9 @@ def training_calendar_option(daily: pd.DataFrame) -> dict:
 
     data = []
     for _, row in daily.iterrows():
-        cat = classify_training(row["training_type"], row["is_training_day"])
+        cat = classify_training(
+            row["training_type"], row["is_training_day"], row.get("active_energy", 0.0)
+        )
         data.append(
             {
                 "value": [
@@ -583,10 +585,12 @@ def training_calendar_option(daily: pd.DataFrame) -> dict:
                 "data": data,
                 "label": {
                     "show": True,
+                    # Rest days are labelled too: an unlabelled pale cell is
+                    # indistinguishable from a day with no record at all.
                     "formatter": JsCode(
                         "function (p) {"
                         f"  var names = {CAL_CATEGORIES!r};"
-                        "  return p.value[1] === 0 ? '' : names[p.value[1]];"
+                        "  return names[p.value[1]] === '休息' ? '休' : names[p.value[1]];"
                         "}"
                     ).js_code,
                     "fontSize": 10,

@@ -271,7 +271,9 @@ def page_day_detail() -> None:
     body_day = body[body["measured_at"] == day]
     b = body_day.iloc[0] if not body_day.empty else None
 
-    category = classify_training(log["training_type"], log["is_training_day"])
+    category = classify_training(
+        log["training_type"], log["is_training_day"], log["active_energy"]
+    )
     balance = log["calories_intake"] - log["tdee"] if log["tdee"] else None
 
     c1, c2, c3, c4 = st.columns(4)
