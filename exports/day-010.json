@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-010",
-  "history_version": 2,
+  "history_version": 3,
   "exported_at": "2026-08-16T18:35:09.690640Z",
   "date": "2026-07-01",
   "day_number": 10,
@@ -204,7 +204,7 @@
       {
         "exercise_name": "牧师凳弯举",
         "category": "isolation",
-        "muscle_group": "biceps",
+        "muscle_group": "二头",
         "sets": [
           {
             "set_number": 1,
@@ -256,7 +256,7 @@
       {
         "exercise_name": "绳索弯举",
         "category": "isolation",
-        "muscle_group": "biceps",
+        "muscle_group": "二头",
         "sets": [
           {
             "set_number": 1,
@@ -299,7 +299,7 @@
       {
         "exercise_name": "绳索弯举",
         "category": "isolation",
-        "muscle_group": "biceps",
+        "muscle_group": "二头",
         "sets": [
           {
             "set_number": 1,
@@ -333,7 +333,7 @@
       {
         "exercise_name": "绳索臂屈伸",
         "category": "isolation",
-        "muscle_group": "triceps",
+        "muscle_group": "三头",
         "sets": [
           {
             "set_number": 1,
@@ -376,7 +376,7 @@
       {
         "exercise_name": "绳索过头臂屈伸",
         "category": "isolation",
-        "muscle_group": "triceps_long_head",
+        "muscle_group": "三头",
         "sets": [
           {
             "set_number": 1,
@@ -419,7 +419,7 @@
       {
         "exercise_name": "绳索臂屈伸",
         "category": "isolation",
-        "muscle_group": "triceps",
+        "muscle_group": "三头",
         "sets": [
           {
             "set_number": 1,

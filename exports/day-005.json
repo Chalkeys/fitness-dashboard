@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-005",
-  "history_version": 2,
+  "history_version": 4,
   "exported_at": "2026-08-16T18:31:18.605004Z",
   "date": "2026-06-26",
   "day_number": 5,
@@ -236,7 +236,7 @@
       {
         "exercise_name": "平板支撑_计时",
         "category": "core",
-        "muscle_group": "core",
+        "muscle_group": "核心",
         "sets": [
           {
             "set_number": 1,
@@ -270,7 +270,7 @@
       {
         "exercise_name": "死虫",
         "category": "core",
-        "muscle_group": "core",
+        "muscle_group": "核心",
         "sets": [
           {
             "set_number": 1,
@@ -302,9 +302,9 @@
         ]
       },
       {
-        "exercise_name": "Mountain climber",
+        "exercise_name": "登山者-Tabata",
         "category": "core",
-        "muscle_group": "core",
+        "muscle_group": "核心",
         "sets": [
           {
             "set_number": 1,
@@ -338,7 +338,7 @@
       {
         "exercise_name": "俄罗斯转体",
         "category": "core",
-        "muscle_group": "core",
+        "muscle_group": "核心",
         "sets": [
           {
             "set_number": 1,

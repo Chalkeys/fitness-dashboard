@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-044",
-  "history_version": 4,
+  "history_version": 6,
   "exported_at": "2026-08-21T03:02:34.674822Z",
   "date": "2026-08-04",
   "day_number": 44,
@@ -220,7 +220,7 @@
       {
         "exercise_name": "宽距高位下拉",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "背",
         "sets": [
           {
             "set_number": 1,
@@ -263,7 +263,7 @@
       {
         "exercise_name": "坐姿划船",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "背",
         "sets": [
           {
             "set_number": 1,
@@ -333,7 +333,7 @@
       {
         "exercise_name": "分动式高位划船",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "背",
         "sets": [
           {
             "set_number": 1,
@@ -376,7 +376,7 @@
       {
         "exercise_name": "面拉",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "后束",
         "sets": [
           {
             "set_number": 1,
@@ -419,7 +419,7 @@
       {
         "exercise_name": "器械坐姿反向飞鸟",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "后束",
         "sets": [
           {
             "set_number": 1,
@@ -453,7 +453,7 @@
       {
         "exercise_name": "锤式弯举",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "二头",
         "sets": [
           {
             "set_number": 1,
@@ -496,7 +496,7 @@
       {
         "exercise_name": "上斜哑铃弯举",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "二头",
         "sets": [
           {
             "set_number": 1,
@@ -528,25 +528,9 @@
         ]
       },
       {
-        "exercise_name": "TraditionalStrengthTraining",
-        "category": "strength",
-        "muscle_group": null,
-        "sets": [
-          {
-            "set_number": 1,
-            "weight": null,
-            "reps": null,
-            "rir": null,
-            "distance": 0.0,
-            "duration_seconds": 840,
-            "notes": null
-          }
-        ]
-      },
-      {
         "exercise_name": "快走",
         "category": "cardio",
-        "muscle_group": null,
+        "muscle_group": "有氧",
         "sets": [
           {
             "set_number": 1,

@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-042",
-  "history_version": 4,
+  "history_version": 6,
   "exported_at": "2026-08-21T03:02:34.669823Z",
   "date": "2026-08-02",
   "day_number": 42,
@@ -234,9 +234,9 @@
     "notes": "训记 API 训练数据；力量动作按动作名称合并；有氧与步行作为独立动作分类；本地 Apple Health Active Energy 保留。",
     "exercises": [
       {
-        "exercise_name": "TraditionalStrengthTraining",
+        "exercise_name": "功能性力量训练",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "有氧",
         "sets": [
           {
             "set_number": 1,
@@ -252,7 +252,7 @@
       {
         "exercise_name": "快走",
         "category": "cardio",
-        "muscle_group": null,
+        "muscle_group": "有氧",
         "sets": [
           {
             "set_number": 1,

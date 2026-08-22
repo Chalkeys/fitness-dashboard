@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-006",
-  "history_version": 2,
+  "history_version": 4,
   "exported_at": "2026-08-16T18:31:18.606004Z",
   "date": "2026-06-27",
   "day_number": 6,
@@ -204,7 +204,7 @@
       {
         "exercise_name": "哑铃保加利亚蹲",
         "category": "compound",
-        "muscle_group": "quadriceps/glutes",
+        "muscle_group": "股四头",
         "sets": [
           {
             "set_number": 1,
@@ -265,7 +265,7 @@
       {
         "exercise_name": "杠铃深蹲",
         "category": "compound",
-        "muscle_group": "quadriceps/glutes",
+        "muscle_group": "股四头",
         "sets": [
           {
             "set_number": 1,
@@ -342,9 +342,9 @@
         ]
       },
       {
-        "exercise_name": "罗马尼亚硬拉",
+        "exercise_name": "杠铃罗马尼亚硬拉",
         "category": "compound",
-        "muscle_group": "hamstrings/glutes",
+        "muscle_group": "腘绳",
         "sets": [
           {
             "set_number": 1,

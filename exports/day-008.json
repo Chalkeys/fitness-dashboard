@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-008",
-  "history_version": 2,
+  "history_version": 5,
   "exported_at": "2026-08-16T18:31:18.608320Z",
   "date": "2026-06-29",
   "day_number": 8,
@@ -236,7 +236,7 @@
       {
         "exercise_name": "坐姿划船",
         "category": "compound",
-        "muscle_group": "mid_back",
+        "muscle_group": "背",
         "sets": [
           {
             "set_number": 1,
@@ -288,7 +288,7 @@
       {
         "exercise_name": "宽距高位下拉",
         "category": "compound",
-        "muscle_group": "lats",
+        "muscle_group": "背",
         "sets": [
           {
             "set_number": 1,
@@ -329,9 +329,9 @@
         ]
       },
       {
-        "exercise_name": "V-bar下拉",
+        "exercise_name": "宽距高位下拉",
         "category": "compound",
-        "muscle_group": "lats",
+        "muscle_group": "背",
         "sets": [
           {
             "set_number": 1,
@@ -372,9 +372,9 @@
         ]
       },
       {
-        "exercise_name": "Chest supported row",
+        "exercise_name": "T杆划船",
         "category": "compound",
-        "muscle_group": "mid_back",
+        "muscle_group": "背",
         "sets": [
           {
             "set_number": 1,
@@ -408,7 +408,7 @@
       {
         "exercise_name": "面拉",
         "category": "isolation",
-        "muscle_group": "rear_delts",
+        "muscle_group": "后束",
         "sets": [
           {
             "set_number": 1,
@@ -458,9 +458,9 @@
         ]
       },
       {
-        "exercise_name": "蝴蝶机反向飞鸟",
+        "exercise_name": "器械坐姿反向飞鸟",
         "category": "isolation",
-        "muscle_group": "rear_delts",
+        "muscle_group": "后束",
         "sets": [
           {
             "set_number": 1,

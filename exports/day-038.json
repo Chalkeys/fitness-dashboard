@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-038",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-16T18:35:09.717803Z",
   "date": "2026-07-29",
   "day_number": 38,
@@ -268,7 +268,7 @@
       {
         "exercise_name": "泽奇深蹲",
         "category": "other",
-        "muscle_group": null,
+        "muscle_group": "股四头",
         "sets": [
           {
             "set_number": 1,
@@ -338,7 +338,7 @@
       {
         "exercise_name": "器械倒蹬",
         "category": "other",
-        "muscle_group": null,
+        "muscle_group": "股四头",
         "sets": [
           {
             "set_number": 1,
@@ -372,7 +372,7 @@
       {
         "exercise_name": "哑铃保加利亚蹲",
         "category": "other",
-        "muscle_group": null,
+        "muscle_group": "股四头",
         "sets": [
           {
             "set_number": 1,
@@ -406,7 +406,7 @@
       {
         "exercise_name": "坐姿髋内收",
         "category": "other",
-        "muscle_group": null,
+        "muscle_group": "内收肌",
         "sets": [
           {
             "set_number": 1,
@@ -440,7 +440,7 @@
       {
         "exercise_name": "坐姿腿弯举",
         "category": "other",
-        "muscle_group": null,
+        "muscle_group": "腘绳",
         "sets": [
           {
             "set_number": 1,
@@ -483,7 +483,7 @@
       {
         "exercise_name": "坐姿器械提踵",
         "category": "other",
-        "muscle_group": null,
+        "muscle_group": "小腿",
         "sets": [
           {
             "set_number": 1,
@@ -526,7 +526,7 @@
       {
         "exercise_name": "悬挂抬腿",
         "category": "other",
-        "muscle_group": null,
+        "muscle_group": "核心",
         "sets": [
           {
             "set_number": 1,
@@ -560,7 +560,7 @@
       {
         "exercise_name": "平板蝴蝶收腹",
         "category": "other",
-        "muscle_group": null,
+        "muscle_group": "核心",
         "sets": [
           {
             "set_number": 1,
@@ -594,7 +594,7 @@
       {
         "exercise_name": "绳索Pallof推",
         "category": "other",
-        "muscle_group": null,
+        "muscle_group": "核心",
         "sets": [
           {
             "set_number": 1,

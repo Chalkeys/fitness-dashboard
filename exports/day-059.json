@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-059",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-21T02:42:59.041056Z",
   "date": "2026-08-19",
   "day_number": 59,
@@ -245,7 +245,7 @@
       {
         "exercise_name": "泽奇深蹲",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "股四头",
         "sets": [
           {
             "set_number": 1,
@@ -315,7 +315,7 @@
       {
         "exercise_name": "器械倒蹬",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "股四头",
         "sets": [
           {
             "set_number": 1,
@@ -349,7 +349,7 @@
       {
         "exercise_name": "哑铃保加利亚蹲",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "股四头",
         "sets": [
           {
             "set_number": 1,
@@ -383,7 +383,7 @@
       {
         "exercise_name": "坐姿腿屈伸",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "股四头",
         "sets": [
           {
             "set_number": 1,
@@ -426,7 +426,7 @@
       {
         "exercise_name": "坐姿髋内收",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "内收肌",
         "sets": [
           {
             "set_number": 1,
@@ -460,7 +460,7 @@
       {
         "exercise_name": "坐姿器械提踵",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "小腿",
         "sets": [
           {
             "set_number": 1,
@@ -503,7 +503,7 @@
       {
         "exercise_name": "悬挂抬腿",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "核心",
         "sets": [
           {
             "set_number": 1,
@@ -537,7 +537,7 @@
       {
         "exercise_name": "平板蝴蝶收腹",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "核心",
         "sets": [
           {
             "set_number": 1,
@@ -571,7 +571,7 @@
       {
         "exercise_name": "平板支撑_计时",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "核心",
         "sets": [
           {
             "set_number": 1,

@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-019",
-  "history_version": 2,
+  "history_version": 4,
   "exported_at": "2026-08-16T18:35:09.700154Z",
   "date": "2026-07-10",
   "day_number": 19,
@@ -282,9 +282,9 @@
     "notes": "背部 14 个有效组、二头 6 个有效组，共 20 组；有氧爬坡 20 分钟。",
     "exercises": [
       {
-        "exercise_name": "器械下拉",
+        "exercise_name": "宽距高位下拉",
         "category": "compound",
-        "muscle_group": "lats",
+        "muscle_group": "背",
         "sets": [
           {
             "set_number": 1,
@@ -318,7 +318,7 @@
       {
         "exercise_name": "坐姿划船",
         "category": "compound",
-        "muscle_group": "mid_back",
+        "muscle_group": "背",
         "sets": [
           {
             "set_number": 1,
@@ -352,7 +352,7 @@
       {
         "exercise_name": "绳索直臂下压",
         "category": "isolation",
-        "muscle_group": "lats",
+        "muscle_group": "背",
         "sets": [
           {
             "set_number": 1,
@@ -386,7 +386,7 @@
       {
         "exercise_name": "面拉",
         "category": "isolation",
-        "muscle_group": "rear_delts",
+        "muscle_group": "后束",
         "sets": [
           {
             "set_number": 1,
@@ -418,9 +418,9 @@
         ]
       },
       {
-        "exercise_name": "俯身飞鸟",
+        "exercise_name": "器械坐姿反向飞鸟",
         "category": "isolation",
-        "muscle_group": "rear_delts",
+        "muscle_group": "后束",
         "sets": [
           {
             "set_number": 1,
@@ -445,7 +445,7 @@
       {
         "exercise_name": "牧师凳弯举",
         "category": "isolation",
-        "muscle_group": "biceps",
+        "muscle_group": "二头",
         "sets": [
           {
             "set_number": 1,
@@ -479,7 +479,7 @@
       {
         "exercise_name": "绳索弯举",
         "category": "isolation",
-        "muscle_group": "biceps",
+        "muscle_group": "二头",
         "sets": [
           {
             "set_number": 1,

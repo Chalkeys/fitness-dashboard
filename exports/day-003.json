@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-003",
-  "history_version": 2,
+  "history_version": 5,
   "exported_at": "2026-08-16T18:23:13.588008Z",
   "date": "2026-06-24",
   "day_number": 3,
@@ -43,7 +43,7 @@
       {
         "exercise_name": "杠铃卧推",
         "category": "compound",
-        "muscle_group": "chest",
+        "muscle_group": "胸",
         "sets": [
           {
             "set_number": 1,
@@ -84,9 +84,9 @@
         ]
       },
       {
-        "exercise_name": "器械推胸",
+        "exercise_name": "下斜悍马机推胸",
         "category": "compound",
-        "muscle_group": "chest",
+        "muscle_group": "胸",
         "sets": [
           {
             "set_number": 1,
@@ -138,7 +138,7 @@
       {
         "exercise_name": "上斜杠铃卧推",
         "category": "compound",
-        "muscle_group": "chest",
+        "muscle_group": "胸",
         "sets": [
           {
             "set_number": 1,
@@ -190,7 +190,7 @@
       {
         "exercise_name": "侧平举",
         "category": "isolation",
-        "muscle_group": "shoulders",
+        "muscle_group": "肩",
         "sets": [
           {
             "set_number": 1,
@@ -213,9 +213,9 @@
         ]
       },
       {
-        "exercise_name": "器械坐姿推举",
+        "exercise_name": "悍马机坐姿推举",
         "category": "compound",
-        "muscle_group": "shoulders",
+        "muscle_group": "肩",
         "sets": [
           {
             "set_number": 1,
@@ -249,7 +249,7 @@
       {
         "exercise_name": "绳索侧平举（单边）",
         "category": "isolation",
-        "muscle_group": "shoulders",
+        "muscle_group": "肩",
         "sets": [
           {
             "set_number": 1,

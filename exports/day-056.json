@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-056",
-  "history_version": 5,
+  "history_version": 6,
   "exported_at": "2026-08-21T03:02:34.700825Z",
   "date": "2026-08-16",
   "day_number": 56,
@@ -236,7 +236,7 @@
       {
         "exercise_name": "快走",
         "category": "cardio",
-        "muscle_group": null,
+        "muscle_group": "有氧",
         "sets": [
           {
             "set_number": 1,

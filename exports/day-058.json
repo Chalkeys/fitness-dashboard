@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-058",
-  "history_version": 2,
+  "history_version": 3,
   "exported_at": "2026-08-21T02:42:59.040058Z",
   "date": "2026-08-18",
   "day_number": 58,
@@ -220,7 +220,7 @@
       {
         "exercise_name": "宽距高位下拉",
         "category": "other",
-        "muscle_group": null,
+        "muscle_group": "背",
         "sets": [
           {
             "set_number": 1,
@@ -263,7 +263,7 @@
       {
         "exercise_name": "坐姿划船",
         "category": "other",
-        "muscle_group": null,
+        "muscle_group": "背",
         "sets": [
           {
             "set_number": 1,
@@ -333,7 +333,7 @@
       {
         "exercise_name": "分动式高位划船",
         "category": "other",
-        "muscle_group": null,
+        "muscle_group": "背",
         "sets": [
           {
             "set_number": 1,
@@ -376,7 +376,7 @@
       {
         "exercise_name": "面拉",
         "category": "other",
-        "muscle_group": null,
+        "muscle_group": "后束",
         "sets": [
           {
             "set_number": 1,
@@ -410,7 +410,7 @@
       {
         "exercise_name": "器械坐姿反向飞鸟",
         "category": "other",
-        "muscle_group": null,
+        "muscle_group": "后束",
         "sets": [
           {
             "set_number": 1,
@@ -444,7 +444,7 @@
       {
         "exercise_name": "锤式弯举",
         "category": "other",
-        "muscle_group": null,
+        "muscle_group": "二头",
         "sets": [
           {
             "set_number": 1,
@@ -478,7 +478,7 @@
       {
         "exercise_name": "上斜哑铃弯举",
         "category": "other",
-        "muscle_group": null,
+        "muscle_group": "二头",
         "sets": [
           {
             "set_number": 1,

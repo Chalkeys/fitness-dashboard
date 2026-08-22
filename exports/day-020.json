@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-020",
-  "history_version": 2,
+  "history_version": 4,
   "exported_at": "2026-08-16T18:35:09.701152Z",
   "date": "2026-07-11",
   "day_number": 20,
@@ -218,9 +218,9 @@
     "notes": "训练共 23 组：后链、股四头、小腿和核心结构完整，恢复压力与训练效果均衡。",
     "exercises": [
       {
-        "exercise_name": "罗马尼亚硬拉",
+        "exercise_name": "杠铃罗马尼亚硬拉",
         "category": "compound",
-        "muscle_group": "hamstrings/glutes",
+        "muscle_group": "腘绳",
         "sets": [
           {
             "set_number": 1,
@@ -261,9 +261,9 @@
         ]
       },
       {
-        "exercise_name": "腿弯举",
+        "exercise_name": "坐姿腿弯举",
         "category": "isolation",
-        "muscle_group": "hamstrings",
+        "muscle_group": "腘绳",
         "sets": [
           {
             "set_number": 1,
@@ -297,7 +297,7 @@
       {
         "exercise_name": "臀冲架臀冲",
         "category": "compound",
-        "muscle_group": "glutes",
+        "muscle_group": "臀",
         "sets": [
           {
             "set_number": 1,
@@ -331,7 +331,7 @@
       {
         "exercise_name": "器械倒蹬",
         "category": "compound",
-        "muscle_group": "quadriceps/glutes",
+        "muscle_group": "股四头",
         "sets": [
           {
             "set_number": 1,
@@ -365,7 +365,7 @@
       {
         "exercise_name": "坐姿器械提踵",
         "category": "isolation",
-        "muscle_group": "calves",
+        "muscle_group": "小腿",
         "sets": [
           {
             "set_number": 1,
@@ -408,7 +408,7 @@
       {
         "exercise_name": "悬挂抬腿",
         "category": "core",
-        "muscle_group": "core",
+        "muscle_group": "核心",
         "sets": [
           {
             "set_number": 1,
@@ -440,9 +440,9 @@
         ]
       },
       {
-        "exercise_name": "卷腹",
+        "exercise_name": "下斜卷腹",
         "category": "core",
-        "muscle_group": "core",
+        "muscle_group": "核心",
         "sets": [
           {
             "set_number": 1,

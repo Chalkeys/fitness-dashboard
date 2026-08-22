@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-016",
-  "history_version": 2,
+  "history_version": 4,
   "exported_at": "2026-08-16T18:35:09.696158Z",
   "date": "2026-07-07",
   "day_number": 16,
@@ -236,7 +236,7 @@
       {
         "exercise_name": "坐姿划船",
         "category": "compound",
-        "muscle_group": "mid_back",
+        "muscle_group": "背",
         "sets": [
           {
             "set_number": 1,
@@ -277,9 +277,9 @@
         ]
       },
       {
-        "exercise_name": "器械下拉",
+        "exercise_name": "宽距高位下拉",
         "category": "compound",
-        "muscle_group": "lats",
+        "muscle_group": "背",
         "sets": [
           {
             "set_number": 1,
@@ -313,7 +313,7 @@
       {
         "exercise_name": "T杆划船",
         "category": "compound",
-        "muscle_group": "mid_back",
+        "muscle_group": "背",
         "sets": [
           {
             "set_number": 1,
@@ -347,7 +347,7 @@
       {
         "exercise_name": "面拉",
         "category": "isolation",
-        "muscle_group": "rear_delts",
+        "muscle_group": "后束",
         "sets": [
           {
             "set_number": 1,
@@ -381,7 +381,7 @@
       {
         "exercise_name": "上斜哑铃弯举",
         "category": "isolation",
-        "muscle_group": "biceps",
+        "muscle_group": "二头",
         "sets": [
           {
             "set_number": 1,
@@ -422,9 +422,9 @@
         ]
       },
       {
-        "exercise_name": "哑铃锤式交替弯举",
+        "exercise_name": "锤式弯举",
         "category": "isolation",
-        "muscle_group": "biceps",
+        "muscle_group": "二头",
         "sets": [
           {
             "set_number": 1,

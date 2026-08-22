@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-004",
-  "history_version": 2,
+  "history_version": 4,
   "exported_at": "2026-08-16T18:23:13.588008Z",
   "date": "2026-06-25",
   "day_number": 4,
@@ -43,7 +43,7 @@
       {
         "exercise_name": "哑铃弯举",
         "category": "isolation",
-        "muscle_group": "biceps",
+        "muscle_group": "二头",
         "sets": [
           {
             "set_number": 1,
@@ -68,7 +68,7 @@
       {
         "exercise_name": "EZ杆二头弯举",
         "category": "isolation",
-        "muscle_group": "biceps",
+        "muscle_group": "二头",
         "sets": [
           {
             "set_number": 1,
@@ -111,7 +111,7 @@
       {
         "exercise_name": "上斜哑铃弯举",
         "category": "isolation",
-        "muscle_group": "biceps",
+        "muscle_group": "二头",
         "sets": [
           {
             "set_number": 1,
@@ -145,7 +145,7 @@
       {
         "exercise_name": "牧师凳弯举",
         "category": "isolation",
-        "muscle_group": "biceps",
+        "muscle_group": "二头",
         "sets": [
           {
             "set_number": 1,
@@ -179,7 +179,7 @@
       {
         "exercise_name": "绳索弯举",
         "category": "isolation",
-        "muscle_group": "biceps",
+        "muscle_group": "二头",
         "sets": [
           {
             "set_number": 1,
@@ -213,7 +213,7 @@
       {
         "exercise_name": "绳索臂屈伸",
         "category": "isolation",
-        "muscle_group": "triceps",
+        "muscle_group": "三头",
         "sets": [
           {
             "set_number": 1,
@@ -247,7 +247,7 @@
       {
         "exercise_name": "直杆绳索下压",
         "category": "isolation",
-        "muscle_group": "triceps",
+        "muscle_group": "三头",
         "sets": [
           {
             "set_number": 1,
@@ -281,7 +281,7 @@
       {
         "exercise_name": "绳索过头臂屈伸",
         "category": "isolation",
-        "muscle_group": "triceps_long_head",
+        "muscle_group": "三头",
         "sets": [
           {
             "set_number": 1,
@@ -313,9 +313,9 @@
         ]
       },
       {
-        "exercise_name": "站姿绳索反握弯举_直杆",
+        "exercise_name": "绳索臂屈伸",
         "category": "isolation",
-        "muscle_group": "triceps_lateral_head",
+        "muscle_group": "三头",
         "sets": [
           {
             "set_number": 1,

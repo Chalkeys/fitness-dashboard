@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-027",
-  "history_version": 2,
+  "history_version": 4,
   "exported_at": "2026-08-16T18:35:09.707290Z",
   "date": "2026-07-18",
   "day_number": 27,
@@ -202,9 +202,9 @@
     "notes": "Calf raise omitted due to calf discomfort.",
     "exercises": [
       {
-        "exercise_name": "罗马尼亚硬拉",
+        "exercise_name": "杠铃罗马尼亚硬拉",
         "category": "compound",
-        "muscle_group": "hamstrings",
+        "muscle_group": "腘绳",
         "sets": [
           {
             "set_number": 1,
@@ -247,7 +247,7 @@
       {
         "exercise_name": "臀冲架臀冲",
         "category": "compound",
-        "muscle_group": "glutes",
+        "muscle_group": "臀",
         "sets": [
           {
             "set_number": 1,
@@ -279,9 +279,9 @@
         ]
       },
       {
-        "exercise_name": "腿弯举",
+        "exercise_name": "坐姿腿弯举",
         "category": "isolation",
-        "muscle_group": "hamstrings",
+        "muscle_group": "腘绳",
         "sets": [
           {
             "set_number": 1,
@@ -313,9 +313,9 @@
         ]
       },
       {
-        "exercise_name": "腿举",
+        "exercise_name": "器械倒蹬",
         "category": "compound",
-        "muscle_group": "quadriceps",
+        "muscle_group": "股四头",
         "sets": [
           {
             "set_number": 1,
@@ -349,7 +349,7 @@
       {
         "exercise_name": "悬挂抬腿",
         "category": "core",
-        "muscle_group": "core",
+        "muscle_group": "核心",
         "sets": [
           {
             "set_number": 1,
@@ -383,7 +383,7 @@
       {
         "exercise_name": "平板支撑_计时",
         "category": "core",
-        "muscle_group": "core",
+        "muscle_group": "核心",
         "sets": [
           {
             "set_number": 1,

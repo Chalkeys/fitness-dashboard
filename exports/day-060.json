@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-060",
-  "history_version": 1,
+  "history_version": 2,
   "exported_at": "2026-08-21T02:42:59.047059Z",
   "date": "2026-08-20",
   "day_number": 60,
@@ -220,7 +220,7 @@
       {
         "exercise_name": "把手式蝴蝶机飞鸟",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "胸",
         "sets": [
           {
             "set_number": 1,
@@ -254,7 +254,7 @@
       {
         "exercise_name": "杠铃卧推",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "胸",
         "sets": [
           {
             "set_number": 1,
@@ -315,7 +315,7 @@
       {
         "exercise_name": "上斜杠铃卧推",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "胸",
         "sets": [
           {
             "set_number": 1,
@@ -349,7 +349,7 @@
       {
         "exercise_name": "下斜悍马机推胸",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "胸",
         "sets": [
           {
             "set_number": 1,
@@ -383,7 +383,7 @@
       {
         "exercise_name": "悍马机坐姿推举",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "肩",
         "sets": [
           {
             "set_number": 1,
@@ -417,7 +417,7 @@
       {
         "exercise_name": "绳索侧平举（单边）",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "肩",
         "sets": [
           {
             "set_number": 1,
@@ -451,7 +451,7 @@
       {
         "exercise_name": "绳索臂屈伸",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "三头",
         "sets": [
           {
             "set_number": 1,
@@ -485,7 +485,7 @@
       {
         "exercise_name": "绳索过头臂屈伸",
         "category": "strength",
-        "muscle_group": null,
+        "muscle_group": "三头",
         "sets": [
           {
             "set_number": 1,
