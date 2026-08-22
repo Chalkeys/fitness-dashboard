@@ -43,8 +43,10 @@ def load_daily_logs() -> pd.DataFrame:
 def load_body_measurements() -> pd.DataFrame:
     df = _read_sql(
         """
-        SELECT measured_at, weight_kg, body_fat_percentage, waist_cm,
-               resting_heart_rate
+        SELECT measured_at, weight_kg, body_fat_percentage, resting_heart_rate,
+               neck_cm, shoulder_cm, chest_cm, waist_cm, hip_cm,
+               arm_left_cm, arm_right_cm, forearm_left_cm, forearm_right_cm,
+               leg_left_cm, leg_right_cm, calf_left_cm, calf_right_cm
         FROM body_measurements
         WHERE measured_at IS NOT NULL
         ORDER BY measured_at

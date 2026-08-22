@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 from streamlit_echarts import st_echarts
 
-from dashboard import data, echarts_charts as ec, energy, settings
+from dashboard import body_figure, data, echarts_charts as ec, energy, settings
 from dashboard.format import summarize_sets
 from dashboard.theme import CM_TO_IN, G_TO_OZ, KG_TO_LB, classify_training
 
@@ -57,6 +57,7 @@ def _persist_settings() -> None:
     if current != st.session_state.get("_settings_saved"):
         settings.save(current)
         st.session_state["_settings_saved"] = current
+
 
 MEAL_ORDER = [
     "breakfast",
@@ -405,6 +406,43 @@ def page_day_detail() -> None:
         )
 
 
+GIRTH_COLUMNS = [
+    "neck_cm", "shoulder_cm", "chest_cm", "waist_cm", "hip_cm",
+    "arm_left_cm", "arm_right_cm", "forearm_left_cm", "forearm_right_cm",
+    "leg_left_cm", "leg_right_cm", "calf_left_cm", "calf_right_cm",
+]
+
+
+def _body_figure_section(body: pd.DataFrame, imperial: bool) -> None:
+    """Girths marked on a body diagram, one measuring session at a time."""
+    st.subheader("身体维度")
+
+    # Waist is logged almost daily; a session means a round of several sites.
+    sessions = body[body[GIRTH_COLUMNS].notna().sum(axis=1) >= 2]
+    if sessions.empty:
+        st.caption("还没有围度记录。")
+        return
+
+    dates = sessions["measured_at"].dt.strftime("%Y-%m-%d").tolist()
+    picked = st.selectbox(
+        "测量日期", dates[::-1], key="figure_date", label_visibility="collapsed"
+    )
+    index = dates.index(picked)
+    row = sessions.iloc[index]
+    prev = sessions.iloc[index - 1] if index > 0 else None
+
+    # st.html strips SVG; st.image renders an SVG string as-is.
+    st.image(body_figure.body_figure_svg(row, prev, imperial), width=640)
+
+    missing = [c for c in GIRTH_COLUMNS if pd.isna(row.get(c))]
+    caption = f"共 {len(dates)} 次围度测量。"
+    if prev is not None:
+        caption += f"小字为相对上次（{dates[index - 1]}）的变化。"
+    if missing:
+        caption += f"虚线部位这次没量：{len(missing)} 项。"
+    st.caption(caption)
+
+
 def page_body() -> None:
     st.title("身体指标")
     imperial = _unit_toggle("body")
@@ -413,6 +451,8 @@ def page_body() -> None:
     if body.empty:
         st.info("还没有身体测量数据。")
         return
+
+    _body_figure_section(body, imperial)
 
     days = st.session_state.get("range_days", 90)
     windowed = data.filter_by_range(body, "measured_at", days)
