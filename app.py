@@ -664,6 +664,20 @@ def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
                     key=f"tr_pin_{exercise}",
                 )
 
+    # Anything not pinned is still one dropdown away.
+    others = [e for e in options if e not in pinned]
+    if not others:
+        return
+    st.markdown("**查看其他动作**")
+    picked = st.selectbox(
+        "其他动作", others, key="tr_other_exercise", label_visibility="collapsed"
+    )
+    st_echarts(
+        ec.exercise_panel_option(sets, picked, imperial),
+        height="300px",
+        key="tr_other_panel",
+    )
+
 
 def page_training() -> None:
     st.title("训练")
