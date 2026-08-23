@@ -203,13 +203,21 @@ uv run python scripts/convert_legacy_history.py --dry-run
 uv run python scripts/convert_legacy_history.py
 ```
 
-## Standardize exercise names
+## Standardize exercise names and muscle groups
 
 Historical exports may contain English aliases or labels such as “superset”.
 `scripts/normalize_exercise_names.py` maps high-confidence aliases to the
 [训记官方动作名表](https://github.com/Foveluy/Xunji-movements), merges the
-corresponding local exercise records without dropping sets, and updates the
-source exports (incrementing `history_version`). Run a preview first:
+corresponding local exercise records without dropping sets, sets each
+exercise's muscle group, and updates the source exports (incrementing
+`history_version`).
+
+**A successful import runs this automatically**, so the mapping does not have
+to be remembered. It has to run there because the Xunji sync writes
+`muscle_group: null` into new exports and the import copies that over the
+column, blanking the group for every exercise a new day mentions. Pass
+`--no-normalize` to `import_exports.py` to skip it. To run it by hand — after
+editing the map, say:
 
 ```powershell
 uv run python scripts/normalize_exercise_names.py --dry-run

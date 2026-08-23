@@ -315,6 +315,11 @@ def main() -> None:
     parser.add_argument("--since", help="只处理 history_version 不早于 YYYY-MM-DD 的文件")
     parser.add_argument("--file", help="文件名或不带扩展名的文件 stem")
     parser.add_argument("--include-needs-review", action="store_true")
+    parser.add_argument(
+        "--no-normalize",
+        action="store_true",
+        help="跳过导入后的动作名与肌群标准化",
+    )
     args = parser.parse_args()
     try:
         stats = import_exports(
@@ -326,6 +331,28 @@ def main() -> None:
         print(f"导入失败：{error}")
         raise SystemExit(1) from error
     _print_stats(stats, args.dry_run)
+
+    if not args.dry_run and not args.no_normalize:
+        _normalize_after_import(args.directory.resolve(), args.database.resolve())
+
+
+def _normalize_after_import(export_dir: Path, database: Path) -> None:
+    """Re-apply the exercise aliases and muscle groups the import just undid.
+
+    An export carries `muscle_group: null` for anything the training-app sync
+    wrote, and the import copies that straight over the column, so a fresh day
+    blanks the groups for every exercise it mentions. Running it here means
+    that cannot be forgotten.
+    """
+    from scripts.normalize_exercise_names import normalize_database, update_exports
+
+    print()
+    files, actions, _, groups = update_exports(export_dir, dry_run=False)
+    merged, moved, _ = normalize_database(database, dry_run=False)
+    print(
+        f"标准化：导出 {files} 个文件（{actions} 个名称、{groups} 处肌群），"
+        f"数据库合并 {merged} 个动作、迁移 {moved} 组"
+    )
 
 
 if __name__ == "__main__":
