@@ -627,6 +627,16 @@ def page_nutrition() -> None:
 PINNED_SLOTS = 6
 
 
+def _move_pinned(index: int, step: int) -> None:
+    """Swap a panel with its neighbour and redraw in the new order."""
+    order = list(st.session_state.get("pinned_exercises", []))
+    target = index + step
+    if 0 <= target < len(order):
+        order[index], order[target] = order[target], order[index]
+        st.session_state["pinned_exercises"] = order
+        st.rerun()
+
+
 def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
     """The exercises kept in view, each with its top set and session volume."""
     st.subheader("动作进步曲线")
@@ -635,32 +645,56 @@ def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
     options = counts.index.tolist()
 
     # A merged or renamed exercise can leave a stored name with no data behind
-    # it; the widget would refuse a value that is not among its options.
+    # it; the picker would refuse a value that is not among its options.
     stored = [e for e in st.session_state.get("pinned_exercises", []) if e in options]
-    if stored != st.session_state.get("pinned_exercises"):
-        st.session_state["pinned_exercises"] = stored
 
-    with st.expander("选择常驻动作", expanded=not stored):
-        st.multiselect(
+    with st.expander("常驻动作与排版", expanded=not stored):
+        picked = st.multiselect(
             "常驻动作",
             options,
+            default=stored,
             max_selections=PINNED_SLOTS,
-            key="pinned_exercises",
-            label_visibility="collapsed",
-            help="最多 6 个，选择会被记住。",
+            key="pinned_pick",
+            help="最多 6 个。",
+        )
+        st.segmented_control(
+            "每行显示",
+            [1, 2, 3],
+            key="pinned_columns",
+            format_func=lambda n: f"每行 {n} 个",
         )
 
-    pinned = st.session_state.get("pinned_exercises", [])
+    # The picker decides membership; the stored list decides order, so adding
+    # an exercise appends it instead of reshuffling what is already arranged.
+    pinned = [e for e in stored if e in picked] + [e for e in picked if e not in stored]
+    if pinned != st.session_state.get("pinned_exercises"):
+        st.session_state["pinned_exercises"] = pinned
     if not pinned:
         st.caption("还没有选择常驻动作。")
         return
 
-    for row_start in range(0, len(pinned), 2):
-        for column, exercise in zip(st.columns(2), pinned[row_start : row_start + 2]):
+    columns_per_row = st.session_state.get("pinned_columns") or 2
+    height = {1: "320px", 2: "230px", 3: "210px"}[columns_per_row]
+
+    for row_start in range(0, len(pinned), columns_per_row):
+        row = pinned[row_start : row_start + columns_per_row]
+        for column, exercise in zip(st.columns(columns_per_row), row):
             with column:
+                index = pinned.index(exercise)
+                left, right, _ = st.columns([1, 1, 6])
+                if left.button(
+                    "←", key=f"tr_up_{exercise}", disabled=index == 0,
+                    help="前移", use_container_width=True,
+                ):
+                    _move_pinned(index, -1)
+                if right.button(
+                    "→", key=f"tr_down_{exercise}", disabled=index == len(pinned) - 1,
+                    help="后移", use_container_width=True,
+                ):
+                    _move_pinned(index, 1)
                 st_echarts(
                     ec.exercise_panel_option(sets, exercise, imperial),
-                    height="230px",
+                    height=height,
                     key=f"tr_pin_{exercise}",
                 )
 

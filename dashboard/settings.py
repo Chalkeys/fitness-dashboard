@@ -22,7 +22,10 @@ DEFAULTS: dict[str, object] = {
     # Intake against TDEE opens corrected: the raw pair shows a deficit the
     # measured weight contradicts.
     "intake_mode": "纠偏后",
-    # Two per movement pattern, kept on the training page permanently.
+    "pinned_columns": 2,
+    # Two per movement pattern, kept on the training page permanently. The
+    # order is the order the panels appear in, so it is stored, not derived
+    # from the picker.
     "pinned_exercises": [
         "杠铃卧推",
         "上斜杠铃卧推",
