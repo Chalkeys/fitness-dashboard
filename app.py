@@ -624,6 +624,47 @@ def page_nutrition() -> None:
         st.caption("按日查看完整饮食明细请前往「每日详情」页。")
 
 
+PINNED_SLOTS = 6
+
+
+def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
+    """The exercises kept in view, each with its top set and session volume."""
+    st.subheader("动作进步曲线")
+
+    counts = sets.groupby("exercise").size().sort_values(ascending=False)
+    options = counts.index.tolist()
+
+    # A merged or renamed exercise can leave a stored name with no data behind
+    # it; the widget would refuse a value that is not among its options.
+    stored = [e for e in st.session_state.get("pinned_exercises", []) if e in options]
+    if stored != st.session_state.get("pinned_exercises"):
+        st.session_state["pinned_exercises"] = stored
+
+    with st.expander("选择常驻动作", expanded=not stored):
+        st.multiselect(
+            "常驻动作",
+            options,
+            max_selections=PINNED_SLOTS,
+            key="pinned_exercises",
+            label_visibility="collapsed",
+            help="最多 6 个，选择会被记住。",
+        )
+
+    pinned = st.session_state.get("pinned_exercises", [])
+    if not pinned:
+        st.caption("还没有选择常驻动作。")
+        return
+
+    for row_start in range(0, len(pinned), 2):
+        for column, exercise in zip(st.columns(2), pinned[row_start : row_start + 2]):
+            with column:
+                st_echarts(
+                    ec.exercise_panel_option(sets, exercise, imperial),
+                    height="230px",
+                    key=f"tr_pin_{exercise}",
+                )
+
+
 def page_training() -> None:
     st.title("训练")
     imperial = _unit_toggle("training")
@@ -636,18 +677,11 @@ def page_training() -> None:
     days = st.session_state.get("range_days", 90)
     windowed = data.filter_by_range(sets, "log_date", days)
 
+    _pinned_progression(sets, imperial)
+
     st.subheader("每周训练容量")
     st_echarts(
         ec.weekly_tonnage_option(windowed, imperial), height="340px", key="tr_tonnage"
-    )
-
-    st.subheader("动作进步曲线")
-    counts = sets.groupby("exercise").size().sort_values(ascending=False)
-    exercise = st.selectbox("选择动作", counts.index.tolist())
-    st_echarts(
-        ec.exercise_progression_option(sets, exercise, imperial),
-        height="340px",
-        key="tr_progression",
     )
 
     st.subheader("各肌群组数")

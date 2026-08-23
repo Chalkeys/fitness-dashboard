@@ -20,6 +20,15 @@ DEFAULTS: dict[str, object] = {
     "bias_bmr": int(DEFAULT_BMR),
     "balance_mode": "纠偏后",
     "intake_mode": "原始",
+    # Two per movement pattern, kept on the training page permanently.
+    "pinned_exercises": [
+        "杠铃卧推",
+        "上斜杠铃卧推",
+        "坐姿划船",
+        "宽距高位下拉",
+        "杠铃罗马尼亚硬拉",
+        "泽奇深蹲",
+    ],
 }
 
 

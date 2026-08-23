@@ -492,6 +492,112 @@ def exercise_progression_option(
     return option
 
 
+def exercise_panel_option(
+    sets: pd.DataFrame, exercise: str, imperial: bool = False
+) -> dict:
+    """Top set and session volume for one exercise, stacked on a shared x.
+
+    Two measures in different units, so they get two panels rather than two
+    y-axes on one plot: a second scale invites reading a crossing that means
+    nothing.
+    """
+    df = sets[sets["exercise"] == exercise].dropna(subset=["weight_kg", "reps"])
+    unit = "lb" if imperial else "kg"
+    if df.empty:
+        return _base() | {"xAxis": _date_axis([]), "yAxis": _value_axis(unit)}
+
+    factor = KG_TO_LB if imperial else 1.0
+    df = df.assign(volume=df["weight_kg"] * df["reps"] * factor)
+    top = (
+        df.sort_values(["log_date", "weight_kg"]).groupby("log_date").last().reset_index()
+    )
+    volume = df.groupby("log_date")["volume"].sum().reindex(top["log_date"]).tolist()
+    dates = top["log_date"].dt.strftime("%Y-%m-%d").tolist()
+    weights = (top["weight_kg"] * factor).round(1)
+
+    axis_line = {"lineStyle": {"color": BASELINE}}
+    return {
+        "animationDuration": 600,
+        "textStyle": TEXT_STYLE,
+        "title": {
+            "text": exercise,
+            "left": 0,
+            "top": 0,
+            "textStyle": {"fontSize": 13, "fontWeight": 600, "color": INK},
+        },
+        "axisPointer": {"link": [{"xAxisIndex": "all"}]},
+        "tooltip": {
+            "trigger": "axis",
+            "axisPointer": {"type": "line", "lineStyle": {"color": BASELINE}},
+            "formatter": JsCode(
+                "function (ps) {"
+                "  var d = ps[0].axisValue, out = d, seen = {};"
+                "  ps.forEach(function (p) {"
+                "    if (seen[p.seriesName]) { return; }"
+                "    seen[p.seriesName] = 1;"
+                "    var v = p.data && p.data.value !== undefined ? p.data.value : p.data;"
+                f"    if (p.seriesName === '最重一组') {{"
+                f"      out += '<br/>最重一组 ' + v.toFixed(1) + ' {unit}'"
+                "        + (p.data.reps ? ' × ' + p.data.reps + ' 次' : '');"
+                "    } else {"
+                f"      out += '<br/>容量 ' + Math.round(v).toLocaleString() + ' {unit}';"
+                "    }"
+                "  });"
+                "  return out;"
+                "}"
+            ).js_code,
+        },
+        "grid": [
+            {"left": 56, "right": 14, "top": 30, "height": 108},
+            {"left": 56, "right": 14, "top": 156, "height": 46},
+        ],
+        "xAxis": [
+            {
+                "type": "category", "data": dates, "gridIndex": 0, "boundaryGap": False,
+                "axisLine": axis_line, "axisTick": {"show": False},
+                "axisLabel": {"show": False},
+            },
+            {
+                "type": "category", "data": dates, "gridIndex": 1, "boundaryGap": True,
+                "axisLine": axis_line, "axisTick": {"show": False},
+                "axisLabel": {"color": MUTED, "fontSize": 10, "formatter": _DATE_LABEL},
+            },
+        ],
+        "yAxis": [
+            _value_axis(unit, gridIndex=0),
+            _value_axis(
+                "容量", gridIndex=1, scale=False, splitNumber=2,
+                axisLabel={"color": MUTED, "fontSize": 10},
+            ),
+        ],
+        "series": [
+            {
+                "name": "最重一组",
+                "type": "line",
+                "xAxisIndex": 0,
+                "yAxisIndex": 0,
+                "data": [
+                    {"value": w, "reps": int(r)} for w, r in zip(weights, top["reps"])
+                ],
+                "smooth": True,
+                "symbolSize": 7,
+                "lineStyle": {"width": 2.5, "color": BLUE},
+                "itemStyle": {"color": BLUE},
+                "areaStyle": {"color": _gradient(BLUE)},
+            },
+            {
+                "name": "容量",
+                "type": "bar",
+                "xAxisIndex": 1,
+                "yAxisIndex": 1,
+                "data": [round(v) for v in volume],
+                "barMaxWidth": 14,
+                "itemStyle": {"color": TEAL, "borderRadius": [3, 3, 0, 0], "opacity": 0.85},
+            },
+        ],
+    }
+
+
 def muscle_group_sets_option(sets: pd.DataFrame) -> dict:
     counts = sets.dropna(subset=["muscle_group"]).groupby("muscle_group").size()
     counts = counts.sort_values()
