@@ -8,6 +8,7 @@ from streamlit_echarts import st_echarts
 
 from dashboard import body_figure, data, echarts_charts as ec, energy, settings
 from dashboard.format import summarize_sets
+from dashboard.sortable import sortable_order
 from dashboard.theme import CM_TO_IN, G_TO_OZ, KG_TO_LB, classify_training
 
 st.set_page_config(
@@ -627,16 +628,6 @@ def page_nutrition() -> None:
 PINNED_SLOTS = 6
 
 
-def _move_pinned(index: int, step: int) -> None:
-    """Swap a panel with its neighbour and redraw in the new order."""
-    order = list(st.session_state.get("pinned_exercises", []))
-    target = index + step
-    if 0 <= target < len(order):
-        order[index], order[target] = order[target], order[index]
-        st.session_state["pinned_exercises"] = order
-        st.rerun()
-
-
 def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
     """The exercises kept in view, each with its top set and session volume."""
     st.subheader("动作进步曲线")
@@ -663,6 +654,7 @@ def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
             key="pinned_columns",
             format_func=lambda n: f"每行 {n} 个",
         )
+        st.caption("拖动下方的动作标签即可调整面板顺序。")
 
     # The picker decides membership; the stored list decides order, so adding
     # an exercise appends it instead of reshuffling what is already arranged.
@@ -673,6 +665,11 @@ def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
         st.caption("还没有选择常驻动作。")
         return
 
+    dragged = sortable_order(pinned, key="pinned_order")
+    if dragged and dragged != pinned:
+        st.session_state["pinned_exercises"] = dragged
+        st.rerun()
+
     columns_per_row = st.session_state.get("pinned_columns") or 2
     height = {1: "320px", 2: "230px", 3: "210px"}[columns_per_row]
 
@@ -680,18 +677,6 @@ def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
         row = pinned[row_start : row_start + columns_per_row]
         for column, exercise in zip(st.columns(columns_per_row), row):
             with column:
-                index = pinned.index(exercise)
-                left, right, _ = st.columns([1, 1, 6])
-                if left.button(
-                    "←", key=f"tr_up_{exercise}", disabled=index == 0,
-                    help="前移", use_container_width=True,
-                ):
-                    _move_pinned(index, -1)
-                if right.button(
-                    "→", key=f"tr_down_{exercise}", disabled=index == len(pinned) - 1,
-                    help="后移", use_container_width=True,
-                ):
-                    _move_pinned(index, 1)
                 st_echarts(
                     ec.exercise_panel_option(sets, exercise, imperial),
                     height=height,
