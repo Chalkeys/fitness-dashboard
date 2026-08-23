@@ -495,11 +495,12 @@ def exercise_progression_option(
 def exercise_panel_option(
     sets: pd.DataFrame, exercise: str, imperial: bool = False
 ) -> dict:
-    """Top set and session volume for one exercise, stacked on a shared x.
+    """Top set and session volume for one exercise on one plot, two y-axes.
 
-    Two measures in different units, so they get two panels rather than two
-    y-axes on one plot: a second scale invites reading a crossing that means
-    nothing.
+    Two scales on one plot can be misread — where the line crosses the bars
+    means nothing. Volume therefore sits behind as a washed-out bar while the
+    top set keeps the foreground, and each axis name is tinted like the series
+    it belongs to so which mark reads against which scale is never in doubt.
     """
     df = sets[sets["exercise"] == exercise].dropna(subset=["weight_kg", "reps"])
     unit = "lb" if imperial else "kg"
@@ -547,34 +548,59 @@ def exercise_panel_option(
                 "}"
             ).js_code,
         },
-        "grid": [
-            {"left": 56, "right": 14, "top": 30, "height": 108},
-            {"left": 56, "right": 14, "top": 156, "height": 46},
-        ],
-        "xAxis": [
-            {
-                "type": "category", "data": dates, "gridIndex": 0, "boundaryGap": False,
-                "axisLine": axis_line, "axisTick": {"show": False},
-                "axisLabel": {"show": False},
-            },
-            {
-                "type": "category", "data": dates, "gridIndex": 1, "boundaryGap": True,
-                "axisLine": axis_line, "axisTick": {"show": False},
-                "axisLabel": {"color": MUTED, "fontSize": 10, "formatter": _DATE_LABEL},
-            },
-        ],
+        "grid": {"left": 46, "right": 46, "top": 44, "bottom": 26},
+        "xAxis": {
+            "type": "category",
+            "data": dates,
+            "boundaryGap": True,
+            "axisLine": axis_line,
+            "axisTick": {"show": False},
+            "axisLabel": {"color": MUTED, "fontSize": 10, "formatter": _DATE_LABEL},
+        },
         "yAxis": [
-            _value_axis(unit, gridIndex=0),
-            _value_axis(
-                "容量", gridIndex=1, scale=False, splitNumber=2,
-                axisLabel={"color": MUTED, "fontSize": 10},
-            ),
+            {
+                "type": "value",
+                "scale": True,
+                "name": f"最重一组 {unit}",
+                "nameGap": 10,
+                "nameTextStyle": {"color": BLUE, "fontSize": 10, "align": "left"},
+                "splitLine": {"lineStyle": {"color": GRID}},
+                "axisLine": {"show": False},
+                "axisTick": {"show": False},
+                "axisLabel": {"color": MUTED, "fontSize": 10},
+            },
+            {
+                "type": "value",
+                "name": "容量",
+                "nameGap": 10,
+                "nameTextStyle": {"color": TEAL, "fontSize": 10, "align": "right"},
+                # Only the left axis draws gridlines; two sets would fight.
+                "splitLine": {"show": False},
+                "axisLine": {"show": False},
+                "axisTick": {"show": False},
+                "splitNumber": 3,
+                "axisLabel": {
+                    "color": MUTED,
+                    "fontSize": 10,
+                    "formatter": JsCode(
+                        "function (v) { return v >= 1000 ? (v / 1000).toFixed(1) + 'k' : v; }"
+                    ).js_code,
+                },
+            },
         ],
         "series": [
             {
+                "name": "容量",
+                "type": "bar",
+                "yAxisIndex": 1,
+                "data": [round(v) for v in volume],
+                "barMaxWidth": 16,
+                "itemStyle": {"color": TEAL, "borderRadius": [3, 3, 0, 0], "opacity": 0.28},
+                "z": 1,
+            },
+            {
                 "name": "最重一组",
                 "type": "line",
-                "xAxisIndex": 0,
                 "yAxisIndex": 0,
                 "data": [
                     {"value": w, "reps": int(r)} for w, r in zip(weights, top["reps"])
@@ -583,16 +609,7 @@ def exercise_panel_option(
                 "symbolSize": 7,
                 "lineStyle": {"width": 2.5, "color": BLUE},
                 "itemStyle": {"color": BLUE},
-                "areaStyle": {"color": _gradient(BLUE)},
-            },
-            {
-                "name": "容量",
-                "type": "bar",
-                "xAxisIndex": 1,
-                "yAxisIndex": 1,
-                "data": [round(v) for v in volume],
-                "barMaxWidth": 14,
-                "itemStyle": {"color": TEAL, "borderRadius": [3, 3, 0, 0], "opacity": 0.85},
+                "z": 3,
             },
         ],
     }
