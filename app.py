@@ -93,12 +93,12 @@ def _sidebar_range() -> int | None:
     return RANGE_OPTIONS[label]
 
 
-def _unit_toggle(page_key: str) -> bool:
+def _unit_toggle(page_key: str, default: str = "公制") -> bool:
     """Per-page metric/imperial switch. Returns True when imperial."""
     choice = st.segmented_control(
         "单位",
         ["公制", "英制"],
-        default="公制",
+        default=default,
         key=f"units_{page_key}",
         label_visibility="collapsed",
     )
@@ -681,7 +681,8 @@ def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
 
 def page_training() -> None:
     st.title("训练")
-    imperial = _unit_toggle("training")
+    # Plates are marked in pounds, so the lifting page opens in imperial.
+    imperial = _unit_toggle("training", default="英制")
 
     sets = data.load_exercise_sets()
     if sets.empty:

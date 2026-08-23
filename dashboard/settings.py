@@ -19,7 +19,9 @@ DEFAULTS: dict[str, object] = {
     "bias_intake": 10,
     "bias_bmr": int(DEFAULT_BMR),
     "balance_mode": "纠偏后",
-    "intake_mode": "原始",
+    # Intake against TDEE opens corrected: the raw pair shows a deficit the
+    # measured weight contradicts.
+    "intake_mode": "纠偏后",
     # Two per movement pattern, kept on the training page permanently.
     "pinned_exercises": [
         "杠铃卧推",
