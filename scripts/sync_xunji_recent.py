@@ -23,10 +23,31 @@ FOOD_URL = "https://eatings.xunjiapp.cn/open/food/query_gzip"
 BODY_URL = "https://api.xunjiapp.cn/open/body/query_gzip"
 
 
+def _load_env_file(path: Path | None = None) -> None:
+    """Read `.env` into the environment, without taking a dependency.
+
+    Anything already exported wins, so a shell variable still overrides the
+    file. The file is gitignored: keys belong on the machine, not in the repo.
+    """
+    path = path or ROOT / ".env"
+    if not path.exists():
+        return
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        name, _, value = line.partition("=")
+        os.environ.setdefault(name.strip(), value.strip().strip("'\""))
+
+
 def _key(name: str) -> str:
+    _load_env_file()
     value = os.environ.get(name)
     if not value:
-        raise RuntimeError(f"缺少环境变量 {name}")
+        raise RuntimeError(
+            f"缺少 {name}。把它写进项目根目录的 .env（可参考 .env.example），"
+            "或导出为环境变量。"
+        )
     return value
 
 

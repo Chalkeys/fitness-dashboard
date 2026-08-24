@@ -21,3 +21,8 @@ Thumbs.db
 
 # Local preferences written by the dashboard
 settings.json
+
+# Xunji API keys and any other local secrets
+.env
+.env.*
+!.env.example
