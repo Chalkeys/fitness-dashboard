@@ -11,10 +11,35 @@ from __future__ import annotations
 
 import pandas as pd
 
-# Energy density of body-mass change; the usual dietetics approximation for
-# fat tissue. Real change mixes fat, glycogen, and water, so treat any
-# prediction from it as a trend, not a scale reading.
-KCAL_PER_KG = 7700.0
+# Energy density of body-mass change. Fat tissue takes the usual dietetics
+# approximation; lean tissue is mostly water and costs a fraction of it.
+FAT_KCAL_PER_KG = 7700.0
+LEAN_KCAL_PER_KG = 1800.0
+KCAL_PER_KG = FAT_KCAL_PER_KG  # kept for callers that only price fat
+
+# Lean mass accrues from training and protein rather than from the size of the
+# deficit, so it is modelled as a rate rather than a share of the weight
+# change. Measured between the DEXA scans of 16 July and 18 August: 1.19 kg
+# over 34 days. Re-derive it after the next scan.
+LEAN_GAIN_KG_PER_DAY = 1.19 / 34
+
+
+def split_weight_change(total_kg: float, days: int) -> tuple[float, float]:
+    """Divide a scale change into its fat and lean parts.
+
+    Scale weight understates what is happening during recomposition: over the
+    DEXA window the scale moved 0.65 kg while 1.84 kg of fat left and 1.19 kg
+    of lean arrived. Pricing the whole change as fat would have valued that
+    period at a third of its real energy cost.
+    """
+    lean_kg = LEAN_GAIN_KG_PER_DAY * days
+    return total_kg - lean_kg, lean_kg
+
+
+def energy_of_weight_change(total_kg: float, days: int) -> float:
+    fat_kg, lean_kg = split_weight_change(total_kg, days)
+    return fat_kg * FAT_KCAL_PER_KG + lean_kg * LEAN_KCAL_PER_KG
+
 
 # Resting baseline the logged TDEE was built on. Weight-driven, so it drifts by
 # only ~20 kcal across a couple of kilos.
@@ -67,12 +92,17 @@ def calibration(
     active_bias: float = 0.0,
     intake_bias: float = 0.0,
     bmr: float = DEFAULT_BMR,
-    smoothing: int = 7,
+    smoothing: int = 1,
 ) -> dict | None:
     """Compare the balance's predicted weight change with the measured one.
 
-    Returns None when the window holds too little data to compare. Weight is
-    smoothed first so a single noisy weigh-in cannot drive the answer.
+    Returns None when the window holds too little data to compare.
+
+    Weigh-ins are taken as they came in rather than smoothed: a DEXA scan
+    measures the body on its own morning, so pairing its composition with an
+    average of the surrounding week is not comparing like with like. The cost
+    is that day-to-day water swings ride on the endpoints — raise `smoothing`
+    to trade that noise back against the bias.
     """
     fed = daily[daily["tdee"] > 0]
     if fed.empty or body.empty:
@@ -83,7 +113,7 @@ def calibration(
         body[body["measured_at"].between(start, end)]
         .dropna(subset=["weight_kg"])
         .set_index("measured_at")["weight_kg"]
-        .rolling(smoothing, min_periods=2)
+        .rolling(smoothing, min_periods=min(2, smoothing))
         .mean()
         .dropna()
     )
@@ -93,16 +123,25 @@ def calibration(
     balance = corrected_balance(fed, active_bias, intake_bias, bmr)
     days = len(balance)
     actual_kg = float(weights.iloc[-1] - weights.iloc[0])
-    predicted_kg = float(balance.sum() / KCAL_PER_KG)
+    actual_fat_kg, lean_kg = split_weight_change(actual_kg, days)
+
+    # What the logged balance buys, once the lean gained over the same days is
+    # paid for: the rest lands on fat, which is what the scale change is then
+    # compared against.
+    predicted_fat_kg = (balance.sum() - lean_kg * LEAN_KCAL_PER_KG) / FAT_KCAL_PER_KG
+    predicted_kg = float(predicted_fat_kg + lean_kg)
 
     # One equation, two unknowns: this is the net daily error across both
     # sides, not a split between them.
-    residual_per_day = (actual_kg * KCAL_PER_KG - balance.sum()) / days
+    measured_energy = energy_of_weight_change(actual_kg, days)
+    residual_per_day = (measured_energy - balance.sum()) / days
 
     return {
         "days": days,
         "predicted_kg": predicted_kg,
         "actual_kg": actual_kg,
+        "actual_fat_kg": float(actual_fat_kg),
+        "lean_kg": float(lean_kg),
         "residual_per_day": float(residual_per_day),
         "mean_balance": float(balance.mean()),
     }

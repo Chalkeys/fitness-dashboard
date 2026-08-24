@@ -563,7 +563,7 @@ def _corrected_balance_section(windowed: pd.DataFrame, imperial: bool) -> None:
     w_unit = "lb" if imperial else "kg"
     w_factor = KG_TO_LB if imperial else 1.0
 
-    c1, c2, c3 = st.columns(3)
+    c1, c2, c3, c4 = st.columns(4)
     c1.metric("纠偏后日均热量差", f"{cal['mean_balance']:+.0f} kcal")
     c2.metric(
         f"预测体重变化 · {cal['days']} 天",
@@ -575,8 +575,18 @@ def _corrected_balance_section(windowed: pd.DataFrame, imperial: bool) -> None:
         delta=f"差 {cal['residual_per_day']:+.0f} kcal/天",
         delta_color="off",
     )
+    c4.metric(
+        "其中脂肪",
+        f"{cal['actual_fat_kg'] * w_factor:+.2f} {w_unit}",
+        delta=f"瘦体重 {cal['lean_kg'] * w_factor:+.2f} {w_unit}",
+        delta_color="off",
+    )
     st.caption(
-        f"预测按 {energy.KCAL_PER_KG:.0f} kcal/kg 换算，体重取 7 日平滑值首末之差。"
+        f"体重变化按体成分计价：瘦体重按实测速率每天 {energy.LEAN_GAIN_KG_PER_DAY * 1000:.0f} g"
+        f"（两次 DEXA 之间 34 天涨 1.19 kg），按 {energy.LEAN_KCAL_PER_KG:.0f} kcal/kg；"
+        f"其余归为脂肪，按 {energy.FAT_KCAL_PER_KG:.0f} kcal/kg。"
+        "增肌减脂同时发生时体重几乎不动，全按脂肪折算会把真实赤字算没。"
+        "体重取区间首末当天实测值，不做平滑——与 DEXA 的当天口径一致，代价是水分波动会落在端点上。"
         "两侧偏差只有一个方程、两个未知数，所以「差」是两边合计的净误差，"
         "调到接近 0 说明这组系数与实测吻合——但体重还受水分和糖原影响，别追求精确归零。"
     )
