@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-058",
-  "history_version": 3,
+  "history_version": 4,
   "exported_at": "2026-08-21T02:42:59.040058Z",
   "date": "2026-08-18",
   "day_number": 58,
@@ -20,16 +20,16 @@
     "is_training_day": true,
     "workout_type": "p1_拉",
     "calories_in": 1957.3927777777778,
-    "tdee": 2410.0,
-    "calorie_balance": -452.61,
+    "tdee": 2510.0,
+    "calorie_balance": -552.61,
     "protein_g": 150.89698412698414,
     "total_carbs_g": 254.15174603174603,
     "fiber_g": 0,
     "net_carbs_g": 254.15174603174603,
     "fat_g": 38.59142857142857,
     "steps": null,
-    "active_energy_kcal": null,
-    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；TDEE 为 BMR≈1820 加训练活动消耗估算。；8月9日起饮食按训记 API 覆盖，纤维按0 g。"
+    "active_energy_kcal": 686.0,
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1828（Katch-McArdle，按当日体重与最近体脂）。TDEE = BMR + 实测 Active Energy 686 kcal。"
   },
   "nutrition": [
     {
