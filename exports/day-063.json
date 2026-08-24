@@ -1,0 +1,181 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-063",
+  "history_version": 4,
+  "exported_at": "2026-08-24T04:41:16.354583Z",
+  "date": "2026-08-23",
+  "day_number": 63,
+  "provenance": {
+    "source": "xunji_app",
+    "confidence": "high",
+    "notes": "数据来自训记 Open API；膳食纤维按 0 g，净碳水按总碳水；TDEE 为估算值。"
+  },
+  "body": {
+    "weight_kg": 80.9,
+    "notes": "训记 Open API 身体数据；腰围和体脂率缺失，沿用前一天记录。",
+    "body_fat_percentage": 17.1,
+    "waist_cm": 80.5
+  },
+  "daily_log": {
+    "is_training_day": true,
+    "workout_type": "其他",
+    "calories_in": 1888.0,
+    "tdee": 2791,
+    "calorie_balance": -903.0,
+    "protein_g": 142.4,
+    "total_carbs_g": 179.79,
+    "fiber_g": 0,
+    "net_carbs_g": 179.79,
+    "fat_g": 67.25,
+    "steps": null,
+    "active_energy_kcal": 971,
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；TDEE 为 BMR≈1820 加训练活动消耗估算。；AppleHealthWorkout 为占位活动，不按 623 分钟力量训练计入；按 Active Energy 99 kcal 计算 TDEE。；Active Energy 手动补录：971 kcal，按手动值计算 TDEE。"
+  },
+  "nutrition": [
+    {
+      "entry_id": "D063_XJ001",
+      "meal_type": "morning",
+      "food_name": "蓝莓",
+      "brand": null,
+      "amount": 100.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 61.0,
+      "protein_g": 0.8,
+      "total_carbs_g": 15.4,
+      "fiber_g": 0,
+      "net_carbs_g": 15.4,
+      "fat_g": 0.35,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D063_XJ002",
+      "meal_type": "morning",
+      "food_name": "OIKOS Triple Zero",
+      "brand": null,
+      "amount": 300.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 58.666666666666664,
+      "protein_g": 10.0,
+      "total_carbs_g": 4.666666666666666,
+      "fiber_g": 0,
+      "net_carbs_g": 4.666666666666666,
+      "fat_g": 0.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D063_XJ003",
+      "meal_type": "noon",
+      "food_name": "Tacos",
+      "brand": null,
+      "amount": 100.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 1051.0,
+      "protein_g": 68.0,
+      "total_carbs_g": 53.0,
+      "fiber_g": 0,
+      "net_carbs_g": 53.0,
+      "fat_g": 63.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D063_XJ004",
+      "meal_type": "night",
+      "food_name": "kirkland 椰子水【椰子水】",
+      "brand": null,
+      "amount": 355.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 14.0,
+      "protein_g": 0.0,
+      "total_carbs_g": 3.4,
+      "fiber_g": 0,
+      "net_carbs_g": 3.4,
+      "fat_g": 0.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D063_XJ005",
+      "meal_type": "night",
+      "food_name": "香蕉",
+      "brand": null,
+      "amount": 120.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 100.0,
+      "protein_g": 1.5,
+      "total_carbs_g": 23.6,
+      "fiber_g": 0,
+      "net_carbs_g": 23.6,
+      "fat_g": 0.2,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D063_XJ006",
+      "meal_type": "night",
+      "food_name": "Muscle Milk Pro33g",
+      "brand": null,
+      "amount": 325.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 58.307692307692314,
+      "protein_g": 10.153846153846157,
+      "total_carbs_g": 3.384615384615385,
+      "fiber_g": 0,
+      "net_carbs_g": 3.384615384615385,
+      "fat_g": 0.4615384615384616,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D063_XJ007",
+      "meal_type": "night",
+      "food_name": "costco 恰巴塔",
+      "brand": null,
+      "amount": 80.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 301.0,
+      "protein_g": 11.0,
+      "total_carbs_g": 57.5,
+      "fiber_g": 0,
+      "net_carbs_g": 57.5,
+      "fat_g": 2.7,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    }
+  ],
+  "workout": {
+    "session_id": "day-063-xunji",
+    "workout_name": "其他",
+    "workout_type": "其他",
+    "duration_minutes": 623.0,
+    "active_energy_kcal": 99.0,
+    "notes": "训练动作来自训记 API；Active Energy 使用接口返回的 sets[].metrics.calories。",
+    "exercises": [
+      {
+        "exercise_name": "AppleHealthWorkout",
+        "category": "other",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "review_status": "approved",
+      "note": "用户确认纤维按 0 g、净碳水等于总碳水，并接受 TDEE 估算。",
+      "field": "daily_log"
+    }
+  ]
+}
