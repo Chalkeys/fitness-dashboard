@@ -84,9 +84,29 @@ def _int(value: Any) -> int | None:
     return None if number is None else int(number)
 
 
-def _estimate_tdee(workout: dict[str, Any] | None, weight_kg: float | None) -> int:
+DEFAULT_BMR = 1820.0
+
+
+def estimate_bmr(weight_kg: float | None, body_fat_pct: float | None) -> float:
+    """Katch-McArdle: 370 + 21.6 x lean mass.
+
+    Chosen over Mifflin-St Jeor because it needs only weight and body fat,
+    both of which are tracked here, and it reproduces the 1820 this project
+    had been assuming (80.9 kg at 17.1% gives 1819).
+    """
+    if weight_kg is None or body_fat_pct is None:
+        return DEFAULT_BMR
+    lean = weight_kg * (1 - body_fat_pct / 100)
+    return round(370 + 21.6 * lean, 1)
+
+
+def _estimate_tdee(
+    workout: dict[str, Any] | None,
+    weight_kg: float | None,
+    body_fat_pct: float | None = None,
+) -> int:
     """Estimate TDEE as BMR plus activity, without double-counting cardio."""
-    bmr = 1820.0
+    bmr = estimate_bmr(weight_kg, body_fat_pct)
     if not workout:
         return round(bmr + 200, -1)
     weight = weight_kg or 82.5
@@ -214,7 +234,7 @@ def build_exports(start: date, end: date, overwrite: bool = False) -> list[Path]
         {
             "start_date": start_text,
             "end_date": end_text,
-            "include_latest": False,
+            "include_latest": True,
             "include_records": True,
             "limit": 500,
             "offset": 0,
@@ -238,6 +258,12 @@ def build_exports(start: date, end: date, overwrite: bool = False) -> list[Path]
         "cav_left": "calf_left_cm",
         "cav_right": "calf_right_cm",
     }
+    # `latest` reaches back past the synced window, so a body-fat reading from
+    # a week ago still informs today's BMR.
+    latest = body_result.get("res", {}).get("latest") or {}
+    latest_weight = _number((latest.get("weight") or {}).get("value"))
+    latest_body_fat = _number((latest.get("bodyfat") or {}).get("value"))
+
     for item in body_result.get("res", {}).get("records", []):
         field = body_field_map.get(item.get("type"))
         if field:
@@ -270,8 +296,12 @@ def build_exports(start: date, end: date, overwrite: bool = False) -> list[Path]
         totals = diet_day.get("totals") or {}
         body = body_by_date.get(datestr)
         workout = _workout(train_result.get("res", {}).get("trains", []), day_number)
-        weight_kg = body.get("weight_kg") if body else None
-        estimated_tdee = _estimate_tdee(workout, weight_kg)
+        weight_kg = (body.get("weight_kg") if body else None) or latest_weight
+        # Body fat is measured every week or two, so the last known value
+        # stands in until the next reading.
+        body_fat = (body.get("body_fat_percentage") if body else None) or latest_body_fat
+        bmr = estimate_bmr(weight_kg, body_fat)
+        estimated_tdee = _estimate_tdee(workout, weight_kg, body_fat)
         titles = [item.get("title") for item in train_result.get("res", {}).get("trains", []) if item.get("title") != "步行"]
         document = {
             "protocol_version": "1.0",
@@ -299,7 +329,10 @@ def build_exports(start: date, end: date, overwrite: bool = False) -> list[Path]
                 "fat_g": _number(totals.get("totalFat")),
                 "steps": None,
                 "active_energy_kcal": workout.get("active_energy_kcal") if workout else None,
-                "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；TDEE 为 BMR≈1820 加训练活动消耗估算。",
+                "notes": (
+                    f"膳食纤维暂按 0 g；净碳水按总碳水计算；TDEE 为 BMR≈{bmr:.0f}"
+                    "（Katch-McArdle，按当日体重与最近体脂）加训练活动消耗估算。"
+                ),
             },
             "nutrition": _nutrition(diet_day, day_number),
             "workout": workout,
