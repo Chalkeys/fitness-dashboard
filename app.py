@@ -39,25 +39,35 @@ h1, h2, h3 {color: #0b0b0b;}
 RANGE_OPTIONS = {"近 30 天": 30, "近 90 天": 90, "全部": None}
 
 
-def _init_settings() -> None:
-    """Seed widget state from the settings file, once per session.
+def _stored_settings() -> dict:
+    """The settings file as this session last saw it."""
+    if "_settings_file" not in st.session_state:
+        st.session_state["_settings_file"] = settings.load()
+    return st.session_state["_settings_file"]
 
-    Seeding the keys the widgets use means each widget adopts the stored value
-    without being passed one, and later reruns leave the user's choice alone.
+
+def _init_settings() -> None:
+    """Seed widget state from the settings file, on every rerun.
+
+    Not once per session: Streamlit discards the state of widgets the current
+    page does not render, so leaving the nutrition page and coming back found
+    its sliders with nothing to adopt and let them fall back to their minimum
+    — which the save below then wrote down as a deliberate choice.
     """
-    if st.session_state.get("_settings_loaded"):
-        return
-    for key, value in settings.load().items():
+    for key, value in _stored_settings().items():
         st.session_state.setdefault(key, value)
-    st.session_state["_settings_loaded"] = True
 
 
 def _persist_settings() -> None:
     """Write the tunables back out whenever one of them changed."""
-    current = {k: st.session_state.get(k, v) for k, v in settings.DEFAULTS.items()}
-    if current != st.session_state.get("_settings_saved"):
-        settings.save(current)
-        st.session_state["_settings_saved"] = current
+    stored = _stored_settings()
+    # Only what this run actually holds, merged over the file: a page that
+    # never rendered a control has no opinion about it.
+    current = {k: st.session_state[k] for k in settings.DEFAULTS if k in st.session_state}
+    merged = {**stored, **current}
+    if merged != stored:
+        settings.save(merged)
+        st.session_state["_settings_file"] = merged
 
 
 MEAL_ORDER = [
