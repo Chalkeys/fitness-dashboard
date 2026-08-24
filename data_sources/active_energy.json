@@ -6,5 +6,7 @@
     "uv run python scripts/sync_xunji_recent.py --start <日期> --end <日期> --overwrite",
     "再 uv run python scripts/import_exports.py --file day-XXX"
   ],
-  "days": {}
+  "days": {
+    "2026-08-24": 722
+  }
 }
