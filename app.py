@@ -531,6 +531,17 @@ def _bias_factors() -> tuple[float, float, float]:
     )
 
 
+def _reset_settings() -> None:
+    """Put every stored control back to its default.
+
+    A browser tab that has been open across a restart replays the widget
+    values it still holds, which can be stale; this is the way back without
+    touching the settings file by hand.
+    """
+    for key, value in settings.DEFAULTS.items():
+        st.session_state[key] = value
+
+
 def _corrected_balance_section(windowed: pd.DataFrame, imperial: bool) -> None:
     """Bias-corrected calorie balance with user-set correction factors."""
     st.subheader("热量差纠偏")
@@ -554,6 +565,14 @@ def _corrected_balance_section(windowed: pd.DataFrame, imperial: bool) -> None:
             "基础代谢", min_value=1000, max_value=3000, step=10, key="bias_bmr",
             help="记录 TDEE 所基于的静息代谢，用于把活动消耗拆出来。",
         )
+    )
+    st.button(
+        "恢复默认",
+        key="reset_settings",
+        on_click=_reset_settings,
+        help=f"活动 {settings.DEFAULTS['bias_active']}%、"
+        f"摄入 +{settings.DEFAULTS['bias_intake']}%、"
+        f"基础代谢 {settings.DEFAULTS['bias_bmr']}，以及目标反推的默认值。",
     )
 
     base, active = energy.split_tdee(windowed, bmr)
