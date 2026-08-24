@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-063",
-  "history_version": 6,
+  "history_version": 7,
   "exported_at": "2026-08-24T04:41:16.354583Z",
   "date": "2026-08-23",
   "day_number": 63,
@@ -12,8 +12,8 @@
   },
   "body": {
     "weight_kg": 80.9,
-    "notes": "训记 Open API 身体数据；腰围和体脂率缺失，沿用前一天记录。",
-    "body_fat_percentage": 17.1,
+    "notes": "训记 Open API 身体数据；腰围和体脂率缺失，沿用前一天记录。 体脂沿用 8/18 DEXA，未在本日实测，故置空。",
+    "body_fat_percentage": null,
     "waist_cm": 80.5
   },
   "daily_log": {

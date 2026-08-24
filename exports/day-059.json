@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-059",
-  "history_version": 3,
+  "history_version": 4,
   "exported_at": "2026-08-21T02:42:59.041056Z",
   "date": "2026-08-19",
   "day_number": 59,
@@ -22,8 +22,8 @@
     "calf_right_cm": 41.5,
     "calf_left_cm": 41.5,
     "waist_cm": 81.5,
-    "body_fat_percentage": 17.1,
-    "notes": "训记 API 身体数据；缺失腰围/体脂沿用前一天记录。"
+    "body_fat_percentage": null,
+    "notes": "训记 API 身体数据；缺失腰围/体脂沿用前一天记录。 体脂沿用 8/18 DEXA，未在本日实测，故置空。"
   },
   "daily_log": {
     "is_training_day": true,

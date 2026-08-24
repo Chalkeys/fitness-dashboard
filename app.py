@@ -592,6 +592,68 @@ def _corrected_balance_section(windowed: pd.DataFrame, imperial: bool) -> None:
     )
 
 
+def _target_section(imperial: bool) -> None:
+    """Work back from a body-fat target to what to eat."""
+    st.subheader("目标反推")
+
+    left, right, _ = st.columns([1, 1, 2])
+    target = left.number_input(
+        "目标体脂 %", min_value=5.0, max_value=35.0, step=0.5, key="target_body_fat"
+    )
+    horizon = right.number_input(
+        "期限（天）", min_value=7, max_value=365, step=7, key="target_horizon"
+    )
+
+    active_bias, intake_bias, _ = _bias_factors()
+    plan = energy.target_plan(
+        data.load_daily_logs(), data.load_body_measurements(),
+        target / 100, int(horizon), active_bias, intake_bias,
+    )
+    if plan is None:
+        st.caption("需要至少一次体脂测量才能反推。")
+        return
+
+    w_unit = "lb" if imperial else "kg"
+    factor = KG_TO_LB if imperial else 1.0
+    reachable = plan["fat_change"] < 0
+
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric(
+        "记录摄入目标",
+        f"{plan['intake_logged']:.0f} kcal",
+        delta=f"近 14 天 {plan['recent_intake_logged']:.0f}",
+        delta_color="off",
+    )
+    c2.metric(
+        "需要的赤字",
+        f"{plan['balance_per_day']:+.0f} kcal/天",
+        delta=f"真实 TDEE {plan['tdee_true']:.0f}",
+        delta_color="off",
+    )
+    c3.metric(
+        "当前体脂（推算）",
+        f"{plan['body_fat_now']:.1%}",
+        delta=f"脂肪 {plan['fat_now'] * factor:.1f} {w_unit}",
+        delta_color="off",
+    )
+    c4.metric(
+        "需减脂肪",
+        f"{-plan['fat_change'] * factor:.2f} {w_unit}" if reachable else "已达标",
+        delta=f"届时体重 {plan['weight_end'] * factor:.1f} {w_unit}",
+        delta_color="off",
+    )
+
+    st.caption(
+        f"以 {plan['scan_date']:%m-%d} 那次体脂实测为锚点（{plan['days_since_scan']} 天前），"
+        f"瘦体重按每天 {energy.LEAN_GAIN_KG_PER_DAY * 1000:.0f} g 往后推——"
+        f"长肌肉会抬高同一体脂率下允许的脂肪量，所以目标是移动的。"
+        f"活动消耗取近 14 天记录均值 {plan['active_logged']:.0f} kcal，"
+        f"按当前系数缩放；BMR {plan['bmr']:.0f} 按区间平均瘦体重算。"
+    )
+    if not reachable:
+        st.caption("按当前的瘦体重增长速率，这个期限内已经能达标，无需额外赤字。")
+
+
 def page_nutrition() -> None:
     st.title("营养")
     imperial = _unit_toggle("nutrition")
@@ -629,6 +691,8 @@ def page_nutrition() -> None:
 
     st.subheader("蛋白质")
     st_echarts(ec.protein_trend_option(windowed), height="320px", key="nut_protein")
+
+    _target_section(imperial)
 
     entries = data.load_nutrition_entries()
     if not entries.empty:

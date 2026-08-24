@@ -145,3 +145,69 @@ def calibration(
         "residual_per_day": float(residual_per_day),
         "mean_balance": float(balance.mean()),
     }
+
+
+def target_plan(
+    daily: pd.DataFrame,
+    body: pd.DataFrame,
+    target_body_fat: float,
+    horizon_days: int,
+    active_bias: float = 0.0,
+    intake_bias: float = 0.0,
+    active_energy_window: int = 14,
+) -> dict | None:
+    """What to eat to reach a body-fat target by a date.
+
+    Anchored on the most recent body-fat measurement rather than the scale:
+    weight alone cannot say how much of it is fat. Lean is carried forward at
+    the measured accrual rate, which is what makes the target a moving one —
+    gaining lean raises the fat mass a given percentage allows.
+    """
+    scans = body.dropna(subset=["body_fat_percentage"])
+    weights = body.dropna(subset=["weight_kg"])
+    fed = daily[daily["tdee"] > 0]
+    if scans.empty or weights.empty or fed.empty:
+        return None
+
+    scan = scans.iloc[-1]
+    latest = weights.iloc[-1]
+    days_since_scan = max((latest["measured_at"] - scan["measured_at"]).days, 0)
+
+    lean_at_scan = scan["weight_kg"] * (1 - scan["body_fat_percentage"] / 100)
+    lean_now = lean_at_scan + LEAN_GAIN_KG_PER_DAY * days_since_scan
+    fat_now = latest["weight_kg"] - lean_now
+
+    lean_end = lean_now + LEAN_GAIN_KG_PER_DAY * horizon_days
+    # Fat allowed at the target, given the lean mass there will be by then.
+    fat_target = target_body_fat / (1 - target_body_fat) * lean_end
+    fat_change = fat_target - fat_now
+
+    stored = fat_change * FAT_KCAL_PER_KG + LEAN_GAIN_KG_PER_DAY * horizon_days * LEAN_KCAL_PER_KG
+    balance_per_day = stored / horizon_days
+
+    recent = fed.tail(active_energy_window)
+    active_logged = float(recent["active_energy"].mean()) if "active_energy" in recent else 0.0
+    bmr = 370 + 21.6 * (lean_now + lean_end) / 2
+    tdee_true = bmr + active_logged * (1 + active_bias)
+    intake_true = tdee_true + balance_per_day
+    intake_logged = intake_true / (1 + intake_bias)
+
+    return {
+        "scan_date": scan["measured_at"],
+        "days_since_scan": days_since_scan,
+        "weight_now": float(latest["weight_kg"]),
+        "fat_now": float(fat_now),
+        "lean_now": float(lean_now),
+        "body_fat_now": float(fat_now / latest["weight_kg"]),
+        "fat_target": float(fat_target),
+        "lean_end": float(lean_end),
+        "weight_end": float(fat_target + lean_end),
+        "fat_change": float(fat_change),
+        "balance_per_day": float(balance_per_day),
+        "bmr": float(bmr),
+        "active_logged": active_logged,
+        "tdee_true": float(tdee_true),
+        "intake_true": float(intake_true),
+        "intake_logged": float(intake_logged),
+        "recent_intake_logged": float(recent["calories_intake"].mean()),
+    }
