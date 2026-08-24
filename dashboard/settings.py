@@ -15,8 +15,12 @@ from dashboard.energy import DEFAULT_BMR
 SETTINGS_PATH = Path(os.environ.get("FITNESS_SETTINGS", "settings.json"))
 
 DEFAULTS: dict[str, object] = {
-    "bias_active": -30,
-    "bias_intake": 10,
+    # Back-figured from two DEXA scans: over the 34 days between them the
+    # logged deficit and the measured change in fat and lean mass reconcile
+    # near here. Not -30%, which dated from when TDEE estimated activity from
+    # session length rather than reading a watch.
+    "bias_active": -5,
+    "bias_intake": 5,
     "bias_bmr": int(DEFAULT_BMR),
     "balance_mode": "纠偏后",
     # Intake against TDEE opens corrected: the raw pair shows a deficit the
