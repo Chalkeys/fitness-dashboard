@@ -251,6 +251,16 @@ def build_exports(start: date, end: date, overwrite: bool = False) -> list[Path]
         target = EXPORT_DIR / f"day-{day_number:03d}.json"
         if target.exists() and not overwrite:
             raise FileExistsError(f"不会覆盖已有文件：{target}")
+        # Re-syncing a day must supersede what is already there: the importer
+        # keeps the higher history_version and would otherwise ignore the
+        # refresh, and normalization bumps the version of what it touches.
+        history_version = 1
+        if target.exists():
+            try:
+                previous = json.loads(target.read_text(encoding="utf-8"))
+                history_version = int(previous.get("history_version", 0)) + 1
+            except (OSError, ValueError):
+                history_version = 2
         train_result = _post(
             TRAIN_URL,
             train_key,
@@ -266,7 +276,7 @@ def build_exports(start: date, end: date, overwrite: bool = False) -> list[Path]
         document = {
             "protocol_version": "1.0",
             "export_id": f"day-{day_number:03d}",
-            "history_version": 1,
+            "history_version": history_version,
             "exported_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             "date": datestr,
             "day_number": day_number,
