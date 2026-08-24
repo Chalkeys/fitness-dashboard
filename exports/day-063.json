@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-063",
-  "history_version": 4,
+  "history_version": 6,
   "exported_at": "2026-08-24T04:41:16.354583Z",
   "date": "2026-08-23",
   "day_number": 63,
@@ -154,9 +154,9 @@
     "notes": "训练动作来自训记 API；Active Energy 使用接口返回的 sets[].metrics.calories。",
     "exercises": [
       {
-        "exercise_name": "AppleHealthWorkout",
+        "exercise_name": "庭院劳作",
         "category": "other",
-        "muscle_group": null,
+        "muscle_group": "有氧",
         "sets": [
           {
             "set_number": 1,
