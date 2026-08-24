@@ -108,6 +108,38 @@ def load_measured_active_energy() -> dict[str, float]:
     }
 
 
+PROFILE_FILE = ROOT / "data_sources" / "profile.json"
+# Past this gap the two estimates disagree enough that the body-fat reading,
+# which only Katch-McArdle depends on, is the likely culprit.
+BMR_CROSS_CHECK_TOLERANCE = 150.0
+
+
+def load_profile() -> dict[str, Any]:
+    try:
+        payload = json.loads(PROFILE_FILE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    return payload if isinstance(payload, dict) else {}
+
+
+def mifflin_st_jeor(
+    weight_kg: float | None, on: date, profile: dict[str, Any]
+) -> float | None:
+    """The general-population estimate, from height and age rather than fat.
+
+    Kept as a cross-check: it shares no inputs with Katch-McArdle beyond
+    weight, so agreement between them is evidence the body-fat figure is
+    sound.
+    """
+    height = _number(profile.get("height_cm"))
+    birth_year = _number(profile.get("birth_year"))
+    if weight_kg is None or height is None or birth_year is None:
+        return None
+    age = on.year - int(birth_year)
+    constant = -161 if str(profile.get("sex", "male")).lower() == "female" else 5
+    return round(10 * weight_kg + 6.25 * height - 5 * age + constant, 1)
+
+
 def estimate_bmr(weight_kg: float | None, body_fat_pct: float | None) -> float:
     """Katch-McArdle: 370 + 21.6 x lean mass.
 
@@ -270,6 +302,7 @@ def build_exports(start: date, end: date, overwrite: bool = False) -> list[Path]
         },
     )
     measured_active_energy = load_measured_active_energy()
+    profile = load_profile()
     body_by_date: dict[str, dict[str, Any]] = {}
     body_field_map = {
         "weight": "weight_kg",
@@ -331,6 +364,13 @@ def build_exports(start: date, end: date, overwrite: bool = False) -> list[Path]
         # stands in until the next reading.
         body_fat = (body.get("body_fat_percentage") if body else None) or latest_body_fat
         bmr = estimate_bmr(weight_kg, body_fat)
+        cross_check = mifflin_st_jeor(weight_kg, current, profile)
+        bmr_warning = (
+            f"（Mifflin-St Jeor 交叉验证为 {cross_check:.0f}，相差 "
+            f"{abs(cross_check - bmr):.0f} kcal，体脂读数可能不准）"
+            if cross_check and abs(cross_check - bmr) > BMR_CROSS_CHECK_TOLERANCE
+            else ""
+        )
         measured_ae = measured_active_energy.get(datestr)
         estimated_tdee = _estimate_tdee(workout, weight_kg, body_fat, measured_ae)
         titles = [item.get("title") for item in train_result.get("res", {}).get("trains", []) if item.get("title") != "步行"]
@@ -363,7 +403,7 @@ def build_exports(start: date, end: date, overwrite: bool = False) -> list[Path]
                 or (workout.get("active_energy_kcal") if workout else None),
                 "notes": (
                     f"膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈{bmr:.0f}"
-                    "（Katch-McArdle，按当日体重与最近体脂）。"
+                    f"（Katch-McArdle，按当日体重与最近体脂）{bmr_warning}。"
                     + (
                         f"TDEE = BMR + 实测 Active Energy {measured_ae:.0f} kcal。"
                         if measured_ae

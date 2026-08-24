@@ -1,0 +1,11 @@
+{
+  "_readme": [
+    "BMR 计算所需的固定身体参数。",
+    "height_cm 与 birth_year 供 Mifflin-St Jeor 交叉验证 Katch-McArdle 的结果；",
+    "两者相差超过 150 kcal 时同步脚本会在备注里提示，通常意味着体脂读数不准。",
+    "sex 只影响 Mifflin-St Jeor 的常数项，可选 male / female。"
+  ],
+  "height_cm": 185,
+  "birth_year": 1993,
+  "sex": "male"
+}
