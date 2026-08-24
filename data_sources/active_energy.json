@@ -1,0 +1,10 @@
+{
+  "_readme": [
+    "Apple Health 全天 Active Energy，按日期手工补充，单位 kcal。",
+    "填了的日子 TDEE = BMR + 这个数（实测已含 NEAT 与训练，不再叠加估算）。",
+    "没填的日子沿用按训练时长的估算。补完后重跑：",
+    "uv run python scripts/sync_xunji_recent.py --start <日期> --end <日期> --overwrite",
+    "再 uv run python scripts/import_exports.py --file day-XXX"
+  ],
+  "days": {}
+}

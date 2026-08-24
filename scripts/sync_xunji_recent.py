@@ -85,6 +85,27 @@ def _int(value: Any) -> int | None:
 
 
 DEFAULT_BMR = 1820.0
+ACTIVE_ENERGY_FILE = ROOT / "data_sources" / "active_energy.json"
+
+
+def load_measured_active_energy() -> dict[str, float]:
+    """Apple Health's whole-day Active Energy, where it has been supplied.
+
+    Xunji only reports the calories of workouts synced into it, never the
+    day's total, so this file is the only route for a measured figure.
+    """
+    try:
+        payload = json.loads(ACTIVE_ENERGY_FILE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    days = payload.get("days") if isinstance(payload, dict) else None
+    if not isinstance(days, dict):
+        return {}
+    return {
+        datestr: float(value)
+        for datestr, value in days.items()
+        if isinstance(value, (int, float)) and value > 0
+    }
 
 
 def estimate_bmr(weight_kg: float | None, body_fat_pct: float | None) -> float:
@@ -104,9 +125,17 @@ def _estimate_tdee(
     workout: dict[str, Any] | None,
     weight_kg: float | None,
     body_fat_pct: float | None = None,
+    measured_active_energy: float | None = None,
 ) -> int:
-    """Estimate TDEE as BMR plus activity, without double-counting cardio."""
+    """TDEE as BMR plus activity, measured where possible.
+
+    A whole-day Active Energy reading already covers NEAT and the workout, so
+    it stands alone; adding the workout estimate on top would count the
+    session twice.
+    """
     bmr = estimate_bmr(weight_kg, body_fat_pct)
+    if measured_active_energy:
+        return round(bmr + measured_active_energy, -1)
     if not workout:
         return round(bmr + 200, -1)
     weight = weight_kg or 82.5
@@ -240,6 +269,7 @@ def build_exports(start: date, end: date, overwrite: bool = False) -> list[Path]
             "offset": 0,
         },
     )
+    measured_active_energy = load_measured_active_energy()
     body_by_date: dict[str, dict[str, Any]] = {}
     body_field_map = {
         "weight": "weight_kg",
@@ -301,7 +331,8 @@ def build_exports(start: date, end: date, overwrite: bool = False) -> list[Path]
         # stands in until the next reading.
         body_fat = (body.get("body_fat_percentage") if body else None) or latest_body_fat
         bmr = estimate_bmr(weight_kg, body_fat)
-        estimated_tdee = _estimate_tdee(workout, weight_kg, body_fat)
+        measured_ae = measured_active_energy.get(datestr)
+        estimated_tdee = _estimate_tdee(workout, weight_kg, body_fat, measured_ae)
         titles = [item.get("title") for item in train_result.get("res", {}).get("trains", []) if item.get("title") != "步行"]
         document = {
             "protocol_version": "1.0",
@@ -328,10 +359,16 @@ def build_exports(start: date, end: date, overwrite: bool = False) -> list[Path]
                 "net_carbs_g": _number(totals.get("totalCarb")) or 0,
                 "fat_g": _number(totals.get("totalFat")),
                 "steps": None,
-                "active_energy_kcal": workout.get("active_energy_kcal") if workout else None,
+                "active_energy_kcal": measured_ae
+                or (workout.get("active_energy_kcal") if workout else None),
                 "notes": (
-                    f"膳食纤维暂按 0 g；净碳水按总碳水计算；TDEE 为 BMR≈{bmr:.0f}"
-                    "（Katch-McArdle，按当日体重与最近体脂）加训练活动消耗估算。"
+                    f"膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈{bmr:.0f}"
+                    "（Katch-McArdle，按当日体重与最近体脂）。"
+                    + (
+                        f"TDEE = BMR + 实测 Active Energy {measured_ae:.0f} kcal。"
+                        if measured_ae
+                        else "TDEE 的活动部分按训练时长估算，未取得当日实测 Active Energy。"
+                    )
                 ),
             },
             "nutrition": _nutrition(diet_day, day_number),
