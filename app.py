@@ -493,13 +493,19 @@ def page_body() -> None:
 
 
 def _mode_toggle(key: str) -> str:
-    """Raw / corrected switch. Its choice is seeded and stored like the biases."""
-    return st.segmented_control(
+    """Raw / corrected switch. Its choice is seeded and stored like the biases.
+
+    A segmented control clears its selection when the active option is clicked
+    again, so an accidental second click would otherwise leave the chart with
+    no mode at all — and store that.
+    """
+    choice = st.segmented_control(
         "数据口径",
-        ["原始", "纠偏后"],
+        list(settings.MODES),
         key=key,
         label_visibility="collapsed",
     )
+    return choice or settings.DEFAULTS[key]
 
 
 def _bias_factors() -> tuple[float, float, float]:

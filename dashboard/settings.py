@@ -43,6 +43,35 @@ DEFAULTS: dict[str, object] = {
 }
 
 
+# What each setting is allowed to be. The file is written by the app and read
+# back on the next run, so a bad write would otherwise stick forever: a
+# segmented control returns None when its selection is cleared, and that None
+# overrode the default every session after.
+MODES = ("原始", "纠偏后")
+_CHOICES: dict[str, tuple] = {"balance_mode": MODES, "intake_mode": MODES}
+_RANGES: dict[str, tuple[float, float]] = {
+    "bias_active": (-80, 20),
+    "bias_intake": (-10, 30),
+    "bias_bmr": (1000, 3000),
+    "target_body_fat": (5.0, 35.0),
+    "target_horizon": (7, 365),
+    "pinned_columns": (1, 3),
+}
+
+
+def is_valid(key: str, value: object) -> bool:
+    if value is None:
+        return False
+    if key in _CHOICES:
+        return value in _CHOICES[key]
+    if key in _RANGES:
+        low, high = _RANGES[key]
+        return isinstance(value, (int, float)) and not isinstance(value, bool) and low <= value <= high
+    if key == "pinned_exercises":
+        return isinstance(value, list) and all(isinstance(item, str) for item in value)
+    return True
+
+
 def load() -> dict:
     """Stored settings merged over the defaults; defaults alone if unreadable."""
     try:
@@ -51,12 +80,16 @@ def load() -> dict:
         return dict(DEFAULTS)
     if not isinstance(stored, dict):
         return dict(DEFAULTS)
-    return {**DEFAULTS, **{k: v for k, v in stored.items() if k in DEFAULTS}}
+    return {
+        **DEFAULTS,
+        **{k: v for k, v in stored.items() if k in DEFAULTS and is_valid(k, v)},
+    }
 
 
 def save(values: dict) -> None:
     """Write the known keys. A failure here must not take the page down."""
-    payload = {k: v for k, v in values.items() if k in DEFAULTS}
+    # Never let an invalid value reach the file: it would be read back next run.
+    payload = {k: v for k, v in values.items() if k in DEFAULTS and is_valid(k, v)}
     try:
         SETTINGS_PATH.write_text(
             json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
