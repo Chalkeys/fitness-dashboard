@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-063",
-  "history_version": 7,
-  "exported_at": "2026-08-24T04:41:16.354583Z",
+  "history_version": 9,
+  "exported_at": "2026-08-25T00:36:42.696249Z",
   "date": "2026-08-23",
   "day_number": 63,
   "provenance": {
@@ -12,24 +12,22 @@
   },
   "body": {
     "weight_kg": 80.9,
-    "notes": "训记 Open API 身体数据；腰围和体脂率缺失，沿用前一天记录。 体脂沿用 8/18 DEXA，未在本日实测，故置空。",
-    "body_fat_percentage": null,
-    "waist_cm": 80.5
+    "notes": "训记 Open API 身体数据。"
   },
   "daily_log": {
     "is_training_day": true,
     "workout_type": "其他",
-    "calories_in": 1888.0,
-    "tdee": 2791,
-    "calorie_balance": -903.0,
-    "protein_g": 142.4,
-    "total_carbs_g": 179.79,
+    "calories_in": 2098.2000000000003,
+    "tdee": 2790.0,
+    "calorie_balance": -691.8,
+    "protein_g": 156.00000000000003,
+    "total_carbs_g": 190.39,
     "fiber_g": 0,
-    "net_carbs_g": 179.79,
-    "fat_g": 67.25,
+    "net_carbs_g": 190.39,
+    "fat_g": 79.84999999999998,
     "steps": null,
-    "active_energy_kcal": 971,
-    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；TDEE 为 BMR≈1820 加训练活动消耗估算。；AppleHealthWorkout 为占位活动，不按 623 分钟力量训练计入；按 Active Energy 99 kcal 计算 TDEE。；Active Energy 手动补录：971 kcal，按手动值计算 TDEE。"
+    "active_energy_kcal": 971.0,
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1819（Katch-McArdle，按当日体重与最近体脂）。TDEE = BMR + 实测 Active Energy 971 kcal。"
   },
   "nutrition": [
     {
@@ -69,7 +67,7 @@
       "meal_type": "noon",
       "food_name": "Tacos",
       "brand": null,
-      "amount": 100.0,
+      "amount": 120.0,
       "unit": "g",
       "servings": null,
       "calories": 1051.0,
@@ -149,8 +147,8 @@
     "session_id": "day-063-xunji",
     "workout_name": "其他",
     "workout_type": "其他",
-    "duration_minutes": 623.0,
-    "active_energy_kcal": 99.0,
+    "duration_minutes": 722.0,
+    "active_energy_kcal": 481.0,
     "notes": "训练动作来自训记 API；Active Energy 使用接口返回的 sets[].metrics.calories。",
     "exercises": [
       {

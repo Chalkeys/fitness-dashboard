@@ -122,6 +122,10 @@ _SAME_MOVEMENT: dict[str, str] = {
     "腿弯举": "坐姿腿弯举",
     "蝴蝶机反向飞鸟": "器械坐姿反向飞鸟",
     "蝴蝶机飞鸟": "把手式蝴蝶机飞鸟",
+    # HealthKit's generic label. It has only ever arrived for yard work, and a
+    # re-sync brings it back, so map it rather than correcting the day again.
+    # Revisit if a ride or a swim ever syncs under the same name.
+    "AppleHealthWorkout": "庭院劳作",
 }
 
 ALIASES.update(_SAME_MOVEMENT)
