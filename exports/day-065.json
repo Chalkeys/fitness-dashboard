@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-065",
-  "history_version": 2,
-  "exported_at": "2026-08-26T02:49:22.953294Z",
+  "history_version": 4,
+  "exported_at": "2026-08-26T04:20:01.820105Z",
   "date": "2026-08-25",
   "day_number": 65,
   "provenance": {
@@ -17,17 +17,17 @@
   "daily_log": {
     "is_training_day": true,
     "workout_type": "p1_拉",
-    "calories_in": 1705.7180952380954,
-    "tdee": 2670.0,
-    "calorie_balance": -964.28,
-    "protein_g": 126.46919047619048,
-    "total_carbs_g": 205.16761904761904,
+    "calories_in": 1934.6514285714286,
+    "tdee": 2590.0,
+    "calorie_balance": -655.35,
+    "protein_g": 133.89157142857144,
+    "total_carbs_g": 235.6757142857143,
     "fiber_g": 0,
-    "net_carbs_g": 205.16761904761904,
-    "fat_g": 40.90042857142857,
+    "net_carbs_g": 235.6757142857143,
+    "fat_g": 49.436142857142855,
     "steps": null,
-    "active_energy_kcal": null,
-    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1827（Katch-McArdle，按当日体重与最近体脂）。TDEE 的活动部分按训练时长估算，未取得当日实测 Active Energy。"
+    "active_energy_kcal": 763.0,
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1827（Katch-McArdle，按当日体重与最近体脂）。TDEE = BMR + 实测 Active Energy 763 kcal。"
   },
   "nutrition": [
     {
@@ -172,6 +172,38 @@
       "fiber_g": 0,
       "net_carbs_g": 11.5,
       "fat_g": 0.1,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D065_XJ010",
+      "meal_type": "night",
+      "food_name": "Golden Island Korean Barbecue Snack Bites",
+      "brand": null,
+      "amount": 25.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 283.3333333333333,
+      "protein_g": 23.80952380952381,
+      "total_carbs_g": 30.952380952380953,
+      "fiber_g": 0,
+      "net_carbs_g": 30.952380952380953,
+      "fat_g": 7.142857142857142,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D065_XJ011",
+      "meal_type": "night",
+      "food_name": "旺旺 仙贝",
+      "brand": null,
+      "amount": 30.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 527.0,
+      "protein_g": 4.9,
+      "total_carbs_g": 75.9,
+      "fiber_g": 0,
+      "net_carbs_g": 75.9,
+      "fat_g": 22.5,
       "notes": "训记 API 营养快照；纤维未由接口返回。"
     }
   ],
