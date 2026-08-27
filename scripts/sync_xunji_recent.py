@@ -183,8 +183,9 @@ def estimate_bmr(weight_kg: float | None, body_fat_pct: float | None) -> float:
 # carries a +24 kcal bias where this one sits at -2, so the local fit stays.
 # Worth re-deriving both after enough new data, or if training style changes.
 #
-# The baseline is corroborated too: the five rest days with a watch reading
-# average 575 kcal of active energy, against the 584 intercept.
+# The 584 intercept stands on the fit alone. It looks close to the 575 mean of
+# the rest days, but that is coincidence — two of those days were yard work,
+# and a true rest day reads about 450.
 #
 # Ranges in the literature are very wide — a 2024 scoping review reports
 # 38-2957 kJ for multi-exercise sessions and measured METs of 3.0-8.0 against
@@ -195,13 +196,25 @@ def estimate_bmr(weight_kg: float | None, body_fat_pct: float | None) -> float:
 # https://pmc.ncbi.nlm.nih.gov/articles/PMC11393209/
 VOLUME_BASELINE_KCAL = 584.0
 KCAL_PER_KG_LIFTED = 0.0100
-# The mean of the five rest days that carry a watch reading (452, 205, 718,
-# 450, 1050 — the two high ones were yard work). The mean rather than the
-# median of 452 because it agrees with the fit intercept above, two estimates
-# of the same quantity arrived at separately. It had been 200, inherited from
-# before any measured figure existed, which understated a rest day by nearly
-# 400 kcal.
-REST_DAY_ACTIVE_KCAL = 575.0
+# Five days off the programme carry a watch reading, but only one of them is
+# a rest day in the sense this constant needs:
+#
+#   19 Jul   450   nothing logged                 <- the only clean one
+#   28 Jun   452   20 min mowing, an hour's       ~400 without the mowing
+#                  shopping
+#   04 Jul   205   watch not worn — an            unusable
+#                  undercount, not a rest day
+#   12 Jul   718   "a lot of yard work"           not a rest day
+#   26 Jul  1050   90 min yard work               not a rest day
+#
+# So 450, from the one day that qualifies and the one that nearly does. Their
+# mean of 575 is meaningless here: two yard-work days pull it up. It had been
+# 200, inherited from before any measured figure existed.
+#
+# Note this is legitimately below the 584 intercept above, which is a training
+# day extrapolated to zero tonnage and still carries the walking that going to
+# the gym involves.
+REST_DAY_ACTIVE_KCAL = 450.0
 
 
 def estimate_active_energy(workout: dict[str, Any] | None) -> float:
