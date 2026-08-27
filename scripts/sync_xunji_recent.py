@@ -160,13 +160,48 @@ def estimate_bmr(weight_kg: float | None, body_fat_pct: float | None) -> float:
 # measured figure. Duration fitted far worse (R2 0.045): time under the bar
 # counts, time between sets does not, and a session is mostly the latter.
 #
-# The coefficient is also physically sound, which the alternatives are not.
-# Lifting 24 t through half a metre is 28 kcal of mechanical work, about
-# 190 kcal metabolically once efficiency and the eccentric phase are counted;
-# Xunji's own figure for that session was 812 and a MET-based estimate 880.
+# Three independent routes agree on the scale, which is why these numbers are
+# trusted over the two that disagree:
+#
+#   this fit, volume term          243 kcal   for the 24.3 t session of 26 Aug
+#   published regression           189        see below
+#   mechanical work                194        24.3 t through 0.5 m is 28 kcal
+#                                             of work; ~190 metabolically once
+#                                             efficiency and the eccentric
+#                                             phase are allowed for
+#   Xunji's own figure             812        3-4x what moving that mass costs
+#   MET 3.5 (what this replaced)   880
+#
+# The published regression predicts the net cost of one session from volume
+# load and body composition, R2 0.773, SEE 28.5 kcal:
+#
+#   kcal = 0.874 x height_cm - 0.596 x age - 1.016 x fat_kg
+#          + 1.638 x lean_kg + 2.461 x tonnage/1000 - 110.742
+#
+# Scored against the same 58 days it comes out level with this fit — mean
+# absolute error 103 kcal against 102, identical correlation of 0.412 — but
+# carries a +24 kcal bias where this one sits at -2, so the local fit stays.
+# Worth re-deriving both after enough new data, or if training style changes.
+#
+# The baseline is corroborated too: the five rest days with a watch reading
+# average 575 kcal of active energy, against the 584 intercept.
+#
+# Ranges in the literature are very wide — a 2024 scoping review reports
+# 38-2957 kJ for multi-exercise sessions and measured METs of 3.0-8.0 against
+# the Compendium's 3.5/5.0/6.0 — so treat any single equation as an order of
+# magnitude. That review also notes indirect calorimetry alone can miss over
+# 40% of the cost by ignoring the glycolytic contribution, so these figures
+# may run low rather than high.
+# https://pmc.ncbi.nlm.nih.gov/articles/PMC11393209/
 VOLUME_BASELINE_KCAL = 584.0
 KCAL_PER_KG_LIFTED = 0.0100
-REST_DAY_ACTIVE_KCAL = 200.0
+# The mean of the five rest days that carry a watch reading (452, 205, 718,
+# 450, 1050 — the two high ones were yard work). The mean rather than the
+# median of 452 because it agrees with the fit intercept above, two estimates
+# of the same quantity arrived at separately. It had been 200, inherited from
+# before any measured figure existed, which understated a rest day by nearly
+# 400 kcal.
+REST_DAY_ACTIVE_KCAL = 575.0
 
 
 def estimate_active_energy(workout: dict[str, Any] | None) -> float:
