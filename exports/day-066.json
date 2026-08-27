@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-066",
-  "history_version": 8,
-  "exported_at": "2026-08-27T03:20:26.003941Z",
+  "history_version": 12,
+  "exported_at": "2026-08-27T03:57:35.032181Z",
   "date": "2026-08-26",
   "day_number": 66,
   "provenance": {
@@ -18,16 +18,17 @@
     "is_training_day": true,
     "workout_type": "p1_腿",
     "calories_in": 1952.607724867725,
-    "tdee": 2650.0,
-    "calorie_balance": -697.39,
+    "tdee": 2660.0,
+    "calorie_balance": -707.39,
     "protein_g": 142.06821164021162,
     "total_carbs_g": 232.23614814814817,
     "fiber_g": 0,
     "net_carbs_g": 232.23614814814817,
     "fat_g": 50.736476190476196,
     "steps": null,
-    "active_energy_kcal": 260.0,
-    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1827（Katch-McArdle，按当日体重与最近体脂）。TDEE 的活动部分按训练容量估算（584 + 0.01×容量，由 58 天实测拟合），未取得当日实测 Active Energy。"
+    "active_energy_kcal": 832.0,
+    "active_energy_source": "measured",
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1827（Katch-McArdle，按当日体重与最近体脂）。TDEE = BMR + 手工录入的 Active Energy 832 kcal。"
   },
   "nutrition": [
     {
@@ -261,7 +262,8 @@
     "workout_type": "p1_腿",
     "duration_minutes": 213.4,
     "active_energy_kcal": 260.0,
-    "notes": "训练动作来自训记 API；Active Energy 使用接口返回的 sets[].metrics.calories。",
+    "xunji_strength_kcal": 812.0,
+    "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories，力量消耗取课次 note 的 calorie 字段。",
     "exercises": [
       {
         "exercise_name": "泽奇深蹲",

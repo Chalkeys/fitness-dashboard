@@ -10,6 +10,7 @@ import argparse
 import gzip
 import json
 import os
+import re
 import urllib.request
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -227,10 +228,102 @@ def estimate_active_energy(workout: dict[str, Any] | None) -> float:
             weight, reps = item.get("weight"), item.get("reps")
             if weight and reps:
                 tonnage += float(weight) * float(reps)
+    cardio = float(workout.get("active_energy_kcal") or 0)
+    if not tonnage:
+        # No lifting, so the 584 intercept does not apply — it is a training
+        # day extrapolated to zero tonnage and still carries the walking that
+        # going to the gym involves. What is left on a day like this is NEAT
+        # plus whatever cardio was measured, and those do add: the rest-day
+        # constant comes from a day with nothing logged, so it double-counts
+        # nothing. Checked against the three non-lifting days whose cardio
+        # came from the API rather than from a whole-day figure copied in:
+        #
+        #   19 Jul   450 + 0   = 450   against 450    exact
+        #   16 Aug   450 + 0   = 450   against 434     +16
+        #   23 Aug   450 + 481 = 931   against 971     -40
+        #
+        # The old max() rule read 450, 584 and 584 for those same days, the
+        # last of them 387 kcal light.
+        return REST_DAY_ACTIVE_KCAL + cardio
     estimate = VOLUME_BASELINE_KCAL + KCAL_PER_KG_LIFTED * tonnage
     # Cardio synced from Apple Health is measured, so it displaces the
     # baseline's share of walking rather than adding to the lift.
-    return max(estimate, float(workout.get("active_energy_kcal") or 0))
+    return max(estimate, cardio)
+
+
+_CALORIE_NOTE = re.compile(r"calorie:\s*([0-9]+(?:\.[0-9]+)?)")
+
+
+def reported_calories(note: str | None) -> float | None:
+    """The kcal figure Xunji puts in a session's note, if it put one there."""
+    match = _CALORIE_NOTE.search(note or "")
+    return float(match.group(1)) if match else None
+
+
+def xunji_active_energy(workout: dict[str, Any] | None) -> float | None:
+    """Xunji's own view of a day: its lifting figure plus the cardio it synced.
+
+    Only the lifting sessions carry a note. The walk's calories arrive as set
+    metrics and are already summed into ``active_energy_kcal``, so reading a
+    note off the walk as well would count it twice.
+
+    A caveat on the note itself: up to and including 2026-08-26 it carried a
+    figure imported from Apple Health rather than Xunji's own model, which is
+    why 26 Aug reads 812 for a session three independent routes price at
+    190-240. The import is being turned off so the field starts carrying
+    Xunji's estimate, which has never been checked against the DEXA scans.
+    Treat it as unproven until it has been.
+    """
+    if not workout:
+        return None
+    strength = workout.get("xunji_strength_kcal")
+    if strength is None:
+        return None
+    return round(float(strength) + float(workout.get("active_energy_kcal") or 0), 1)
+
+
+def resolve_active_energy(
+    workout: dict[str, Any] | None,
+    measured_active_energy: float | None = None,
+) -> tuple[float, str]:
+    """The day's activity figure and where it came from.
+
+    Three sources, in order of preference:
+
+    1. the hand-entered value in ``active_energy.json`` — the user's own
+       reading, and the only source that exists for days before the API sync;
+    2. Xunji's own figure, its lifting note plus the cardio it synced;
+    3. the volume model below, when Xunji reports no figure.
+
+    The three are never added together. A hand-entered value already covers
+    the whole day and Xunji's already covers both halves of the training, so
+    putting an estimate on top of either would bill the session twice.
+    """
+    if measured_active_energy:
+        return float(measured_active_energy), "measured"
+    reported = xunji_active_energy(workout)
+    if reported:
+        return reported, "xunji"
+    return estimate_active_energy(workout), "estimated"
+
+
+def _active_energy_note(
+    workout: dict[str, Any] | None, active_kcal: float, source: str
+) -> str:
+    """One sentence saying where the day's activity figure came from."""
+    if source == "measured":
+        return f"TDEE = BMR + 手工录入的 Active Energy {active_kcal:.0f} kcal。"
+    if source == "xunji":
+        strength = (workout or {}).get("xunji_strength_kcal") or 0
+        cardio = (workout or {}).get("active_energy_kcal") or 0
+        return (
+            f"TDEE = BMR + 训记消耗 {active_kcal:.0f} kcal"
+            f"（力量 {strength:.0f} + 有氧 {cardio:.0f}）；未手工录入实测值。"
+        )
+    return (
+        f"TDEE 的活动部分按训练容量估算 {active_kcal:.0f} kcal"
+        "（584 + 0.01×容量，由 58 天全天实测拟合）；训记与手工录入均无当日数值。"
+    )
 
 
 def _estimate_tdee(
@@ -239,14 +332,9 @@ def _estimate_tdee(
     body_fat_pct: float | None = None,
     measured_active_energy: float | None = None,
 ) -> int:
-    """TDEE as BMR plus activity, measured where possible.
-
-    A whole-day Active Energy reading already covers NEAT and the workout, so
-    it stands alone; adding a workout estimate on top would count the session
-    twice.
-    """
+    """TDEE as BMR plus activity, measured where possible."""
     bmr = estimate_bmr(weight_kg, body_fat_pct)
-    active = measured_active_energy or estimate_active_energy(workout)
+    active, _ = resolve_active_energy(workout, measured_active_energy)
     return round(bmr + active, -1)
 
 
@@ -296,10 +384,15 @@ def _workout(trains: list[dict[str, Any]], day_number: int) -> dict[str, Any] | 
     titles = [item.get("title") for item in strength if item.get("title")]
     exercises: list[dict[str, Any]] = []
     active_energy = 0.0
+    strength_kcal: float | None = None
     spans: list[int] = []
     for train in trains:
         if train.get("start") is not None and train.get("end") is not None:
             spans.append(int(train["end"]) - int(train["start"]))
+        if train.get("title") != "步行":
+            reported = reported_calories(train.get("note"))
+            if reported is not None:
+                strength_kcal = (strength_kcal or 0.0) + reported
         for movement in train.get("movements", []):
             name = movement.get("name") or "Unknown movement"
             if name == "Walking":
@@ -340,7 +433,8 @@ def _workout(trains: list[dict[str, Any]], day_number: int) -> dict[str, Any] | 
         "workout_type": (titles[0].lower().replace("-", "_") if titles else None),
         "duration_minutes": duration,
         "active_energy_kcal": round(active_energy, 1) if active_energy else None,
-        "notes": "训练动作来自训记 API；Active Energy 使用接口返回的 sets[].metrics.calories。",
+        "xunji_strength_kcal": round(strength_kcal, 1) if strength_kcal else None,
+        "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories，力量消耗取课次 note 的 calorie 字段。",
         "exercises": exercises,
     }
 
@@ -440,6 +534,7 @@ def build_exports(start: date, end: date, overwrite: bool = False) -> list[Path]
             else ""
         )
         measured_ae = measured_active_energy.get(datestr)
+        active_kcal, active_source = resolve_active_energy(workout, measured_ae)
         estimated_tdee = _estimate_tdee(workout, weight_kg, body_fat, measured_ae)
         titles = [item.get("title") for item in train_result.get("res", {}).get("trains", []) if item.get("title") != "步行"]
         document = {
@@ -467,17 +562,12 @@ def build_exports(start: date, end: date, overwrite: bool = False) -> list[Path]
                 "net_carbs_g": _number(totals.get("totalCarb")) or 0,
                 "fat_g": _number(totals.get("totalFat")),
                 "steps": None,
-                "active_energy_kcal": measured_ae
-                or (workout.get("active_energy_kcal") if workout else None),
+                "active_energy_kcal": round(active_kcal, 1),
+                "active_energy_source": active_source,
                 "notes": (
                     f"膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈{bmr:.0f}"
                     f"（Katch-McArdle，按当日体重与最近体脂）{bmr_warning}。"
-                    + (
-                        f"TDEE = BMR + 实测 Active Energy {measured_ae:.0f} kcal。"
-                        if measured_ae
-                        else "TDEE 的活动部分按训练容量估算（584 + 0.01×容量，由 58 天实测拟合），"
-                        "未取得当日实测 Active Energy。"
-                    )
+                    + _active_energy_note(workout, active_kcal, active_source)
                 ),
             },
             "nutrition": _nutrition(diet_day, day_number),
