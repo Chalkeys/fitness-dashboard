@@ -82,6 +82,7 @@
             "fat_g": { "type": ["number", "null"], "minimum": 0 },
             "steps": { "type": ["integer", "null"], "minimum": 0 },
             "active_energy_kcal": { "type": ["number", "null"], "minimum": 0 },
+            "active_energy_source": { "enum": ["measured", "xunji", "estimated", null] },
             "notes": { "type": ["string", "null"] }
           }
         }
@@ -124,6 +125,7 @@
             "workout_type": { "type": ["string", "null"] },
             "duration_minutes": { "type": ["number", "null"], "minimum": 0 },
             "active_energy_kcal": { "type": ["number", "null"], "minimum": 0 },
+            "xunji_strength_kcal": { "type": ["number", "null"], "minimum": 0 },
             "notes": { "type": ["string", "null"] },
             "exercises": {
               "type": "array",
