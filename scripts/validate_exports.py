@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from jsonschema import Draft202012Validator, FormatChecker
+from jsonschema.exceptions import best_match
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
@@ -32,6 +33,31 @@ def review_status(document: dict[str, Any]) -> str:
     return "needs_review"
 
 
+MAX_ERROR_CHARS = 200
+
+
+def describe_error(error: Any) -> str:
+    """A schema error short enough to print, and specific enough to act on.
+
+    The document's top level is a chain of ``anyOf`` branches, and when one
+    fails jsonschema reports the branch rather than the reason, quoting the
+    whole instance back — a day's export runs to thousands of characters, so
+    the message that matters ends up past anything a terminal will show. Every
+    error carries the sub-errors it was built from, and ``best_match`` walks
+    down to the most specific of them: "Additional properties are not allowed
+    ('active_energy_source' was unexpected)" instead of the day's every set.
+    Anything still over-long is elided in the middle, where the instance dump
+    sits, keeping the path at the front and the reason at the end.
+    """
+    specific = best_match([error]) or error
+    location = ".".join(str(part) for part in specific.absolute_path) or "$"
+    message = specific.message
+    if len(message) > MAX_ERROR_CHARS:
+        keep = MAX_ERROR_CHARS // 2 - 3
+        message = f"{message[:keep]} … {message[-keep:]}"
+    return f"{location}: {message}"
+
+
 def validate_document(path: Path, schema: dict[str, Any]) -> dict[str, Any]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -42,8 +68,7 @@ def validate_document(path: Path, schema: dict[str, Any]) -> dict[str, Any]:
 
     validator = Draft202012Validator(schema, format_checker=FormatChecker())
     for error in sorted(validator.iter_errors(document), key=lambda item: list(item.path)):
-        location = ".".join(str(part) for part in error.path) or "$"
-        errors.append(f"{location}: {error.message}")
+        errors.append(describe_error(error))
     if errors or not isinstance(document, dict):
         return {"file": str(path), "errors": errors, "warnings": warnings}
 

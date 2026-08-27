@@ -155,3 +155,21 @@ def test_schema_accepts_the_active_energy_provenance_fields(tmp_path: Path):
     path = tmp_path / "2026-07-21.json"
     path.write_text(json.dumps(document, ensure_ascii=False), encoding="utf-8")
     assert validate_document(path, SCHEMA)["errors"] == []
+
+
+def test_a_rejected_file_says_why_on_stderr(tmp_path: Path, capsys):
+    # The summary line only counts failures. Without this the reason lives in
+    # export_runs and a whole deploy reads as a bare "失败 1".
+    exports = tmp_path / "exports"
+    exports.mkdir()
+    source = PROJECT_ROOT / "exports" / "examples" / "2026-07-21.json"
+    document = json.loads(source.read_text(encoding="utf-8"))
+    document["daily_log"]["unexpected_field"] = 1
+    (exports / "2026-07-21.json").write_text(json.dumps(document, ensure_ascii=False), encoding="utf-8")
+
+    stats = import_exports(exports, tmp_path / "test.db")
+
+    assert stats["failed"] == 1
+    stderr = capsys.readouterr().err
+    assert "unexpected_field" in stderr
+    assert "2026-07-21.json" in stderr

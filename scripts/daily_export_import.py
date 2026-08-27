@@ -3,6 +3,7 @@
 import hashlib
 import json
 import sqlite3
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -13,6 +14,8 @@ from scripts.validate_exports import (
     review_status,
     validate_document,
 )
+
+MAX_REPORTED_REASONS = 5
 
 
 def import_daily_exports(
@@ -34,6 +37,7 @@ def import_daily_exports(
         document = report.get("document")
         if report["errors"]:
             stats["failed"] += 1
+            _report(path, "校验失败", report["errors"])
             if not dry_run:
                 _record_run_failure(database_path, path, document, report["errors"])
             continue
@@ -44,6 +48,7 @@ def import_daily_exports(
         status = review_status(document)
         if status != "approved" and not (include_needs_review and status == "needs_review"):
             stats["skipped"] += 1
+            _report(path, "跳过", [f"review_status 为 {status}"])
             if not dry_run:
                 _record_run(
                     database_path, document, path, source_hash, "skipped", 0, 0, 1, None
@@ -62,6 +67,7 @@ def import_daily_exports(
                 stats["skipped"] += 1
                 continue
             if not replace and _version_is_stale(connection, document):
+                _report(path, "跳过", ["history_version 不比库里的新"])
                 _record_run_on_connection(
                     connection, document, path, source_hash, "skipped", 0, 0, 1, "older history_version"
                 )
@@ -85,11 +91,28 @@ def import_daily_exports(
             stats["updated"] += updated
         except Exception as error:
             connection.rollback()
+            _report(path, "导入出错", [str(error)])
             _record_run_failure(database_path, path, document, [str(error)], source_hash)
             stats["failed"] += 1
         finally:
             connection.close()
     return stats
+
+
+def _report(path: Path, headline: str, reasons: list[str]) -> None:
+    """Say why a file did not go in.
+
+    The summary line at the end counts failures and skips but never explains
+    them, and the reasons only reach the ``export_runs`` table, where nobody
+    looks unless they already suspect something. A schema change that closed
+    the door on two new fields once read as a bare "失败 1" for a whole
+    deploy. Diagnostics go to stderr so the summary line stays parseable.
+    """
+    for reason in reasons[:MAX_REPORTED_REASONS]:
+        print(f"{headline}：{path.name}：{reason}", file=sys.stderr)
+    remaining = len(reasons) - MAX_REPORTED_REASONS
+    if remaining > 0:
+        print(f"{headline}：{path.name}：另有 {remaining} 条未列出", file=sys.stderr)
 
 
 def _schema() -> dict[str, Any]:
