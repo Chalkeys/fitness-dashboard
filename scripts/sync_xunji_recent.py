@@ -153,6 +153,38 @@ def estimate_bmr(weight_kg: float | None, body_fat_pct: float | None) -> float:
     return round(370 + 21.6 * lean, 1)
 
 
+# Whole-day active energy regressed on lifting volume across the 58 logged
+# days that have a watch reading: AE = 584 + 0.0100 x tonnage. R2 is only
+# 0.198 — most of a day's activity is walking and fidgeting, which tonnage
+# says nothing about — so this is a fallback, never a substitute for a
+# measured figure. Duration fitted far worse (R2 0.045): time under the bar
+# counts, time between sets does not, and a session is mostly the latter.
+#
+# The coefficient is also physically sound, which the alternatives are not.
+# Lifting 24 t through half a metre is 28 kcal of mechanical work, about
+# 190 kcal metabolically once efficiency and the eccentric phase are counted;
+# Xunji's own figure for that session was 812 and a MET-based estimate 880.
+VOLUME_BASELINE_KCAL = 584.0
+KCAL_PER_KG_LIFTED = 0.0100
+REST_DAY_ACTIVE_KCAL = 200.0
+
+
+def estimate_active_energy(workout: dict[str, Any] | None) -> float:
+    """Stand-in for a day's active energy when no watch reading is to hand."""
+    if not workout:
+        return REST_DAY_ACTIVE_KCAL
+    tonnage = 0.0
+    for exercise in workout.get("exercises", []):
+        for item in exercise.get("sets", []):
+            weight, reps = item.get("weight"), item.get("reps")
+            if weight and reps:
+                tonnage += float(weight) * float(reps)
+    estimate = VOLUME_BASELINE_KCAL + KCAL_PER_KG_LIFTED * tonnage
+    # Cardio synced from Apple Health is measured, so it displaces the
+    # baseline's share of walking rather than adding to the lift.
+    return max(estimate, float(workout.get("active_energy_kcal") or 0))
+
+
 def _estimate_tdee(
     workout: dict[str, Any] | None,
     weight_kg: float | None,
@@ -162,22 +194,12 @@ def _estimate_tdee(
     """TDEE as BMR plus activity, measured where possible.
 
     A whole-day Active Energy reading already covers NEAT and the workout, so
-    it stands alone; adding the workout estimate on top would count the
-    session twice.
+    it stands alone; adding a workout estimate on top would count the session
+    twice.
     """
     bmr = estimate_bmr(weight_kg, body_fat_pct)
-    if measured_active_energy:
-        return round(bmr + measured_active_energy, -1)
-    if not workout:
-        return round(bmr + 200, -1)
-    weight = weight_kg or 82.5
-    duration = float(workout.get("duration_minutes") or 0)
-    cardio = float(workout.get("active_energy_kcal") or 0)
-    cardio_minutes = cardio / 5.0 if cardio else 0.0
-    strength_minutes = max(0.0, duration - cardio_minutes)
-    # Net moderate/high-intensity lifting estimate, adjusted for body weight.
-    strength_rate = 3.5 * weight / 200 * 3.5
-    return round(bmr + cardio + strength_minutes * strength_rate, -1)
+    active = measured_active_energy or estimate_active_energy(workout)
+    return round(bmr + active, -1)
 
 
 def _kg(weight: Any, unit: str | None) -> float | None:
@@ -226,13 +248,10 @@ def _workout(trains: list[dict[str, Any]], day_number: int) -> dict[str, Any] | 
     titles = [item.get("title") for item in strength if item.get("title")]
     exercises: list[dict[str, Any]] = []
     active_energy = 0.0
-    starts: list[int] = []
-    ends: list[int] = []
+    spans: list[int] = []
     for train in trains:
-        if train.get("start") is not None:
-            starts.append(int(train["start"]))
-        if train.get("end") is not None:
-            ends.append(int(train["end"]))
+        if train.get("start") is not None and train.get("end") is not None:
+            spans.append(int(train["end"]) - int(train["start"]))
         for movement in train.get("movements", []):
             name = movement.get("name") or "Unknown movement"
             if name == "Walking":
@@ -262,9 +281,10 @@ def _workout(trains: list[dict[str, Any]], day_number: int) -> dict[str, Any] | 
                     "sets": sets,
                 }
             )
-    duration = None
-    if starts and ends:
-        duration = round((max(ends) - min(starts)) / 60000, 1)
+    # Each session's own span, summed. Measuring from the first start to the
+    # last end would bill the gap between lifting and a later walk as training
+    # time, and charge all of it to the lifting session.
+    duration = round(sum(spans) / 60000, 1) if spans else None
     workout_name = " + ".join(titles) if titles else "训记训练"
     return {
         "session_id": f"day-{day_number:03d}-xunji",
@@ -407,7 +427,8 @@ def build_exports(start: date, end: date, overwrite: bool = False) -> list[Path]
                     + (
                         f"TDEE = BMR + 实测 Active Energy {measured_ae:.0f} kcal。"
                         if measured_ae
-                        else "TDEE 的活动部分按训练时长估算，未取得当日实测 Active Energy。"
+                        else "TDEE 的活动部分按训练容量估算（584 + 0.01×容量，由 58 天实测拟合），"
+                        "未取得当日实测 Active Energy。"
                     )
                 ),
             },
