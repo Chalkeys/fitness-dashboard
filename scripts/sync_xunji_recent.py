@@ -218,16 +218,43 @@ KCAL_PER_KG_LIFTED = 0.0100
 REST_DAY_ACTIVE_KCAL = 450.0
 
 
+def _tonnage(workout: dict[str, Any] | None) -> float:
+    """Kilograms moved across every set of the day."""
+    total = 0.0
+    for exercise in (workout or {}).get("exercises", []):
+        for item in exercise.get("sets", []):
+            weight, reps = item.get("weight"), item.get("reps")
+            if weight and reps:
+                total += float(weight) * float(reps)
+    return total
+
+
+# A session cannot cost less energy than the mechanical work it performed,
+# divided by how efficiently muscle turns energy into work. Taking half a
+# metre as the mean bar displacement and 25% efficiency — the generous end of
+# the 18-26% range measured in cycling, and lifting sits at or below it — puts
+# a hard floor under any figure claiming to price a session.
+#
+# The floor exists because Xunji's note is not always a session estimate. On
+# 27 Aug it read 42 kcal for a three-hour push day moving 12.5 tonnes, which
+# would need 35% efficiency: not merely low, but past what muscle can do. A
+# figure that fails this test is not a bad estimate to be preferred over the
+# volume model, it is not an estimate at all, so the model takes the day.
+BAR_DISPLACEMENT_M = 0.5
+MUSCLE_EFFICIENCY = 0.25
+JOULES_PER_KCAL = 4184.0
+
+
+def mechanical_floor_kcal(tonnage: float) -> float:
+    """The least a session moving this much weight could possibly have cost."""
+    return tonnage * BAR_DISPLACEMENT_M * 9.81 / JOULES_PER_KCAL / MUSCLE_EFFICIENCY
+
+
 def estimate_active_energy(workout: dict[str, Any] | None) -> float:
     """Stand-in for a day's active energy when no watch reading is to hand."""
     if not workout:
         return REST_DAY_ACTIVE_KCAL
-    tonnage = 0.0
-    for exercise in workout.get("exercises", []):
-        for item in exercise.get("sets", []):
-            weight, reps = item.get("weight"), item.get("reps")
-            if weight and reps:
-                tonnage += float(weight) * float(reps)
+    tonnage = _tonnage(workout)
     cardio = float(workout.get("active_energy_kcal") or 0)
     if not tonnage:
         # No lifting, so the 584 intercept does not apply — it is a training
@@ -278,6 +305,8 @@ def xunji_active_energy(workout: dict[str, Any] | None) -> float | None:
         return None
     strength = workout.get("xunji_strength_kcal")
     if strength is None:
+        return None
+    if float(strength) < mechanical_floor_kcal(_tonnage(workout)):
         return None
     return round(float(strength) + float(workout.get("active_energy_kcal") or 0), 1)
 

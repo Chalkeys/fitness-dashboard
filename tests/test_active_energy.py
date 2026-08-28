@@ -71,3 +71,18 @@ def test_a_cardio_only_day_adds_neat_to_the_measured_cardio():
 
 def test_a_logged_day_with_no_cardio_and_no_lifting_reads_as_rest():
     assert resolve_active_energy(_workout(), None) == (REST_DAY_ACTIVE_KCAL, "estimated")
+
+
+def test_a_figure_below_the_mechanical_floor_is_not_an_estimate():
+    # 27 Aug: 42 kcal against 12,551 kg moved, which would need 35% muscle
+    # efficiency. Fall through to the volume model rather than prefer it.
+    workout = _workout(strength=42, tonnage=12551)
+    assert xunji_active_energy(workout) is None
+    value, source = resolve_active_energy(workout, None)
+    assert source == "estimated"
+    assert value == pytest.approx(584.0 + 0.01 * 12551)
+
+
+def test_a_figure_above_the_floor_is_still_preferred():
+    workout = _workout(strength=572, cardio=260, tonnage=12551)
+    assert resolve_active_energy(workout, None) == (832.0, "xunji")
