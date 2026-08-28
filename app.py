@@ -741,12 +741,11 @@ def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
     """The exercises kept in view, each with its top set and session volume."""
     st.subheader("动作进步曲线")
 
-    counts = sets.groupby("exercise").size().sort_values(ascending=False)
-    options = counts.index.tolist()
-
     # A merged or renamed exercise can leave a stored name with no data behind
     # it; the picker would refuse a value that is not among its options.
-    stored = [e for e in st.session_state.get("pinned_exercises", []) if e in options]
+    recorded = set(sets["exercise"])
+    stored = [e for e in st.session_state.get("pinned_exercises", []) if e in recorded]
+    options = data.selectable_exercises(sets, keep=tuple(stored))
 
     with st.expander("常驻动作与排版", expanded=not stored):
         picked = st.multiselect(

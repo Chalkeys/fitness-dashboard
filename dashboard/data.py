@@ -106,6 +106,48 @@ def load_exercise_sets() -> pd.DataFrame:
     return df
 
 
+STALE_AFTER = pd.DateOffset(months=1)
+RARE_BELOW_SESSIONS = 3
+
+
+def selectable_exercises(
+    sets: pd.DataFrame,
+    today: pd.Timestamp | None = None,
+    keep: tuple[str, ...] = (),
+) -> list[str]:
+    """Exercise names worth offering in a picker, most-recorded first.
+
+    A name drops out only when it is both stale and rare — nothing logged in
+    the last month and fewer than three sessions ever. Either test alone would
+    take too much: a staple sits out a month during a deload, and every
+    movement starts at one session. Together they describe something tried
+    once and dropped, which in a picker is only clutter to scroll past.
+
+    Sessions, not sets, decide rarity. One afternoon of an exercise is one
+    data point however many sets it ran to, and counting sets would keep a
+    single four-set outing while dropping a two-set one.
+
+    The month is measured from today rather than from the last day in the
+    data, so the list thins out on its own between imports. Anything in
+    ``keep`` survives regardless, so a pinned exercise that has gone quiet
+    stays in the options that its own panel is drawn from.
+    """
+    if sets.empty:
+        return []
+    by_exercise = sets.groupby("exercise")
+    order = by_exercise.size().sort_values(ascending=False).index
+    sessions = by_exercise["session_id"].nunique()
+    last_seen = by_exercise["log_date"].max()
+    cutoff = (today or pd.Timestamp.today()).normalize() - STALE_AFTER
+    kept = set(keep)
+    return [
+        name
+        for name in order
+        if name in kept
+        or not (last_seen[name] < cutoff and sessions[name] < RARE_BELOW_SESSIONS)
+    ]
+
+
 def filter_by_range(df: pd.DataFrame, date_col: str, days: int | None) -> pd.DataFrame:
     """Keep the trailing `days` window; None means the full history."""
     if days is None or df.empty:
