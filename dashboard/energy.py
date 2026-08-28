@@ -155,6 +155,7 @@ def target_plan(
     active_bias: float = 0.0,
     intake_bias: float = 0.0,
     active_energy_window: int = 14,
+    today: pd.Timestamp | None = None,
 ) -> dict | None:
     """What to eat to reach a body-fat target by a date.
 
@@ -162,6 +163,18 @@ def target_plan(
     weight alone cannot say how much of it is fat. Lean is carried forward at
     the measured accrual rate, which is what makes the target a moving one —
     gaining lean raises the fat mass a given percentage allows.
+
+    The deadline is ``horizon_days`` from today, not from the last reading.
+    Those are two different spans whenever the scale has not been stepped on
+    yet: the body has from its last known state until the deadline to change,
+    which is the longer one and what the lean projection runs over, while the
+    eating that has to cause the change only has from today, which is what the
+    daily figure divides by. Compressing the elapsed days into the remaining
+    ones asks for slightly more each day, which is the safe direction to err.
+
+    Fat and lean stay paired at the last weight reading rather than being
+    projected to today, because that weight was measured on the same morning
+    as the mass it is split into.
     """
     scans = body.dropna(subset=["body_fat_percentage"])
     weights = body.dropna(subset=["weight_kg"])
@@ -177,12 +190,16 @@ def target_plan(
     lean_now = lean_at_scan + LEAN_GAIN_KG_PER_DAY * days_since_scan
     fat_now = latest["weight_kg"] - lean_now
 
-    lean_end = lean_now + LEAN_GAIN_KG_PER_DAY * horizon_days
+    start = (today or pd.Timestamp.today()).normalize()
+    target_date = start + pd.Timedelta(int(horizon_days), unit="D")
+    days_ahead = max((target_date - latest["measured_at"]).days, horizon_days)
+
+    lean_end = lean_now + LEAN_GAIN_KG_PER_DAY * days_ahead
     # Fat allowed at the target, given the lean mass there will be by then.
     fat_target = target_body_fat / (1 - target_body_fat) * lean_end
     fat_change = fat_target - fat_now
 
-    stored = fat_change * FAT_KCAL_PER_KG + LEAN_GAIN_KG_PER_DAY * horizon_days * LEAN_KCAL_PER_KG
+    stored = fat_change * FAT_KCAL_PER_KG + LEAN_GAIN_KG_PER_DAY * days_ahead * LEAN_KCAL_PER_KG
     balance_per_day = stored / horizon_days
 
     recent = fed.tail(active_energy_window)
@@ -195,6 +212,9 @@ def target_plan(
     return {
         "scan_date": scan["measured_at"],
         "days_since_scan": days_since_scan,
+        "target_date": target_date,
+        "days_ahead": int(days_ahead),
+        "weighed_at": latest["measured_at"],
         "weight_now": float(latest["weight_kg"]),
         "fat_now": float(fat_now),
         "lean_now": float(lean_now),

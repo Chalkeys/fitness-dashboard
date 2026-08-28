@@ -636,7 +636,7 @@ def _target_section(imperial: bool) -> None:
         "目标体脂 %", min_value=5.0, max_value=35.0, step=0.5, key="target_body_fat"
     )
     horizon = right.number_input(
-        "期限（天）", min_value=7, max_value=365, step=7, key="target_horizon"
+        "期限（天）", min_value=7, max_value=365, step=1, key="target_horizon"
     )
 
     active_bias, intake_bias, _ = _bias_factors()
@@ -679,6 +679,7 @@ def _target_section(imperial: bool) -> None:
     )
 
     st.caption(
+        f"期限自今天起 {int(horizon)} 天，到 {plan['target_date']:%Y-%m-%d}。"
         f"以 {plan['scan_date']:%m-%d} 那次体脂实测为锚点（{plan['days_since_scan']} 天前），"
         f"瘦体重按每天 {energy.LEAN_GAIN_KG_PER_DAY * 1000:.0f} g 往后推——"
         f"长肌肉会抬高同一体脂率下允许的脂肪量，所以目标是移动的。"
