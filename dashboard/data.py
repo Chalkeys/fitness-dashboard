@@ -117,11 +117,19 @@ def selectable_exercises(
 ) -> list[str]:
     """Exercise names worth offering in a picker, most-recorded first.
 
-    A name drops out only when it is both stale and rare — nothing logged in
-    the last month and fewer than three sessions ever. Either test alone would
-    take too much: a staple sits out a month during a deload, and every
-    movement starts at one session. Together they describe something tried
-    once and dropped, which in a picker is only clutter to scroll past.
+    A name has to have a weight on it somewhere. The panel behind the picker
+    plots a top set against session volume and both are weight, so an
+    exercise carrying only reps, only a duration, or nothing at all draws an
+    empty chart — yard work has one set with no weight, reps, time or
+    distance recorded against it. This also takes the timed plank and the
+    decline crunch, which do progress, just in reps and seconds the panel has
+    no axis for.
+
+    Past that a name drops out only when it is both stale and rare — nothing
+    logged in the last month and fewer than three sessions ever. Either test
+    alone would take too much: a staple sits out a month during a deload, and
+    every movement starts at one session. Together they describe something
+    tried once and dropped, which in a picker is only clutter to scroll past.
 
     Sessions, not sets, decide rarity. One afternoon of an exercise is one
     data point however many sets it ran to, and counting sets would keep a
@@ -134,12 +142,15 @@ def selectable_exercises(
     """
     if sets.empty:
         return []
-    by_exercise = sets.groupby("exercise")
+    plottable = sets[sets["weight_kg"].notna()]
+    if plottable.empty:
+        return []
+    by_exercise = plottable.groupby("exercise")
     order = by_exercise.size().sort_values(ascending=False).index
     sessions = by_exercise["session_id"].nunique()
     last_seen = by_exercise["log_date"].max()
     cutoff = (today or pd.Timestamp.today()).normalize() - STALE_AFTER
-    kept = set(keep)
+    kept = set(keep) & set(order)
     return [
         name
         for name in order

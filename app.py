@@ -743,9 +743,11 @@ def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
 
     # A merged or renamed exercise can leave a stored name with no data behind
     # it; the picker would refuse a value that is not among its options.
-    recorded = set(sets["exercise"])
-    stored = [e for e in st.session_state.get("pinned_exercises", []) if e in recorded]
-    options = data.selectable_exercises(sets, keep=tuple(stored))
+    # `keep` is asked for the whole stored list, then the list is cut back to
+    # what survived: a name the picker will not offer cannot be its default.
+    saved = st.session_state.get("pinned_exercises", [])
+    options = data.selectable_exercises(sets, keep=tuple(saved))
+    stored = [e for e in saved if e in options]
 
     with st.expander("常驻动作与排版", expanded=not stored):
         picked = st.multiselect(
