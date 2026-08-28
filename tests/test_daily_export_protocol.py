@@ -141,14 +141,14 @@ def test_schema_accepts_the_active_energy_provenance_fields(tmp_path: Path):
     # fails the import with no message beyond a count. Keep these two pinned.
     source = PROJECT_ROOT / "exports" / "examples" / "2026-07-21.json"
     document = json.loads(source.read_text(encoding="utf-8"))
-    document["daily_log"]["active_energy_source"] = "xunji"
+    document["daily_log"]["active_energy_source"] = "estimated"
     document["workout"] = {
         "session_id": "example-xunji",
         "workout_name": "P1-腿",
         "workout_type": "p1_腿",
         "duration_minutes": 90.0,
         "active_energy_kcal": 260.0,
-        "xunji_strength_kcal": 572.0,
+        "apple_health_workout_kcal": 572.0,
         "notes": None,
         "exercises": [],
     }

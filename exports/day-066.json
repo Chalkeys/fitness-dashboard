@@ -262,7 +262,6 @@
     "workout_type": "p1_腿",
     "duration_minutes": 213.4,
     "active_energy_kcal": 260.0,
-    "xunji_strength_kcal": 812.0,
     "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories，力量消耗取课次 note 的 calorie 字段。",
     "exercises": [
       {
@@ -625,7 +624,8 @@
           }
         ]
       }
-    ]
+    ],
+    "apple_health_workout_kcal": 812.0
   },
   "review": [
     {

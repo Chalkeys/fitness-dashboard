@@ -4,14 +4,13 @@ from scripts.sync_xunji_recent import (
     REST_DAY_ACTIVE_KCAL,
     reported_calories,
     resolve_active_energy,
-    xunji_active_energy,
 )
 
 
-def _workout(strength=None, cardio=None, tonnage=0.0):
+def _workout(window=None, cardio=None, tonnage=0.0):
     sets = [{"weight": tonnage, "reps": 1}] if tonnage else []
     return {
-        "xunji_strength_kcal": strength,
+        "apple_health_workout_kcal": window,
         "active_energy_kcal": cardio,
         "exercises": [{"sets": sets}],
     }
@@ -32,23 +31,20 @@ def test_reported_calories_reads_the_note(note, expected):
     assert reported_calories(note) == expected
 
 
-def test_xunji_figure_adds_lifting_to_cardio():
-    assert xunji_active_energy(_workout(strength=572, cardio=260)) == 832.0
+def test_a_hand_entered_value_wins():
+    assert resolve_active_energy(_workout(cardio=260), 832) == (832.0, "measured")
 
 
-def test_xunji_figure_absent_without_a_note():
-    assert xunji_active_energy(_workout(cardio=260)) is None
-    assert xunji_active_energy(None) is None
-
-
-def test_hand_entered_value_wins_over_xunji():
-    workout = _workout(strength=812, cardio=260)
-    assert resolve_active_energy(workout, 832) == (832.0, "measured")
-
-
-def test_xunji_wins_over_the_volume_model():
-    workout = _workout(strength=572, cardio=260, tonnage=20000)
-    assert resolve_active_energy(workout, None) == (832.0, "xunji")
+def test_the_session_note_is_ignored_however_plausible_it_looks():
+    # It reads like Xunji's estimate of the session and is not: on 26 Aug it
+    # held 812 while the app showed 572 for the same lift, it is empty on days
+    # a model would have priced, and it changed by a kcal overnight. So it is
+    # Apple Health's workout window, which is what the hand entries exist to
+    # replace.
+    workout = _workout(window=761, cardio=0, tonnage=15000)
+    value, source = resolve_active_energy(workout, None)
+    assert source == "estimated"
+    assert value == pytest.approx(584.0 + 0.01 * 15000)
 
 
 def test_volume_model_fills_in_when_xunji_reports_nothing():
@@ -71,18 +67,3 @@ def test_a_cardio_only_day_adds_neat_to_the_measured_cardio():
 
 def test_a_logged_day_with_no_cardio_and_no_lifting_reads_as_rest():
     assert resolve_active_energy(_workout(), None) == (REST_DAY_ACTIVE_KCAL, "estimated")
-
-
-def test_a_figure_below_the_mechanical_floor_is_not_an_estimate():
-    # 27 Aug: 42 kcal against 12,551 kg moved, which would need 35% muscle
-    # efficiency. Fall through to the volume model rather than prefer it.
-    workout = _workout(strength=42, tonnage=12551)
-    assert xunji_active_energy(workout) is None
-    value, source = resolve_active_energy(workout, None)
-    assert source == "estimated"
-    assert value == pytest.approx(584.0 + 0.01 * 12551)
-
-
-def test_a_figure_above_the_floor_is_still_preferred():
-    workout = _workout(strength=572, cardio=260, tonnage=12551)
-    assert resolve_active_energy(workout, None) == (832.0, "xunji")

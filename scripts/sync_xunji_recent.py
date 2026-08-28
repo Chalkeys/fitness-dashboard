@@ -229,27 +229,6 @@ def _tonnage(workout: dict[str, Any] | None) -> float:
     return total
 
 
-# A session cannot cost less energy than the mechanical work it performed,
-# divided by how efficiently muscle turns energy into work. Taking half a
-# metre as the mean bar displacement and 25% efficiency — the generous end of
-# the 18-26% range measured in cycling, and lifting sits at or below it — puts
-# a hard floor under any figure claiming to price a session.
-#
-# The floor exists because Xunji's note is not always a session estimate. On
-# 27 Aug it read 42 kcal for a three-hour push day moving 12.5 tonnes, which
-# would need 35% efficiency: not merely low, but past what muscle can do. A
-# figure that fails this test is not a bad estimate to be preferred over the
-# volume model, it is not an estimate at all, so the model takes the day.
-BAR_DISPLACEMENT_M = 0.5
-MUSCLE_EFFICIENCY = 0.25
-JOULES_PER_KCAL = 4184.0
-
-
-def mechanical_floor_kcal(tonnage: float) -> float:
-    """The least a session moving this much weight could possibly have cost."""
-    return tonnage * BAR_DISPLACEMENT_M * 9.81 / JOULES_PER_KCAL / MUSCLE_EFFICIENCY
-
-
 def estimate_active_energy(workout: dict[str, Any] | None) -> float:
     """Stand-in for a day's active energy when no watch reading is to hand."""
     if not workout:
@@ -287,52 +266,25 @@ def reported_calories(note: str | None) -> float | None:
     return float(match.group(1)) if match else None
 
 
-def xunji_active_energy(workout: dict[str, Any] | None) -> float | None:
-    """Xunji's own view of a day: its lifting figure plus the cardio it synced.
-
-    Only the lifting sessions carry a note. The walk's calories arrive as set
-    metrics and are already summed into ``active_energy_kcal``, so reading a
-    note off the walk as well would count it twice.
-
-    A caveat on the note itself: up to and including 2026-08-26 it carried a
-    figure imported from Apple Health rather than Xunji's own model, which is
-    why 26 Aug reads 812 for a session three independent routes price at
-    190-240. The import is being turned off so the field starts carrying
-    Xunji's estimate, which has never been checked against the DEXA scans.
-    Treat it as unproven until it has been.
-    """
-    if not workout:
-        return None
-    strength = workout.get("xunji_strength_kcal")
-    if strength is None:
-        return None
-    if float(strength) < mechanical_floor_kcal(_tonnage(workout)):
-        return None
-    return round(float(strength) + float(workout.get("active_energy_kcal") or 0), 1)
-
-
 def resolve_active_energy(
     workout: dict[str, Any] | None,
     measured_active_energy: float | None = None,
 ) -> tuple[float, str]:
     """The day's activity figure and where it came from.
 
-    Three sources, in order of preference:
+    Two sources: the hand-entered value in ``active_energy.json``, and failing
+    that the volume model below. They are never added together — a
+    hand-entered value already covers the whole day, so an estimate on top
+    would bill the session twice.
 
-    1. the hand-entered value in ``active_energy.json`` — the user's own
-       reading, and the only source that exists for days before the API sync;
-    2. Xunji's own figure, its lifting note plus the cardio it synced;
-    3. the volume model below, when Xunji reports no figure.
-
-    The three are never added together. A hand-entered value already covers
-    the whole day and Xunji's already covers both halves of the training, so
-    putting an estimate on top of either would bill the session twice.
+    A third tier used to sit between them, reading the ``calorie:`` figure out
+    of Xunji's session note. That figure turned out not to be Xunji's own
+    estimate at all — see ``_workout`` — so preferring it meant preferring the
+    Apple Health number the hand entries exist to get away from. The note is
+    still recorded, just not used.
     """
     if measured_active_energy:
         return float(measured_active_energy), "measured"
-    reported = xunji_active_energy(workout)
-    if reported:
-        return reported, "xunji"
     return estimate_active_energy(workout), "estimated"
 
 
@@ -342,16 +294,9 @@ def _active_energy_note(
     """One sentence saying where the day's activity figure came from."""
     if source == "measured":
         return f"TDEE = BMR + 手工录入的 Active Energy {active_kcal:.0f} kcal。"
-    if source == "xunji":
-        strength = (workout or {}).get("xunji_strength_kcal") or 0
-        cardio = (workout or {}).get("active_energy_kcal") or 0
-        return (
-            f"TDEE = BMR + 训记消耗 {active_kcal:.0f} kcal"
-            f"（力量 {strength:.0f} + 有氧 {cardio:.0f}）；未手工录入实测值。"
-        )
     return (
         f"TDEE 的活动部分按训练容量估算 {active_kcal:.0f} kcal"
-        "（584 + 0.01×容量，由 58 天全天实测拟合）；训记与手工录入均无当日数值。"
+        "（584 + 0.01×容量，由 58 天全天实测拟合）；未手工录入实测值。"
     )
 
 
@@ -413,7 +358,7 @@ def _workout(trains: list[dict[str, Any]], day_number: int) -> dict[str, Any] | 
     titles = [item.get("title") for item in strength if item.get("title")]
     exercises: list[dict[str, Any]] = []
     active_energy = 0.0
-    strength_kcal: float | None = None
+    window_kcal: float | None = None
     spans: list[int] = []
     for train in trains:
         if train.get("start") is not None and train.get("end") is not None:
@@ -421,7 +366,7 @@ def _workout(trains: list[dict[str, Any]], day_number: int) -> dict[str, Any] | 
         if train.get("title") != "步行":
             reported = reported_calories(train.get("note"))
             if reported is not None:
-                strength_kcal = (strength_kcal or 0.0) + reported
+                window_kcal = (window_kcal or 0.0) + reported
         for movement in train.get("movements", []):
             name = movement.get("name") or "Unknown movement"
             if name == "Walking":
@@ -462,8 +407,24 @@ def _workout(trains: list[dict[str, Any]], day_number: int) -> dict[str, Any] | 
         "workout_type": (titles[0].lower().replace("-", "_") if titles else None),
         "duration_minutes": duration,
         "active_energy_kcal": round(active_energy, 1) if active_energy else None,
-        "xunji_strength_kcal": round(strength_kcal, 1) if strength_kcal else None,
-        "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories，力量消耗取课次 note 的 calorie 字段。",
+        # Recorded for reference, never used for the day's activity figure.
+        # The note reads "calorie:N" and looks like Xunji's own estimate of
+        # the session, but three things say it is Apple Health's active
+        # energy over the workout window, relayed:
+        #
+        #   - it is empty on 20, 24, 25 and 28 Aug, days with full set data
+        #     that any model would have priced; a sync fills in sporadically,
+        #     a model does not;
+        #   - on 26 Aug it read 812 while the app showed 572 for that same
+        #     session, so the app's number and this one are not the same
+        #     quantity;
+        #   - 27 Aug read 42 one day and 43 the next, which is a re-read of
+        #     something external rather than a model's output.
+        #
+        # Xunji's own figure appears only in the app, so the hand entries in
+        # active_energy.json remain the only way to get at it.
+        "apple_health_workout_kcal": round(window_kcal, 1) if window_kcal else None,
+        "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
         "exercises": exercises,
     }
 
