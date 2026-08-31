@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-070",
-  "history_version": 3,
-  "exported_at": "2026-08-31T04:54:10.149802Z",
+  "history_version": 4,
+  "exported_at": "2026-08-31T04:56:19.885698Z",
   "date": "2026-08-30",
   "day_number": 70,
   "provenance": {
@@ -18,17 +18,17 @@
     "is_training_day": true,
     "workout_type": "传统力量训练",
     "calories_in": 1712.8333333333335,
-    "tdee": 2630.0,
-    "calorie_balance": -917.17,
+    "tdee": 2570.0,
+    "calorie_balance": -857.17,
     "protein_g": 136.59809523809525,
     "total_carbs_g": 181.9195238095238,
     "fiber_g": 0,
     "net_carbs_g": 181.9195238095238,
     "fat_g": 47.97142857142857,
     "steps": null,
-    "active_energy_kcal": 815.0,
-    "active_energy_source": "estimated",
-    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1814（Katch-McArdle，按当日体重与最近体脂）。TDEE 的活动部分按训练容量估算 815 kcal（584 + 0.01×容量，由 58 天全天实测拟合）；未手工录入实测值。"
+    "active_energy_kcal": 759.0,
+    "active_energy_source": "measured",
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1814（Katch-McArdle，按当日体重与最近体脂）。TDEE = BMR + 手工录入的 Active Energy 759 kcal。"
   },
   "nutrition": [
     {
