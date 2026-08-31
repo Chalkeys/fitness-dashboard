@@ -46,16 +46,23 @@ def _stored_settings() -> dict:
     return st.session_state["_settings_file"]
 
 
-def _init_settings() -> None:
-    """Seed widget state from the settings file, on every rerun.
+# Everything else in the settings file is owned by a widget, which is handed
+# its stored value directly. Seeding these through session_state instead was
+# what broke them: the value reached Python intact — the slider returned -5
+# with -5 in session_state — but the widget went to the client carrying no
+# value of its own, and on a page switch the client drew it at its minimum.
+# Nothing was wrong until the next click, when the client sent that minimum
+# back as a deliberate choice and it was written to the file. The unit toggle,
+# the one control that always passed `default=`, was also the one that never
+# reset.
+_SEEDED_SETTINGS = ("pinned_exercises",)
 
-    Not once per session: Streamlit discards the state of widgets the current
-    page does not render, so leaving the nutrition page and coming back found
-    its sliders with nothing to adopt and let them fall back to their minimum
-    — which the save below then wrote down as a deliberate choice.
-    """
-    for key, value in _stored_settings().items():
-        st.session_state.setdefault(key, value)
+
+def _init_settings() -> None:
+    """Seed the settings no widget carries for itself."""
+    stored = _stored_settings()
+    for key in _SEEDED_SETTINGS:
+        st.session_state.setdefault(key, stored[key])
 
 
 def _persist_settings() -> None:
@@ -512,6 +519,7 @@ def _mode_toggle(key: str) -> str:
     choice = st.segmented_control(
         "数据口径",
         list(settings.MODES),
+        default=_stored_settings()[key],
         key=key,
         label_visibility="collapsed",
     )
@@ -524,10 +532,11 @@ def _bias_factors() -> tuple[float, float, float]:
     Widget state is committed before the rerun, so charts above the controls
     still read the value the user just picked.
     """
+    stored = _stored_settings()
     return (
-        st.session_state.get("bias_active", settings.DEFAULTS["bias_active"]) / 100,
-        st.session_state.get("bias_intake", settings.DEFAULTS["bias_intake"]) / 100,
-        float(st.session_state.get("bias_bmr", settings.DEFAULTS["bias_bmr"])),
+        st.session_state.get("bias_active", stored["bias_active"]) / 100,
+        st.session_state.get("bias_intake", stored["bias_intake"]) / 100,
+        float(st.session_state.get("bias_bmr", stored["bias_bmr"])),
     )
 
 
@@ -538,8 +547,13 @@ def _reset_settings() -> None:
     values it still holds, which can be stale; this is the way back without
     touching the settings file by hand.
     """
-    for key, value in settings.DEFAULTS.items():
-        st.session_state[key] = value
+    fresh = dict(settings.DEFAULTS)
+    settings.save(fresh)
+    st.session_state["_settings_file"] = fresh
+    # Dropping the keys is what makes it stick: a widget holding its own state
+    # would otherwise outrank the value it is handed on the next run.
+    for key in settings.DEFAULTS:
+        st.session_state.pop(key, None)
 
 
 def _corrected_balance_section(windowed: pd.DataFrame, imperial: bool) -> None:
@@ -552,17 +566,21 @@ def _corrected_balance_section(windowed: pd.DataFrame, imperial: bool) -> None:
     )
 
     left, mid, right = st.columns([2, 2, 1])
+    stored = _stored_settings()
     active_bias = left.slider(
-        "活动消耗偏差", -80, 20, step=1, format="%d%%", key="bias_active",
+        "活动消耗偏差", -80, 20, value=stored["bias_active"],
+        step=1, format="%d%%", key="bias_active",
         help="负值表示实际活动消耗低于记录值（手环高估了活动）。基础代谢不受影响。",
     ) / 100
     intake_bias = mid.slider(
-        "摄入偏差", -10, 30, step=1, format="%d%%", key="bias_intake",
+        "摄入偏差", -10, 30, value=stored["bias_intake"],
+        step=1, format="%d%%", key="bias_intake",
         help="正值表示实际摄入高于记录值（记录低估了摄入）。",
     ) / 100
     bmr = float(
         right.number_input(
-            "基础代谢", min_value=1000, max_value=3000, step=10, key="bias_bmr",
+            "基础代谢", min_value=1000, max_value=3000, value=stored["bias_bmr"],
+            step=10, key="bias_bmr",
             help="记录 TDEE 所基于的静息代谢，用于把活动消耗拆出来。",
         )
     )
@@ -632,11 +650,14 @@ def _target_section(imperial: bool) -> None:
     st.subheader("目标反推")
 
     left, right, _ = st.columns([1, 1, 2])
+    stored = _stored_settings()
     target = left.number_input(
-        "目标体脂 %", min_value=5.0, max_value=35.0, step=0.5, key="target_body_fat"
+        "目标体脂 %", min_value=5.0, max_value=35.0, value=float(stored["target_body_fat"]),
+        step=0.5, key="target_body_fat",
     )
     horizon = right.number_input(
-        "期限（天）", min_value=7, max_value=365, step=1, key="target_horizon"
+        "期限（天）", min_value=7, max_value=365, value=int(stored["target_horizon"]),
+        step=1, key="target_horizon",
     )
 
     active_bias, intake_bias, _ = _bias_factors()
@@ -762,6 +783,7 @@ def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
         st.segmented_control(
             "每行显示",
             [1, 2, 3],
+            default=_stored_settings()["pinned_columns"],
             key="pinned_columns",
             format_func=lambda n: f"每行 {n} 个",
         )
