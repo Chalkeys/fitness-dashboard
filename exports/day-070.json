@@ -1,0 +1,190 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-070",
+  "history_version": 3,
+  "exported_at": "2026-08-31T04:54:10.149802Z",
+  "date": "2026-08-30",
+  "day_number": 70,
+  "provenance": {
+    "source": "xunji_app",
+    "confidence": "high",
+    "notes": "数据来自训记 Open API；膳食纤维按 0 g，净碳水按总碳水；TDEE 为估算值。"
+  },
+  "body": {
+    "weight_kg": 80.65,
+    "notes": "训记 Open API 身体数据。"
+  },
+  "daily_log": {
+    "is_training_day": true,
+    "workout_type": "传统力量训练",
+    "calories_in": 1712.8333333333335,
+    "tdee": 2630.0,
+    "calorie_balance": -917.17,
+    "protein_g": 136.59809523809525,
+    "total_carbs_g": 181.9195238095238,
+    "fiber_g": 0,
+    "net_carbs_g": 181.9195238095238,
+    "fat_g": 47.97142857142857,
+    "steps": null,
+    "active_energy_kcal": 815.0,
+    "active_energy_source": "estimated",
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1814（Katch-McArdle，按当日体重与最近体脂）。TDEE 的活动部分按训练容量估算 815 kcal（584 + 0.01×容量，由 58 天全天实测拟合）；未手工录入实测值。"
+  },
+  "nutrition": [
+    {
+      "entry_id": "D070_XJ001",
+      "meal_type": "morning",
+      "food_name": "Golden Island Korean Barbecue Snack Bites",
+      "brand": null,
+      "amount": 43.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 283.3333333333333,
+      "protein_g": 23.80952380952381,
+      "total_carbs_g": 30.952380952380953,
+      "fiber_g": 0,
+      "net_carbs_g": 30.952380952380953,
+      "fat_g": 7.142857142857142,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D070_XJ002",
+      "meal_type": "morning",
+      "food_name": "OIKOS Triple Zero",
+      "brand": null,
+      "amount": 150.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 58.666666666666664,
+      "protein_g": 10.0,
+      "total_carbs_g": 4.666666666666666,
+      "fiber_g": 0,
+      "net_carbs_g": 4.666666666666666,
+      "fat_g": 0.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D070_XJ003",
+      "meal_type": "morning",
+      "food_name": "Muscle Milk Pro33g",
+      "brand": null,
+      "amount": 325.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 58.307692307692314,
+      "protein_g": 10.153846153846157,
+      "total_carbs_g": 3.384615384615385,
+      "fiber_g": 0,
+      "net_carbs_g": 3.384615384615385,
+      "fat_g": 0.4615384615384616,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D070_XJ004",
+      "meal_type": "noon",
+      "food_name": "pho",
+      "brand": null,
+      "amount": 100.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 517.0,
+      "protein_g": 45.0,
+      "total_carbs_g": 55.0,
+      "fiber_g": 0,
+      "net_carbs_g": 55.0,
+      "fat_g": 13.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D070_XJ005",
+      "meal_type": "night",
+      "food_name": "vermicelli bowl",
+      "brand": null,
+      "amount": 150.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 400.0,
+      "protein_g": 20.0,
+      "total_carbs_g": 35.0,
+      "fiber_g": 0,
+      "net_carbs_g": 35.0,
+      "fat_g": 20.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D070_XJ006",
+      "meal_type": "night",
+      "food_name": "kirkland 椰子水【椰子水】",
+      "brand": null,
+      "amount": 355.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 14.0,
+      "protein_g": 0.0,
+      "total_carbs_g": 3.4,
+      "fiber_g": 0,
+      "net_carbs_g": 3.4,
+      "fat_g": 0.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D070_XJ007",
+      "meal_type": "night",
+      "food_name": "大米",
+      "brand": null,
+      "amount": 40.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 367.0,
+      "protein_g": 8.4,
+      "total_carbs_g": 77.6,
+      "fiber_g": 0,
+      "net_carbs_g": 77.6,
+      "fat_g": 1.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    }
+  ],
+  "workout": {
+    "session_id": "day-070-xunji",
+    "workout_name": "传统力量训练 + 功能性力量训练",
+    "workout_type": "传统力量训练",
+    "duration_minutes": 115.9,
+    "active_energy_kcal": 365.0,
+    "apple_health_workout_kcal": null,
+    "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
+    "exercises": [
+      {
+        "exercise_name": "TraditionalStrengthTraining",
+        "category": "other",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "review_status": "approved",
+      "note": "用户确认纤维按 0 g、净碳水等于总碳水，并接受 TDEE 估算。",
+      "field": "daily_log"
+    }
+  ]
+}

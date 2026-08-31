@@ -67,3 +67,39 @@ def test_a_cardio_only_day_adds_neat_to_the_measured_cardio():
 
 def test_a_logged_day_with_no_cardio_and_no_lifting_reads_as_rest():
     assert resolve_active_energy(_workout(), None) == (REST_DAY_ACTIVE_KCAL, "estimated")
+
+
+def _train(title, movements, note="", start=0, end=60000):
+    return {"title": title, "note": note, "start": start, "end": end, "movements": movements}
+
+
+def _movement(name, count=1):
+    return {"name": name, "sets": [{"weight": "", "reps": "", "unit": ""} for _ in range(count)]}
+
+
+def test_a_movement_in_two_sessions_becomes_one_entry():
+    # 30 Aug: two Apple Health sessions each carrying one
+    # TraditionalStrengthTraining set. Kept apart they repeat set_number 1 for
+    # the same exercise and break the import's uniqueness key.
+    from scripts.sync_xunji_recent import _workout
+
+    workout = _workout(
+        [
+            _train("传统力量训练", [_movement("TraditionalStrengthTraining")]),
+            _train("功能性力量训练", [_movement("TraditionalStrengthTraining")]),
+        ],
+        70,
+    )
+    names = [e["exercise_name"] for e in workout["exercises"]]
+    assert names == ["TraditionalStrengthTraining"]
+    assert [s["set_number"] for s in workout["exercises"][0]["sets"]] == [1, 2]
+
+
+def test_distinct_movements_stay_apart_and_keep_their_order():
+    from scripts.sync_xunji_recent import _workout
+
+    workout = _workout(
+        [_train("P1-腿", [_movement("杠铃深蹲", 3), _movement("坐姿腿弯举", 2)])], 70
+    )
+    assert [e["exercise_name"] for e in workout["exercises"]] == ["杠铃深蹲", "坐姿腿弯举"]
+    assert [len(e["sets"]) for e in workout["exercises"]] == [3, 2]

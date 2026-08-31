@@ -356,7 +356,12 @@ def _workout(trains: list[dict[str, Any]], day_number: int) -> dict[str, Any] | 
         return None
     strength = [item for item in trains if item.get("title") != "步行"]
     titles = [item.get("title") for item in strength if item.get("title")]
-    exercises: list[dict[str, Any]] = []
+    # Keyed by name so a movement appearing in two of the day's sessions lands
+    # in one entry with its sets numbered straight through. Two Apple Health
+    # sessions on 30 Aug each carried a "TraditionalStrengthTraining" movement
+    # holding a single set, and as separate entries they collided on the
+    # (session, exercise, set_number) key and took the whole day's import down.
+    exercises: dict[str, dict[str, Any]] = {}
     active_energy = 0.0
     window_kcal: float | None = None
     spans: list[int] = []
@@ -374,28 +379,22 @@ def _workout(trains: list[dict[str, Any]], day_number: int) -> dict[str, Any] | 
                     metrics = item.get("metrics") or {}
                     active_energy += _number(metrics.get("calories")) or 0
                 continue
-            sets = []
-            for number, item in enumerate(movement.get("sets", []), 1):
-                notes = None if item.get("done", True) else "未完成组"
-                sets.append(
+            entry = exercises.setdefault(
+                name,
+                {"exercise_name": name, "category": "other", "muscle_group": None, "sets": []},
+            )
+            for item in movement.get("sets", []):
+                entry["sets"].append(
                     {
-                        "set_number": number,
+                        "set_number": len(entry["sets"]) + 1,
                         "weight": _kg(item.get("weight"), item.get("unit")),
                         "reps": _int(item.get("reps")),
                         "rir": _number(item.get("rpe")),
                         "distance": None,
                         "duration_seconds": _int(item.get("duration_s")),
-                        "notes": notes,
+                        "notes": None if item.get("done", True) else "未完成组",
                     }
                 )
-            exercises.append(
-                {
-                    "exercise_name": name,
-                    "category": "other",
-                    "muscle_group": None,
-                    "sets": sets,
-                }
-            )
     # Each session's own span, summed. Measuring from the first start to the
     # last end would bill the gap between lifting and a later walk as training
     # time, and charge all of it to the lifting session.
@@ -425,7 +424,7 @@ def _workout(trains: list[dict[str, Any]], day_number: int) -> dict[str, Any] | 
         # active_energy.json remain the only way to get at it.
         "apple_health_workout_kcal": round(window_kcal, 1) if window_kcal else None,
         "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
-        "exercises": exercises,
+        "exercises": list(exercises.values()),
     }
 
 
