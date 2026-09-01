@@ -279,6 +279,9 @@ def calorie_balance_option(
             {
                 "name": "热量差",
                 "type": "bar",
+                # Bars colour themselves by sign; without this the legend
+                # swatch would take a series colour the chart never uses.
+                "color": DIVERGING_NEG,
                 "data": _balance_bars(df["balance"]),
                 "barMaxWidth": 18,
             },
@@ -321,6 +324,9 @@ def corrected_balance_option(
             {
                 "name": "纠偏后热量差",
                 "type": "bar",
+                # Bars colour themselves by sign; without this the legend
+                # swatch would take a series colour the chart never uses.
+                "color": DIVERGING_NEG,
                 "data": _balance_bars(df["corrected"]),
                 "barMaxWidth": 18,
             },
