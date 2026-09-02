@@ -162,6 +162,9 @@ def annotate(option: dict, notes: dict[str, dict]) -> dict:
         lines.append(
             {
                 "xAxis": at,
+                # The day the note is actually about, which is not always the
+                # day it is drawn on — a click has to land on the real one.
+                "name": day,
                 "label": {
                     "show": bool(pinned),
                     "formatter": note.get("label") or note.get("text", "")[:MAX_LABEL],

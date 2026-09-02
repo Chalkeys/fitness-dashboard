@@ -129,7 +129,7 @@ def _page_controls(
             "备注标注",
             value=notes_default,
             key=f"notes_on_{page_key}",
-            help="在图上标出训练备注：时间节点是实线加标签，普通备注是淡虚线，悬停显示正文。",
+            help="在图上标出训练备注：时间节点是实线加标签，普通备注是淡虚线。悬停看正文，点一下跳到那天。",
         )
     return imperial, show_notes
 
@@ -237,12 +237,11 @@ def page_overview() -> None:
             st.switch_page(DETAIL_PAGE)
 
     st.subheader("体重趋势")
-    st_echarts(
-        _marked(ec.weight_trend_option(
-            data.filter_by_range(body, "measured_at", days), imperial
-        ), show_notes),
+    _note_chart(
+        ec.weight_trend_option(data.filter_by_range(body, "measured_at", days), imperial),
         height="360px",
         key="overview_weight",
+        show_notes=show_notes,
     )
 
     st.subheader("每日热量差")
@@ -255,12 +254,13 @@ def page_overview() -> None:
             f"已按活动消耗 {active_bias:+.0%}、摄入 {intake_bias:+.0%} 纠偏"
             f"（基础代谢 {bmr:.0f} kcal 不动），系数在「营养」页调整。"
         )
-    st_echarts(
-        _marked(ec.calorie_balance_option(
+    _note_chart(
+        ec.calorie_balance_option(
             data.filter_by_range(daily, "log_date", days), active_bias, intake_bias, bmr
-        ), show_notes),
+        ),
         height="340px",
         key="overview_balance",
+        show_notes=show_notes,
     )
 
     if not sessions.empty:
@@ -619,18 +619,20 @@ def page_body() -> None:
     windowed = data.filter_by_range(body, "measured_at", days)
 
     st.subheader("体重")
-    st_echarts(
-        _marked(ec.weight_trend_option(windowed, imperial), show_notes),
+    _note_chart(
+        ec.weight_trend_option(windowed, imperial),
         height="360px",
         key="body_weight",
+        show_notes=show_notes,
     )
 
     if windowed["waist_cm"].notna().any():
         st.subheader("腰围")
-        st_echarts(
-            _marked(ec.waist_trend_option(windowed, imperial), show_notes),
+        _note_chart(
+            ec.waist_trend_option(windowed, imperial),
             height="320px",
             key="body_waist",
+            show_notes=show_notes,
         )
 
     with st.expander("测量记录表"):
@@ -681,6 +683,35 @@ def _notes() -> dict[str, dict]:
 def _marked(option: dict, show: bool = True) -> dict:
     """A chart with the day's notes drawn on it, when the page asks for them."""
     return notes.annotate(option, _notes()) if show else option
+
+
+# Only mark clicks are reported. Everything else on these charts — a point, a
+# bar, the legend — already means something, and answering those with a page
+# change would make the whole plot a trapdoor.
+_MARK_CLICK = (
+    "function (params) {"
+    "  if (params.componentType !== 'markLine') { return null; }"
+    "  return [params.name, Date.now()];"
+    "}"
+)
+
+
+def _note_chart(option: dict, *, height: str, key: str, show_notes: bool = True):
+    """A chart whose marks take you to the day they were written about."""
+    result = st_echarts(
+        _marked(option, show_notes),
+        events={"click": _MARK_CLICK},
+        height=height,
+        key=key,
+    )
+    # A remount replays the last payload; the timestamp makes real clicks
+    # distinct, the same way the calendar's does.
+    clicked = (result or {}).get("chart_event")
+    seen = f"_mark_last_{key}"
+    if clicked and clicked != st.session_state.get(seen):
+        st.session_state[seen] = clicked
+        st.session_state["detail_date"] = clicked[0]
+        st.switch_page(DETAIL_PAGE)
 
 
 def _bias_factors() -> tuple[float, float, float]:
@@ -757,10 +788,11 @@ def _corrected_balance_section(windowed: pd.DataFrame, imperial: bool) -> None:
         f"纠偏后为 {active.mean() * (1 + active_bias):.0f} kcal。"
     )
 
-    st_echarts(
-        _marked(ec.corrected_balance_option(windowed, active_bias, intake_bias, bmr), show_notes),
+    _note_chart(
+        ec.corrected_balance_option(windowed, active_bias, intake_bias, bmr),
         height="360px",
         key="nut_corrected",
+        show_notes=show_notes,
     )
 
     cal = energy.calibration(
@@ -892,10 +924,11 @@ def page_nutrition() -> None:
             f"已按活动消耗 {active_bias:+.0%}、摄入 {intake_bias:+.0%} 缩放"
             f"（基础代谢 {bmr:.0f} kcal 不动），系数在下方「热量差纠偏」中调整。"
         )
-    st_echarts(
-        _marked(ec.intake_vs_tdee_option(windowed, active_bias, intake_bias, bmr), show_notes),
+    _note_chart(
+        ec.intake_vs_tdee_option(windowed, active_bias, intake_bias, bmr),
         height="360px",
         key="nut_intake",
+        show_notes=show_notes,
     )
 
     _corrected_balance_section(windowed, imperial)
@@ -967,10 +1000,11 @@ def _pinned_progression(sets: pd.DataFrame, imperial: bool, show_notes: bool = F
         row = pinned[row_start : row_start + columns_per_row]
         for column, exercise in zip(st.columns(columns_per_row), row):
             with column:
-                st_echarts(
-                    _marked(ec.exercise_panel_option(sets, exercise, imperial), show_notes),
+                _note_chart(
+                    ec.exercise_panel_option(sets, exercise, imperial),
                     height=height,
                     key=f"tr_pin_{exercise}",
+                    show_notes=show_notes,
                 )
 
     # Anything not pinned is still one dropdown away.
@@ -981,10 +1015,11 @@ def _pinned_progression(sets: pd.DataFrame, imperial: bool, show_notes: bool = F
     picked = st.selectbox(
         "其他动作", others, key="tr_other_exercise", label_visibility="collapsed"
     )
-    st_echarts(
-        _marked(ec.exercise_panel_option(sets, picked, imperial), show_notes),
+    _note_chart(
+        ec.exercise_panel_option(sets, picked, imperial),
         height="300px",
         key="tr_other_panel",
+        show_notes=show_notes,
     )
 
 
