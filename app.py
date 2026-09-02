@@ -744,7 +744,9 @@ def _reset_settings() -> None:
         st.session_state.pop(key, None)
 
 
-def _corrected_balance_section(windowed: pd.DataFrame, imperial: bool) -> None:
+def _corrected_balance_section(
+    windowed: pd.DataFrame, imperial: bool, show_notes: bool = False
+) -> None:
     """Bias-corrected calorie balance with user-set correction factors."""
     st.subheader("热量差纠偏")
     st.caption(
@@ -931,7 +933,7 @@ def page_nutrition() -> None:
         show_notes=show_notes,
     )
 
-    _corrected_balance_section(windowed, imperial)
+    _corrected_balance_section(windowed, imperial, show_notes)
 
     st.subheader("三大营养素")
     st_echarts(ec.macro_stack_option(windowed), height="360px", key="nut_macros")

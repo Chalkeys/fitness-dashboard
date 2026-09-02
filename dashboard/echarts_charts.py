@@ -10,7 +10,6 @@ import pandas as pd
 from streamlit_echarts import JsCode
 
 from dashboard import energy
-from dashboard.notes import annotate  # noqa: F401  (re-exported for pages)
 from dashboard.theme import (
     TEAL,
     BASELINE,

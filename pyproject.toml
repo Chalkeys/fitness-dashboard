@@ -13,6 +13,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "jsonschema>=4.25,<5.0",
+    "pyflakes>=3.4.0",
     "pytest>=8.4,<9.0",
 ]
 
