@@ -24,6 +24,13 @@ NOTES_PATH = Path(
 # A pinned note draws a labelled line across the charts, so its label has to
 # stay short enough to sit above one without covering its neighbour.
 MAX_LABEL = 12
+
+# How much of the chart a mark is allowed to take. A milestone has to be
+# findable without hunting, but it is annotation over someone else's data and
+# a solid line at full strength cuts the series in two where it crosses.
+PINNED_OPACITY = 0.42
+ORDINARY_OPACITY = 0.28
+LABEL_OPACITY = 0.75
 MAX_TEXT = 2000
 
 _README = [
@@ -163,6 +170,7 @@ def annotate(option: dict, notes: dict[str, dict]) -> dict:
                     # for a vertical one means reading it sideways.
                     "rotate": 0,
                     "color": INK_SECONDARY,
+                    "opacity": LABEL_OPACITY,
                     "fontSize": 11,
                     "padding": [0, 4, 5, 4],
                 },
@@ -170,7 +178,7 @@ def annotate(option: dict, notes: dict[str, dict]) -> dict:
                     "color": colour,
                     "width": 2 if pinned else 1,
                     "type": "solid" if pinned else "dotted",
-                    "opacity": 0.85 if pinned else 0.6,
+                    "opacity": PINNED_OPACITY if pinned else ORDINARY_OPACITY,
                 },
                 "emphasis": {
                     "label": {

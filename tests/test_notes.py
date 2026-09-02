@@ -120,3 +120,14 @@ def test_labels_are_told_not_to_run_along_the_line():
     )
     (line,) = option["series"][0]["markLine"]["data"]
     assert line["label"]["rotate"] == 0
+
+
+def test_a_milestone_line_stays_out_of_the_way():
+    # It annotates someone else's data; at full strength it cuts the series.
+    option = notes.annotate(
+        _option(["2026-09-01"]),
+        {"2026-09-01": {"text": "x", "pinned": True, "label": "x"}},
+    )
+    (line,) = option["series"][0]["markLine"]["data"]
+    assert line["lineStyle"]["opacity"] == notes.PINNED_OPACITY
+    assert notes.ORDINARY_OPACITY < notes.PINNED_OPACITY < 0.6

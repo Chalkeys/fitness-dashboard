@@ -252,6 +252,77 @@ def page_overview() -> None:
         )
 
 
+def _note_manager() -> None:
+    """Every note in one table: add a row, edit a cell, delete a row.
+
+    The per-day box below writes the day you are looking at; this is for the
+    rest — fixing a label, moving a milestone that was recorded a day late,
+    clearing out something that stopped mattering. Both write the same file.
+    """
+    stored = _notes()
+    rows = [
+        {
+            "日期": pd.Timestamp(day).date(),
+            "备注": note["text"],
+            "时间节点": bool(note["pinned"]),
+            "标签": note["label"],
+        }
+        for day, note in sorted(stored.items())
+    ]
+    frame = pd.DataFrame(rows, columns=["日期", "备注", "时间节点", "标签"])
+
+    with st.expander(f"管理所有备注（{len(rows)}）"):
+        edited = st.data_editor(
+            frame,
+            key="note_table",
+            num_rows="dynamic",
+            hide_index=True,
+            width="stretch",
+            column_config={
+                "日期": st.column_config.DateColumn("日期", format="YYYY-MM-DD", required=True),
+                "备注": st.column_config.TextColumn("备注", width="large", required=True),
+                "时间节点": st.column_config.CheckboxColumn(
+                    "时间节点", help="勾上画带标签的实线，不勾只留一条淡线"
+                ),
+                "标签": st.column_config.TextColumn(
+                    "标签", help="节点线上的短标签，留空则截取正文开头", max_chars=notes.MAX_LABEL
+                ),
+            },
+        )
+        st.caption("直接改单元格，行尾的 + 增一行，选中行按 Delete 删除。改完点保存。")
+        if st.button("保存表格", key="note_table_save"):
+            _save_note_table(edited)
+
+
+def _save_note_table(edited: pd.DataFrame) -> None:
+    """Write the edited table back, refusing a set that would lose a note."""
+    rebuilt: dict[str, dict] = {}
+    clashes = []
+    for _, row in edited.iterrows():
+        day, text = row["日期"], str(row["备注"] or "").strip()
+        if pd.isna(day) or not text:
+            continue
+        key = pd.Timestamp(day).strftime("%Y-%m-%d")
+        # One note per day is the whole shape of the store; two rows on one
+        # date would silently drop whichever came first.
+        if key in rebuilt:
+            clashes.append(key)
+        rebuilt[key] = {
+            "text": text,
+            "pinned": bool(row["时间节点"]),
+            "label": str(row["标签"] or "").strip(),
+        }
+    if clashes:
+        st.error(f"同一天出现了两行：{'、'.join(sorted(set(clashes)))}。每天只能有一条备注。")
+        return
+    if notes.save(rebuilt):
+        st.session_state.pop("_notes_cache", None)
+        st.toast(f"已保存 {len(rebuilt)} 条备注")
+        st.rerun()
+    else:
+        st.error(f"写不进 {notes.NOTES_PATH}，没有保存。")
+
+
 def _note_editor(day: str) -> None:
     """Write the day's note.
 
@@ -358,6 +429,7 @@ def page_day_detail() -> None:
         st.info(log["notes"])
 
     _note_editor(picked)
+    _note_manager()
 
     st.subheader("训练详情")
     sessions = data.load_workout_sessions()
