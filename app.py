@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 from streamlit_echarts import st_echarts
 
-from dashboard import body_figure, data, echarts_charts as ec, energy, settings
+from dashboard import body_figure, data, echarts_charts as ec, energy, notes, settings
 from dashboard.format import summarize_sets
 from dashboard.sortable import sortable_order
 from dashboard.theme import CM_TO_IN, G_TO_OZ, KG_TO_LB, classify_training
@@ -215,9 +215,9 @@ def page_overview() -> None:
 
     st.subheader("体重趋势")
     st_echarts(
-        ec.weight_trend_option(
+        _marked(ec.weight_trend_option(
             data.filter_by_range(body, "measured_at", days), imperial
-        ),
+        )),
         height="360px",
         key="overview_weight",
     )
@@ -233,9 +233,9 @@ def page_overview() -> None:
             f"（基础代谢 {bmr:.0f} kcal 不动），系数在「营养」页调整。"
         )
     st_echarts(
-        ec.calorie_balance_option(
+        _marked(ec.calorie_balance_option(
             data.filter_by_range(daily, "log_date", days), active_bias, intake_bias, bmr
-        ),
+        )),
         height="340px",
         key="overview_balance",
     )
@@ -250,6 +250,50 @@ def page_overview() -> None:
                 else ""
             )
         )
+
+
+def _note_editor(day: str) -> None:
+    """Write the day's note.
+
+    Kept next to the day it belongs to rather than on a page of its own: a
+    note is written while looking at the session, and a form somewhere else
+    would be one more place to remember to go.
+    """
+    stored = _notes().get(day, {})
+    open_by_default = bool(stored)
+    with st.expander("训练备注" + ("　·　已记" if stored else ""), expanded=open_by_default):
+        text = st.text_area(
+            "备注",
+            value=stored.get("text", ""),
+            key=f"note_text_{day}",
+            height=90,
+            placeholder="今天的感受、调整、伤病、计划变动……",
+            label_visibility="collapsed",
+        )
+        left, right = st.columns([1, 2])
+        pinned = left.checkbox(
+            "标为时间节点",
+            value=bool(stored.get("pinned")),
+            key=f"note_pin_{day}",
+            help="节点会在所有图上画一条带标签的竖线；普通备注只留一条淡线，悬停才显示。",
+        )
+        label = right.text_input(
+            "线上的标签",
+            value=stored.get("label", "") if stored.get("pinned") else "",
+            key=f"note_label_{day}",
+            max_chars=notes.MAX_LABEL,
+            placeholder="留空则截取正文开头",
+            disabled=not pinned,
+        )
+        if st.button("保存备注", key=f"note_save_{day}"):
+            if notes.put(day, text, pinned, label):
+                # The cache is what every chart reads; drop it so the marks
+                # move on this rerun rather than the next one.
+                st.session_state.pop("_notes_cache", None)
+                st.toast("备注已保存" if text.strip() else "备注已删除")
+                st.rerun()
+            else:
+                st.error(f"写不进 {notes.NOTES_PATH}，备注没有保存。")
 
 
 def page_day_detail() -> None:
@@ -312,6 +356,8 @@ def page_day_detail() -> None:
 
     if isinstance(log["notes"], str) and log["notes"].strip():
         st.info(log["notes"])
+
+    _note_editor(picked)
 
     st.subheader("训练详情")
     sessions = data.load_workout_sessions()
@@ -479,13 +525,17 @@ def page_body() -> None:
 
     st.subheader("体重")
     st_echarts(
-        ec.weight_trend_option(windowed, imperial), height="360px", key="body_weight"
+        _marked(ec.weight_trend_option(windowed, imperial)),
+        height="360px",
+        key="body_weight",
     )
 
     if windowed["waist_cm"].notna().any():
         st.subheader("腰围")
         st_echarts(
-            ec.waist_trend_option(windowed, imperial), height="320px", key="body_waist"
+            _marked(ec.waist_trend_option(windowed, imperial)),
+            height="320px",
+            key="body_waist",
         )
 
     with st.expander("测量记录表"):
@@ -524,6 +574,18 @@ def _mode_toggle(key: str) -> str:
         label_visibility="collapsed",
     )
     return choice or settings.DEFAULTS[key]
+
+
+def _notes() -> dict[str, dict]:
+    """The note store, read once per rerun rather than once per chart."""
+    if "_notes_cache" not in st.session_state:
+        st.session_state["_notes_cache"] = notes.load()
+    return st.session_state["_notes_cache"]
+
+
+def _marked(option: dict) -> dict:
+    """A chart with the day's notes drawn on it."""
+    return notes.annotate(option, _notes())
 
 
 def _bias_factors() -> tuple[float, float, float]:
@@ -601,7 +663,7 @@ def _corrected_balance_section(windowed: pd.DataFrame, imperial: bool) -> None:
     )
 
     st_echarts(
-        ec.corrected_balance_option(windowed, active_bias, intake_bias, bmr),
+        _marked(ec.corrected_balance_option(windowed, active_bias, intake_bias, bmr)),
         height="360px",
         key="nut_corrected",
     )
@@ -736,7 +798,7 @@ def page_nutrition() -> None:
             f"（基础代谢 {bmr:.0f} kcal 不动），系数在下方「热量差纠偏」中调整。"
         )
     st_echarts(
-        ec.intake_vs_tdee_option(windowed, active_bias, intake_bias, bmr),
+        _marked(ec.intake_vs_tdee_option(windowed, active_bias, intake_bias, bmr)),
         height="360px",
         key="nut_intake",
     )
@@ -811,7 +873,7 @@ def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
         for column, exercise in zip(st.columns(columns_per_row), row):
             with column:
                 st_echarts(
-                    ec.exercise_panel_option(sets, exercise, imperial),
+                    _marked(ec.exercise_panel_option(sets, exercise, imperial)),
                     height=height,
                     key=f"tr_pin_{exercise}",
                 )
@@ -825,7 +887,7 @@ def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
         "其他动作", others, key="tr_other_exercise", label_visibility="collapsed"
     )
     st_echarts(
-        ec.exercise_panel_option(sets, picked, imperial),
+        _marked(ec.exercise_panel_option(sets, picked, imperial)),
         height="300px",
         key="tr_other_panel",
     )
