@@ -28,6 +28,16 @@ MAX_LABEL = 12
 # How much of the chart a mark is allowed to take. A milestone has to be
 # findable without hunting, but it is annotation over someone else's data and
 # a solid line at full strength cuts the series in two where it crosses.
+# Labels sit in rows above the plot. One row is enough until two milestones
+# fall close together, and then they overlap and neither reads. Widths are
+# estimated rather than measured — the browser has the font, we do not — from
+# a nominal plot width, which is what makes the estimate a guess that errs
+# towards stacking rather than a promise that nothing touches.
+LABEL_ROW_PX = 15
+LABEL_CHAR_PX = 12.0
+NOMINAL_PLOT_PX = 640.0
+MAX_LABEL_ROWS = 3
+
 PINNED_OPACITY = 0.42
 ORDINARY_OPACITY = 0.28
 LABEL_OPACITY = 0.75
@@ -129,6 +139,35 @@ def _nearest(day: str, dates: list[str], span: tuple) -> str | None:
     return min(candidates)[1] if candidates else None
 
 
+def _label_rows(marks: list[tuple[int, str]], categories: int) -> dict[int, int]:
+    """Which row each label goes in, so neighbours stop covering each other.
+
+    ``marks`` is (axis index, label) in date order. A label is centred on its
+    line and spans roughly ``LABEL_CHAR_PX`` per character; converting that to
+    axis positions gives the span to keep clear. Each label takes the first
+    row still free where it lands, and past ``MAX_LABEL_ROWS`` the rows cycle
+    — three deep is already as far down the plot as an annotation should go.
+    """
+    if categories < 2:
+        return {index: 0 for index, _ in marks}
+    per_category = NOMINAL_PLOT_PX / (categories - 1)
+    occupied: list[float] = []
+    rows = {}
+    for index, label in marks:
+        half = (LABEL_CHAR_PX * max(len(label), 1)) / 2
+        left = index * per_category - half
+        right = index * per_category + half
+        for row, edge in enumerate(occupied):
+            if left >= edge:
+                occupied[row] = right
+                rows[index] = row
+                break
+        else:
+            rows[index] = len(occupied) % MAX_LABEL_ROWS
+            occupied.append(right)
+    return rows
+
+
 def annotate(option: dict, notes: dict[str, dict]) -> dict:
     """Draw the day's notes onto a chart that already has a date axis.
 
@@ -152,11 +191,22 @@ def annotate(option: dict, notes: dict[str, dict]) -> dict:
         return option
     span = (_as_date(dates[0]), _as_date(dates[-1]))
 
-    lines = []
+    drawn = []
     for day, note in sorted(notes.items()):
         at = _nearest(day, dates, span)
-        if at is None:
-            continue
+        if at is not None:
+            drawn.append((day, note, at))
+    rows = _label_rows(
+        [
+            (dates.index(at), note.get("label") or note.get("text", "")[:MAX_LABEL])
+            for _, note, at in drawn
+            if note.get("pinned")
+        ],
+        len(dates),
+    )
+
+    lines = []
+    for day, note, at in drawn:
         pinned = note.get("pinned")
         colour = CORAL if pinned else BASELINE
         lines.append(
@@ -172,6 +222,7 @@ def annotate(option: dict, notes: dict[str, dict]) -> dict:
                     # ECharts turns a mark label to run along its line, which
                     # for a vertical one means reading it sideways.
                     "rotate": 0,
+                    "offset": [0, rows.get(dates.index(at), 0) * LABEL_ROW_PX],
                     "color": INK_SECONDARY,
                     "opacity": LABEL_OPACITY,
                     "fontSize": 11,

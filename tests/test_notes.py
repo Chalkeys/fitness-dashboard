@@ -131,3 +131,59 @@ def test_a_milestone_line_stays_out_of_the_way():
     (line,) = option["series"][0]["markLine"]["data"]
     assert line["lineStyle"]["opacity"] == notes.PINNED_OPACITY
     assert notes.ORDINARY_OPACITY < notes.PINNED_OPACITY < 0.6
+
+
+def _rows(option):
+    return {
+        line["label"]["formatter"]: line["label"]["offset"][1]
+        for line in option["series"][0]["markLine"]["data"]
+    }
+
+
+def test_labels_too_close_together_move_to_a_second_row():
+    dates = [f"2026-08-{d:02d}" for d in range(1, 32)]
+    option = notes.annotate(
+        {"xAxis": {"data": dates}, "series": [{"data": [1] * 31}]},
+        {
+            "2026-08-05": {"text": "开始减脂", "pinned": True, "label": "开始减脂"},
+            "2026-08-07": {"text": "换训练计划", "pinned": True, "label": "换训练计划"},
+        },
+    )
+    assert sorted(_rows(option).values()) == [0, notes.LABEL_ROW_PX]
+
+
+def test_a_label_far_enough_along_goes_back_to_the_first_row():
+    dates = [f"2026-08-{d:02d}" for d in range(1, 32)]
+    option = notes.annotate(
+        {"xAxis": {"data": dates}, "series": [{"data": [1] * 31}]},
+        {
+            "2026-08-02": {"text": "早", "pinned": True, "label": "早"},
+            "2026-08-28": {"text": "晚", "pinned": True, "label": "晚"},
+        },
+    )
+    assert _rows(option) == {"早": 0, "晚": 0}
+
+
+def test_rows_stop_going_down_the_plot():
+    # Six milestones on one week would otherwise walk off the top of the data.
+    dates = [f"2026-08-{d:02d}" for d in range(1, 32)]
+    stacked = {
+        f"2026-08-{d:02d}": {"text": "很长的标签文字", "pinned": True, "label": "很长的标签文字"}
+        for d in range(10, 16)
+    }
+    option = notes.annotate(
+        {"xAxis": {"data": dates}, "series": [{"data": [1] * 31}]}, stacked
+    )
+    deepest = max(_rows(option).values())
+    assert deepest <= (notes.MAX_LABEL_ROWS - 1) * notes.LABEL_ROW_PX
+
+
+def test_an_unpinned_note_takes_no_row():
+    dates = ["2026-08-01", "2026-08-02"]
+    option = notes.annotate(
+        {"xAxis": {"data": dates}, "series": [{"data": [1, 2]}]},
+        {"2026-08-01": {"text": "安静", "pinned": False, "label": "安静"}},
+    )
+    (line,) = option["series"][0]["markLine"]["data"]
+    assert line["label"]["show"] is False
+    assert line["label"]["offset"] == [0, 0]
