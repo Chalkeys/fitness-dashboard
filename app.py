@@ -111,6 +111,29 @@ def _sidebar_range() -> int | None:
     return RANGE_OPTIONS[label]
 
 
+def _page_controls(
+    page_key: str, unit_default: str = "公制", notes_default: bool = False
+) -> tuple[bool, bool]:
+    """A page's unit switch and its note switch, side by side.
+
+    Marks are on by default only on the overview, which is the page read to
+    see what happened rather than to read a number off. Elsewhere they start
+    off: on the training panels especially, six small charts each carrying
+    every milestone is more annotation than data.
+    """
+    left, right = st.columns([2, 3])
+    with left:
+        imperial = _unit_toggle(page_key, unit_default)
+    with right:
+        show_notes = st.toggle(
+            "备注标注",
+            value=notes_default,
+            key=f"notes_on_{page_key}",
+            help="在图上标出训练备注：时间节点是实线加标签，普通备注是淡虚线，悬停显示正文。",
+        )
+    return imperial, show_notes
+
+
 def _unit_toggle(page_key: str, default: str = "公制") -> bool:
     """Per-page metric/imperial switch. Returns True when imperial."""
     choice = st.segmented_control(
@@ -140,7 +163,7 @@ def _delta(series: pd.Series, days: int) -> float | None:
 
 def page_overview() -> None:
     st.title("概览")
-    imperial = _unit_toggle("overview")
+    imperial, show_notes = _page_controls("overview", notes_default=True)
 
     daily = data.load_daily_logs()
     body = data.load_body_measurements()
@@ -217,7 +240,7 @@ def page_overview() -> None:
     st_echarts(
         _marked(ec.weight_trend_option(
             data.filter_by_range(body, "measured_at", days), imperial
-        )),
+        ), show_notes),
         height="360px",
         key="overview_weight",
     )
@@ -235,7 +258,7 @@ def page_overview() -> None:
     st_echarts(
         _marked(ec.calorie_balance_option(
             data.filter_by_range(daily, "log_date", days), active_bias, intake_bias, bmr
-        )),
+        ), show_notes),
         height="340px",
         key="overview_balance",
     )
@@ -583,7 +606,7 @@ def _body_figure_section(body: pd.DataFrame, imperial: bool) -> None:
 
 def page_body() -> None:
     st.title("身体指标")
-    imperial = _unit_toggle("body")
+    imperial, show_notes = _page_controls("body")
 
     body = data.load_body_measurements()
     if body.empty:
@@ -597,7 +620,7 @@ def page_body() -> None:
 
     st.subheader("体重")
     st_echarts(
-        _marked(ec.weight_trend_option(windowed, imperial)),
+        _marked(ec.weight_trend_option(windowed, imperial), show_notes),
         height="360px",
         key="body_weight",
     )
@@ -605,7 +628,7 @@ def page_body() -> None:
     if windowed["waist_cm"].notna().any():
         st.subheader("腰围")
         st_echarts(
-            _marked(ec.waist_trend_option(windowed, imperial)),
+            _marked(ec.waist_trend_option(windowed, imperial), show_notes),
             height="320px",
             key="body_waist",
         )
@@ -655,9 +678,9 @@ def _notes() -> dict[str, dict]:
     return st.session_state["_notes_cache"]
 
 
-def _marked(option: dict) -> dict:
-    """A chart with the day's notes drawn on it."""
-    return notes.annotate(option, _notes())
+def _marked(option: dict, show: bool = True) -> dict:
+    """A chart with the day's notes drawn on it, when the page asks for them."""
+    return notes.annotate(option, _notes()) if show else option
 
 
 def _bias_factors() -> tuple[float, float, float]:
@@ -735,7 +758,7 @@ def _corrected_balance_section(windowed: pd.DataFrame, imperial: bool) -> None:
     )
 
     st_echarts(
-        _marked(ec.corrected_balance_option(windowed, active_bias, intake_bias, bmr)),
+        _marked(ec.corrected_balance_option(windowed, active_bias, intake_bias, bmr), show_notes),
         height="360px",
         key="nut_corrected",
     )
@@ -847,7 +870,7 @@ def _target_section(imperial: bool) -> None:
 
 def page_nutrition() -> None:
     st.title("营养")
-    imperial = _unit_toggle("nutrition")
+    imperial, show_notes = _page_controls("nutrition")
     if imperial:
         st.caption("宏量营养素按行业惯例始终以克显示；英制仅影响饮食明细中以克计的食物数量（盎司）。")
 
@@ -870,7 +893,7 @@ def page_nutrition() -> None:
             f"（基础代谢 {bmr:.0f} kcal 不动），系数在下方「热量差纠偏」中调整。"
         )
     st_echarts(
-        _marked(ec.intake_vs_tdee_option(windowed, active_bias, intake_bias, bmr)),
+        _marked(ec.intake_vs_tdee_option(windowed, active_bias, intake_bias, bmr), show_notes),
         height="360px",
         key="nut_intake",
     )
@@ -893,7 +916,7 @@ def page_nutrition() -> None:
 PINNED_SLOTS = 6
 
 
-def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
+def _pinned_progression(sets: pd.DataFrame, imperial: bool, show_notes: bool = False) -> None:
     """The exercises kept in view, each with its top set and session volume."""
     st.subheader("动作进步曲线")
 
@@ -945,7 +968,7 @@ def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
         for column, exercise in zip(st.columns(columns_per_row), row):
             with column:
                 st_echarts(
-                    _marked(ec.exercise_panel_option(sets, exercise, imperial)),
+                    _marked(ec.exercise_panel_option(sets, exercise, imperial), show_notes),
                     height=height,
                     key=f"tr_pin_{exercise}",
                 )
@@ -959,7 +982,7 @@ def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
         "其他动作", others, key="tr_other_exercise", label_visibility="collapsed"
     )
     st_echarts(
-        _marked(ec.exercise_panel_option(sets, picked, imperial)),
+        _marked(ec.exercise_panel_option(sets, picked, imperial), show_notes),
         height="300px",
         key="tr_other_panel",
     )
@@ -968,7 +991,7 @@ def _pinned_progression(sets: pd.DataFrame, imperial: bool) -> None:
 def page_training() -> None:
     st.title("训练")
     # Plates are marked in pounds, so the lifting page opens in imperial.
-    imperial = _unit_toggle("training", default="英制")
+    imperial, show_notes = _page_controls("training", unit_default="英制")
 
     sets = data.load_exercise_sets()
     if sets.empty:
@@ -978,7 +1001,7 @@ def page_training() -> None:
     days = st.session_state.get("range_days", 90)
     windowed = data.filter_by_range(sets, "log_date", days)
 
-    _pinned_progression(sets, imperial)
+    _pinned_progression(sets, imperial, show_notes)
 
     st.subheader("每周训练容量")
     st_echarts(
