@@ -1,0 +1,605 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-073",
+  "history_version": 2,
+  "exported_at": "2026-09-03T19:02:51.011530Z",
+  "date": "2026-09-02",
+  "day_number": 73,
+  "provenance": {
+    "source": "xunji_app",
+    "confidence": "high",
+    "notes": "数据来自训记 Open API；膳食纤维按 0 g，净碳水按总碳水；TDEE 为估算值。"
+  },
+  "body": {
+    "weight_kg": 79.65,
+    "notes": "训记 Open API 身体数据。"
+  },
+  "daily_log": {
+    "is_training_day": true,
+    "workout_type": "p1_腿",
+    "calories_in": 1964.8800000000003,
+    "tdee": 2640.0,
+    "calorie_balance": -675.12,
+    "protein_g": 133.053,
+    "total_carbs_g": 240.58999999999995,
+    "fiber_g": 0,
+    "net_carbs_g": 240.58999999999995,
+    "fat_g": 48.54900000000001,
+    "steps": null,
+    "active_energy_kcal": 846.5,
+    "active_energy_source": "estimated",
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1796（Katch-McArdle，按当日体重与最近体脂）。TDEE 的活动部分按训练容量估算 847 kcal（584 + 0.01×容量，由 58 天全天实测拟合）；未手工录入实测值。"
+  },
+  "nutrition": [
+    {
+      "entry_id": "D073_XJ001",
+      "meal_type": "morning",
+      "food_name": "OIKOS Triple Zero",
+      "brand": null,
+      "amount": 300.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 58.666666666666664,
+      "protein_g": 10.0,
+      "total_carbs_g": 4.666666666666666,
+      "fiber_g": 0,
+      "net_carbs_g": 4.666666666666666,
+      "fat_g": 0.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D073_XJ002",
+      "meal_type": "morning",
+      "food_name": "意式浓缩咖啡",
+      "brand": null,
+      "amount": 40.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 9.0,
+      "protein_g": 0.1,
+      "total_carbs_g": 1.8,
+      "fiber_g": 0,
+      "net_carbs_g": 1.8,
+      "fat_g": 0.2,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D073_XJ003",
+      "meal_type": "morning",
+      "food_name": "kirkland 全脂牛奶",
+      "brand": null,
+      "amount": 300.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 67.0,
+      "protein_g": 3.5,
+      "total_carbs_g": 5.3,
+      "fiber_g": 0,
+      "net_carbs_g": 5.3,
+      "fat_g": 3.5,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D073_XJ004",
+      "meal_type": "noon",
+      "food_name": "大米",
+      "brand": null,
+      "amount": 120.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 367.0,
+      "protein_g": 8.4,
+      "total_carbs_g": 77.6,
+      "fiber_g": 0,
+      "net_carbs_g": 77.6,
+      "fat_g": 1.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D073_XJ005",
+      "meal_type": "noon",
+      "food_name": "牛排(熟",
+      "brand": null,
+      "amount": 100.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 251.0,
+      "protein_g": 28.8,
+      "total_carbs_g": 0.0,
+      "fiber_g": 0,
+      "net_carbs_g": 0,
+      "fat_g": 14.3,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D073_XJ006",
+      "meal_type": "noon",
+      "food_name": "橄榄油",
+      "brand": null,
+      "amount": 10.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 884.0,
+      "protein_g": 0.0,
+      "total_carbs_g": 0.0,
+      "fiber_g": 0,
+      "net_carbs_g": 0,
+      "fat_g": 98.2,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D073_XJ007",
+      "meal_type": "noon",
+      "food_name": "kirkland 椰子水【椰子水】",
+      "brand": null,
+      "amount": 355.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 14.0,
+      "protein_g": 0.0,
+      "total_carbs_g": 3.4,
+      "fiber_g": 0,
+      "net_carbs_g": 3.4,
+      "fat_g": 0.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D073_XJ008",
+      "meal_type": "night",
+      "food_name": "大米",
+      "brand": null,
+      "amount": 80.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 367.0,
+      "protein_g": 8.4,
+      "total_carbs_g": 77.6,
+      "fiber_g": 0,
+      "net_carbs_g": 77.6,
+      "fat_g": 1.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D073_XJ009",
+      "meal_type": "night",
+      "food_name": "美威三文鱼 三文鱼",
+      "brand": null,
+      "amount": 57.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 224.0,
+      "protein_g": 20.9,
+      "total_carbs_g": 0.0,
+      "fiber_g": 0,
+      "net_carbs_g": 0,
+      "fat_g": 15.7,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D073_XJ010",
+      "meal_type": "night",
+      "food_name": "杨枝甘露",
+      "brand": null,
+      "amount": 100.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 44.0,
+      "protein_g": 0.5,
+      "total_carbs_g": 8.1,
+      "fiber_g": 0,
+      "net_carbs_g": 8.1,
+      "fat_g": 1.2,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D073_XJ011",
+      "meal_type": "preworkout",
+      "food_name": "香蕉",
+      "brand": null,
+      "amount": 100.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 100.0,
+      "protein_g": 1.5,
+      "total_carbs_g": 23.6,
+      "fiber_g": 0,
+      "net_carbs_g": 23.6,
+      "fat_g": 0.2,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D073_XJ012",
+      "meal_type": "preworkout",
+      "food_name": "Muscle Milk Pro33g",
+      "brand": null,
+      "amount": 325.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 58.307692307692314,
+      "protein_g": 10.153846153846157,
+      "total_carbs_g": 3.384615384615385,
+      "fiber_g": 0,
+      "net_carbs_g": 3.384615384615385,
+      "fat_g": 0.4615384615384616,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    }
+  ],
+  "workout": {
+    "session_id": "day-073-xunji",
+    "workout_name": "P1-腿",
+    "workout_type": "p1_腿",
+    "duration_minutes": 147.2,
+    "active_energy_kcal": null,
+    "apple_health_workout_kcal": null,
+    "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
+    "exercises": [
+      {
+        "exercise_name": "泽奇深蹲",
+        "category": "other",
+        "muscle_group": "股四头",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 43.0913,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 61.235,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 92.9864,
+            "reps": 5,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 92.9864,
+            "reps": 9,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 5,
+            "weight": 92.9864,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 6,
+            "weight": 97.5224,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 7,
+            "weight": 97.5224,
+            "reps": 9,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "器械倒蹬",
+        "category": "other",
+        "muscle_group": "股四头",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 154.2214,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 154.2214,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 154.2214,
+            "reps": 13,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "哑铃保加利亚蹲",
+        "category": "other",
+        "muscle_group": "股四头",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 18.1437,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 18.1437,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 18.1437,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "坐姿腿屈伸",
+        "category": "other",
+        "muscle_group": "股四头",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 86.1826,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 86.1826,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 86.1826,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 86.1826,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "坐姿髋内收",
+        "category": "other",
+        "muscle_group": "内收肌",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 72.5748,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 74.8427,
+            "reps": 13,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 74.8427,
+            "reps": 13,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "坐姿器械提踵",
+        "category": "other",
+        "muscle_group": "小腿",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 113.3981,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 113.3981,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 113.3981,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 113.3981,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "悬挂抬腿",
+        "category": "other",
+        "muscle_group": "核心",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 0.0,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 0.0,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 0.0,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "平板蝴蝶收腹",
+        "category": "other",
+        "muscle_group": "核心",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 20.4117,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 20.4117,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 20.4117,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "绳索Pallof推",
+        "category": "other",
+        "muscle_group": "核心",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 43.0913,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 43.0913,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 43.0913,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "review_status": "approved",
+      "note": "用户确认纤维按 0 g、净碳水等于总碳水，并接受 TDEE 估算。",
+      "field": "daily_log"
+    }
+  ]
+}

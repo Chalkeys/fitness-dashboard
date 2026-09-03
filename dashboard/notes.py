@@ -25,9 +25,6 @@ NOTES_PATH = Path(
 # stay short enough to sit above one without covering its neighbour.
 MAX_LABEL = 12
 
-# How much of the chart a mark is allowed to take. A milestone has to be
-# findable without hunting, but it is annotation over someone else's data and
-# a solid line at full strength cuts the series in two where it crosses.
 # Labels sit in rows above the plot. One row is enough until two milestones
 # fall close together, and then they overlap and neither reads. Widths are
 # estimated rather than measured — the browser has the font, we do not — from
@@ -38,6 +35,9 @@ LABEL_CHAR_PX = 12.0
 NOMINAL_PLOT_PX = 640.0
 MAX_LABEL_ROWS = 3
 
+# How much of the chart a mark is allowed to take. A milestone has to be
+# findable without hunting, but it is annotation over someone else's data and
+# a solid line at full strength cuts the series in two where it crosses.
 PINNED_OPACITY = 0.42
 ORDINARY_OPACITY = 0.28
 LABEL_OPACITY = 0.75
