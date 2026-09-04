@@ -20,10 +20,20 @@
       "pinned": true,
       "label": "DEXA"
     },
+    "2026-08-21": {
+      "text": "开始在之前的基础上增加 100 kcal 热量缺口",
+      "pinned": true,
+      "label": "缺口 +100"
+    },
     "2026-08-26": {
       "text": "改用训记口径报 AE",
       "pinned": true,
       "label": "换 AE 口径"
+    },
+    "2026-08-29": {
+      "text": "有体感的肌耐力下降",
+      "pinned": true,
+      "label": "肌耐力下降"
     }
   }
 }
