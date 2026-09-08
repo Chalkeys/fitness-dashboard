@@ -57,12 +57,17 @@ def test_a_day_without_training_falls_back_to_the_rest_day_constant():
     assert resolve_active_energy(None, None) == (REST_DAY_ACTIVE_KCAL, "estimated")
 
 
-def test_a_cardio_only_day_adds_neat_to_the_measured_cardio():
-    # No lifting means nothing stands in for the day's NEAT, so the rest-day
-    # constant carries it and the measured cardio adds on top.
-    value, source = resolve_active_energy(_workout(cardio=481), None)
+def test_a_cardio_only_day_takes_the_larger_of_cardio_and_the_baseline():
+    # Not their sum: a whole-day reading already contains the sessions, so
+    # adding them overshot by hundreds on the two days that have any.
+    value, source = resolve_active_energy(_workout(cardio=907), None)
     assert source == "estimated"
-    assert value == pytest.approx(REST_DAY_ACTIVE_KCAL + 481)
+    assert value == pytest.approx(907)
+
+
+def test_a_quiet_cardio_day_still_gets_the_rest_day_baseline():
+    value, _ = resolve_active_energy(_workout(cardio=120), None)
+    assert value == pytest.approx(REST_DAY_ACTIVE_KCAL)
 
 
 def test_a_logged_day_with_no_cardio_and_no_lifting_reads_as_rest():
@@ -103,3 +108,32 @@ def test_distinct_movements_stay_apart_and_keep_their_order():
     )
     assert [e["exercise_name"] for e in workout["exercises"]] == ["杠铃深蹲", "坐姿腿弯举"]
     assert [len(e["sets"]) for e in workout["exercises"]] == [3, 2]
+
+
+def _cardio_set(kcal):
+    return {"weight": "", "reps": "", "unit": "", "metrics": {"calories": str(kcal)}}
+
+
+def test_cardio_is_recognised_by_its_data_not_its_name():
+    # 7 Sep: a walk of 47 kcal and an "AppleHealthWorkout" of 81. Matching the
+    # name "Walking" took the first and filed the second as a lift.
+    from scripts.sync_xunji_recent import _workout
+
+    workout = _workout(
+        [
+            _train("步行", [{"name": "Walking", "sets": [_cardio_set(47)]}]),
+            _train("其他", [{"name": "AppleHealthWorkout", "sets": [_cardio_set(81)]}]),
+        ],
+        78,
+    )
+    assert workout["active_energy_kcal"] == 128.0
+    assert workout["exercises"] == []
+
+
+def test_a_lift_that_carries_calories_is_still_a_lift():
+    from scripts.sync_xunji_recent import _workout
+
+    loaded = {"weight": "100", "reps": "5", "unit": "kg", "metrics": {"calories": "9"}}
+    workout = _workout([_train("P1-腿", [{"name": "杠铃深蹲", "sets": [loaded]}])], 78)
+    assert [e["exercise_name"] for e in workout["exercises"]] == ["杠铃深蹲"]
+    assert not workout["active_energy_kcal"]

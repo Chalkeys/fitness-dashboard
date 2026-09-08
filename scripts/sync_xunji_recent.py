@@ -238,19 +238,25 @@ def estimate_active_energy(workout: dict[str, Any] | None) -> float:
     if not tonnage:
         # No lifting, so the 584 intercept does not apply — it is a training
         # day extrapolated to zero tonnage and still carries the walking that
-        # going to the gym involves. What is left on a day like this is NEAT
-        # plus whatever cardio was measured, and those do add: the rest-day
-        # constant comes from a day with nothing logged, so it double-counts
-        # nothing. Checked against the three non-lifting days whose cardio
-        # came from the API rather than from a whole-day figure copied in:
+        # going to the gym involves. What is left is the larger of the day's
+        # cardio and a rest day's baseline.
         #
-        #   19 Jul   450 + 0   = 450   against 450    exact
-        #   16 Aug   450 + 0   = 450   against 434     +16
-        #   23 Aug   450 + 481 = 931   against 971     -40
+        # Not their sum, which is what this did until the cardio it was adding
+        # turned out to be short. Reading only movements named "Walking" had
+        # dropped the rest, and against the corrected figures the sum
+        # overshoots by 386 and 234 on the two days that have any. 23 Aug
+        # settles the shape: 971 kcal measured across the day, of which the
+        # cardio sessions alone are 907. Those are not two quantities to add —
+        # the whole-day reading already contains the sessions.
         #
-        # The old max() rule read 450, 584 and 584 for those same days, the
-        # last of them 387 kcal light.
-        return REST_DAY_ACTIVE_KCAL + cardio
+        #   16 Aug     0 cardio   434 measured   450 ->  +16
+        #   23 Aug   907 cardio   971 measured   907 ->  -64
+        #   30 Aug   543 cardio   759 measured   543 -> -216
+        #   06 Sep     0 cardio   574 measured   450 -> -124
+        #
+        # It runs a little under, and four days is not enough to correct that
+        # with a constant without fitting the noise.
+        return max(REST_DAY_ACTIVE_KCAL, cardio)
     estimate = VOLUME_BASELINE_KCAL + KCAL_PER_KG_LIFTED * tonnage
     # Cardio synced from Apple Health is measured, so it displaces the
     # baseline's share of walking rather than adding to the lift.
@@ -374,10 +380,16 @@ def _workout(trains: list[dict[str, Any]], day_number: int) -> dict[str, Any] | 
                 window_kcal = (window_kcal or 0.0) + reported
         for movement in train.get("movements", []):
             name = movement.get("name") or "Unknown movement"
-            if name == "Walking":
-                for item in movement.get("sets", []):
-                    metrics = item.get("metrics") or {}
-                    active_energy += _number(metrics.get("calories")) or 0
+            sets = movement.get("sets", [])
+            # A movement Apple Health synced in carries measured calories and
+            # no load. Matching on the name instead missed everything not
+            # called "Walking": on 7 Sep an "AppleHealthWorkout" worth 81 kcal
+            # was dropped from the day's cardio and filed as a lift with one
+            # empty set. What identifies these is the shape of the data.
+            burned = sum(_number((item.get("metrics") or {}).get("calories")) or 0 for item in sets)
+            lifted = any(item.get("weight") or item.get("reps") for item in sets)
+            if burned and not lifted:
+                active_energy += burned
                 continue
             entry = exercises.setdefault(
                 name,
