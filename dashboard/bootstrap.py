@@ -6,9 +6,14 @@ has to make one before the first page can load. Eighty-odd days import in
 about two seconds, so this runs at startup rather than being a step anyone
 has to remember.
 
-A database that already exists is left alone, whatever it holds. Rebuilding
-on every start would discard anything imported since, and the owner's own
-machine and the home server both carry state the exports do not.
+The import runs on every start, not only when there is no database. It is
+idempotent — a file already imported is recognised by its hash and skipped,
+so a complete database costs about a second to confirm — and that is what
+makes it safe against the one failure a first start can suffer: the process
+being killed part-way through, leaving a database with fifty of eighty-one
+days in it. Checking only whether rows existed would have taken that for
+finished, and it stayed that way on the public instance until noticed. An
+existing database is never rebuilt, only brought up to the exports.
 """
 
 from __future__ import annotations
@@ -40,8 +45,7 @@ def ensure_database() -> str | None:
     _checked = True
 
     path = Path(DB_PATH)
-    if path.exists() and _has_rows(path):
-        return None
+    fresh = not (path.exists() and _has_rows(path))
 
     # Imported lazily: the importer pulls in jsonschema and the export
     # validator, neither of which a page needs once the database is there.
@@ -52,4 +56,8 @@ def ensure_database() -> str | None:
     # needs_review days are included because they were on the machines that
     # built the reference database by hand, and a fresh build should match.
     stats = import_exports(EXPORTS, path, include_needs_review=True)
-    return f"已从 {stats['files']} 个导出重建数据库（{stats['inserted']} 条记录）"
+    if fresh:
+        return f"已从 {stats['files']} 个导出重建数据库（{stats['inserted']} 条记录）"
+    if stats["files"]:
+        return f"已补入 {stats['files']} 个导出（{stats['inserted']} 条记录）"
+    return None
