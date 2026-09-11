@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 from streamlit_echarts import st_echarts
 
-from dashboard import body_figure, data, echarts_charts as ec, energy, notes, settings
+from dashboard import access, body_figure, data, echarts_charts as ec, energy, notes, settings
 from dashboard.format import summarize_sets
 from dashboard.sortable import sortable_order
 from dashboard.theme import CM_TO_IN, G_TO_OZ, KG_TO_LB, classify_training
@@ -65,8 +65,22 @@ def _init_settings() -> None:
         st.session_state.setdefault(key, stored[key])
 
 
+def _owner() -> bool:
+    """Whether this request is the owner's. Decided once per rerun."""
+    if "_owner" not in st.session_state:
+        st.session_state["_owner"] = access.is_owner(st.context.headers)
+    return st.session_state["_owner"]
+
+
 def _persist_settings() -> None:
-    """Write the tunables back out whenever one of them changed."""
+    """Write the tunables back out whenever one of them changed.
+
+    A viewer's changes stay in their session. The controls still move and the
+    charts still follow — that is the point of letting them be pulled — but
+    nothing a viewer does reaches the file the owner's settings live in.
+    """
+    if not _owner():
+        return
     stored = _stored_settings()
     # Only what this run actually holds, merged over the file: a page that
     # never rendered a control has no opinion about it.
@@ -451,8 +465,12 @@ def page_day_detail() -> None:
     if isinstance(log["notes"], str) and log["notes"].strip():
         st.info(log["notes"])
 
-    _note_editor(picked)
-    _note_manager()
+    if _owner():
+        _note_editor(picked)
+        _note_manager()
+    elif picked in _notes():
+        note = _notes()[picked]
+        st.caption(("📌 " if note["pinned"] else "📝 ") + note["text"])
 
     st.subheader("训练详情")
     sessions = data.load_workout_sessions()
@@ -774,14 +792,17 @@ def _corrected_balance_section(
             help="记录 TDEE 所基于的静息代谢，用于把活动消耗拆出来。",
         )
     )
-    st.button(
-        "恢复默认",
-        key="reset_settings",
-        on_click=_reset_settings,
-        help=f"活动 {settings.DEFAULTS['bias_active']}%、"
-        f"摄入 +{settings.DEFAULTS['bias_intake']}%、"
-        f"基础代谢 {settings.DEFAULTS['bias_bmr']}，以及目标反推的默认值。",
-    )
+    if _owner():
+        st.button(
+            "恢复默认",
+            key="reset_settings",
+            on_click=_reset_settings,
+            help=f"活动 {settings.DEFAULTS['bias_active']}%、"
+            f"摄入 +{settings.DEFAULTS['bias_intake']}%、"
+            f"基础代谢 {settings.DEFAULTS['bias_bmr']}，以及目标反推的默认值。",
+        )
+    else:
+        st.caption("以访客身份查看：可以拉动滑轨看效果，改动只在这个会话里，不会保存。")
 
     base, active = energy.split_tdee(windowed, bmr)
     st.caption(
