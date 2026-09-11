@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-008",
-  "history_version": 5,
+  "history_version": 6,
   "exported_at": "2026-08-16T18:31:18.608320Z",
   "date": "2026-06-29",
   "day_number": 8,
@@ -325,16 +325,9 @@
             "distance": null,
             "duration_seconds": null,
             "notes": "Effective set; original 90 lb."
-          }
-        ]
-      },
-      {
-        "exercise_name": "宽距高位下拉",
-        "category": "compound",
-        "muscle_group": "背",
-        "sets": [
+          },
           {
-            "set_number": 1,
+            "set_number": 5,
             "weight": 40.8233,
             "reps": 10,
             "rir": null,
@@ -343,7 +336,7 @@
             "notes": "Effective set; original 90 lb."
           },
           {
-            "set_number": 2,
+            "set_number": 6,
             "weight": 40.8233,
             "reps": 10,
             "rir": null,
@@ -352,7 +345,7 @@
             "notes": "Effective set; original 90 lb."
           },
           {
-            "set_number": 3,
+            "set_number": 7,
             "weight": 34.0194,
             "reps": 10,
             "rir": null,
@@ -361,7 +354,7 @@
             "notes": "Effective set; original 75 lb."
           },
           {
-            "set_number": 4,
+            "set_number": 8,
             "weight": 34.0194,
             "reps": 10,
             "rir": null,

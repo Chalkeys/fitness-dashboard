@@ -362,13 +362,22 @@ def _import_workout(connection: sqlite3.Connection, document: dict[str, Any], da
         ),
     )
     session_id = cursor.lastrowid
+    # Two blocks with one name in a session — a renaming's leftovers, or two
+    # synced sessions each carrying the same movement — are one exercise with
+    # its sets numbered straight through. The key on (session, exercise,
+    # set_number) does not admit them any other way.
+    by_name: dict[str, dict] = {}
     for exercise in workout.get("exercises", []):
+        block = by_name.setdefault(exercise["exercise_name"], {**exercise, "sets": []})
+        block["sets"].extend(exercise.get("sets", []))
+    for exercise in by_name.values():
         connection.execute(
             "INSERT INTO exercises (name, category, muscle_group) VALUES (?, ?, ?) ON CONFLICT(name) DO UPDATE SET category=excluded.category, muscle_group=excluded.muscle_group",
             (exercise["exercise_name"], exercise.get("category") or "other", exercise.get("muscle_group")),
         )
         exercise_id = connection.execute("SELECT id FROM exercises WHERE name = ?", (exercise["exercise_name"],)).fetchone()[0]
-        for item in exercise.get("sets", []):
+        for number, item in enumerate(exercise["sets"], 1):
+            item = {**item, "set_number": number}
             connection.execute(
                 """
                 INSERT INTO exercise_sets (

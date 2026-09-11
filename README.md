@@ -286,3 +286,25 @@ ssh "$DASHBOARD_HOST" "systemctl status fitness-dashboard"
 Bind the app to a trusted network only — it has no authentication of its own.
 The database is copied across with the same `scp` mechanism as the code and is
 not tracked by Git.
+
+## Streamlit Community Cloud
+
+The app builds its own database from `exports/` on first start, so a fresh
+clone is enough. Point Community Cloud at this repository with `app.py` as
+the entry file. Every push to `main` redeploys.
+
+The disk there is ephemeral: notes, settings and the database are rebuilt
+from the repository on each deploy, and anything written on the running
+instance is lost with it. Notes and settings therefore live in the
+repository (`data_sources/training_notes.json`, `settings.json`) and are
+committed from a machine that keeps them.
+
+Set one secret in the app's settings to make every visitor a viewer:
+
+```toml
+FITNESS_OWNER = "owner"
+```
+
+Viewers see everything and may pull every control; nothing they do is
+written. Leave the secret unset on a machine you run alone.
+

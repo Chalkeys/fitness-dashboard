@@ -1,0 +1,18 @@
+{
+  "bias_active": -5,
+  "bias_intake": 5,
+  "bias_bmr": 1850,
+  "balance_mode": "纠偏后",
+  "intake_mode": "纠偏后",
+  "target_body_fat": 13.0,
+  "target_horizon": 7,
+  "pinned_columns": 2,
+  "pinned_exercises": [
+    "杠铃卧推",
+    "上斜杠铃卧推",
+    "坐姿划船",
+    "宽距高位下拉",
+    "杠铃罗马尼亚硬拉",
+    "泽奇深蹲"
+  ]
+}

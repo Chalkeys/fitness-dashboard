@@ -1,7 +1,7 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-010",
-  "history_version": 3,
+  "history_version": 4,
   "exported_at": "2026-08-16T18:35:09.690640Z",
   "date": "2026-07-01",
   "day_number": 10,
@@ -293,16 +293,9 @@
             "distance": null,
             "duration_seconds": null,
             "notes": "Effective set; original 65 lb."
-          }
-        ]
-      },
-      {
-        "exercise_name": "绳索弯举",
-        "category": "isolation",
-        "muscle_group": "二头",
-        "sets": [
+          },
           {
-            "set_number": 1,
+            "set_number": 5,
             "weight": 36.2874,
             "reps": 10,
             "rir": null,
@@ -311,7 +304,7 @@
             "notes": "Effective superset set; original 80 lb."
           },
           {
-            "set_number": 2,
+            "set_number": 6,
             "weight": 36.2874,
             "reps": 10,
             "rir": null,
@@ -320,7 +313,7 @@
             "notes": "Effective superset set; original 80 lb."
           },
           {
-            "set_number": 3,
+            "set_number": 7,
             "weight": 36.2874,
             "reps": 10,
             "rir": null,
@@ -370,6 +363,33 @@
             "distance": null,
             "duration_seconds": null,
             "notes": "Effective set; original 65 lb."
+          },
+          {
+            "set_number": 5,
+            "weight": 36.2874,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective superset set; original 80 lb."
+          },
+          {
+            "set_number": 6,
+            "weight": 36.2874,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective superset set; original 80 lb."
+          },
+          {
+            "set_number": 7,
+            "weight": 36.2874,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "Effective superset set; original 80 lb."
           }
         ]
       },
@@ -413,40 +433,6 @@
             "distance": null,
             "duration_seconds": null,
             "notes": "Effective set; original 65 lb."
-          }
-        ]
-      },
-      {
-        "exercise_name": "绳索臂屈伸",
-        "category": "isolation",
-        "muscle_group": "三头",
-        "sets": [
-          {
-            "set_number": 1,
-            "weight": 36.2874,
-            "reps": 10,
-            "rir": null,
-            "distance": null,
-            "duration_seconds": null,
-            "notes": "Effective superset set; original 80 lb."
-          },
-          {
-            "set_number": 2,
-            "weight": 36.2874,
-            "reps": 10,
-            "rir": null,
-            "distance": null,
-            "duration_seconds": null,
-            "notes": "Effective superset set; original 80 lb."
-          },
-          {
-            "set_number": 3,
-            "weight": 36.2874,
-            "reps": 10,
-            "rir": null,
-            "distance": null,
-            "duration_seconds": null,
-            "notes": "Effective superset set; original 80 lb."
           }
         ]
       }

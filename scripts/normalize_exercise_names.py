@@ -214,6 +214,31 @@ def _normalise_history_version(value: Any) -> int:
         return 1
 
 
+def _merge_twin_exercises(workout: dict) -> bool:
+    """Fold same-named exercise blocks into one, sets numbered straight through.
+
+    Returns True when anything was folded.
+    """
+    merged: dict[str, dict] = {}
+    folded = False
+    for exercise in workout.get("exercises", []):
+        if not isinstance(exercise, dict):
+            continue
+        name = exercise.get("exercise_name")
+        if name in merged:
+            merged[name]["sets"].extend(exercise.get("sets", []))
+            folded = True
+        else:
+            merged[name] = {**exercise, "sets": list(exercise.get("sets", []))}
+    if not folded:
+        return False
+    for exercise in merged.values():
+        for number, item in enumerate(exercise["sets"], 1):
+            item["set_number"] = number
+    workout["exercises"] = list(merged.values())
+    return True
+
+
 def update_exports(export_dir: Path, dry_run: bool) -> tuple[int, int, dict[str, int]]:
     changed_files = 0
     changed_actions = 0
@@ -243,6 +268,13 @@ def update_exports(export_dir: Path, dry_run: bool) -> tuple[int, int, dict[str,
                 exercise["muscle_group"] = group
                 changed = True
                 grouped_actions[0] += 1
+        if changed and _merge_twin_exercises(workout):
+            # Renaming can leave two blocks with one name, each numbering its
+            # sets from one. The database side of this script merges them; the
+            # file has to as well, or a fresh import from the file collides on
+            # (session, exercise, set_number) — three June days did exactly
+            # that once this was noticed.
+            changed_actions += 1
         if changed:
             changed_files += 1
             if not dry_run:

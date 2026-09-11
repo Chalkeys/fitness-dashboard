@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 from streamlit_echarts import st_echarts
 
-from dashboard import access, body_figure, data, echarts_charts as ec, energy, notes, settings
+from dashboard import access, body_figure, bootstrap, data, echarts_charts as ec, energy, notes, settings
 from dashboard.format import summarize_sets
 from dashboard.sortable import sortable_order
 from dashboard.theme import CM_TO_IN, G_TO_OZ, KG_TO_LB, classify_training
@@ -66,9 +66,28 @@ def _init_settings() -> None:
 
 
 def _owner() -> bool:
-    """Whether this request is the owner's. Decided once per rerun."""
+    """Whether this request is the owner's. Decided once per session.
+
+    The owner's name comes from the environment on a machine we run, and from
+    Streamlit's secrets on Community Cloud, which has no environment to set.
+    Identity comes from a request header a proxy set, or from the login
+    Community Cloud performed when the app is private. A public app there has
+    neither, so with an owner configured everyone is a viewer — which is the
+    point: nothing written on a machine whose disk is wiped on deploy is
+    worth keeping anyway.
+    """
     if "_owner" not in st.session_state:
-        st.session_state["_owner"] = access.is_owner(st.context.headers)
+        owner = access.configured_owner()
+        if not owner:
+            try:
+                owner = str(st.secrets.get(access.OWNER_ENV, "")).strip()
+            except (FileNotFoundError, KeyError, AttributeError):
+                owner = ""
+        headers = dict(st.context.headers)
+        email = getattr(getattr(st, "user", None), "email", None)
+        if email and access.IDENTITY_HEADERS[1] not in headers:
+            headers[access.IDENTITY_HEADERS[1]] = str(email)
+        st.session_state["_owner"] = access.is_owner(headers, owner)
     return st.session_state["_owner"]
 
 
@@ -1088,6 +1107,9 @@ TRAINING_PAGE = st.Page(page_training, title="训练", icon="🏋️", url_path=
 
 def main() -> None:
     st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
+    built = bootstrap.ensure_database()
+    if built:
+        st.toast(built)
     _init_settings()
     st.session_state["range_days"] = _sidebar_range()
 
