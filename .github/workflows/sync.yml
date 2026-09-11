@@ -1,0 +1,95 @@
+# Pull the last few days from Xunji and commit the exports, so the public
+# instance on Streamlit Community Cloud redeploys with them. Anything that
+# cannot come from the API — hand-entered active energy, notes — is
+# committed by hand as before; this only ever touches exports/.
+#
+# Runs twice a day, both in the small hours of US Central time: once just
+# after midnight, when the day has ended, and once around noon, because
+# Apple Health can take hours to hand a session over to Xunji and an evening
+# walk is not always there by midnight. Three days each time, so a late
+# arrival is picked up whichever run comes first.
+
+name: Sync from Xunji
+
+on:
+  schedule:
+    - cron: "0 5 * * *"    # 00:00 CDT / 23:00 CST
+    - cron: "0 17 * * *"   # 12:00 CDT / 11:00 CST
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "How many days back to sync, ending today"
+        default: "3"
+
+# One sync at a time. Two overlapping runs would race on the same files.
+concurrency:
+  group: sync
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install
+        run: uv sync --frozen
+
+      - name: Work out the range
+        id: range
+        env:
+          DAYS: ${{ github.event.inputs.days || '3' }}
+        run: |
+          # Dates in the owner's own timezone: the day being closed out is
+          # the Chicago day, whatever the runner's clock says.
+          end=$(TZ=America/Chicago date +%F)
+          start=$(TZ=America/Chicago date -d "$((DAYS - 1)) days ago" +%F)
+          echo "start=$start" >> "$GITHUB_OUTPUT"
+          echo "end=$end" >> "$GITHUB_OUTPUT"
+          echo "同步 $start → $end"
+
+      - name: Sync
+        env:
+          XUNJI_TRAIN_API_KEY: ${{ secrets.XUNJI_TRAIN_API_KEY }}
+          XUNJI_FOOD_API_KEY: ${{ secrets.XUNJI_FOOD_API_KEY }}
+          XUNJI_BODY_API_KEY: ${{ secrets.XUNJI_BODY_API_KEY }}
+          PYTHONIOENCODING: utf-8
+        run: |
+          uv run python scripts/sync_xunji_recent.py \
+            --start "${{ steps.range.outputs.start }}" \
+            --end "${{ steps.range.outputs.end }}" \
+            --overwrite
+
+      - name: Import into a scratch database
+        # Two things at once: the exercise-name normaliser runs as part of an
+        # import and rewrites the exports it just made, so what gets committed
+        # is what a hand-run sync would have committed; and an export that
+        # cannot be imported here would not import on Community Cloud either,
+        # so it fails the run instead of reaching main.
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          uv run python scripts/init_db.py --database /tmp/scratch.db
+          uv run python scripts/import_exports.py --database /tmp/scratch.db --include-needs-review 2>&1 | tail -3
+
+      - name: Commit
+        run: |
+          git config user.name "xunji-sync[bot]"
+          git config user.email "xunji-sync[bot]@users.noreply.github.com"
+          git add exports/
+          if git diff --cached --quiet; then
+            echo "导出没有变化，不提交。"
+            exit 0
+          fi
+          git commit -m "Sync ${{ steps.range.outputs.start }} to ${{ steps.range.outputs.end }} from Xunji"
+          # The owner may have pushed in the meantime; land on top of it.
+          git pull --rebase --autostash
+          git push

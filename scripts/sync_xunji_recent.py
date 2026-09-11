@@ -10,6 +10,7 @@ import argparse
 import gzip
 import json
 import os
+import time
 import re
 import urllib.request
 from datetime import date, datetime, timedelta, timezone
@@ -20,6 +21,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 EXPORT_DIR = ROOT / "exports"
 TRAIN_URL = "https://trains.xunjiapp.cn/api_trains_for_llm_v2"
+TRAIN_READ_INTERVAL_SECONDS = 31  # the API reports readRateLimitSecondsFull: 30
 FOOD_URL = "https://eatings.xunjiapp.cn/open/food/query_gzip"
 BODY_URL = "https://api.xunjiapp.cn/open/body/query_gzip"
 
@@ -498,6 +500,11 @@ def build_exports(start: date, end: date, overwrite: bool = False) -> list[Path]
     generated: list[Path] = []
     current = start
     while current <= end:
+        # The full training read is rate-limited to one every thirty seconds
+        # per key. A single day never waits; a range waits between days, which
+        # is what lets the unattended nightly sync ask for three at once.
+        if current != start:
+            time.sleep(TRAIN_READ_INTERVAL_SECONDS)
         datestr = current.isoformat()
         day_number = _day_number(current)
         target = EXPORT_DIR / f"day-{day_number:03d}.json"

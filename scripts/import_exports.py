@@ -306,7 +306,7 @@ def _is_daily_protocol(path: Path) -> bool:
     return isinstance(payload, dict) and payload.get("protocol_version") == "1.0"
 
 
-def main() -> None:
+def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("directory", nargs="?", type=Path, default=DEFAULT_EXPORT_DIR)
     parser.add_argument("--database", type=Path, default=DEFAULT_DATABASE)
@@ -334,6 +334,7 @@ def main() -> None:
 
     if not args.dry_run and not args.no_normalize:
         _normalize_after_import(args.directory.resolve(), args.database.resolve())
+    return _exit_code(stats)
 
 
 def _normalize_after_import(export_dir: Path, database: Path) -> None:
@@ -355,5 +356,16 @@ def _normalize_after_import(export_dir: Path, database: Path) -> None:
     )
 
 
+def _exit_code(stats: dict) -> int:
+    """Non-zero when any file failed, so a caller can tell without parsing.
+
+    A file that fails is counted and the rest go in, which is right for a
+    hand run — the summary says what happened. Unattended, a count nobody
+    reads is a silent failure: the nightly sync would commit an export the
+    public instance then cannot import.
+    """
+    return 1 if stats.get("failed") else 0
+
+
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
