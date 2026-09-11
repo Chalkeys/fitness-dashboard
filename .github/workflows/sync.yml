@@ -3,18 +3,19 @@
 # cannot come from the API — hand-entered active energy, notes — is
 # committed by hand as before; this only ever touches exports/.
 #
-# Runs twice a day, both in the small hours of US Central time: once just
-# after midnight, when the day has ended, and once around noon, because
-# Apple Health can take hours to hand a session over to Xunji and an evening
-# walk is not always there by midnight. Three days each time, so a late
-# arrival is picked up whichever run comes first.
+# Runs twice a day in US Central time: at eight in the evening, when the
+# day's training and most of its meals are in, and at five the next morning,
+# because Apple Health can take hours to hand a session over to Xunji and an
+# evening walk is not always there by bedtime. Three days each time, so a
+# late arrival is picked up by whichever run comes first. Cron is UTC and
+# does not follow daylight saving, so in winter both land an hour earlier.
 
 name: Sync from Xunji
 
 on:
   schedule:
-    - cron: "0 5 * * *"    # 00:00 CDT / 23:00 CST
-    - cron: "0 17 * * *"   # 12:00 CDT / 11:00 CST
+    - cron: "0 1 * * *"    # 20:00 CDT / 19:00 CST
+    - cron: "0 10 * * *"   # 05:00 CDT / 04:00 CST
   workflow_dispatch:
     inputs:
       days:
