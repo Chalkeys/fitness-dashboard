@@ -14,8 +14,11 @@ name: Sync from Xunji
 
 on:
   schedule:
-    - cron: "0 1 * * *"    # 20:00 CDT / 19:00 CST
-    - cron: "0 10 * * *"   # 05:00 CDT / 04:00 CST
+    # Off the hour on purpose: GitHub queues scheduled runs, and the top of
+    # the hour is where the queue is longest — the first 05:00 run started at
+    # 09:03. A minute nobody else picks gets a shorter wait.
+    - cron: "17 1 * * *"   # 20:17 CDT / 19:17 CST
+    - cron: "17 10 * * *"  # 05:17 CDT / 04:17 CST
   workflow_dispatch:
     inputs:
       days:

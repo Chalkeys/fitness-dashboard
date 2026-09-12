@@ -529,6 +529,15 @@ def build_exports(start: date, end: date, overwrite: bool = False) -> list[Path]
         totals = diet_day.get("totals") or {}
         body = body_by_date.get(datestr)
         workout = _workout(train_result.get("res", {}).get("trains", []), day_number)
+        if not (workout or body or _number(totals.get("totalCal"))):
+            # Nothing logged yet is not a day of nothing. Written out, it is
+            # a day with zero intake and a deficit the size of the whole
+            # TDEE, and the unattended morning sync produced exactly that for
+            # the day it ran on. A file already there from an earlier, fuller
+            # pull is left alone rather than replaced with an empty one.
+            print(f"{datestr}：训练、饮食、身体都还没有记录，跳过。")
+            current += timedelta(days=1)
+            continue
         weight_kg = (body.get("weight_kg") if body else None) or latest_weight
         # Body fat is measured every week or two, so the last known value
         # stands in until the next reading.
