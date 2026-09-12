@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-082",
-  "history_version": 3,
-  "exported_at": "2026-09-12T01:26:06.893320Z",
+  "history_version": 5,
+  "exported_at": "2026-09-12T13:37:23.373679Z",
   "date": "2026-09-11",
   "day_number": 82,
   "provenance": {
@@ -17,14 +17,14 @@
   "daily_log": {
     "is_training_day": true,
     "workout_type": "p1_拉",
-    "calories_in": 1940.25,
+    "calories_in": 1981.55,
     "tdee": 2580.0,
-    "calorie_balance": -639.75,
-    "protein_g": 138.5,
-    "total_carbs_g": 234.9,
+    "calorie_balance": -598.45,
+    "protein_g": 138.79000000000002,
+    "total_carbs_g": 245.11999999999998,
     "fiber_g": 0,
-    "net_carbs_g": 234.9,
-    "fat_g": 46.790000000000006,
+    "net_carbs_g": 245.11999999999998,
+    "fat_g": 46.945,
     "steps": null,
     "active_energy_kcal": 800.5,
     "active_energy_source": "estimated",
@@ -161,6 +161,22 @@
     },
     {
       "entry_id": "D082_XJ009",
+      "meal_type": "night",
+      "food_name": "西苑 杨枝甘露",
+      "brand": null,
+      "amount": 50.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 46.0,
+      "protein_g": 0.1,
+      "total_carbs_g": 11.2,
+      "fiber_g": 0,
+      "net_carbs_g": 11.2,
+      "fat_g": 0.1,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D082_XJ010",
       "meal_type": "preworkout",
       "food_name": "香蕉",
       "brand": null,
@@ -176,11 +192,11 @@
       "notes": "训记 API 营养快照；纤维未由接口返回。"
     },
     {
-      "entry_id": "D082_XJ010",
+      "entry_id": "D082_XJ011",
       "meal_type": "preworkout",
       "food_name": "蓝莓",
       "brand": null,
-      "amount": 20.0,
+      "amount": 50.0,
       "unit": "g",
       "servings": null,
       "calories": 61.0,
@@ -192,7 +208,7 @@
       "notes": "训记 API 营养快照；纤维未由接口返回。"
     },
     {
-      "entry_id": "D082_XJ011",
+      "entry_id": "D082_XJ012",
       "meal_type": "preworkout",
       "food_name": "Muscle Milk Pro33g",
       "brand": null,
