@@ -1110,6 +1110,9 @@ def main() -> None:
     built = bootstrap.ensure_database()
     if built:
         st.toast(built)
+    refreshed = bootstrap.refresh_from_origin()
+    if refreshed:
+        st.toast(refreshed)
     _init_settings()
     st.session_state["range_days"] = _sidebar_range()
 
