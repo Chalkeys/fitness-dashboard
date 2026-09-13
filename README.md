@@ -308,3 +308,15 @@ FITNESS_OWNER = "owner"
 Viewers see everything and may pull every control; nothing they do is
 written. Leave the secret unset on a machine you run alone.
 
+## Home server
+
+The LAN instance is a git checkout of this repository at
+`/opt/fitness-dashboard`, served by the `fitness-dashboard` systemd unit. A
+timer (`fitness-pull.timer`, every 30 minutes) runs `/usr/local/bin/fitness-pull`,
+which pulls, imports any changed exports, and restarts the service only when
+something changed. Its log is `/var/log/fitness-pull.log`.
+
+Notes and settings edited on that machine are kept across pulls by
+`--autostash`; a conflict aborts the pull and is logged rather than left
+half-applied.
+
