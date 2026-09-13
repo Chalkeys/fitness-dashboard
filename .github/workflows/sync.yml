@@ -39,6 +39,16 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          # A push made with the repository's own GITHUB_TOKEN raises no
+          # events outside GitHub Actions -- that is what stops workflows
+          # triggering each other -- and Streamlit Community Cloud's redeploy
+          # hook is one of the events it does not raise. Three bot commits
+          # carried a full day the public instance never showed. A personal
+          # token makes the push a person's, and everything fires. Without
+          # one the sync still commits; the instance just waits for the next
+          # push by hand.
+          token: ${{ secrets.SYNC_TOKEN || github.token }}
 
       - uses: astral-sh/setup-uv@v5
         with:
