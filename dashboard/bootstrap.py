@@ -126,3 +126,12 @@ def refresh_from_origin() -> str | None:
             pass
         return f"已更新到 {remote[:7]}，导入 {stats['files']} 个导出"
 
+
+def running_version() -> str:
+    """The commit this instance is serving, for the corner of the page.
+
+    Which version a page is showing is worth knowing on any instance, and on
+    one that updates itself it is the only way to see that it did.
+    """
+    return _git("rev-parse", "--short", "HEAD") or "未知"
+

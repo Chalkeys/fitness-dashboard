@@ -141,6 +141,7 @@ def _sidebar_range() -> int | None:
             index=1,
             label_visibility="collapsed",
         )
+        st.caption(f"版本 `{bootstrap.running_version()}`")
     return RANGE_OPTIONS[label]
 
 
