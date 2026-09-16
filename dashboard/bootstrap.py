@@ -23,6 +23,7 @@ import subprocess
 import threading
 import time
 from pathlib import Path
+from typing import NamedTuple
 
 from dashboard.data import DB_PATH
 
@@ -41,6 +42,21 @@ REFRESH_INTERVAL_SECONDS = 600
 _refresh_lock = threading.Lock()
 _last_refresh = 0.0
 
+# The commit whose exports are known to be in the database, in full. Pulling
+# and importing are two steps, and the public instance once got through the
+# first and not the second four times running: HEAD read as current while the
+# pages showed data two days old, and because the next check compared HEAD
+# with origin it saw nothing left to do. Keying on what was imported rather
+# than on what was pulled means a failed import is retried, not forgotten.
+_imported_head: str | None = None
+
+
+class Outcome(NamedTuple):
+    """What a start or a refresh did, and whether every export made it in."""
+
+    message: str
+    ok: bool = True
+
 
 def _has_rows(path: Path) -> bool:
     try:
@@ -50,7 +66,7 @@ def _has_rows(path: Path) -> bool:
         return False
 
 
-def ensure_database() -> str | None:
+def ensure_database() -> Outcome | None:
     """Make sure a database exists. Returns what was done, or None if nothing."""
     global _checked
     if _checked:
@@ -68,12 +84,25 @@ def ensure_database() -> str | None:
     initialize_database(path)
     # needs_review days are included because they were on the machines that
     # built the reference database by hand, and a fresh build should match.
-    stats = import_exports(EXPORTS, path, include_needs_review=True)
+    stats = _import(path)
+    if stats["failed"]:
+        return Outcome(f"{stats['failed']} 个导出没能导入，看服务端日志", ok=False)
     if fresh:
-        return f"已从 {stats['files']} 个导出重建数据库（{stats['inserted']} 条记录）"
+        return Outcome(f"已从 {stats['files']} 个导出重建数据库（{stats['inserted']} 条记录）")
     if stats["files"]:
-        return f"已补入 {stats['files']} 个导出（{stats['inserted']} 条记录）"
+        return Outcome(f"已补入 {stats['files']} 个导出（{stats['inserted']} 条记录）")
     return None
+
+
+def _import(path: Path) -> dict[str, int]:
+    """Bring the database up to the exports on disk and note which commit that was."""
+    global _imported_head
+    from scripts.import_exports import import_exports
+
+    stats = import_exports(EXPORTS, path, include_needs_review=True)
+    if not stats["failed"]:
+        _imported_head = _git("rev-parse", "HEAD")
+    return stats
 
 
 def _git(*args: str) -> str | None:
@@ -87,12 +116,13 @@ def _git(*args: str) -> str | None:
     return done.stdout.strip() if done.returncode == 0 else None
 
 
-def refresh_from_origin() -> str | None:
+def refresh_from_origin() -> Outcome | None:
     """Pull new commits into the running checkout and import what changed.
 
     Returns what happened, or None when there was nothing to do or it was too
     soon to look. Never raises: a machine without git, without network, or
-    with a checkout that will not fast-forward keeps serving what it has.
+    with a checkout that will not fast-forward keeps serving what it has. An
+    import that fails is reported and tried again at the next check.
 
     ``--autostash`` carries anything edited on this machine — notes, settings
     — across the pull, which matters on the home server. Where a rebase
@@ -106,25 +136,30 @@ def refresh_from_origin() -> str | None:
         _last_refresh = now
 
         head = _git("rev-parse", "HEAD")
-        if head is None or _git("fetch", "-q", "origin", "main") is None:
+        if head is None:
             return None
-        remote = _git("rev-parse", "origin/main")
-        if not remote or remote == head:
-            return None
-        if _git("pull", "-q", "--rebase", "--autostash", "origin", "main") is None:
-            _git("rebase", "--abort")
+        if _git("fetch", "-q", "origin", "main") is not None:
+            remote = _git("rev-parse", "origin/main")
+            if remote and remote != head:
+                if _git("pull", "-q", "--rebase", "--autostash", "origin", "main") is None:
+                    _git("rebase", "--abort")
+                else:
+                    head = remote
+        if head == _imported_head:
             return None
 
-        from scripts.import_exports import import_exports
-
-        stats = import_exports(EXPORTS, Path(DB_PATH), include_needs_review=True)
+        stats = _import(Path(DB_PATH))
         try:
             import streamlit as st
 
             st.cache_data.clear()
         except Exception:  # noqa: BLE001 — outside a Streamlit runtime there is nothing to clear
             pass
-        return f"已更新到 {remote[:7]}，导入 {stats['files']} 个导出"
+        if stats["failed"]:
+            return Outcome(
+                f"已更新到 {head[:7]}，但 {stats['failed']} 个导出没能导入，看服务端日志", ok=False
+            )
+        return Outcome(f"已更新到 {head[:7]}，导入 {stats['files']} 个导出")
 
 
 def running_version() -> str:

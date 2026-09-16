@@ -141,8 +141,14 @@ def _sidebar_range() -> int | None:
             index=1,
             label_visibility="collapsed",
         )
-        st.caption(f"版本 `{bootstrap.running_version()}`")
+        st.caption(f"版本 `{bootstrap.running_version()}` · 数据至 {_data_through()}")
     return RANGE_OPTIONS[label]
+
+
+def _data_through() -> str:
+    """The last day in the database — the number to check when a sync seems missing."""
+    daily = data.load_daily_logs()
+    return "—" if daily.empty else daily["log_date"].max().strftime("%m-%d")
 
 
 def _page_controls(
@@ -1108,12 +1114,13 @@ TRAINING_PAGE = st.Page(page_training, title="训练", icon="🏋️", url_path=
 
 def main() -> None:
     st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
-    built = bootstrap.ensure_database()
-    if built:
-        st.toast(built)
-    refreshed = bootstrap.refresh_from_origin()
-    if refreshed:
-        st.toast(refreshed)
+    for outcome in (bootstrap.ensure_database(), bootstrap.refresh_from_origin()):
+        if outcome is None:
+            continue
+        if outcome.ok:
+            st.toast(outcome.message)
+        else:
+            st.warning(outcome.message)
     _init_settings()
     st.session_state["range_days"] = _sidebar_range()
 
