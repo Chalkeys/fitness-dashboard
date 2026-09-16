@@ -11,6 +11,8 @@ from __future__ import annotations
 
 import pandas as pd
 
+from dashboard import data
+
 # Energy density of body-mass change. Fat tissue takes the usual dietetics
 # approximation; lean tissue is mostly water and costs a fraction of it.
 FAT_KCAL_PER_KG = 7700.0
@@ -57,7 +59,7 @@ def split_tdee(
     every day. A day logged below the baseline keeps its own value as resting
     and contributes no activity.
     """
-    fed = daily[daily["tdee"] > 0]
+    fed = data.fed(daily)
     active = (fed["tdee"] - bmr).clip(lower=0)
     return fed["tdee"] - active, active
 
@@ -80,7 +82,7 @@ def corrected_balance(
 
     Biases are fractions: -0.4 shrinks that side by 40%.
     """
-    fed = daily[daily["tdee"] > 0]
+    fed = data.fed(daily)
     return fed["calories_intake"] * (1 + intake_bias) - corrected_tdee(
         daily, active_bias, bmr
     )
@@ -104,7 +106,7 @@ def calibration(
     is that day-to-day water swings ride on the endpoints — raise `smoothing`
     to trade that noise back against the bias.
     """
-    fed = daily[daily["tdee"] > 0]
+    fed = data.fed(daily)
     if fed.empty or body.empty:
         return None
 
@@ -178,7 +180,7 @@ def target_plan(
     """
     scans = body.dropna(subset=["body_fat_percentage"])
     weights = body.dropna(subset=["weight_kg"])
-    fed = daily[daily["tdee"] > 0]
+    fed = data.fed(daily)
     if scans.empty or weights.empty or fed.empty:
         return None
 

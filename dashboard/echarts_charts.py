@@ -9,7 +9,7 @@ from __future__ import annotations
 import pandas as pd
 from streamlit_echarts import JsCode
 
-from dashboard import energy
+from dashboard import data, energy
 from dashboard.theme import (
     TEAL,
     BASELINE,
@@ -202,7 +202,7 @@ def intake_vs_tdee_option(
     bmr: float = energy.DEFAULT_BMR,
 ) -> dict:
     """Intake against TDEE, optionally corrected on activity and intake."""
-    df = daily[daily["tdee"] > 0]
+    df = data.fed(daily)
     tdee = energy.corrected_tdee(daily, active_bias, bmr)
     intake = df["calories_intake"] * (1 + intake_bias)
     suffix = "（纠偏）" if (active_bias or intake_bias) else ""
@@ -263,7 +263,7 @@ def calorie_balance_option(
     bmr: float = energy.DEFAULT_BMR,
 ) -> dict:
     """Daily calorie balance, raw or corrected, with a 7-day mean over it."""
-    df = daily[daily["tdee"] > 0].copy()
+    df = data.fed(daily).copy()
     df["balance"] = energy.corrected_balance(
         daily, active_bias, intake_bias, bmr
     ).round(0)
@@ -307,7 +307,7 @@ def corrected_balance_option(
     bmr: float = energy.DEFAULT_BMR,
 ) -> dict:
     """Calorie balance after correcting activity expenditure and intake."""
-    df = daily[daily["tdee"] > 0].copy()
+    df = data.fed(daily).copy()
     df["raw"] = df["calories_intake"] - df["tdee"]
     df["corrected"] = energy.corrected_balance(
         daily, active_bias, intake_bias, bmr

@@ -94,3 +94,21 @@ def test_one_weighted_set_is_enough_to_qualify():
     sets = _sets(rows, weight_kg=None)
     sets.loc[0, "weight_kg"] = 10.0
     assert selectable_exercises(sets, today=TODAY) == ["悬挂抬腿"]
+
+
+def test_fed_drops_a_day_with_no_intake_logged():
+    import pandas as pd
+
+    from dashboard import data
+
+    daily = pd.DataFrame(
+        {
+            "log_date": pd.to_datetime(["2026-09-14", "2026-09-15"]),
+            "tdee": [2480.0, 2220.0],
+            "calories_intake": [1965.0, 0.0],
+            "protein_g": [136.0, 0.0],
+        }
+    )
+    kept = data.fed(daily)
+    assert list(kept["log_date"].dt.day) == [14]
+    assert kept["protein_g"].mean() == 136.0

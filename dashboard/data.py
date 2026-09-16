@@ -39,6 +39,17 @@ def load_daily_logs() -> pd.DataFrame:
     return df
 
 
+def fed(daily: pd.DataFrame) -> pd.DataFrame:
+    """The days that can carry an energy balance: a TDEE and some intake logged.
+
+    The morning sync writes today with the weigh-in and no meals yet, and a
+    day priced as 0 kcal in would sink a seven-day average by 300 kcal and
+    the protein one by 20 g until the evening sync filled it. Nothing is ever
+    eaten to exactly zero, so zero means unlogged.
+    """
+    return daily[(daily["tdee"] > 0) & (daily["calories_intake"] > 0)]
+
+
 @st.cache_data(ttl=CACHE_TTL)
 def load_body_measurements() -> pd.DataFrame:
     df = _read_sql(

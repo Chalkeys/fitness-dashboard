@@ -218,7 +218,7 @@ def page_overview() -> None:
     weight_d7 = _delta(weight, 7)
 
     recent7 = data.filter_by_range(daily, "log_date", 7)
-    fed7 = recent7[recent7["tdee"] > 0]
+    fed7 = data.fed(recent7)
     # The card and the chart below show the same quantity, so they share a mode.
     corrected = st.session_state.get("balance_mode", settings.DEFAULTS["balance_mode"]) == "纠偏后"
     card_bias = _bias_factors() if corrected else (0.0, 0.0, energy.DEFAULT_BMR)
