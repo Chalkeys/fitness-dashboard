@@ -21,18 +21,21 @@ KCAL_PER_KG = FAT_KCAL_PER_KG  # kept for callers that only price fat
 
 # Lean mass accrues from training and protein rather than from the size of the
 # deficit, so it is modelled as a rate rather than a share of the weight
-# change. Measured between the DEXA scans of 16 July and 18 August: 1.19 kg
-# over 34 days. Re-derive it after the next scan.
-LEAN_GAIN_KG_PER_DAY = 1.19 / 34
+# change. Measured across the whole DEXA record, 16 July to 17 September:
+# +1.13 kg (141.0 → 143.5 lb) over 63 days. The middle scan makes it look
+# faster then slower — +1.50 kg in the first 34 days, −0.36 kg in the next
+# 30 — which is the size of a scan's own noise, so the rate comes from the
+# two endpoints. Re-derive it after the next scan.
+LEAN_GAIN_KG_PER_DAY = 1.13 / 63
 
 
 def split_weight_change(total_kg: float, days: int) -> tuple[float, float]:
     """Divide a scale change into its fat and lean parts.
 
     Scale weight understates what is happening during recomposition: over the
-    DEXA window the scale moved 0.65 kg while 1.84 kg of fat left and 1.19 kg
-    of lean arrived. Pricing the whole change as fat would have valued that
-    period at a third of its real energy cost.
+    first DEXA window the scale moved 0.65 kg while 1.86 kg of fat left and
+    1.50 kg of lean arrived. Pricing the whole change as fat would have valued
+    that period at a third of its real energy cost.
     """
     lean_kg = LEAN_GAIN_KG_PER_DAY * days
     return total_kg - lean_kg, lean_kg

@@ -1,6 +1,6 @@
 {
-  "bias_active": -5,
-  "bias_intake": 5,
+  "bias_active": 0,
+  "bias_intake": 0,
   "bias_bmr": 1850,
   "balance_mode": "纠偏后",
   "intake_mode": "纠偏后",
