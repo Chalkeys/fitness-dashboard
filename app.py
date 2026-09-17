@@ -797,6 +797,8 @@ def _corrected_balance_section(
         "基础代谢基本只随体重变化、日间波动小，所以只对活动消耗纠偏："
         "TDEE 减去下面的基础代谢基线得到活动消耗，再按系数缩放；摄入按手记低估的方向单独调整。"
         "这组系数同时用于上方「摄入 vs TDEE」的纠偏视图。"
+        "三次 DEXA（7/16→9/17，63 天）对照下来，原始记录与实测体成分只差 273 kcal，所以默认都是 0；"
+        "单看相邻两次扫描会各偏 4 千多、方向相反，那是扫描自身的误差，别按单段调。"
     )
 
     left, mid, right = st.columns([2, 2, 1])
@@ -873,13 +875,76 @@ def _corrected_balance_section(
         delta_color="off",
     )
     st.caption(
-        f"体重变化按体成分计价：瘦体重按实测速率每天 {energy.LEAN_GAIN_KG_PER_DAY * 1000:.0f} g"
-        f"（两次 DEXA 之间 34 天涨 1.19 kg），按 {energy.LEAN_KCAL_PER_KG:.0f} kcal/kg；"
+        f"体重变化按体成分计价：瘦体重按这段缺口对应的速率每天 "
+        f"{cal['lean_kg'] / cal['days'] * 1000:+.0f} g（见下方「缺口与增肌」），"
+        f"按 {energy.LEAN_KCAL_PER_KG:.0f} kcal/kg；"
         f"其余归为脂肪，按 {energy.FAT_KCAL_PER_KG:.0f} kcal/kg。"
         "增肌减脂同时发生时体重几乎不动，全按脂肪折算会把真实赤字算没。"
         "体重取区间首末当天实测值，不做平滑——与 DEXA 的当天口径一致，代价是水分波动会落在端点上。"
         "两侧偏差只有一个方程、两个未知数，所以「差」是两边合计的净误差，"
         "调到接近 0 说明这组系数与实测吻合——但体重还受水分和糖原影响，别追求精确归零。"
+    )
+
+
+DEFICIT_CANDIDATES = (-300, -400, -500, -600, -700)
+
+
+def _deficit_section(daily: pd.DataFrame, imperial: bool) -> None:
+    """What each size of deficit buys, in fat lost against lean kept."""
+    st.subheader("缺口与增肌")
+
+    w_unit = "lb" if imperial else "kg"
+    factor = KG_TO_LB if imperial else 1.0
+    fed = data.fed(daily)
+    recent = fed.tail(14)
+    recent_balance = float((recent["calories_intake"] - recent["tdee"]).mean())
+    neutral = energy.lean_neutral_balance()
+
+    c1, c2, c3 = st.columns(3)
+    c1.metric("增肌归零的缺口", f"{neutral:+.0f} kcal/天")
+    c2.metric(
+        "近 14 天记录缺口",
+        f"{recent_balance:+.0f} kcal/天",
+        delta=f"距归零 {recent_balance - neutral:+.0f}",
+        delta_color="off",
+    )
+    c3.metric(
+        "对应瘦体重速率",
+        f"{energy.lean_rate(recent_balance) * 1000:+.0f} g/天",
+        delta=f"{energy.lean_rate(recent_balance) * 30 * factor:+.2f} {w_unit}/月",
+        delta_color="off",
+    )
+
+    # Rest days are rare enough that the last fortnight may hold none; take
+    # the last few from the whole record instead.
+    training = fed["is_training_day"].astype(bool)
+    tdee_train = float(fed[training].tail(14)["tdee"].mean())
+    rest = fed[~training].tail(4)
+    tdee_rest = float(rest["tdee"].mean()) if not rest.empty else tdee_train
+    rows = []
+    for deficit in DEFICIT_CANDIDATES:
+        rate = energy.lean_rate(deficit)
+        fat_per_day = (deficit - rate * energy.LEAN_KCAL_PER_KG) / energy.FAT_KCAL_PER_KG
+        rows.append(
+            {
+                "缺口 kcal/天": deficit,
+                f"瘦体重 {w_unit}/月": round(rate * 30 * factor, 2),
+                f"脂肪 {w_unit}/月": round(fat_per_day * 30 * factor, 2),
+                "训练日摄入": round(tdee_train + deficit),
+                "休息日摄入": round(tdee_rest + deficit),
+            }
+        )
+    st.dataframe(pd.DataFrame(rows), hide_index=True, use_container_width=True)
+
+    (b0, r0), (b1, r1) = energy.LEAN_RATE_POINTS[0], energy.LEAN_RATE_POINTS[-1]
+    st.caption(
+        f"速率来自相邻两次 DEXA 之间的实测：{b0:+.0f}/天 的那段瘦体重每天 {r0 * 1000:+.0f} g，"
+        f"{b1:+.0f}/天 的那段每天 {r1 * 1000:+.0f} g，两点连线过零在 {neutral:+.0f}。"
+        f"比 {b0:+.0f} 浅的缺口按 {r0 * 1000:+.0f} g 封顶，没有数据说更浅长得更快。"
+        "每次扫描的瘦体重读数误差约 ±0.5 kg，所以斜率两端各有 ±15 g/天的不确定——"
+        "「−500 在长、−700 在掉」是可信的，过零点精确到哪一百不可信。"
+        f"摄入按近 14 天训练日 TDEE {tdee_train:.0f}、休息日 {tdee_rest:.0f} 加缺口得到，"
+        "缺口是原始记录口径（纠偏系数为 0 时与纠偏后一致）。"
     )
 
 
@@ -940,13 +1005,20 @@ def _target_section(imperial: bool) -> None:
     st.caption(
         f"期限自今天起 {int(horizon)} 天，到 {plan['target_date']:%Y-%m-%d}。"
         f"以 {plan['scan_date']:%m-%d} 那次体脂实测为锚点（{plan['days_since_scan']} 天前），"
-        f"瘦体重按每天 {energy.LEAN_GAIN_KG_PER_DAY * 1000:.0f} g 往后推——"
+        f"瘦体重按长期实测速率每天 {energy.LEAN_GAIN_KG_PER_DAY * 1000:+.0f} g 往后推——"
         f"长肌肉会抬高同一体脂率下允许的脂肪量，所以目标是移动的。"
-        f"活动消耗取近 14 天记录均值 {plan['active_logged']:.0f} kcal，"
+        f"按「缺口与增肌」的关系，{plan['balance_per_day']:+.0f}/天 的缺口实际对应瘦体重每天 "
+        f"{plan['lean_rate_implied'] * 1000:+.0f} g"
+        + (
+            "，比增肌归零线还深——期限太短，在用肌肉换时间。"
+            if plan["balance_per_day"] < energy.lean_neutral_balance()
+            else "。"
+        )
+        + f"活动消耗取近 14 天记录均值 {plan['active_logged']:.0f} kcal，"
         f"按当前系数缩放；BMR {plan['bmr']:.0f} 按区间平均瘦体重算。"
     )
     if not reachable:
-        st.caption("按当前的瘦体重增长速率，这个期限内已经能达标，无需额外赤字。")
+        st.caption("按长期瘦体重增长速率，这个期限内已经能达标，无需额外赤字。")
 
 
 def page_nutrition() -> None:
@@ -988,6 +1060,7 @@ def page_nutrition() -> None:
     st.subheader("蛋白质")
     st_echarts(ec.protein_trend_option(windowed), height="320px", key="nut_protein")
 
+    _deficit_section(daily, imperial)
     _target_section(imperial)
 
     entries = data.load_nutrition_entries()

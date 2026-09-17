@@ -50,3 +50,17 @@ def test_no_redefined_or_unreachable_code():
         if "redefinition of unused" in line or "unable to detect undefined" in line
     ]
     assert not bad, "\n".join(bad)
+
+
+def test_every_source_compiles():
+    # pyflakes reports a syntax error as its own line, which neither test
+    # above matches; a page that cannot be parsed loads even less than one
+    # with an undefined name.
+    import py_compile
+    from pathlib import Path
+
+    for source in SOURCES:
+        path = Path(source)
+        files = [path] if path.is_file() else sorted(path.rglob("*.py"))
+        for file in files:
+            py_compile.compile(str(file), doraise=True)

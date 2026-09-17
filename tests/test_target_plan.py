@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from dashboard.energy import LEAN_GAIN_KG_PER_DAY, target_plan
+from dashboard.energy import LEAN_GAIN_KG_PER_DAY, lean_neutral_balance, lean_rate, target_plan
 
 TODAY = pd.Timestamp("2026-08-28")
 
@@ -62,16 +62,32 @@ def test_the_daily_figure_divides_by_the_days_left_to_eat():
     assert plan["balance_per_day"] == pytest.approx(stored / 30)
 
 
-def test_a_stale_weigh_in_asks_for_slightly_more_each_day():
-    # Erring toward a larger deficit is the safe direction.
-    assert _plan(30, "2026-08-27")["balance_per_day"] < _plan(30, "2026-08-28")["balance_per_day"]
-
-
 def test_lean_is_projected_over_the_days_the_body_has():
     plan = _plan(30, weighed_at="2026-08-27")
     assert plan["lean_end"] == pytest.approx(
         plan["lean_now"] + LEAN_GAIN_KG_PER_DAY * plan["days_ahead"]
     )
+
+
+def test_the_implied_lean_rate_is_reported_not_fed_back():
+    plan = _plan(30)
+    assert plan["lean_rate_implied"] == pytest.approx(lean_rate(plan["balance_per_day"]))
+    assert plan["lean_end"] == pytest.approx(plan["lean_now"] + LEAN_GAIN_KG_PER_DAY * plan["days_ahead"])
+
+
+def test_lean_rate_follows_the_measured_windows():
+    assert lean_rate(-479) == pytest.approx(1.50 / 33)
+    assert lean_rate(-688) == pytest.approx(-0.36 / 30)
+    # Shallower than anything measured is held, not extrapolated upward.
+    assert lean_rate(0) == lean_rate(-479)
+    # Deeper keeps falling.
+    assert lean_rate(-900) < lean_rate(-688)
+
+
+def test_lean_neutral_balance_sits_between_the_windows():
+    zero = lean_neutral_balance()
+    assert -688 < zero < -479
+    assert lean_rate(zero) == pytest.approx(0, abs=1e-9)
 
 
 def test_a_longer_horizon_pushes_the_deadline_out_by_the_same_days():

@@ -22,22 +22,54 @@ KCAL_PER_KG = FAT_KCAL_PER_KG  # kept for callers that only price fat
 # Lean mass accrues from training and protein rather than from the size of the
 # deficit, so it is modelled as a rate rather than a share of the weight
 # change. Measured across the whole DEXA record, 16 July to 17 September:
-# +1.13 kg (141.0 → 143.5 lb) over 63 days. The middle scan makes it look
-# faster then slower — +1.50 kg in the first 34 days, −0.36 kg in the next
-# 30 — which is the size of a scan's own noise, so the rate comes from the
-# two endpoints. Re-derive it after the next scan.
+# +1.13 kg (141.0 → 143.5 lb) over 63 days. This is the rate used when the
+# balance it ran under is not known; where it is, ``lean_rate`` below.
 LEAN_GAIN_KG_PER_DAY = 1.13 / 63
 
+# The same record, one scan interval at a time, as (raw balance kcal/day,
+# lean kg/day). 16 Jul → 18 Aug ran at −479 a day and gained 45 g of lean a
+# day; 18 Aug → 17 Sep at −688 lost 12. Two points fix a line, whose zero is
+# where a deficit stops leaving room for muscle; a third scan bends it. Each
+# scan's lean reading is good to about ±0.5 kg, so the slope is known to
+# about ±15 g/day at either end — enough to say that −500 grew and −700 did
+# not, not enough to place the crossing closer than a hundred or so.
+LEAN_RATE_POINTS: tuple[tuple[float, float], ...] = ((-479.0, 1.50 / 33), (-688.0, -0.36 / 30))
 
-def split_weight_change(total_kg: float, days: int) -> tuple[float, float]:
+
+def lean_rate(balance_per_day: float) -> float:
+    """Lean gained per day under a given raw daily balance, kg.
+
+    Linear between the measured points and beyond the deeper one. Shallower
+    than the shallowest, the rate is held rather than extrapolated: nothing
+    measured says a smaller deficit grows muscle faster, and the line's
+    intercept at maintenance would say 175 g a day, which is not a thing.
+    """
+    (b0, r0), (b1, r1) = LEAN_RATE_POINTS[0], LEAN_RATE_POINTS[-1]
+    if balance_per_day >= b0:
+        return r0
+    return r0 + (r1 - r0) / (b1 - b0) * (balance_per_day - b0)
+
+
+def lean_neutral_balance() -> float:
+    """The daily balance below which lean mass starts to go, kcal."""
+    (b0, r0), (b1, r1) = LEAN_RATE_POINTS[0], LEAN_RATE_POINTS[-1]
+    return b0 - r0 * (b1 - b0) / (r1 - r0)
+
+
+def split_weight_change(
+    total_kg: float, days: int, balance_per_day: float | None = None
+) -> tuple[float, float]:
     """Divide a scale change into its fat and lean parts.
 
     Scale weight understates what is happening during recomposition: over the
     first DEXA window the scale moved 0.65 kg while 1.86 kg of fat left and
     1.50 kg of lean arrived. Pricing the whole change as fat would have valued
-    that period at a third of its real energy cost.
+    that period at a third of its real energy cost. Given the balance the
+    days ran under, the lean part follows ``lean_rate``; without it, the
+    long-run average.
     """
-    lean_kg = LEAN_GAIN_KG_PER_DAY * days
+    rate = LEAN_GAIN_KG_PER_DAY if balance_per_day is None else lean_rate(balance_per_day)
+    lean_kg = rate * days
     return total_kg - lean_kg, lean_kg
 
 
@@ -128,7 +160,7 @@ def calibration(
     balance = corrected_balance(fed, active_bias, intake_bias, bmr)
     days = len(balance)
     actual_kg = float(weights.iloc[-1] - weights.iloc[0])
-    actual_fat_kg, lean_kg = split_weight_change(actual_kg, days)
+    actual_fat_kg, lean_kg = split_weight_change(actual_kg, days, float(balance.mean()))
 
     # What the logged balance buys, once the lean gained over the same days is
     # paid for: the rest lands on fat, which is what the scale change is then
@@ -174,8 +206,8 @@ def target_plan(
     yet: the body has from its last known state until the deadline to change,
     which is the longer one and what the lean projection runs over, while the
     eating that has to cause the change only has from today, which is what the
-    daily figure divides by. Compressing the elapsed days into the remaining
-    ones asks for slightly more each day, which is the safe direction to err.
+    daily figure divides by. The elapsed day still counts for lean at the
+    planned rate, so a stale weigh-in moves the figure by a few kcal only.
 
     Fat and lean stay paired at the last weight reading rather than being
     projected to today, because that weight was measured on the same morning
@@ -192,13 +224,26 @@ def target_plan(
     days_since_scan = max((latest["measured_at"] - scan["measured_at"]).days, 0)
 
     lean_at_scan = scan["weight_kg"] * (1 - scan["body_fat_percentage"] / 100)
-    lean_now = lean_at_scan + LEAN_GAIN_KG_PER_DAY * days_since_scan
+    # Lean since the scan grew at whatever the days since then were run at.
+    since_scan = fed[fed["log_date"] > scan["measured_at"]]
+    rate_since = (
+        lean_rate(float((since_scan["calories_intake"] - since_scan["tdee"]).mean()))
+        if not since_scan.empty
+        else LEAN_GAIN_KG_PER_DAY
+    )
+    lean_now = lean_at_scan + rate_since * days_since_scan
     fat_now = latest["weight_kg"] - lean_now
 
     start = (today or pd.Timestamp.today()).normalize()
     target_date = start + pd.Timedelta(int(horizon_days), unit="D")
     days_ahead = max((target_date - latest["measured_at"]).days, horizon_days)
 
+    # Lean over the horizon is projected at the long-run rate, not at the
+    # rate the planned deficit would allow. Solving the two together is a
+    # loop with a gain near one — a deeper deficit costs lean, less lean
+    # allows less fat, which asks for a deeper deficit — and it multiplies a
+    # −800 need into −1400 on the strength of a slope known to ±15 g/day.
+    # What the deficit would do to lean is reported, not fed back.
     lean_end = lean_now + LEAN_GAIN_KG_PER_DAY * days_ahead
     # Fat allowed at the target, given the lean mass there will be by then.
     fat_target = target_body_fat / (1 - target_body_fat) * lean_end
@@ -229,6 +274,7 @@ def target_plan(
         "weight_end": float(fat_target + lean_end),
         "fat_change": float(fat_change),
         "balance_per_day": float(balance_per_day),
+        "lean_rate_implied": lean_rate(float(balance_per_day)),
         "bmr": float(bmr),
         "active_logged": active_logged,
         "tdee_true": float(tdee_true),
