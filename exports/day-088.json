@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-088",
-  "history_version": 2,
-  "exported_at": "2026-09-17T15:01:09.497827Z",
+  "history_version": 4,
+  "exported_at": "2026-09-18T05:54:52.056773Z",
   "date": "2026-09-17",
   "day_number": 88,
   "provenance": {
@@ -18,25 +18,202 @@
   "daily_log": {
     "is_training_day": true,
     "workout_type": "p2_推",
-    "calories_in": null,
+    "calories_in": 2045.72,
     "tdee": 2520.0,
-    "calorie_balance": -2520.0,
-    "protein_g": null,
-    "total_carbs_g": null,
+    "calorie_balance": -474.28,
+    "protein_g": 142.562,
+    "total_carbs_g": 259.94800000000004,
     "fiber_g": 0,
-    "net_carbs_g": 0,
-    "fat_g": null,
+    "net_carbs_g": 259.94800000000004,
+    "fat_g": 45.568000000000005,
     "steps": null,
-    "active_energy_kcal": 692.2,
+    "active_energy_kcal": 692.3,
     "active_energy_source": "estimated",
     "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1826（Katch-McArdle，按当日体重与最近体脂）。TDEE 的活动部分按训练容量估算 692 kcal（584 + 0.01×容量，由 58 天全天实测拟合）；未手工录入实测值。"
   },
-  "nutrition": [],
+  "nutrition": [
+    {
+      "entry_id": "D088_XJ001",
+      "meal_type": "morning",
+      "food_name": "意式浓缩咖啡",
+      "brand": null,
+      "amount": 40.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 9.0,
+      "protein_g": 0.1,
+      "total_carbs_g": 1.8,
+      "fiber_g": 0,
+      "net_carbs_g": 1.8,
+      "fat_g": 0.2,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D088_XJ002",
+      "meal_type": "morning",
+      "food_name": "kirkland 全脂牛奶",
+      "brand": null,
+      "amount": 50.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 67.0,
+      "protein_g": 3.5,
+      "total_carbs_g": 5.3,
+      "fiber_g": 0,
+      "net_carbs_g": 5.3,
+      "fat_g": 3.5,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D088_XJ003",
+      "meal_type": "morning",
+      "food_name": "OIKOS Triple Zero",
+      "brand": null,
+      "amount": 150.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 58.666666666666664,
+      "protein_g": 10.0,
+      "total_carbs_g": 4.666666666666666,
+      "fiber_g": 0,
+      "net_carbs_g": 4.666666666666666,
+      "fat_g": 0.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D088_XJ004",
+      "meal_type": "noon",
+      "food_name": "大米",
+      "brand": null,
+      "amount": 150.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 367.0,
+      "protein_g": 8.4,
+      "total_carbs_g": 77.6,
+      "fiber_g": 0,
+      "net_carbs_g": 77.6,
+      "fat_g": 1.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D088_XJ005",
+      "meal_type": "noon",
+      "food_name": "番茄滑牛肉",
+      "brand": null,
+      "amount": 500.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 98.4,
+      "protein_g": 11.2,
+      "total_carbs_g": 4.4,
+      "fiber_g": 0,
+      "net_carbs_g": 4.4,
+      "fat_g": 4.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D088_XJ006",
+      "meal_type": "night",
+      "food_name": "costco 恰巴塔",
+      "brand": null,
+      "amount": 90.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 301.0,
+      "protein_g": 11.0,
+      "total_carbs_g": 57.5,
+      "fiber_g": 0,
+      "net_carbs_g": 57.5,
+      "fat_g": 2.7,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D088_XJ007",
+      "meal_type": "night",
+      "food_name": "Doritos 玉米片",
+      "brand": null,
+      "amount": 28.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 544.0,
+      "protein_g": 8.4,
+      "total_carbs_g": 63.6,
+      "fiber_g": 0,
+      "net_carbs_g": 63.6,
+      "fat_g": 27.6,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D088_XJ008",
+      "meal_type": "night",
+      "food_name": "牛肉干",
+      "brand": null,
+      "amount": 20.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 585.0,
+      "protein_g": 48.5,
+      "total_carbs_g": 2.0,
+      "fiber_g": 0,
+      "net_carbs_g": 2.0,
+      "fat_g": 42.5,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D088_XJ009",
+      "meal_type": "night",
+      "food_name": "卫龙 魔芋爽",
+      "brand": null,
+      "amount": 20.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 142.0,
+      "protein_g": 2.1,
+      "total_carbs_g": 9.5,
+      "fiber_g": 0,
+      "net_carbs_g": 9.5,
+      "fat_g": 9.2,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D088_XJ010",
+      "meal_type": "preworkout",
+      "food_name": "香蕉",
+      "brand": null,
+      "amount": 120.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 100.0,
+      "protein_g": 1.5,
+      "total_carbs_g": 23.6,
+      "fiber_g": 0,
+      "net_carbs_g": 23.6,
+      "fat_g": 0.2,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D088_XJ011",
+      "meal_type": "preworkout",
+      "food_name": "Muscle Milk Pro33g",
+      "brand": null,
+      "amount": 325.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 58.307692307692314,
+      "protein_g": 10.153846153846157,
+      "total_carbs_g": 3.384615384615385,
+      "fiber_g": 0,
+      "net_carbs_g": 3.384615384615385,
+      "fat_g": 0.4615384615384616,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    }
+  ],
   "workout": {
     "session_id": "day-088-xunji",
     "workout_name": "P2-推",
     "workout_type": "p2_推",
-    "duration_minutes": 2.6,
+    "duration_minutes": 84.0,
     "active_energy_kcal": null,
     "apple_health_workout_kcal": null,
     "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
@@ -71,34 +248,43 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 4,
-            "weight": 74.8427,
-            "reps": 6,
+            "weight": 65.7709,
+            "reps": 8,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 5,
-            "weight": 74.8427,
-            "reps": 6,
+            "weight": 65.7709,
+            "reps": 10,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 6,
-            "weight": 74.8427,
-            "reps": 6,
+            "weight": 65.7709,
+            "reps": 8,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
+          },
+          {
+            "set_number": 7,
+            "weight": 65.7709,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
           }
         ]
       },
@@ -114,7 +300,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 2,
@@ -123,7 +309,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 3,
@@ -132,7 +318,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           }
         ]
       },
@@ -143,30 +329,30 @@
         "sets": [
           {
             "set_number": 1,
-            "weight": 81.6466,
-            "reps": 11,
+            "weight": 90.7185,
+            "reps": 7,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 2,
-            "weight": 81.6466,
-            "reps": 11,
+            "weight": 90.7185,
+            "reps": 8,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 3,
-            "weight": 81.6466,
-            "reps": 11,
+            "weight": 90.7185,
+            "reps": 5,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           }
         ]
       },
@@ -182,7 +368,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 2,
@@ -191,7 +377,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 3,
@@ -200,7 +386,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           }
         ]
       },
@@ -216,7 +402,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 2,
@@ -225,7 +411,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 3,
@@ -234,7 +420,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           }
         ]
       },
@@ -250,7 +436,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 2,
@@ -259,7 +445,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 3,
@@ -268,7 +454,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           }
         ]
       },
@@ -284,7 +470,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 2,
@@ -293,7 +479,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 3,
@@ -302,7 +488,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           }
         ]
       }
