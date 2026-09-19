@@ -1,0 +1,139 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-090",
+  "history_version": 1,
+  "exported_at": "2026-09-19T13:56:37.485626Z",
+  "date": "2026-09-19",
+  "day_number": 90,
+  "provenance": {
+    "source": "xunji_app",
+    "confidence": "high",
+    "notes": "数据来自训记 Open API；膳食纤维按 0 g，净碳水按总碳水；TDEE 为估算值。"
+  },
+  "body": {
+    "weight_kg": 78.8,
+    "notes": "训记 Open API 身体数据。"
+  },
+  "daily_log": {
+    "is_training_day": false,
+    "workout_type": null,
+    "calories_in": 2113.9,
+    "tdee": 2290.0,
+    "calorie_balance": -176.1,
+    "protein_g": 150.64,
+    "total_carbs_g": 218.54,
+    "fiber_g": 0,
+    "net_carbs_g": 218.54,
+    "fat_g": 69.68,
+    "steps": null,
+    "active_energy_kcal": 450.0,
+    "active_energy_source": "estimated",
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1837（Katch-McArdle，按当日体重与最近体脂）。TDEE 的活动部分按训练容量估算 450 kcal（584 + 0.01×容量，由 58 天全天实测拟合）；未手工录入实测值。"
+  },
+  "nutrition": [
+    {
+      "entry_id": "D090_XJ001",
+      "meal_type": "morning",
+      "food_name": "意式浓缩咖啡",
+      "brand": null,
+      "amount": 40.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 9.0,
+      "protein_g": 0.1,
+      "total_carbs_g": 1.8,
+      "fiber_g": 0,
+      "net_carbs_g": 1.8,
+      "fat_g": 0.2,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D090_XJ002",
+      "meal_type": "morning",
+      "food_name": "香蕉",
+      "brand": null,
+      "amount": 120.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 100.0,
+      "protein_g": 1.5,
+      "total_carbs_g": 23.6,
+      "fiber_g": 0,
+      "net_carbs_g": 23.6,
+      "fat_g": 0.2,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D090_XJ003",
+      "meal_type": "morning",
+      "food_name": "Muscle Milk Pro33g",
+      "brand": null,
+      "amount": 325.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 58.307692307692314,
+      "protein_g": 10.153846153846157,
+      "total_carbs_g": 3.384615384615385,
+      "fiber_g": 0,
+      "net_carbs_g": 3.384615384615385,
+      "fat_g": 0.4615384615384616,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D090_XJ004",
+      "meal_type": "noon",
+      "food_name": "番茄滑牛肉",
+      "brand": null,
+      "amount": 500.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 98.4,
+      "protein_g": 11.2,
+      "total_carbs_g": 4.4,
+      "fiber_g": 0,
+      "net_carbs_g": 4.4,
+      "fat_g": 4.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D090_XJ005",
+      "meal_type": "noon",
+      "food_name": "costco 恰巴塔",
+      "brand": null,
+      "amount": 180.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 301.0,
+      "protein_g": 11.0,
+      "total_carbs_g": 57.5,
+      "fiber_g": 0,
+      "net_carbs_g": 57.5,
+      "fat_g": 2.7,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D090_XJ006",
+      "meal_type": "night",
+      "food_name": "Five guys hamburger",
+      "brand": null,
+      "amount": 375.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 204.5333333333333,
+      "protein_g": 10.666666666666666,
+      "total_carbs_g": 14.133333333333333,
+      "fiber_g": 0,
+      "net_carbs_g": 14.133333333333333,
+      "fat_g": 11.466666666666669,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    }
+  ],
+  "workout": null,
+  "review": [
+    {
+      "review_status": "approved",
+      "note": "用户确认纤维按 0 g、净碳水等于总碳水，并接受 TDEE 估算。",
+      "field": "daily_log"
+    }
+  ]
+}
