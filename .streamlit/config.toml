@@ -1,10 +1,38 @@
+# Both themes are defined and none is pinned, so the browser's own preference
+# picks one — and the app menu can still override it. Whatever wins is
+# reported back on `st.context.theme`, which is how the charts know which
+# palette to draw with. The values here are `dashboard/theme.py`'s, by hand:
+# Streamlit reads this file before any of our code runs.
+
 [theme]
-base = "light"
+font = "system-ui, -apple-system, Segoe UI, Microsoft YaHei, sans-serif"
+baseRadius = "0.75rem"
+buttonRadius = "0.6rem"
+showWidgetBorder = true
+
+[theme.light]
 primaryColor = "#045b98"
 backgroundColor = "#f9fafe"
 secondaryBackgroundColor = "#ffffff"
 textColor = "#12203a"
-font = "sans serif"
+linkColor = "#045b98"
+borderColor = "#e3e6ee"
+dataframeBorderColor = "#e3e6ee"
+dataframeHeaderBackgroundColor = "#f3f5fa"
+
+[theme.dark]
+primaryColor = "#388bd3"
+backgroundColor = "#0f141c"
+secondaryBackgroundColor = "#161c26"
+textColor = "#e8ecf3"
+linkColor = "#6fb2e3"
+borderColor = "#232c3a"
+dataframeBorderColor = "#232c3a"
+dataframeHeaderBackgroundColor = "#1b2230"
+
+# `chartCategoricalColors` is deliberately not set: it is a single top-level
+# option with no per-mode form, and every chart here takes its colours from
+# `dashboard/theme.py`, which does have one.
 
 [server]
 headless = true
