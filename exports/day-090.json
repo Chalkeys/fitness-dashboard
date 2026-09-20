@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-090",
-  "history_version": 3,
-  "exported_at": "2026-09-20T06:15:32.823306Z",
+  "history_version": 5,
+  "exported_at": "2026-09-20T14:14:36.495512Z",
   "date": "2026-09-19",
   "day_number": 90,
   "provenance": {
@@ -11,15 +11,15 @@
     "notes": "数据来自训记 Open API；膳食纤维按 0 g，净碳水按总碳水；TDEE 为估算值。"
   },
   "body": {
-    "weight_kg": 78.8,
+    "weight_kg": 79.83,
     "notes": "训记 Open API 身体数据。"
   },
   "daily_log": {
     "is_training_day": true,
     "workout_type": "p2_腿",
     "calories_in": 2113.9,
-    "tdee": 2730.0,
-    "calorie_balance": -616.1,
+    "tdee": 2750.0,
+    "calorie_balance": -636.1,
     "protein_g": 150.64,
     "total_carbs_g": 218.54,
     "fiber_g": 0,
@@ -28,7 +28,7 @@
     "steps": null,
     "active_energy_kcal": 890.0,
     "active_energy_source": "estimated",
-    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1837（Katch-McArdle，按当日体重与最近体脂）。TDEE 的活动部分按训练容量估算 890 kcal（584 + 0.01×容量，由 58 天全天实测拟合）；未手工录入实测值。"
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1856（Katch-McArdle，按当日体重与最近体脂）。TDEE 的活动部分按训练容量估算 890 kcal（584 + 0.01×容量，由 58 天全天实测拟合）；未手工录入实测值。"
   },
   "nutrition": [
     {
