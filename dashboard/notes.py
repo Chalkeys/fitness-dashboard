@@ -14,7 +14,7 @@ import os
 from datetime import date
 from pathlib import Path
 
-from dashboard.theme import BASELINE, CORAL, INK, INK_SECONDARY, SURFACE
+from dashboard.theme import active
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 NOTES_PATH = Path(
@@ -185,6 +185,11 @@ def annotate(option: dict, notes: dict[str, dict]) -> dict:
     they were nearest.
     """
     axis = option.get("xAxis") or {}
+    # A chart split into stacked plots carries one x-axis per plot, on the same
+    # dates; the marks are drawn against the first, which is the one the mark
+    # line's series lives on.
+    if isinstance(axis, list):
+        axis = axis[0] if axis else {}
     dates = list(axis.get("data") or ())
     series = list(option.get("series") or ())
     if not dates or not series:
@@ -205,10 +210,11 @@ def annotate(option: dict, notes: dict[str, dict]) -> dict:
         len(dates),
     )
 
+    palette = active()
     lines = []
     for day, note, at in drawn:
         pinned = note.get("pinned")
-        colour = CORAL if pinned else BASELINE
+        colour = palette.coral if pinned else palette.baseline
         lines.append(
             {
                 "xAxis": at,
@@ -223,7 +229,7 @@ def annotate(option: dict, notes: dict[str, dict]) -> dict:
                     # for a vertical one means reading it sideways.
                     "rotate": 0,
                     "offset": [0, rows.get(dates.index(at), 0) * LABEL_ROW_PX],
-                    "color": INK_SECONDARY,
+                    "color": palette.ink_secondary,
                     "opacity": LABEL_OPACITY,
                     "fontSize": 11,
                     "padding": [0, 4, 5, 4],
@@ -240,12 +246,12 @@ def annotate(option: dict, notes: dict[str, dict]) -> dict:
                         "formatter": note.get("text", ""),
                         "position": "insideEndTop",
                         "rotate": 0,
-                        "color": INK,
+                        "color": palette.ink,
                         "fontSize": 11,
-                        "backgroundColor": SURFACE,
-                        "borderColor": BASELINE,
+                        "backgroundColor": palette.surface,
+                        "borderColor": palette.border,
                         "borderWidth": 1,
-                        "borderRadius": 4,
+                        "borderRadius": 6,
                         "padding": [4, 6, 4, 6],
                     }
                 },
