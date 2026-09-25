@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-095",
-  "history_version": 2,
-  "exported_at": "2026-09-25T06:10:01.143781Z",
+  "history_version": 4,
+  "exported_at": "2026-09-25T15:16:40.783327Z",
   "date": "2026-09-24",
   "day_number": 95,
   "provenance": {
@@ -145,7 +145,7 @@
     "session_id": "day-095-xunji",
     "workout_name": "P3-推",
     "workout_type": "p3_推",
-    "duration_minutes": 88.4,
+    "duration_minutes": 93.2,
     "active_energy_kcal": null,
     "apple_health_workout_kcal": null,
     "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
@@ -402,7 +402,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 3,
@@ -411,7 +411,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           }
         ]
       }
