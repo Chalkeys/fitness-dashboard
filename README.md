@@ -253,13 +253,40 @@ a restart.
   calories, and that day's body measurements.
 - **身体指标**: weight and waist trends plus the full measurement table.
 - **营养**: intake against TDEE, the macro split, and protein over time.
-- **训练**: weekly tonnage, per-exercise progression, and set counts per muscle
-  group.
+- **训练**: weekly tonnage, a panel per pinned exercise — the top set over a
+  volume strip on the same dates, two plots rather than two y-scales on one —
+  and set counts per muscle group.
 
 Every page has its own metric/imperial toggle; the sidebar holds a global
 30-day / 90-day / all-time range filter. Charts are built with Apache ECharts
 through `streamlit-echarts`; the shared palette and chart chrome live in
 `dashboard/theme.py`, and the option builders in `dashboard/echarts_charts.py`.
+
+### Light and dark
+
+Both themes are defined in `.streamlit/config.toml` and neither is pinned, so
+the browser's own preference picks one; the app menu (⋮ → Settings) overrides
+it. Streamlit reports the winner on `st.context.theme`, `app.py` passes it to
+`dashboard.theme.set_mode`, and every chart, the body diagram and the page CSS
+read their colours from `dashboard.theme.active()` on the way through. Nothing
+is flipped by hand and no colour is written twice — apart from the config file,
+which Streamlit reads before any of this code runs.
+
+The dark set is the same six hues stepped for the dark surface, not an
+inverted light set. Both sets clear the six checks in the data-viz skill's
+`validate_palette.js`; the measured worst pairs are recorded at the top of
+`dashboard/theme.py`. After changing a slot, re-run it in both modes:
+
+```bash
+node scripts/validate_palette.js "<the six carriers>" --mode light --surface "#ffffff"
+node scripts/validate_palette.js "<the six carriers>" --mode dark  --surface "#161c26"
+```
+
+### On a phone
+
+The sidebar starts collapsed on a narrow screen, headline tiles fold two-up
+instead of stacking into a column, and the day picker keeps its arrows beside
+the date. The calendar legend is sized to fit seven categories across a phone.
 
 ## Deploy to a server
 

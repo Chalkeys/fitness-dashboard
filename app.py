@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 from streamlit_echarts import st_echarts
 
-from dashboard import access, body_figure, bootstrap, data, echarts_charts as ec, energy, notes, settings
+from dashboard import access, body_figure, bootstrap, data, echarts_charts as ec, energy, notes, settings, theme
 from dashboard.format import summarize_sets
 from dashboard.sortable import sortable_order
 from dashboard.theme import CM_TO_IN, G_TO_OZ, KG_TO_LB, classify_training
@@ -15,24 +15,127 @@ st.set_page_config(
     page_title="Fitness Dashboard",
     page_icon="💪",
     layout="wide",
-    initial_sidebar_state="expanded",
+    # "auto" rather than "expanded": on a phone the sidebar opens *over* the
+    # page, so forcing it open means the first thing the dashboard shows is
+    # its own navigation. On a desktop "auto" still opens it.
+    initial_sidebar_state="auto",
 )
 
-CUSTOM_CSS = """
+
+def _theme_mode() -> str:
+    """Light or dark, as the browser is currently showing Streamlit's own theme.
+
+    Streamlit resolves the theme client-side — the config file offers both, the
+    OS or the app menu picks one — and reports the winner back on the context.
+    It is missing on the very first script run of a session, before the client
+    has spoken; light is the right guess there because that is what the page
+    renders while it waits.
+    """
+    reported = getattr(getattr(st, "context", None), "theme", None)
+    return theme.set_mode(getattr(reported, "type", None))
+
+
+def _custom_css(p: theme.Palette) -> str:
+    """The page chrome, written from the same palette the charts draw with.
+
+    Streamlit themes its own widgets from `.streamlit/config.toml`; this is
+    only what it has no setting for — the metric tiles, the card a chart sits
+    in, tabular figures, and the phone layout.
+    """
+    return f"""
 <style>
-#MainMenu, footer {visibility: hidden;}
-.block-container {padding-top: 2.2rem; max-width: 72rem;}
+#MainMenu, footer {{visibility: hidden;}}
 
-[data-testid="stMetric"] {
-    background: #fcfcfb;
-    border: 1px solid rgba(11, 11, 11, 0.10);
-    border-radius: 12px;
-    padding: 1rem 1.2rem;
-}
-[data-testid="stMetricLabel"] {color: #52514e;}
-[data-testid="stMetricValue"] {color: #0b0b0b; font-size: 1.7rem;}
+.block-container {{padding-top: 2rem; padding-bottom: 4rem; max-width: 74rem;}}
 
-h1, h2, h3 {color: #0b0b0b;}
+h1 {{font-size: 1.9rem; font-weight: 650; letter-spacing: -0.02em;}}
+h2 {{font-size: 1.3rem; letter-spacing: -0.01em;}}
+h3 {{font-size: 1.05rem; letter-spacing: -0.01em; margin-top: 1.4rem;}}
+h1, h2, h3 {{color: {p.ink};}}
+
+/* A section heading carries a short rule in the primary hue: the eye finds
+   the start of a section without another line of text telling it. */
+.stHeading h3 {{position: relative; padding-left: 13px;}}
+.stHeading h3::before {{
+    content: "";
+    position: absolute;
+    left: 0; top: 0.32em; bottom: 0.32em;
+    width: 3px;
+    border-radius: 2px;
+    background: {p.blue};
+    opacity: 0.8;
+}}
+
+/* A row of tiles is read across, so they are all the height of the tallest:
+   one tile carrying a delta chip should not leave the row ragged. */
+[data-testid="stColumn"] > [data-testid="stVerticalBlock"],
+[data-testid="stElementContainer"]:has(> [data-testid="stMetric"]) {{height: 100%;}}
+
+[data-testid="stMetric"] {{
+    height: 100%;
+    background: {p.surface};
+    border: 1px solid {p.border};
+    border-radius: 14px;
+    padding: 0.85rem 1.05rem;
+    box-shadow: 0 1px 2px {p.shadow};
+    transition: box-shadow 140ms ease, transform 140ms ease;
+}}
+[data-testid="stMetric"]:hover {{
+    box-shadow: 0 8px 22px {p.shadow};
+    transform: translateY(-1px);
+}}
+[data-testid="stMetricLabel"] {{color: {p.ink_secondary};}}
+[data-testid="stMetricLabel"] p {{font-size: 0.83rem;}}
+/* Figures line up column-wise when the digits are all one width, which is
+   what a row of tiles that updates every day is for. */
+[data-testid="stMetricValue"], [data-testid="stMetricDelta"], [data-testid="stDataFrame"] {{
+    font-variant-numeric: tabular-nums;
+}}
+[data-testid="stMetricValue"] {{
+    color: {p.ink};
+    font-size: 1.55rem;
+    font-weight: 640;
+    line-height: 1.25;
+}}
+[data-testid="stMetricDelta"] {{font-size: 0.78rem;}}
+
+/* The charts render into the page rather than an iframe, so the card around
+   one is CSS here rather than another rectangle drawn inside the plot. */
+.echarts-container {{
+    border: 1px solid {p.border};
+    border-radius: 14px;
+    overflow: hidden;
+    background: {p.surface};
+    box-shadow: 0 1px 2px {p.shadow};
+}}
+
+[data-testid="stDataFrame"], [data-testid="stDataEditor"] {{border-radius: 12px;}}
+[data-testid="stExpander"] details {{border-radius: 12px;}}
+[data-testid="stSidebarContent"] {{padding-top: 1rem;}}
+
+/* On a phone the page is the content: the gutters come in, the tiles shrink,
+   and nothing is asked to scroll sideways. */
+@media (max-width: 640px) {{
+    .block-container {{padding: 1.2rem 1rem 3rem;}}
+    h1 {{font-size: 1.55rem;}}
+    [data-testid="stMetric"] {{padding: 0.7rem 0.85rem;}}
+    [data-testid="stMetricValue"] {{font-size: 1.3rem;}}
+    /* Streamlit stacks every column on a narrow screen, which turns a row of
+       four tiles into a page of scrolling before the first chart. Only the
+       rows that hold tiles are folded two-up; a row of sliders stays stacked,
+       where it is actually usable. */
+    [data-testid="stHorizontalBlock"]:has([data-testid="stMetric"]) {{
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }}
+    [data-testid="stHorizontalBlock"]:has([data-testid="stMetric"]) > [data-testid="stColumn"] {{
+        flex: 1 1 calc(50% - 0.5rem);
+        min-width: calc(50% - 0.5rem);
+    }}
+    /* The day picker keeps its two arrows beside the date. */
+    .st-key-day_nav [data-testid="stHorizontalBlock"] {{flex-wrap: nowrap; gap: 0.4rem;}}
+    .st-key-day_nav [data-testid="stColumn"] {{min-width: 0;}}
+}}
 </style>
 """
 
@@ -443,16 +546,19 @@ def page_day_detail() -> None:
     stored = st.session_state.get("detail_date")
     index = dates.index(stored) if stored in dates else len(dates) - 1
 
-    prev_col, pick_col, next_col = st.columns([1, 4, 1])
-    if prev_col.button("← 前一天", use_container_width=True, disabled=index == 0):
-        index -= 1
-    if next_col.button(
-        "后一天 →", use_container_width=True, disabled=index >= len(dates) - 1
-    ):
-        index += 1
-    picked = pick_col.selectbox(
-        "日期", dates, index=index, key=f"detail_pick_{index}", label_visibility="collapsed"
-    )
+    # Keyed so the stylesheet can keep these three side by side on a phone,
+    # where Streamlit would otherwise stack them into three full-width rows.
+    with st.container(key="day_nav"):
+        prev_col, pick_col, next_col = st.columns([1, 4, 1])
+        if prev_col.button("←", use_container_width=True, disabled=index == 0, help="前一天"):
+            index -= 1
+        if next_col.button(
+            "→", use_container_width=True, disabled=index >= len(dates) - 1, help="后一天"
+        ):
+            index += 1
+        picked = pick_col.selectbox(
+            "日期", dates, index=index, key=f"detail_pick_{index}", label_visibility="collapsed"
+        )
     st.session_state["detail_date"] = picked
 
     day = pd.Timestamp(picked)
@@ -1186,7 +1292,8 @@ TRAINING_PAGE = st.Page(page_training, title="训练", icon="🏋️", url_path=
 
 
 def main() -> None:
-    st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
+    _theme_mode()
+    st.markdown(_custom_css(theme.active()), unsafe_allow_html=True)
     for outcome in (bootstrap.ensure_database(), bootstrap.refresh_from_origin()):
         if outcome is None:
             continue
