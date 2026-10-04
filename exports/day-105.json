@@ -1,0 +1,132 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-105",
+  "history_version": 1,
+  "exported_at": "2026-10-04T06:50:32.754256Z",
+  "date": "2026-10-04",
+  "day_number": 105,
+  "provenance": {
+    "source": "xunji_app",
+    "confidence": "high",
+    "notes": "数据来自训记 Open API；膳食纤维按 0 g，净碳水按总碳水；TDEE 为估算值。"
+  },
+  "body": {
+    "weight_kg": 77.5,
+    "notes": "训记 Open API 身体数据。"
+  },
+  "daily_log": {
+    "is_training_day": true,
+    "workout_type": "自行车",
+    "calories_in": 691.7,
+    "tdee": 2260.0,
+    "calorie_balance": -1568.3,
+    "protein_g": 66.1,
+    "total_carbs_g": 97.30999999999999,
+    "fiber_g": 0,
+    "net_carbs_g": 97.30999999999999,
+    "fat_g": 5.430000000000001,
+    "steps": null,
+    "active_energy_kcal": 450.0,
+    "active_energy_source": "estimated",
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1813（Katch-McArdle，按当日体重与最近体脂）。TDEE 的活动部分按训练容量估算 450 kcal（584 + 0.01×容量，由 58 天全天实测拟合）；未手工录入实测值。"
+  },
+  "nutrition": [
+    {
+      "entry_id": "D105_XJ001",
+      "meal_type": "morning",
+      "food_name": "Oarmilk吾岛 吾岛零脂无蔗糖希腊酸奶",
+      "brand": null,
+      "amount": 200.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 63.0,
+      "protein_g": 11.0,
+      "total_carbs_g": 4.5,
+      "fiber_g": 0,
+      "net_carbs_g": 4.5,
+      "fat_g": 0.0,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D105_XJ002",
+      "meal_type": "morning",
+      "food_name": "WPC80 蛋白粉",
+      "brand": null,
+      "amount": 40.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 418.0,
+      "protein_g": 84.5,
+      "total_carbs_g": 6.4,
+      "fiber_g": 0,
+      "net_carbs_g": 6.4,
+      "fat_g": 7.4,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D105_XJ003",
+      "meal_type": "morning",
+      "food_name": "马铃薯",
+      "brand": null,
+      "amount": 150.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 86.0,
+      "protein_g": 2.5,
+      "total_carbs_g": 18.9,
+      "fiber_g": 0,
+      "net_carbs_g": 18.9,
+      "fat_g": 0.2,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D105_XJ004",
+      "meal_type": "morning",
+      "food_name": "红薯",
+      "brand": null,
+      "amount": 200.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 91.0,
+      "protein_g": 1.7,
+      "total_carbs_g": 21.3,
+      "fiber_g": 0,
+      "net_carbs_g": 21.3,
+      "fat_g": 0.11,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D105_XJ005",
+      "meal_type": "morning",
+      "food_name": "烙玉米饼",
+      "brand": null,
+      "amount": 50.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 175.0,
+      "protein_g": 6.3,
+      "total_carbs_g": 29.6,
+      "fiber_g": 0,
+      "net_carbs_g": 29.6,
+      "fat_g": 3.9,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    }
+  ],
+  "workout": {
+    "session_id": "day-105-xunji",
+    "workout_name": "自行车",
+    "workout_type": "自行车",
+    "duration_minutes": 90.3,
+    "active_energy_kcal": 362.0,
+    "apple_health_workout_kcal": null,
+    "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
+    "exercises": []
+  },
+  "review": [
+    {
+      "review_status": "approved",
+      "note": "用户确认纤维按 0 g、净碳水等于总碳水，并接受 TDEE 估算。",
+      "field": "daily_log"
+    }
+  ]
+}
