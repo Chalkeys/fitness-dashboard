@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-105",
-  "history_version": 2,
-  "exported_at": "2026-10-04T15:23:50.244193Z",
+  "history_version": 3,
+  "exported_at": "2026-10-05T07:02:25.204131Z",
   "date": "2026-10-04",
   "day_number": 105,
   "provenance": {
@@ -18,17 +18,17 @@
     "is_training_day": true,
     "workout_type": "自行车",
     "calories_in": 2151.6,
-    "tdee": 2260.0,
-    "calorie_balance": -108.4,
+    "tdee": 2340.0,
+    "calorie_balance": -188.4,
     "protein_g": 144.98,
     "total_carbs_g": 283.88,
     "fiber_g": 0,
     "net_carbs_g": 283.88,
     "fat_g": 52.84,
     "steps": null,
-    "active_energy_kcal": 450.0,
+    "active_energy_kcal": 525.0,
     "active_energy_source": "estimated",
-    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1813（Katch-McArdle，按当日体重与最近体脂）。TDEE 的活动部分按训练容量估算 450 kcal（584 + 0.01×容量，由 58 天全天实测拟合）；未手工录入实测值。"
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1813（Katch-McArdle，按当日体重与最近体脂）。TDEE 的活动部分按训练容量估算 525 kcal（584 + 0.01×容量，由 58 天全天实测拟合）；未手工录入实测值。"
   },
   "nutrition": [
     {
@@ -210,10 +210,10 @@
   ],
   "workout": {
     "session_id": "day-105-xunji",
-    "workout_name": "自行车",
+    "workout_name": "自行车 + 自行车 + 自行车",
     "workout_type": "自行车",
-    "duration_minutes": 90.3,
-    "active_energy_kcal": 362.0,
+    "duration_minutes": 116.3,
+    "active_energy_kcal": 525.0,
     "apple_health_workout_kcal": null,
     "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
     "exercises": []
