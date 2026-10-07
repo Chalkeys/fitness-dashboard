@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-107",
-  "history_version": 6,
-  "exported_at": "2026-10-07T07:14:00.143295Z",
+  "history_version": 8,
+  "exported_at": "2026-10-07T17:26:11.884342Z",
   "date": "2026-10-06",
   "day_number": 107,
   "provenance": {
@@ -180,8 +180,8 @@
     "session_id": "day-107-xunji",
     "workout_name": "P3-拉",
     "workout_type": "p3_拉",
-    "duration_minutes": 130.6,
-    "active_energy_kcal": null,
+    "duration_minutes": 151.3,
+    "active_energy_kcal": 73.0,
     "apple_health_workout_kcal": null,
     "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
     "exercises": [
