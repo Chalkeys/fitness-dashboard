@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-114",
-  "history_version": 4,
-  "exported_at": "2026-10-13T17:37:06.193053Z",
+  "history_version": 6,
+  "exported_at": "2026-10-14T06:08:29.874714Z",
   "date": "2026-10-13",
   "day_number": 114,
   "provenance": {
@@ -32,7 +32,7 @@
     "session_id": "day-114-xunji",
     "workout_name": "P3-腿",
     "workout_type": "p3_腿",
-    "duration_minutes": 75.8,
+    "duration_minutes": 142.9,
     "active_energy_kcal": null,
     "apple_health_workout_kcal": null,
     "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
@@ -187,7 +187,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 2,
@@ -196,7 +196,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 3,
@@ -205,7 +205,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           }
         ]
       },
@@ -221,7 +221,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 2,
@@ -230,7 +230,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 3,
@@ -239,7 +239,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 4,
@@ -248,7 +248,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           }
         ]
       },
@@ -264,7 +264,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 2,
@@ -273,7 +273,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 3,
@@ -282,7 +282,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           }
         ]
       },
@@ -298,7 +298,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 2,
@@ -307,7 +307,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 3,
@@ -316,7 +316,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           }
         ]
       }
