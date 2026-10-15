@@ -14,7 +14,12 @@ from __future__ import annotations
 
 import streamlit as st
 
-from dashboard.theme import BASELINE, BLUE, INK_SECONDARY, MUTED, SURFACE
+# The component is registered once per process, so its CSS cannot be rebuilt
+# per theme the way the charts are. It therefore takes no palette at all: the
+# chips are drawn from the text colour they inherit, mixed down for the border
+# and the grip, so they follow whichever theme the page is wearing. The accent
+# is the one fixed colour — a mid blue that clears 3:1 on both surfaces.
+_ACCENT = "#4a92bd"
 
 _CSS = f"""
 .sortable {{
@@ -27,20 +32,26 @@ _CSS = f"""
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 5px 10px;
-    border: 1px solid {BASELINE};
+    padding: 5px 12px;
+    border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
     border-radius: 999px;
-    background: {SURFACE};
-    color: {INK_SECONDARY};
+    background: color-mix(in srgb, currentColor 5%, transparent);
+    color: inherit;
     font-size: 13px;
     font-family: system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
     cursor: grab;
     user-select: none;
     touch-action: none;
+    transition: border-color 120ms ease, background 120ms ease, transform 120ms ease;
 }}
-.chip .grip {{ color: {MUTED}; font-size: 11px; letter-spacing: -1px; }}
-.chip.dragging {{ opacity: 0.45; cursor: grabbing; }}
-.chip.over {{ border-color: {BLUE}; box-shadow: inset 0 0 0 1px {BLUE}; }}
+.chip:hover {{ background: color-mix(in srgb, currentColor 10%, transparent); }}
+.chip .grip {{
+    color: color-mix(in srgb, currentColor 55%, transparent);
+    font-size: 11px;
+    letter-spacing: -1px;
+}}
+.chip.dragging {{ opacity: 0.45; cursor: grabbing; transform: scale(0.97); }}
+.chip.over {{ border-color: {_ACCENT}; box-shadow: inset 0 0 0 1px {_ACCENT}; }}
 """
 
 _JS = """

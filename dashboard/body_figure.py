@@ -10,19 +10,10 @@ from __future__ import annotations
 
 import pandas as pd
 
-from dashboard.theme import (
-    BLUE,
-    CM_TO_IN,
-    FONT_FAMILY,
-    INK,
-    INK_SECONDARY,
-    MUTED,
-)
+from dashboard.theme import CM_TO_IN, FONT_FAMILY, active
 
 WIDTH, HEIGHT = 520, 560
 CENTRE = 260
-
-_BODY_FILL = "#dedbd2"
 _LEFT_TEXT_X, _RIGHT_TEXT_X = 150, 370
 
 # key(s), label, which side the callout runs to, the height of the measuring
@@ -96,10 +87,10 @@ def _site_values(
     return text, "  ".join(dict.fromkeys(deltas))
 
 
-def _silhouette() -> str:
+def _silhouette(fill: str) -> str:
     """Flat figure: head, torso, and limbs as round-capped strokes."""
     return f"""
-    <g fill="{_BODY_FILL}">
+    <g fill="{fill}">
       <ellipse cx="{CENTRE}" cy="52" rx="24" ry="30"/>
       <path d="M247 78 h26 v30 h-26 z"/>
       <path d="M260 100
@@ -112,13 +103,13 @@ def _silhouette() -> str:
                L 202 168 C 198 150 194 132 198 118
                C 204 106 228 100 260 100 Z"/>
     </g>
-    <g stroke="{_BODY_FILL}" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke="{fill}" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path d="M208 120 L 180 236 L 172 318" stroke-width="27"/>
       <path d="M312 120 L 340 236 L 348 318" stroke-width="27"/>
       <path d="M232 300 L 228 400 L 230 496" stroke-width="41"/>
       <path d="M288 300 L 292 400 L 290 496" stroke-width="41"/>
     </g>
-    <g fill="{_BODY_FILL}">
+    <g fill="{fill}">
       <ellipse cx="226" cy="510" rx="19" ry="11"/>
       <ellipse cx="294" cy="510" rx="19" ry="11"/>
       <circle cx="170" cy="330" r="11"/>
@@ -130,8 +121,9 @@ def _silhouette() -> str:
 def body_figure_svg(
     row: pd.Series, prev: pd.Series | None = None, imperial: bool = False
 ) -> str:
+    p = active()
     unit = "in" if imperial else "cm"
-    parts = [_silhouette()]
+    parts = [_silhouette(p.figure)]
 
     for site in _SITES:
         value, delta = _site_values(row, prev, site, imperial)
@@ -139,7 +131,7 @@ def body_figure_svg(
         left = site["side"] == "left"
         y, cx, hw = site["y"], site["cx"], site["hw"]
 
-        colour = BLUE if measured else MUTED
+        colour = p.blue if measured else p.muted
         dash = "" if measured else ' stroke-dasharray="3 3"'
         text_x = _LEFT_TEXT_X if left else _RIGHT_TEXT_X
         anchor = "end" if left else "start"
@@ -158,18 +150,18 @@ def body_figure_svg(
         )
         parts.append(
             f'<text x="{text_x}" y="{y - 6}" text-anchor="{anchor}" '
-            f'font-size="11" fill="{MUTED}">{site["label"]}</text>'
+            f'font-size="11" fill="{p.muted}">{site["label"]}</text>'
         )
         parts.append(
             f'<text x="{text_x}" y="{y + 12}" text-anchor="{anchor}" '
-            f'font-size="15" font-weight="600" fill="{INK if measured else MUTED}">'
-            f'{value}<tspan font-size="11" font-weight="400" fill="{MUTED}">'
+            f'font-size="15" font-weight="600" fill="{p.ink if measured else p.muted}">'
+            f'{value}<tspan font-size="11" font-weight="400" fill="{p.muted}">'
             f'{" " + unit if measured else ""}</tspan></text>'
         )
         if delta:
             parts.append(
                 f'<text x="{text_x}" y="{y + 26}" text-anchor="{anchor}" '
-                f'font-size="11" fill="{INK_SECONDARY}">{delta}</text>'
+                f'font-size="11" fill="{p.ink_secondary}">{delta}</text>'
             )
 
     body = "".join(parts)
