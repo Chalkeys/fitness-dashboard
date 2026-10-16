@@ -1,0 +1,366 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-117",
+  "history_version": 2,
+  "exported_at": "2026-10-16T05:52:13.771273Z",
+  "date": "2026-10-16",
+  "day_number": 117,
+  "provenance": {
+    "source": "xunji_app",
+    "confidence": "high",
+    "notes": "数据来自训记 Open API；膳食纤维按 0 g，净碳水按总碳水；TDEE 为估算值。"
+  },
+  "body": null,
+  "daily_log": {
+    "is_training_day": true,
+    "workout_type": "p3_拉",
+    "calories_in": null,
+    "tdee": 2610.0,
+    "calorie_balance": -2610.0,
+    "protein_g": null,
+    "total_carbs_g": null,
+    "fiber_g": 0,
+    "net_carbs_g": 0,
+    "fat_g": null,
+    "steps": null,
+    "active_energy_kcal": 782.9,
+    "active_energy_source": "estimated",
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1822（Katch-McArdle，按当日体重与最近体脂）。TDEE 的活动部分按训练容量估算 783 kcal（584 + 0.01×容量，由 58 天全天实测拟合）；未手工录入实测值。"
+  },
+  "nutrition": [],
+  "workout": {
+    "session_id": "day-117-xunji",
+    "workout_name": "P3-拉",
+    "workout_type": "p3_拉",
+    "duration_minutes": 103.7,
+    "active_energy_kcal": null,
+    "apple_health_workout_kcal": null,
+    "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
+    "exercises": [
+      {
+        "exercise_name": "宽距高位下拉",
+        "category": "other",
+        "muscle_group": "背",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 75.0,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 75.0,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 75.0,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 75.0,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "坐姿划船",
+        "category": "other",
+        "muscle_group": "背",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 60.0,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 70.0,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 80.0,
+            "reps": 6,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 85.0,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 5,
+            "weight": 85.0,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 6,
+            "weight": 85.0,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 7,
+            "weight": 85.0,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "引体向上",
+        "category": "other",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": null,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": null,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": null,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "悍马机大剪刀",
+        "category": "other",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 80.0,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 80.0,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 80.0,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "面拉",
+        "category": "other",
+        "muscle_group": "后束",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 60.0,
+            "reps": 20,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "未完成组"
+          },
+          {
+            "set_number": 2,
+            "weight": 60.0,
+            "reps": 20,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "未完成组"
+          },
+          {
+            "set_number": 3,
+            "weight": 60.0,
+            "reps": 20,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "未完成组"
+          }
+        ]
+      },
+      {
+        "exercise_name": "绳索弯举",
+        "category": "other",
+        "muscle_group": "二头",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 70.0,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "未完成组"
+          },
+          {
+            "set_number": 2,
+            "weight": 70.0,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "未完成组"
+          },
+          {
+            "set_number": 3,
+            "weight": 70.0,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "未完成组"
+          }
+        ]
+      },
+      {
+        "exercise_name": "上斜哑铃弯举",
+        "category": "other",
+        "muscle_group": "二头",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 15.0,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 15.0,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 15.0,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "未完成组"
+          }
+        ]
+      },
+      {
+        "exercise_name": "器械坐姿反向飞鸟",
+        "category": "other",
+        "muscle_group": "后束",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 60.0,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "未完成组"
+          },
+          {
+            "set_number": 2,
+            "weight": 60.0,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "未完成组"
+          },
+          {
+            "set_number": 3,
+            "weight": 60.0,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "未完成组"
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "review_status": "approved",
+      "note": "用户确认纤维按 0 g、净碳水等于总碳水，并接受 TDEE 估算。",
+      "field": "daily_log"
+    }
+  ]
+}
