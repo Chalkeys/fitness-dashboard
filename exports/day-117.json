@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-117",
-  "history_version": 6,
-  "exported_at": "2026-10-17T05:35:59.490330Z",
+  "history_version": 8,
+  "exported_at": "2026-10-17T13:43:47.262513Z",
   "date": "2026-10-16",
   "day_number": 117,
   "provenance": {
@@ -34,7 +34,7 @@
     "workout_type": "p3_拉",
     "duration_minutes": 147.3,
     "active_energy_kcal": null,
-    "apple_health_workout_kcal": 512.0,
+    "apple_health_workout_kcal": 482.0,
     "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
     "exercises": [
       {
