@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-118",
-  "history_version": 8,
-  "exported_at": "2026-10-18T14:02:01.300367Z",
+  "history_version": 10,
+  "exported_at": "2026-10-19T06:12:02.810840Z",
   "date": "2026-10-17",
   "day_number": 118,
   "provenance": {
@@ -15,8 +15,8 @@
     "is_training_day": true,
     "workout_type": "p3_腿",
     "calories_in": 1953.38,
-    "tdee": 2570.0,
-    "calorie_balance": -616.62,
+    "tdee": 2610.0,
+    "calorie_balance": -656.62,
     "protein_g": 134.57999999999998,
     "total_carbs_g": 238.94,
     "fiber_g": 0,
@@ -25,7 +25,7 @@
     "steps": null,
     "active_energy_kcal": 751.8,
     "active_energy_source": "estimated",
-    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1822（Katch-McArdle，按当日体重与最近体脂）。TDEE 的活动部分按训练容量估算 752 kcal（584 + 0.01×容量，由 58 天全天实测拟合）；未手工录入实测值。"
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1860（Katch-McArdle，按当日体重与最近体脂）。TDEE 的活动部分按训练容量估算 752 kcal（584 + 0.01×容量，由 58 天全天实测拟合）；未手工录入实测值。"
   },
   "nutrition": [
     {
