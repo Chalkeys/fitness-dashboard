@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-126",
-  "history_version": 2,
-  "exported_at": "2026-10-25T14:23:13.717826Z",
+  "history_version": 3,
+  "exported_at": "2026-10-26T06:12:04.589308Z",
   "date": "2026-10-25",
   "day_number": 126,
   "provenance": {
@@ -17,13 +17,13 @@
   "daily_log": {
     "is_training_day": true,
     "workout_type": "",
-    "calories_in": 2022.5,
+    "calories_in": 2085.5,
     "tdee": 2560.0,
-    "calorie_balance": -537.5,
-    "protein_g": 86.94999999999999,
-    "total_carbs_g": 238.1,
+    "calorie_balance": -474.5,
+    "protein_g": 97.94999999999999,
+    "total_carbs_g": 242.6,
     "fiber_g": 0,
-    "net_carbs_g": 238.1,
+    "net_carbs_g": 242.6,
     "fat_g": 81.75,
     "steps": null,
     "active_energy_kcal": 709.0,
@@ -125,6 +125,22 @@
       "fiber_g": 0,
       "net_carbs_g": 12.2,
       "fat_g": 1.6,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D126_XJ007",
+      "meal_type": "night",
+      "food_name": "Oarmilk吾岛 吾岛零脂无蔗糖希腊酸奶",
+      "brand": null,
+      "amount": 100.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 63.0,
+      "protein_g": 11.0,
+      "total_carbs_g": 4.5,
+      "fiber_g": 0,
+      "net_carbs_g": 4.5,
+      "fat_g": 0.0,
       "notes": "训记 API 营养快照；纤维未由接口返回。"
     }
   ],
