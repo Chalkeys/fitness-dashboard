@@ -1,0 +1,493 @@
+{
+  "protocol_version": "1.0",
+  "export_id": "day-129",
+  "history_version": 2,
+  "exported_at": "2026-10-28T06:52:01.130227Z",
+  "date": "2026-10-28",
+  "day_number": 129,
+  "provenance": {
+    "source": "xunji_app",
+    "confidence": "high",
+    "notes": "数据来自训记 Open API；膳食纤维按 0 g，净碳水按总碳水；TDEE 为估算值。"
+  },
+  "body": null,
+  "daily_log": {
+    "is_training_day": true,
+    "workout_type": "腿1",
+    "calories_in": 2053.4,
+    "tdee": 2660.0,
+    "calorie_balance": -606.6,
+    "protein_g": 152.7,
+    "total_carbs_g": 234.29999999999998,
+    "fiber_g": 0,
+    "net_carbs_g": 234.29999999999998,
+    "fat_g": 57.07,
+    "steps": null,
+    "active_energy_kcal": 803.3,
+    "active_energy_source": "estimated",
+    "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1856（Katch-McArdle，按当日体重与最近体脂）。TDEE 的活动部分按训练容量估算 803 kcal（584 + 0.01×容量，由 58 天全天实测拟合）；未手工录入实测值。"
+  },
+  "nutrition": [
+    {
+      "entry_id": "D129_XJ001",
+      "meal_type": "morning",
+      "food_name": "米饭",
+      "brand": null,
+      "amount": 250.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 124.0,
+      "protein_g": 2.8,
+      "total_carbs_g": 27.7,
+      "fiber_g": 0,
+      "net_carbs_g": 27.7,
+      "fat_g": 0.3,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D129_XJ002",
+      "meal_type": "morning",
+      "food_name": "五香卤牛肉",
+      "brand": null,
+      "amount": 300.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 143.0,
+      "protein_g": 18.7,
+      "total_carbs_g": 8.1,
+      "fiber_g": 0,
+      "net_carbs_g": 8.1,
+      "fat_g": 4.3,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D129_XJ003",
+      "meal_type": "morning",
+      "food_name": "北豆腐 豆腐",
+      "brand": null,
+      "amount": 50.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 95.0,
+      "protein_g": 9.5,
+      "total_carbs_g": 3.2,
+      "fiber_g": 0,
+      "net_carbs_g": 3.2,
+      "fat_g": 5.4,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D129_XJ004",
+      "meal_type": "morning",
+      "food_name": "橄榄油",
+      "brand": null,
+      "amount": 10.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 884.0,
+      "protein_g": 0.0,
+      "total_carbs_g": 0.0,
+      "fiber_g": 0,
+      "net_carbs_g": 0,
+      "fat_g": 98.2,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D129_XJ005",
+      "meal_type": "morning",
+      "food_name": "豆浆",
+      "brand": null,
+      "amount": 500.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 33.0,
+      "protein_g": 3.2,
+      "total_carbs_g": 1.3,
+      "fiber_g": 0,
+      "net_carbs_g": 1.3,
+      "fat_g": 1.7,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D129_XJ006",
+      "meal_type": "noon",
+      "food_name": "米饭",
+      "brand": null,
+      "amount": 250.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 124.0,
+      "protein_g": 2.8,
+      "total_carbs_g": 27.7,
+      "fiber_g": 0,
+      "net_carbs_g": 27.7,
+      "fat_g": 0.3,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D129_XJ007",
+      "meal_type": "noon",
+      "food_name": "蓝莓",
+      "brand": null,
+      "amount": 100.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 61.0,
+      "protein_g": 0.8,
+      "total_carbs_g": 15.4,
+      "fiber_g": 0,
+      "net_carbs_g": 15.4,
+      "fat_g": 0.35,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D129_XJ008",
+      "meal_type": "noon",
+      "food_name": "去皮鸡腿(烤)",
+      "brand": null,
+      "amount": 150.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 183.0,
+      "protein_g": 25.5,
+      "total_carbs_g": 0.0,
+      "fiber_g": 0,
+      "net_carbs_g": 0,
+      "fat_g": 8.2,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D129_XJ009",
+      "meal_type": "night",
+      "food_name": "小米粥",
+      "brand": null,
+      "amount": 500.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 49.0,
+      "protein_g": 1.5,
+      "total_carbs_g": 8.9,
+      "fiber_g": 0,
+      "net_carbs_g": 8.9,
+      "fat_g": 0.7,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D129_XJ010",
+      "meal_type": "night",
+      "food_name": "卤牛肉",
+      "brand": null,
+      "amount": 100.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 123.0,
+      "protein_g": 15.3,
+      "total_carbs_g": 3.5,
+      "fiber_g": 0,
+      "net_carbs_g": 3.5,
+      "fat_g": 5.5,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    }
+  ],
+  "workout": {
+    "session_id": "day-129-xunji",
+    "workout_name": "腿1",
+    "workout_type": "腿1",
+    "duration_minutes": 116.8,
+    "active_energy_kcal": null,
+    "apple_health_workout_kcal": 389.0,
+    "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
+    "exercises": [
+      {
+        "exercise_name": "史密斯机深蹲",
+        "category": "other",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 50.0,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 70.0,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 80.0,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 90.0,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 5,
+            "weight": 90.0,
+            "reps": 9,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 6,
+            "weight": 90.0,
+            "reps": 9,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 7,
+            "weight": 90.0,
+            "reps": 11,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "哈克机深蹲",
+        "category": "other",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 150.0,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 170.0,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 170.0,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "哑铃保加利亚蹲",
+        "category": "other",
+        "muscle_group": "股四头",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 22.5,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 22.5,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 22.5,
+            "reps": 8,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "坐姿腿弯举",
+        "category": "other",
+        "muscle_group": "腘绳",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 60.0,
+            "reps": 12,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 60.0,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 60.0,
+            "reps": 10,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "坐姿髋内收",
+        "category": "other",
+        "muscle_group": "内收肌",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 60.0,
+            "reps": 25,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 60.0,
+            "reps": 20,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 60.0,
+            "reps": 25,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 4,
+            "weight": 60.0,
+            "reps": 20,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "下斜卷腹",
+        "category": "other",
+        "muscle_group": "核心",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 20.0,
+            "reps": 20,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 20.0,
+            "reps": 20,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 20.0,
+            "reps": 20,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      },
+      {
+        "exercise_name": "悬挂抬腿",
+        "category": "other",
+        "muscle_group": "核心",
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": 0.0,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 2,
+            "weight": 0.0,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          },
+          {
+            "set_number": 3,
+            "weight": 0.0,
+            "reps": 15,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": null
+          }
+        ]
+      }
+    ]
+  },
+  "review": [
+    {
+      "review_status": "approved",
+      "note": "用户确认纤维按 0 g、净碳水等于总碳水，并接受 TDEE 估算。",
+      "field": "daily_log"
+    }
+  ]
+}
