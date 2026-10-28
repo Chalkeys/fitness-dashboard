@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-129",
-  "history_version": 2,
-  "exported_at": "2026-10-28T06:52:01.130227Z",
+  "history_version": 4,
+  "exported_at": "2026-10-28T16:38:52.092444Z",
   "date": "2026-10-28",
   "day_number": 129,
   "provenance": {
@@ -193,9 +193,9 @@
     "session_id": "day-129-xunji",
     "workout_name": "腿1",
     "workout_type": "腿1",
-    "duration_minutes": 116.8,
-    "active_energy_kcal": null,
-    "apple_health_workout_kcal": 389.0,
+    "duration_minutes": 145.1,
+    "active_energy_kcal": 85.0,
+    "apple_health_workout_kcal": 494.0,
     "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
     "exercises": [
       {
