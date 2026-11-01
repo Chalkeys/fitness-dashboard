@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-132",
-  "history_version": 2,
-  "exported_at": "2026-10-31T15:45:30.900298Z",
+  "history_version": 4,
+  "exported_at": "2026-11-01T07:30:49.011500Z",
   "date": "2026-10-31",
   "day_number": 132,
   "provenance": {
@@ -23,7 +23,7 @@
     "net_carbs_g": 180.17000000000002,
     "fat_g": 41.2,
     "steps": null,
-    "active_energy_kcal": 927.5,
+    "active_energy_kcal": 928.3,
     "active_energy_source": "estimated",
     "notes": "膳食纤维暂按 0 g；净碳水按总碳水计算；BMR≈1856（Katch-McArdle，按当日体重与最近体脂）。TDEE 的活动部分按训练容量估算 928 kcal（584 + 0.01×容量，由 58 天全天实测拟合）；未手工录入实测值。"
   },
@@ -193,7 +193,7 @@
     "session_id": "day-132-xunji",
     "workout_name": "自行车 + 腿2",
     "workout_type": "自行车",
-    "duration_minutes": 156.8,
+    "duration_minutes": 217.5,
     "active_energy_kcal": 197.0,
     "apple_health_workout_kcal": null,
     "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
@@ -357,16 +357,16 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 3,
             "weight": 80.0,
-            "reps": 17,
+            "reps": 18,
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           }
         ]
       },
@@ -382,7 +382,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 2,
@@ -391,7 +391,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 3,
@@ -400,7 +400,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 4,
@@ -409,7 +409,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           }
         ]
       },
@@ -425,7 +425,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 2,
@@ -434,7 +434,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 3,
@@ -443,7 +443,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           }
         ]
       },
@@ -459,7 +459,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 2,
@@ -468,7 +468,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 3,
@@ -477,7 +477,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 4,
@@ -486,7 +486,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           },
           {
             "set_number": 5,
@@ -495,7 +495,7 @@
             "rir": null,
             "distance": null,
             "duration_seconds": null,
-            "notes": "未完成组"
+            "notes": null
           }
         ]
       }
