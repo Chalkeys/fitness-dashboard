@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-140",
-  "history_version": 1,
-  "exported_at": "2026-11-08T07:18:44.337496Z",
+  "history_version": 2,
+  "exported_at": "2026-11-08T16:41:03.767424Z",
   "date": "2026-11-08",
   "day_number": 140,
   "provenance": {
@@ -12,16 +12,16 @@
   },
   "body": null,
   "daily_log": {
-    "is_training_day": false,
-    "workout_type": null,
-    "calories_in": 1419.0,
+    "is_training_day": true,
+    "workout_type": "有氧",
+    "calories_in": 1853.68,
     "tdee": 2310.0,
-    "calorie_balance": -891.0,
-    "protein_g": 88.61,
-    "total_carbs_g": 161.25,
+    "calorie_balance": -456.32,
+    "protein_g": 108.98599999999999,
+    "total_carbs_g": 200.494,
     "fiber_g": 0,
-    "net_carbs_g": 161.25,
-    "fat_g": 44.58,
+    "net_carbs_g": 200.494,
+    "fat_g": 66.79700000000001,
     "steps": null,
     "active_energy_kcal": 450.0,
     "active_energy_source": "estimated",
@@ -33,7 +33,7 @@
       "meal_type": "noon",
       "food_name": "广式 腊肠",
       "brand": null,
-      "amount": 30.0,
+      "amount": 60.0,
       "unit": "g",
       "servings": null,
       "calories": 455.0,
@@ -113,7 +113,7 @@
       "meal_type": "noon",
       "food_name": "肉皮冻",
       "brand": null,
-      "amount": 50.0,
+      "amount": 100.0,
       "unit": "g",
       "servings": null,
       "calories": 347.0,
@@ -155,9 +155,67 @@
       "net_carbs_g": 21.5,
       "fat_g": 0.1,
       "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D140_XJ009",
+      "meal_type": "night",
+      "food_name": "桃子",
+      "brand": null,
+      "amount": 100.0,
+      "unit": "g",
+      "servings": null,
+      "calories": 45.0,
+      "protein_g": 0.6,
+      "total_carbs_g": 10.8,
+      "fiber_g": 0,
+      "net_carbs_g": 10.8,
+      "fat_g": 0.1,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
+    },
+    {
+      "entry_id": "D140_XJ010",
+      "meal_type": "night",
+      "food_name": "猕猴桃",
+      "brand": null,
+      "amount": 124.5,
+      "unit": "g",
+      "servings": null,
+      "calories": 64.0,
+      "protein_g": 0.8,
+      "total_carbs_g": 15.2,
+      "fiber_g": 0,
+      "net_carbs_g": 15.2,
+      "fat_g": 0.6,
+      "notes": "训记 API 营养快照；纤维未由接口返回。"
     }
   ],
-  "workout": null,
+  "workout": {
+    "session_id": "day-140-xunji",
+    "workout_name": "有氧",
+    "workout_type": "有氧",
+    "duration_minutes": 60.5,
+    "active_energy_kcal": null,
+    "apple_health_workout_kcal": 572.0,
+    "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
+    "exercises": [
+      {
+        "exercise_name": "爬坡走",
+        "category": "other",
+        "muscle_group": null,
+        "sets": [
+          {
+            "set_number": 1,
+            "weight": null,
+            "reps": null,
+            "rir": null,
+            "distance": null,
+            "duration_seconds": null,
+            "notes": "未完成组"
+          }
+        ]
+      }
+    ]
+  },
   "review": [
     {
       "review_status": "approved",
