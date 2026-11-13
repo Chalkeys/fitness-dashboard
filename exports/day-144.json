@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-144",
-  "history_version": 6,
-  "exported_at": "2026-11-13T07:56:00.758796Z",
+  "history_version": 8,
+  "exported_at": "2026-11-13T17:44:35.742482Z",
   "date": "2026-11-12",
   "day_number": 144,
   "provenance": {
@@ -32,8 +32,8 @@
     "session_id": "day-144-xunji",
     "workout_name": "推2",
     "workout_type": "推2",
-    "duration_minutes": 143.6,
-    "active_energy_kcal": null,
+    "duration_minutes": 179.6,
+    "active_energy_kcal": 100.0,
     "apple_health_workout_kcal": null,
     "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
     "exercises": [
