@@ -1,8 +1,8 @@
 {
   "protocol_version": "1.0",
   "export_id": "day-154",
-  "history_version": 2,
-  "exported_at": "2026-11-22T17:50:33.686279Z",
+  "history_version": 3,
+  "exported_at": "2026-11-23T09:01:54.089378Z",
   "date": "2026-11-22",
   "day_number": 154,
   "provenance": {
@@ -32,7 +32,7 @@
     "session_id": "day-154-xunji",
     "workout_name": "有氧",
     "workout_type": "有氧",
-    "duration_minutes": 41.8,
+    "duration_minutes": 46.9,
     "active_energy_kcal": null,
     "apple_health_workout_kcal": null,
     "notes": "训练动作来自训记 API；有氧消耗取 sets[].metrics.calories。课次 note 的 calorie 值为苹果健康训练时段消耗，仅记录不参与计算。",
